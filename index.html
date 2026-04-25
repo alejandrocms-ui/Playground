@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elecciones Generales 2026 — Resultados ONPE</title>
+  <style>
+    :root {
+      --red: #D91023;
+      --orange: #E8821A;
+      --blue: #1A4FA0;
+      --teal: #0F7C6E;
+      --purple: #7C3DB5;
+      --gold: #C8922A;
+      --navy: #0D1B2A;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: #ffffff;
+    }
+
+    .map-section {
+      background: var(--navy);
+      width: 100%;
+      padding: 0;
+      position: relative;
+    }
+
+    #mapCanvas {
+      width: 100%;
+      height: 420px;
+      display: block;
+      cursor: pointer;
+    }
+
+    .hint {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      color: #dbeafe;
+      font-size: 0.86rem;
+      letter-spacing: 0.2px;
+      background: rgba(13, 27, 42, 0.65);
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    #tooltip {
+      position: absolute;
+      display: none;
+      pointer-events: none;
+      min-width: 210px;
+      padding: 8px 10px;
+      font-size: 0.84rem;
+      line-height: 1.4;
+      color: #fff;
+      background: rgba(13, 27, 42, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 6px;
+      z-index: 5;
+    }
+
+    .dashboard {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 22px 16px 28px;
+      background: #fff;
+    }
+
+    .header h1 {
+      margin: 0;
+      color: var(--red);
+      font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .status {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--red);
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.45); opacity: 0.35; }
+    }
+
+    .progress-track {
+      margin-top: 10px;
+      width: 100%;
+      height: 12px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      background: var(--red);
+      transition: width 1.2s ease;
+    }
+
+    .cards {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-top: 4px solid currentColor;
+      padding: 12px;
+      background: #fff;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #111827;
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+
+    .candidate {
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+
+    .party {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 2px;
+    }
+
+    .percent {
+      margin-top: 10px;
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+
+    .votes {
+      margin-top: 4px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .mini-track {
+      margin-top: 10px;
+      height: 10px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .mini-fill {
+      width: 0;
+      height: 100%;
+      background: currentColor;
+      transition: width 1.3s ease;
+    }
+
+    .banner {
+      margin-top: 16px;
+      border: 2px solid var(--gold);
+      padding: 12px;
+      font-weight: 700;
+      color: #5b3d00;
+      background: #fff;
+      text-align: center;
+    }
+
+    .banner .vs {
+      display: block;
+      margin-top: 6px;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .stats {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      border: 1px solid var(--border);
+      padding: 10px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .stat .label {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .stat .value {
+      margin-top: 5px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #111827;
+    }
+
+    .legend {
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: #374151;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swatch {
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border: 1px solid #d1d5db;
+    }
+
+    footer {
+      margin-top: 16px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 0.84rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .cards { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 520px) {
+      .stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <section class="map-section">
+    <canvas id="mapCanvas"></canvas>
+    <div class="hint">Haz clic en el mapa para pausar/reanudar la rotación.</div>
+    <div id="tooltip"></div>
+  </section>
+
+  <section class="dashboard">
+    <div class="header">
+      <h1>Elecciones Generales 2026 — Resultados ONPE</h1>
+      <div class="subtitle">Primera vuelta · 12 y 13 de abril de 2026</div>
+      <div class="status"><span class="dot"></span><span>Conteo en curso</span></div>
+      <div class="progress-track">
+        <div id="actasFill" class="progress-fill" data-target="95"></div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <article class="card" style="color:#D91023;">
+        <span class="badge">1er lugar</span>
+        <div class="candidate">Keiko Fujimori</div>
+        <div class="party">Fuerza Popular</div>
+        <div class="percent">17.05%</div>
+        <div class="votes">2,707,502 votos</div>
+        <div class="mini-track"><div class="mini-fill" data-target="17.05"></div></div>
+      </article>
+
+      <article class="card" style="color:#E8821A;">
+        <span class="badge">2do lugar</span>
+        <div class="candidate">Roberto Sánchez</div>
+        <div class="party">Juntos por el Perú</div>
+        <div class="percent">12.02%</div>
+        <div class="votes">1,908,702 votos</div>
+        <div class="mini-track"><div class="mini-fill" data-target="12.02"></div></div>
+      </article>
+
+      <article class="card" style="color:#1A4FA0;">
+        <span class="badge">3er lugar</span>
+        <div class="candidate">Rafael López Aliaga</div>
+        <div class="party">Renovación Popular</div>
+        <div class="percent">11.91%</div>
+        <div class="votes">1,891,479 votos</div>
+        <div class="mini-track"><div class="mini-fill" data-target="11.91"></div></div>
+      </article>
+    </div>
+
+    <div class="banner">
+      Segunda Vuelta: 7 de junio de 2026
+      <span class="vs">Keiko Fujimori ⚡ VS ⚡ Roberto Sánchez</span>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="label">Actas procesadas</div><div class="value">95.0%</div></div>
+      <div class="stat"><div class="label">Votos válidos</div><div class="value">~15,800,000</div></div>
+      <div class="stat"><div class="label">Candidatos</div><div class="value">9</div></div>
+      <div class="stat"><div class="label">Actas observadas</div><div class="value">~4,600</div></div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="swatch" style="background:#D91023;"></span>Keiko Fujimori</div>
+      <div class="legend-item"><span class="swatch" style="background:#E8821A;"></span>Roberto Sánchez</div>
+      <div class="legend-item"><span class="swatch" style="background:#1A4FA0;"></span>Rafael López Aliaga</div>
+      <div class="legend-item"><span class="swatch" style="background:#0F7C6E;"></span>Jorge Nieto</div>
+      <div class="legend-item"><span class="swatch" style="background:#7C3DB5;"></span>Ricardo Belmont</div>
+    </div>
+
+    <footer>Fuente: ONPE — Elecciones Generales 2026 · onpe.gob.pe</footer>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    const colors = {
+      Fujimori: '#D91023',
+      Sánchez: '#E8821A',
+      'López Aliaga': '#1A4FA0',
+      Nieto: '#0F7C6E',
+      Belmont: '#7C3DB5'
+    };
+
+    const departments = [
+      { name: 'Tumbes', winner: 'Fujimori', pct: 'dominante', x: -4.7, z: -4.5, w: 0.65, d: 0.8 },
+      { name: 'Piura', winner: 'Fujimori', pct: '27.9%', x: -4.6, z: -3.4, w: 0.75, d: 0.9 },
+      { name: 'Lambayeque', winner: 'Fujimori', pct: 'dominante', x: -4.55, z: -2.35, w: 0.65, d: 0.8 },
+      { name: 'La Libertad', winner: 'Fujimori', pct: 'dominante', x: -4.4, z: -1.3, w: 0.72, d: 0.95 },
+      { name: 'Áncash', winner: 'Fujimori', pct: 'dominante', x: -4.15, z: -0.15, w: 0.7, d: 1.0 },
+      { name: 'Lima', winner: 'López Aliaga', pct: '19.9%', x: -3.9, z: 1.1, w: 0.75, d: 1.2 },
+      { name: 'Callao', winner: 'Fujimori', pct: '20.7%', x: -4.65, z: 1.2, w: 0.38, d: 0.45 },
+      { name: 'Ica', winner: 'Fujimori', pct: '20.3%', x: -3.8, z: 2.3, w: 0.75, d: 0.95 },
+      { name: 'Arequipa', winner: 'Nieto', pct: '18.6%', x: -3.55, z: 3.35, w: 0.85, d: 1.0 },
+      { name: 'Moquegua', winner: 'Nieto', pct: 'dominante', x: -3.4, z: 4.35, w: 0.7, d: 0.85 },
+      { name: 'Tacna', winner: 'Nieto', pct: 'dominante', x: -3.15, z: 5.25, w: 0.8, d: 0.95 },
+
+      { name: 'Cajamarca', winner: 'Sánchez', pct: '41.7%', x: -2.9, z: -2.8, w: 1.05, d: 0.95 },
+      { name: 'Amazonas', winner: 'Sánchez', pct: '36.1%', x: -1.6, z: -3.35, w: 1.0, d: 0.95 },
+      { name: 'Huánuco', winner: 'Sánchez', pct: '29.4%', x: -2.2, z: -1.35, w: 0.95, d: 1.0 },
+      { name: 'Pasco', winner: 'Sánchez', pct: 'dominante', x: -1.8, z: -0.35, w: 0.85, d: 0.8 },
+      { name: 'Junín', winner: 'Fujimori', pct: '17.0%', x: -2.05, z: 0.75, w: 1.0, d: 1.0 },
+      { name: 'Huancavelica', winner: 'Sánchez', pct: '43.3%', x: -2.15, z: 1.8, w: 0.95, d: 0.95 },
+      { name: 'Ayacucho', winner: 'Sánchez', pct: 'dominante', x: -1.7, z: 2.75, w: 1.0, d: 0.95 },
+      { name: 'Apurímac', winner: 'Sánchez', pct: 'dominante', x: -1.2, z: 3.45, w: 1.0, d: 0.9 },
+      { name: 'Cusco', winner: 'Sánchez', pct: 'dominante', x: -0.75, z: 4.3, w: 1.25, d: 1.25 },
+      { name: 'Puno', winner: 'Sánchez', pct: 'dominante', x: -0.15, z: 5.35, w: 1.25, d: 1.05 },
+
+      { name: 'Loreto', winner: 'Sánchez', pct: 'dominante', x: 1.35, z: -3.2, w: 2.35, d: 2.1 },
+      { name: 'San Martín', winner: 'Sánchez', pct: 'dominante', x: 0.45, z: -1.55, w: 1.45, d: 1.35 },
+      { name: 'Ucayali', winner: 'Sánchez', pct: 'dominante', x: 0.95, z: 0.7, w: 1.85, d: 2.2 },
+      { name: 'Madre de Dios', winner: 'Sánchez', pct: 'dominante', x: 1.25, z: 3.95, w: 1.85, d: 1.6 }
+    ];
+
+    const canvas = document.getElementById('mapCanvas');
+    const tooltip = document.getElementById('tooltip');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color('#0D1B2A');
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const camera = new THREE.PerspectiveCamera(45, 2, 0.1, 100);
+    camera.position.set(0, 11.8, 12.7);
+    camera.lookAt(0, 0, 0);
+
+    const ambient = new THREE.AmbientLight(0xffffff, 0.62);
+    scene.add(ambient);
+
+    const dir = new THREE.DirectionalLight(0xffffff, 0.92);
+    dir.position.set(9, 12, 6);
+    scene.add(dir);
+
+    const mapGroup = new THREE.Group();
+    scene.add(mapGroup);
+
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+    const regionMeshes = [];
+
+    function makeLabel(text) {
+      const c = document.createElement('canvas');
+      c.width = 220;
+      c.height = 64;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = 'rgba(13, 27, 42, 0.9)';
+      ctx.fillRect(0, 0, c.width, c.height);
+      ctx.strokeStyle = 'rgba(255,255,255,0.45)';
+      ctx.strokeRect(0, 0, c.width, c.height);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '600 25px system-ui';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, c.width / 2, c.height / 2);
+      const texture = new THREE.CanvasTexture(c);
+      const mat = new THREE.SpriteMaterial({ map: texture, transparent: true });
+      const sprite = new THREE.Sprite(mat);
+      sprite.scale.set(1.8, 0.52, 1);
+      return sprite;
+    }
+
+    departments.forEach((d) => {
+      const h = 0.3 + Math.random() * 0.65;
+      const geo = new THREE.BoxGeometry(d.w, h, d.d);
+      const mat = new THREE.MeshLambertMaterial({ color: colors[d.winner] || colors.Belmont });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.position.set(d.x, h / 2, d.z);
+      mesh.userData = d;
+      mapGroup.add(mesh);
+      regionMeshes.push(mesh);
+
+      const label = makeLabel(d.name);
+      label.position.set(d.x, h + 0.35, d.z);
+      mapGroup.add(label);
+    });
+
+    const frameGeo = new THREE.BoxGeometry(10.6, 0.06, 12.6);
+    const frameMat = new THREE.MeshLambertMaterial({ color: 0x284460 });
+    const frame = new THREE.Mesh(frameGeo, frameMat);
+    frame.position.set(-1.5, -0.04, 0.35);
+    mapGroup.add(frame);
+
+    let rotateOn = true;
+
+    canvas.addEventListener('click', () => {
+      rotateOn = !rotateOn;
+    });
+
+    canvas.addEventListener('mousemove', (event) => {
+      const r = canvas.getBoundingClientRect();
+      pointer.x = ((event.clientX - r.left) / r.width) * 2 - 1;
+      pointer.y = -((event.clientY - r.top) / r.height) * 2 + 1;
+
+      raycaster.setFromCamera(pointer, camera);
+      const hit = raycaster.intersectObjects(regionMeshes)[0];
+
+      if (hit) {
+        const data = hit.object.userData;
+        tooltip.style.display = 'block';
+        tooltip.style.left = `${event.clientX - r.left + 16}px`;
+        tooltip.style.top = `${event.clientY - r.top + 16}px`;
+        tooltip.innerHTML = `<strong>${data.name}</strong><br>Ganador: ${data.winner}<br>Votación: ${data.pct}`;
+      } else {
+        tooltip.style.display = 'none';
+      }
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
+
+    function resize() {
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+
+    function animate() {
+      resize();
+      if (rotateOn) mapGroup.rotation.y += 0.0032;
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    window.addEventListener('load', () => {
+      document.getElementById('actasFill').style.width = `${document.getElementById('actasFill').dataset.target}%`;
+      document.querySelectorAll('.mini-fill').forEach((bar) => {
+        bar.style.width = `${(Number(bar.dataset.target) / 20) * 100}%`;
+      });
+    });
+  </script>
+</body>
+</html>
