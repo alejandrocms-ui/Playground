@@ -1,0 +1,136 @@
+<title>Código Humano · Temporada 1</title>
+<meta name="description" content="La historia de cada episodio de Código Humano, temporada 1, en una pieza animada para presentar en vivo.">
+<script id="ch-data">
+/*__DATA__*/
+</script>
+<style>
+/* Escenario a pantalla completa; la interfaz flota encima y se oculta sola. */
+:root {
+  --ink: #0E0C12; --ink-2: #17141D; --ink-3: #221E2A;
+  --hueso: #F5F5F5; --gris: #9C97A6; --linea: rgba(245,245,245,.14);
+  --violeta: #A78BFA; --ambar: #F2B36B;
+  --f-sans: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --f-serif: "DM Serif Display", Georgia, serif;
+  color-scheme: dark;
+}
+[hidden] { display: none !important; }
+html, body { height: 100%; background: var(--ink); color: var(--hueso); }
+body { margin: 0; overflow: hidden; font-family: var(--f-sans); -webkit-font-smoothing: antialiased; }
+#ch-stage { position: fixed; inset: 0; display: grid; place-items: center; background: var(--ink); }
+#ch-canvas { display: block; touch-action: manipulation; cursor: pointer; }
+button { font: inherit; color: inherit; }
+button:focus-visible, .ch-mark:focus-visible { outline: 2px solid var(--ambar); outline-offset: 2px; }
+
+/* portada */
+#ch-cover { position: fixed; inset: auto 0 0 0; padding: 0 16px calc(28px + env(safe-area-inset-bottom, 0px)); display: grid; justify-items: center; gap: 14px; pointer-events: none;
+  background: linear-gradient(to top, rgba(14,12,18,.92) 0%, rgba(14,12,18,.7) 55%, rgba(14,12,18,0) 100%); padding-top: 120px; }
+#ch-cover > * { pointer-events: auto; }
+.ch-cta { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.ch-btn { border: 1px solid var(--linea); background: rgba(23,20,29,.85); border-radius: 999px; padding: 12px 20px; font-size: 16px; font-weight: 500; cursor: pointer; transition: border-color .2s, background .2s; }
+.ch-btn:hover { border-color: var(--violeta); }
+.ch-btn--main { background: var(--ambar); color: var(--ink); border-color: var(--ambar); font-weight: 700; padding-inline: 26px; }
+.ch-btn--main:hover { background: #F7C68A; border-color: #F7C68A; }
+.ch-keys { font: 500 12px/1.6 var(--f-mono); letter-spacing: .06em; color: var(--gris); text-align: center; max-width: 62ch; margin: 0; }
+.ch-keys kbd { font: inherit; color: var(--hueso); border: 1px solid var(--linea); border-radius: 4px; padding: 0 5px; }
+
+/* barra de control */
+#ch-bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 16px calc(12px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 8px;
+  background: linear-gradient(to top, rgba(14,12,18,.9), rgba(14,12,18,0)); transition: opacity .35s, transform .35s; }
+body.is-idle #ch-bar, body.is-idle #ch-drawer-btn { opacity: 0; transform: translateY(8px); pointer-events: none; }
+body.is-idle #ch-canvas { cursor: none; }
+.ch-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ch-row .ch-spacer { flex: 1; }
+#ch-play { width: 42px; height: 42px; border-radius: 50%; border: 0; background: var(--hueso); color: var(--ink); cursor: pointer; display: grid; place-items: center; flex: none; }
+#ch-play::before { content: ""; width: 0; height: 0; border-left: 13px solid currentColor; border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 3px; }
+#ch-play.is-playing::before { width: 12px; height: 14px; border: 0; margin: 0; background: linear-gradient(to right, currentColor 0 4px, transparent 4px 8px, currentColor 8px 12px); }
+#ch-time { font: 500 13px var(--f-mono); color: var(--gris); font-variant-numeric: tabular-nums; min-width: 11ch; }
+.ch-chip { border: 1px solid var(--linea); background: rgba(23,20,29,.7); border-radius: 999px; padding: 7px 13px; font-size: 13px; cursor: pointer; white-space: nowrap; }
+.ch-chip:hover { border-color: var(--violeta); }
+.ch-chip[aria-pressed="true"] { border-color: var(--ambar); color: var(--ambar); }
+#ch-track { position: relative; height: 22px; cursor: pointer; }
+#ch-track::before { content: ""; position: absolute; left: 0; right: 0; top: 10px; height: 2px; background: var(--linea); border-radius: 2px; }
+#ch-fill { position: absolute; left: 0; top: 10px; height: 2px; background: var(--ambar); border-radius: 2px; width: 0; }
+#ch-marks { position: absolute; inset: 0; }
+.ch-mark { position: absolute; top: 4px; width: 14px; height: 14px; margin-left: -7px; border: 0; background: none; padding: 0; cursor: pointer; }
+.ch-mark::after { content: ""; position: absolute; left: 6px; top: 2px; width: 2px; height: 10px; background: rgba(245,245,245,.35); border-radius: 1px; }
+.ch-mark.is-ep::after { background: var(--violeta); }
+.ch-mark.is-on::after { background: var(--ambar); height: 12px; top: 1px; }
+#ch-tip { position: absolute; bottom: 22px; transform: translateX(-50%); background: var(--ink-2); border: 1px solid var(--linea); border-radius: 6px; padding: 4px 8px; font-size: 12px; white-space: nowrap; pointer-events: none; }
+
+/* índice */
+#ch-drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100%); background: rgba(17,15,22,.97); border-left: 1px solid var(--linea);
+  padding: calc(18px + env(safe-area-inset-top, 0px)) 16px 18px; display: grid; grid-template-rows: auto 1fr; gap: 12px; z-index: 5; }
+.ch-drawer-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.ch-drawer-head h2 { margin: 0; font: 400 26px var(--f-serif); }
+#ch-list { list-style: none; margin: 0; padding: 0; overflow-y: auto; display: grid; gap: 2px; align-content: start; }
+.ch-item { width: 100%; text-align: left; display: grid; grid-template-columns: 3.4em 1fr; gap: 10px; align-items: baseline; padding: 10px 10px; border: 0; background: none; border-radius: 8px; cursor: pointer; }
+.ch-item:hover { background: var(--ink-3); }
+.ch-item.is-on { background: var(--ink-3); box-shadow: inset 2px 0 0 var(--ambar); }
+.ch-item-tag { font: 500 13px var(--f-mono); color: var(--ambar); }
+.ch-item-txt { display: grid; gap: 2px; min-width: 0; }
+.ch-item-title { font-size: 15px; line-height: 1.3; text-wrap: balance; }
+.ch-item-sub { font-size: 12px; color: var(--gris); }
+
+/* aviso del modo presentador */
+#ch-hint { position: fixed; top: calc(14px + env(safe-area-inset-top, 0px)); left: 50%; transform: translate(-50%, -8px); opacity: 0; transition: opacity .4s, transform .4s;
+  font: 500 12px var(--f-mono); letter-spacing: .06em; color: var(--hueso); background: rgba(23,20,29,.88); border: 1px solid var(--linea); border-radius: 999px; padding: 8px 14px; white-space: nowrap; pointer-events: none; max-width: calc(100% - 32px); overflow: hidden; text-overflow: ellipsis; }
+#ch-hint.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+body.is-cover #ch-bar { display: none; }
+.ch-keys--touch { display: none; }
+@media (hover: none) and (pointer: coarse) { .ch-keys--touch { display: block; } .ch-keys--kbd { display: none; } }
+body.is-capture #ch-bar, body.is-capture #ch-cover, body.is-capture #ch-drawer, body.is-capture #ch-hint { display: none !important; }
+body.is-capture #ch-stage { place-items: start; }
+
+@media (max-width: 640px) {
+  .ch-row { flex-wrap: nowrap; gap: 8px; }
+  .ch-row .ch-spacer { display: none; }
+  #ch-time { min-width: 0; font-size: 12px; margin-right: auto; }
+  .ch-chip { padding: 6px 10px; font-size: 12px; }
+  #ch-fmt, #ch-fs { display: none; }
+  .ch-btn { font-size: 15px; padding: 11px 16px; }
+}
+@media (prefers-reduced-motion: reduce) { #ch-bar, #ch-hint { transition: none; } }
+</style>
+
+<div id="ch-stage"><canvas id="ch-canvas" aria-label="Animación: la temporada 1 de Código Humano, episodio por episodio" role="img"></canvas></div>
+
+<div id="ch-cover">
+  <div class="ch-cta">
+    <button class="ch-btn ch-btn--main" id="ch-start" type="button">Reproducir</button>
+    <button class="ch-btn" id="ch-start-pres" type="button">Modo presentador</button>
+    <button class="ch-btn" id="ch-start-vert" type="button">Corte vertical 9:16</button>
+  </div>
+  <p class="ch-keys ch-keys--touch">Toca para pausar · desliza a los lados para cambiar de episodio · gira el teléfono para verlo horizontal</p>
+  <p class="ch-keys ch-keys--kbd"><kbd>Espacio</kbd> pausa · <kbd>←</kbd> <kbd>→</kbd> episodio anterior o siguiente · <kbd>T</kbd> vuelve a la línea de tiempo · <kbd>F</kbd> pantalla completa · <kbd>I</kbd> índice · <kbd>M</kbd> sonido</p>
+</div>
+
+<div id="ch-bar">
+  <div id="ch-track" aria-label="Progreso"><div id="ch-fill"></div><div id="ch-marks"></div><div id="ch-tip" hidden></div></div>
+  <div class="ch-row">
+    <button id="ch-play" type="button" aria-label="Reproducir"></button>
+    <span id="ch-time">0:00 / 0:00</span>
+    <span class="ch-spacer"></span>
+    <button class="ch-chip" id="ch-idx" type="button" aria-expanded="false" aria-controls="ch-drawer">Índice</button>
+    <button class="ch-chip" id="ch-pres" type="button" aria-pressed="false">Modo presentador</button>
+    <button class="ch-chip" id="ch-fmt" type="button">Horizontal 16:9</button>
+    <button class="ch-chip" id="ch-snd" type="button" aria-pressed="true">Sonido</button>
+    <button class="ch-chip" id="ch-fs" type="button">Pantalla completa</button>
+  </div>
+</div>
+
+<aside id="ch-drawer" hidden aria-label="Índice de episodios">
+  <div class="ch-drawer-head"><h2>Temporada 1</h2><button class="ch-chip" id="ch-close-drawer" type="button">Cerrar</button></div>
+  <ol id="ch-list"></ol>
+</aside>
+
+<div id="ch-hint" hidden>MODO PRESENTADOR · ← → NAVEGAR · ESPACIO PAUSA · T LÍNEA DE TIEMPO</div>
+
+<style>
+/*__FONTS__*/
+</style>
+<script>window.CH_LOGO = "/*__LOGO__*/";</script>
+<script>
+/*__ENGINE__*/
+</script>
