@@ -44,6 +44,6 @@ await browser.close();
 // 3) unir audio y video
 const final = join(outDir, name + '.mp4');
 await new Promise((res, rej) => spawn('ffmpeg', ['-y', '-loglevel', 'error', '-i', vidPath, '-i', wavPath, '-map', '0:v', '-map', '1:a',
-  '-c:v', 'copy', '-af', `afade=t=out:st=${(duration - 1.6).toFixed(2)}:d=1.6`, '-c:a', 'aac', '-b:a', '256k', '-ar', '48000', '-shortest', '-movflags', '+faststart', final], { stdio: 'inherit' })
+  '-vf', 'hqdn3d=1.2:1.2:5:5', '-c:v', 'libx264', '-preset', 'slow', '-crf', '19', '-maxrate', kind === 'vertical' ? '9M' : '10M', '-bufsize', '20M', '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-af', `afade=t=out:st=${(duration - 1.6).toFixed(2)}:d=1.6`, '-c:a', 'aac', '-b:a', '256k', '-ar', '48000', '-shortest', '-movflags', '+faststart', final], { stdio: 'inherit' })
   .on('close', c => c ? rej(new Error('mux ' + c)) : res()));
 console.log(JSON.stringify({ final, frames: total, duration, errors, seconds: (Date.now() - t0) / 1000 }));
