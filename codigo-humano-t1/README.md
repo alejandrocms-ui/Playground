@@ -8,8 +8,8 @@ La historia de cada episodio de la temporada 1 en una sola pieza: apertura en fr
 |---|---|
 | `dist/codigo-humano-t1-offline.html` | La pieza interactiva, 100 % sin conexión: fuentes, logo, música y motor van adentro. Funciona en proyector y en celular. |
 | `dist/codigo-humano-t1.html` | La misma pieza, en el formato que se publica como página. |
-| `out/codigo-humano-t1_1080p30.mp4` | Video 1920×1080, 30 cuadros por segundo, 1:46. |
-| `out/codigo-humano-t1_vertical.mp4` | Corte vertical 1080×1920 de 41 s para Instagram, TikTok y LinkedIn. |
+| `videos/codigo-humano-t1_1080p30.mp4` | Video 1920×1080, 30 cuadros por segundo, 1:46. |
+| `videos/codigo-humano-t1_vertical.mp4` | Corte vertical 1080×1920 de 41 s para Instagram, TikTok y LinkedIn. |
 
 ## Presentar en vivo
 
@@ -32,7 +32,7 @@ Requiere Node 22, Playwright con Chromium y ffmpeg.
 
 ```bash
 node build.mjs
-node tools/render.mjs full       # MP4 1080p30
+node tools/render.mjs full       # MP4 1080p30 → out/
 node tools/render.mjs vertical   # MP4 9:16
 node tools/frames.mjs full out/frames && python3 tools/contact.py out/frames out/contact.jpg   # hoja de contactos
 ```
