@@ -1,0 +1,925 @@
+{
+  "schema_version": "0.1-design",
+  "purpose": "Synthetic design fixture only. No school records. Not a complete Raimondi curriculum or an implementation.",
+  "academic_year": 2027,
+  "timezone": "America/Lima",
+  "cycle_days": [
+    "MON",
+    "TUE",
+    "WED",
+    "THU",
+    "FRI"
+  ],
+  "calendar": {
+    "periods": [
+      {
+        "id": 1,
+        "start_minute": 480,
+        "end_minute": 525
+      },
+      {
+        "id": 2,
+        "start_minute": 525,
+        "end_minute": 570
+      },
+      {
+        "id": 3,
+        "start_minute": 570,
+        "end_minute": 615
+      },
+      {
+        "id": 4,
+        "start_minute": 635,
+        "end_minute": 680
+      },
+      {
+        "id": 5,
+        "start_minute": 680,
+        "end_minute": 725
+      },
+      {
+        "id": 6,
+        "start_minute": 725,
+        "end_minute": 770
+      }
+    ],
+    "breaks": [
+      {
+        "start_minute": 615,
+        "end_minute": 635,
+        "after_period": 3,
+        "crossing_allowed": false
+      }
+    ]
+  },
+  "teachers": [
+    {
+      "id": "IT1",
+      "label": "Docente ficticio IT1",
+      "subject_ids": [
+        "IT"
+      ]
+    },
+    {
+      "id": "IT2",
+      "label": "Docente ficticio IT2",
+      "subject_ids": [
+        "IT"
+      ]
+    },
+    {
+      "id": "MA1",
+      "label": "Docente ficticio MA1",
+      "subject_ids": [
+        "MA"
+      ]
+    },
+    {
+      "id": "MA2",
+      "label": "Docente ficticio MA2",
+      "subject_ids": [
+        "MA"
+      ]
+    },
+    {
+      "id": "EN1",
+      "label": "Docente ficticio EN1",
+      "subject_ids": [
+        "EN"
+      ]
+    },
+    {
+      "id": "CN1",
+      "label": "Docente ficticio CN1",
+      "subject_ids": [
+        "CN"
+      ]
+    },
+    {
+      "id": "SC1",
+      "label": "Docente ficticio SC1",
+      "subject_ids": [
+        "SC"
+      ]
+    },
+    {
+      "id": "AR1",
+      "label": "Docente ficticio AR1",
+      "subject_ids": [
+        "AR"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "P1",
+      "label": "Primaria ficticia",
+      "level": "primaria",
+      "room_id": "R-P1"
+    },
+    {
+      "id": "M1",
+      "label": "Media ficticia",
+      "level": "media",
+      "room_id": "R-M1"
+    },
+    {
+      "id": "L1",
+      "label": "Liceo científico ficticio",
+      "level": "liceo",
+      "track": "scientifico",
+      "room_id": "R-L1"
+    },
+    {
+      "id": "L2",
+      "label": "Liceo artístico ficticio",
+      "level": "liceo",
+      "track": "artistico",
+      "room_id": "R-L2"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "IT",
+      "name": "Italiano"
+    },
+    {
+      "id": "MA",
+      "name": "Matemática"
+    },
+    {
+      "id": "EN",
+      "name": "Inglés"
+    },
+    {
+      "id": "CN",
+      "name": "Chino mandarín"
+    },
+    {
+      "id": "SC",
+      "name": "Ciencias"
+    },
+    {
+      "id": "AR",
+      "name": "Arte"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "R-P1",
+      "kind": "home"
+    },
+    {
+      "id": "R-M1",
+      "kind": "home"
+    },
+    {
+      "id": "R-L1",
+      "kind": "home"
+    },
+    {
+      "id": "R-L2",
+      "kind": "home"
+    },
+    {
+      "id": "LAB",
+      "kind": "science_lab"
+    },
+    {
+      "id": "ART",
+      "kind": "art_studio"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-P1-IT",
+      "section_id": "P1",
+      "subject_id": "IT",
+      "teacher_ids": [
+        "IT1"
+      ],
+      "periods_per_cycle": 4,
+      "block_pattern": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "REQ-P1-MA",
+      "section_id": "P1",
+      "subject_id": "MA",
+      "teacher_ids": [
+        "MA1"
+      ],
+      "periods_per_cycle": 4,
+      "block_pattern": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "REQ-P1-EN",
+      "section_id": "P1",
+      "subject_id": "EN",
+      "teacher_ids": [
+        "EN1"
+      ],
+      "periods_per_cycle": 2,
+      "block_pattern": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "REQ-P1-SC",
+      "section_id": "P1",
+      "subject_id": "SC",
+      "teacher_ids": [
+        "SC1"
+      ],
+      "periods_per_cycle": 2,
+      "block_pattern": [
+        2
+      ]
+    },
+    {
+      "id": "REQ-M1-IT",
+      "section_id": "M1",
+      "subject_id": "IT",
+      "teacher_ids": [
+        "IT1"
+      ],
+      "periods_per_cycle": 4,
+      "block_pattern": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "REQ-M1-MA",
+      "section_id": "M1",
+      "subject_id": "MA",
+      "teacher_ids": [
+        "MA2"
+      ],
+      "periods_per_cycle": 4,
+      "block_pattern": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "REQ-M1-EN",
+      "section_id": "M1",
+      "subject_id": "EN",
+      "teacher_ids": [
+        "EN1"
+      ],
+      "periods_per_cycle": 2,
+      "block_pattern": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "REQ-M1-SC",
+      "section_id": "M1",
+      "subject_id": "SC",
+      "teacher_ids": [
+        "SC1"
+      ],
+      "periods_per_cycle": 2,
+      "block_pattern": [
+        2
+      ]
+    },
+    {
+      "id": "REQ-M1-CN",
+      "section_id": "M1",
+      "subject_id": "CN",
+      "teacher_ids": [
+        "CN1"
+      ],
+      "periods_per_cycle": 2,
+      "block_pattern": [
+        2
+      ]
+    },
+    {
+      "id": "REQ-L1-IT",
+      "section_id": "L1",
+      "subject_id": "IT",
+      "teacher_ids": [
+        "IT2"
+      ],
+      "periods_per_cycle": 4,
+      "block_pattern": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "REQ-L1-MA",
+      "section_id": "L1",
+      "subject_id": "MA",
+      "teacher_ids": [
+        "MA1"
+      ],
+      "periods_per_cycle": 4,
+      "block_pattern": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "REQ-L1-EN",
+      "section_id": "L1",
+      "subject_id": "EN",
+      "teacher_ids": [
+        "EN1"
+      ],
+      "periods_per_cycle": 2,
+      "block_pattern": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "REQ-L1-AR",
+      "section_id": "L1",
+      "subject_id": "AR",
+      "teacher_ids": [
+        "AR1"
+      ],
+      "periods_per_cycle": 2,
+      "block_pattern": [
+        2
+      ]
+    },
+    {
+      "id": "REQ-L2-IT",
+      "section_id": "L2",
+      "subject_id": "IT",
+      "teacher_ids": [
+        "IT2"
+      ],
+      "periods_per_cycle": 4,
+      "block_pattern": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "REQ-L2-MA",
+      "section_id": "L2",
+      "subject_id": "MA",
+      "teacher_ids": [
+        "MA2"
+      ],
+      "periods_per_cycle": 4,
+      "block_pattern": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "REQ-L2-EN",
+      "section_id": "L2",
+      "subject_id": "EN",
+      "teacher_ids": [
+        "EN1"
+      ],
+      "periods_per_cycle": 2,
+      "block_pattern": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "REQ-L2-AR",
+      "section_id": "L2",
+      "subject_id": "AR",
+      "teacher_ids": [
+        "AR1"
+      ],
+      "periods_per_cycle": 2,
+      "block_pattern": [
+        2
+      ]
+    },
+    {
+      "id": "REQ-L2-CN",
+      "section_id": "L2",
+      "subject_id": "CN",
+      "teacher_ids": [
+        "CN1"
+      ],
+      "periods_per_cycle": 2,
+      "block_pattern": [
+        2
+      ]
+    }
+  ],
+  "lesson_occurrences": [
+    {
+      "id": "REQ-P1-IT-1",
+      "requirement_id": "REQ-P1-IT",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-P1"
+      ]
+    },
+    {
+      "id": "REQ-P1-IT-2",
+      "requirement_id": "REQ-P1-IT",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-P1"
+      ]
+    },
+    {
+      "id": "REQ-P1-MA-1",
+      "requirement_id": "REQ-P1-MA",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-P1"
+      ]
+    },
+    {
+      "id": "REQ-P1-MA-2",
+      "requirement_id": "REQ-P1-MA",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-P1"
+      ]
+    },
+    {
+      "id": "REQ-P1-EN-1",
+      "requirement_id": "REQ-P1-EN",
+      "duration_periods": 1,
+      "room_eligibility": [
+        "R-P1"
+      ]
+    },
+    {
+      "id": "REQ-P1-EN-2",
+      "requirement_id": "REQ-P1-EN",
+      "duration_periods": 1,
+      "room_eligibility": [
+        "R-P1"
+      ]
+    },
+    {
+      "id": "REQ-P1-SC-1",
+      "requirement_id": "REQ-P1-SC",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "LAB"
+      ]
+    },
+    {
+      "id": "REQ-M1-IT-1",
+      "requirement_id": "REQ-M1-IT",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-M1"
+      ]
+    },
+    {
+      "id": "REQ-M1-IT-2",
+      "requirement_id": "REQ-M1-IT",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-M1"
+      ]
+    },
+    {
+      "id": "REQ-M1-MA-1",
+      "requirement_id": "REQ-M1-MA",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-M1"
+      ]
+    },
+    {
+      "id": "REQ-M1-MA-2",
+      "requirement_id": "REQ-M1-MA",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-M1"
+      ]
+    },
+    {
+      "id": "REQ-M1-EN-1",
+      "requirement_id": "REQ-M1-EN",
+      "duration_periods": 1,
+      "room_eligibility": [
+        "R-M1"
+      ]
+    },
+    {
+      "id": "REQ-M1-EN-2",
+      "requirement_id": "REQ-M1-EN",
+      "duration_periods": 1,
+      "room_eligibility": [
+        "R-M1"
+      ]
+    },
+    {
+      "id": "REQ-M1-SC-1",
+      "requirement_id": "REQ-M1-SC",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "LAB"
+      ]
+    },
+    {
+      "id": "REQ-M1-CN-1",
+      "requirement_id": "REQ-M1-CN",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-M1"
+      ]
+    },
+    {
+      "id": "REQ-L1-IT-1",
+      "requirement_id": "REQ-L1-IT",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-L1"
+      ]
+    },
+    {
+      "id": "REQ-L1-IT-2",
+      "requirement_id": "REQ-L1-IT",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-L1"
+      ]
+    },
+    {
+      "id": "REQ-L1-MA-1",
+      "requirement_id": "REQ-L1-MA",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-L1"
+      ]
+    },
+    {
+      "id": "REQ-L1-MA-2",
+      "requirement_id": "REQ-L1-MA",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-L1"
+      ]
+    },
+    {
+      "id": "REQ-L1-EN-1",
+      "requirement_id": "REQ-L1-EN",
+      "duration_periods": 1,
+      "room_eligibility": [
+        "R-L1"
+      ]
+    },
+    {
+      "id": "REQ-L1-EN-2",
+      "requirement_id": "REQ-L1-EN",
+      "duration_periods": 1,
+      "room_eligibility": [
+        "R-L1"
+      ]
+    },
+    {
+      "id": "REQ-L1-AR-1",
+      "requirement_id": "REQ-L1-AR",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "ART"
+      ]
+    },
+    {
+      "id": "REQ-L2-IT-1",
+      "requirement_id": "REQ-L2-IT",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-L2"
+      ]
+    },
+    {
+      "id": "REQ-L2-IT-2",
+      "requirement_id": "REQ-L2-IT",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-L2"
+      ]
+    },
+    {
+      "id": "REQ-L2-MA-1",
+      "requirement_id": "REQ-L2-MA",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-L2"
+      ]
+    },
+    {
+      "id": "REQ-L2-MA-2",
+      "requirement_id": "REQ-L2-MA",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-L2"
+      ]
+    },
+    {
+      "id": "REQ-L2-EN-1",
+      "requirement_id": "REQ-L2-EN",
+      "duration_periods": 1,
+      "room_eligibility": [
+        "R-L2"
+      ]
+    },
+    {
+      "id": "REQ-L2-EN-2",
+      "requirement_id": "REQ-L2-EN",
+      "duration_periods": 1,
+      "room_eligibility": [
+        "R-L2"
+      ]
+    },
+    {
+      "id": "REQ-L2-AR-1",
+      "requirement_id": "REQ-L2-AR",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "ART"
+      ]
+    },
+    {
+      "id": "REQ-L2-CN-1",
+      "requirement_id": "REQ-L2-CN",
+      "duration_periods": 2,
+      "room_eligibility": [
+        "R-L2"
+      ]
+    }
+  ],
+  "witness_placements": [
+    {
+      "occurrence_id": "REQ-P1-IT-1",
+      "day": "MON",
+      "period_start": 1,
+      "room_id": "R-P1"
+    },
+    {
+      "occurrence_id": "REQ-P1-IT-2",
+      "day": "WED",
+      "period_start": 1,
+      "room_id": "R-P1"
+    },
+    {
+      "occurrence_id": "REQ-P1-MA-1",
+      "day": "TUE",
+      "period_start": 1,
+      "room_id": "R-P1"
+    },
+    {
+      "occurrence_id": "REQ-P1-MA-2",
+      "day": "THU",
+      "period_start": 1,
+      "room_id": "R-P1"
+    },
+    {
+      "occurrence_id": "REQ-P1-EN-1",
+      "day": "MON",
+      "period_start": 4,
+      "room_id": "R-P1"
+    },
+    {
+      "occurrence_id": "REQ-P1-EN-2",
+      "day": "WED",
+      "period_start": 4,
+      "room_id": "R-P1"
+    },
+    {
+      "occurrence_id": "REQ-P1-SC-1",
+      "day": "FRI",
+      "period_start": 1,
+      "room_id": "LAB"
+    },
+    {
+      "occurrence_id": "REQ-M1-IT-1",
+      "day": "TUE",
+      "period_start": 1,
+      "room_id": "R-M1"
+    },
+    {
+      "occurrence_id": "REQ-M1-IT-2",
+      "day": "THU",
+      "period_start": 1,
+      "room_id": "R-M1"
+    },
+    {
+      "occurrence_id": "REQ-M1-MA-1",
+      "day": "MON",
+      "period_start": 1,
+      "room_id": "R-M1"
+    },
+    {
+      "occurrence_id": "REQ-M1-MA-2",
+      "day": "WED",
+      "period_start": 1,
+      "room_id": "R-M1"
+    },
+    {
+      "occurrence_id": "REQ-M1-EN-1",
+      "day": "MON",
+      "period_start": 5,
+      "room_id": "R-M1"
+    },
+    {
+      "occurrence_id": "REQ-M1-EN-2",
+      "day": "WED",
+      "period_start": 5,
+      "room_id": "R-M1"
+    },
+    {
+      "occurrence_id": "REQ-M1-SC-1",
+      "day": "FRI",
+      "period_start": 4,
+      "room_id": "LAB"
+    },
+    {
+      "occurrence_id": "REQ-M1-CN-1",
+      "day": "TUE",
+      "period_start": 4,
+      "room_id": "R-M1"
+    },
+    {
+      "occurrence_id": "REQ-L1-IT-1",
+      "day": "MON",
+      "period_start": 4,
+      "room_id": "R-L1"
+    },
+    {
+      "occurrence_id": "REQ-L1-IT-2",
+      "day": "WED",
+      "period_start": 4,
+      "room_id": "R-L1"
+    },
+    {
+      "occurrence_id": "REQ-L1-MA-1",
+      "day": "TUE",
+      "period_start": 4,
+      "room_id": "R-L1"
+    },
+    {
+      "occurrence_id": "REQ-L1-MA-2",
+      "day": "THU",
+      "period_start": 4,
+      "room_id": "R-L1"
+    },
+    {
+      "occurrence_id": "REQ-L1-EN-1",
+      "day": "TUE",
+      "period_start": 2,
+      "room_id": "R-L1"
+    },
+    {
+      "occurrence_id": "REQ-L1-EN-2",
+      "day": "THU",
+      "period_start": 2,
+      "room_id": "R-L1"
+    },
+    {
+      "occurrence_id": "REQ-L1-AR-1",
+      "day": "FRI",
+      "period_start": 1,
+      "room_id": "ART"
+    },
+    {
+      "occurrence_id": "REQ-L2-IT-1",
+      "day": "TUE",
+      "period_start": 1,
+      "room_id": "R-L2"
+    },
+    {
+      "occurrence_id": "REQ-L2-IT-2",
+      "day": "THU",
+      "period_start": 1,
+      "room_id": "R-L2"
+    },
+    {
+      "occurrence_id": "REQ-L2-MA-1",
+      "day": "MON",
+      "period_start": 4,
+      "room_id": "R-L2"
+    },
+    {
+      "occurrence_id": "REQ-L2-MA-2",
+      "day": "WED",
+      "period_start": 4,
+      "room_id": "R-L2"
+    },
+    {
+      "occurrence_id": "REQ-L2-EN-1",
+      "day": "MON",
+      "period_start": 2,
+      "room_id": "R-L2"
+    },
+    {
+      "occurrence_id": "REQ-L2-EN-2",
+      "day": "WED",
+      "period_start": 2,
+      "room_id": "R-L2"
+    },
+    {
+      "occurrence_id": "REQ-L2-AR-1",
+      "day": "FRI",
+      "period_start": 4,
+      "room_id": "ART"
+    },
+    {
+      "occurrence_id": "REQ-L2-CN-1",
+      "day": "THU",
+      "period_start": 4,
+      "room_id": "R-L2"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "H-NO-OVERLAP",
+      "type": "resource_no_overlap",
+      "hard": true,
+      "scope": [
+        "teachers",
+        "sections",
+        "rooms"
+      ],
+      "time_basis": "real_minutes"
+    },
+    {
+      "id": "H-COVERAGE",
+      "type": "exact_requirement_coverage",
+      "hard": true
+    },
+    {
+      "id": "H-BLOCK",
+      "type": "indivisible_blocks",
+      "hard": true,
+      "cross_break": false
+    },
+    {
+      "id": "H-CN-DAYS",
+      "type": "allowed_teacher_days",
+      "teacher_id": "CN1",
+      "days": [
+        "TUE",
+        "THU"
+      ],
+      "hard": true
+    },
+    {
+      "id": "S-CORE",
+      "type": "preferred_periods",
+      "subjects": [
+        "IT",
+        "MA",
+        "EN"
+      ],
+      "periods": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "hard": false,
+      "priority": 2
+    },
+    {
+      "id": "S-FRIDAY",
+      "type": "avoid_slot",
+      "day": "FRI",
+      "period": 6,
+      "hard": false,
+      "priority": 3
+    }
+  ],
+  "workload_note": "Partial curriculum slice. No exact 28-period contract rule is asserted. Teaching, support and outside-slice commitments must be separate before full-school use.",
+  "witness_validation": {
+    "method": "Hand-authored placements checked with a one-time deterministic data validation script; no optimization solver executed.",
+    "hard_violations": 0,
+    "total_occurrences": 30,
+    "total_teaching_periods": 52,
+    "teacher_teaching_periods": {
+      "IT1": 8,
+      "MA1": 8,
+      "EN1": 8,
+      "SC1": 4,
+      "MA2": 8,
+      "CN1": 4,
+      "IT2": 8,
+      "AR1": 4
+    },
+    "preferred_core_periods_outside_window": 10,
+    "optimality": "not claimed"
+  }
+}

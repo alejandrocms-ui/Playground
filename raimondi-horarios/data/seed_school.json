@@ -1,0 +1,6522 @@
+{
+ "meta": {
+  "name": "Escuela demo (ficticia, estructura tipo Raimondi)",
+  "school": "Demo ficticia",
+  "academic_year": 2027,
+  "timezone": "America/Lima",
+  "term_start": "2027-03-01",
+  "term_end": "2027-12-17",
+  "synthetic": true
+ },
+ "days": [
+  "MON",
+  "TUE",
+  "WED",
+  "THU",
+  "FRI"
+ ],
+ "settings": {
+  "spread_lessons": true
+ },
+ "bells": [
+  {
+   "id": "PRIM",
+   "name": "Primaria (40 min)",
+   "periods": [
+    {
+     "label": "1",
+     "start": 480,
+     "end": 520,
+     "n": 1
+    },
+    {
+     "label": "2",
+     "start": 520,
+     "end": 560,
+     "n": 2
+    },
+    {
+     "label": "3",
+     "start": 560,
+     "end": 600,
+     "n": 3
+    },
+    {
+     "label": "4",
+     "start": 600,
+     "end": 640,
+     "n": 4
+    },
+    {
+     "label": "5",
+     "start": 660,
+     "end": 700,
+     "n": 5
+    },
+    {
+     "label": "6",
+     "start": 700,
+     "end": 740,
+     "n": 6
+    },
+    {
+     "label": "7",
+     "start": 740,
+     "end": 780,
+     "n": 7
+    }
+   ],
+   "breaks": [
+    {
+     "label": "Recreo / Intervallo",
+     "start": 640,
+     "end": 660,
+     "crossing_allowed": false
+    }
+   ]
+  },
+  {
+   "id": "SEC",
+   "name": "Media y Liceo (45 min)",
+   "periods": [
+    {
+     "label": "1",
+     "start": 480,
+     "end": 525,
+     "n": 1
+    },
+    {
+     "label": "2",
+     "start": 525,
+     "end": 570,
+     "n": 2
+    },
+    {
+     "label": "3",
+     "start": 570,
+     "end": 615,
+     "n": 3
+    },
+    {
+     "label": "4",
+     "start": 635,
+     "end": 680,
+     "n": 4
+    },
+    {
+     "label": "5",
+     "start": 680,
+     "end": 725,
+     "n": 5
+    },
+    {
+     "label": "6",
+     "start": 725,
+     "end": 770,
+     "n": 6
+    },
+    {
+     "label": "7",
+     "start": 810,
+     "end": 855,
+     "n": 7
+    },
+    {
+     "label": "8",
+     "start": 855,
+     "end": 900,
+     "n": 8
+    }
+   ],
+   "breaks": [
+    {
+     "label": "Recreo / Intervallo",
+     "start": 615,
+     "end": 635,
+     "crossing_allowed": false
+    },
+    {
+     "label": "Almuerzo / Pranzo",
+     "start": 770,
+     "end": 810,
+     "crossing_allowed": false
+    }
+   ]
+  }
+ ],
+ "areas": [
+  {
+   "id": "LEN",
+   "name_es": "Lenguas y Comunicación",
+   "name_it": "Lingue e Comunicazione",
+   "color": "#4f7cff"
+  },
+  {
+   "id": "MAT",
+   "name_es": "Matemática",
+   "name_it": "Matematica",
+   "color": "#ff8a3d"
+  },
+  {
+   "id": "CIE",
+   "name_es": "Ciencia y Tecnología",
+   "name_it": "Scienze e Tecnologia",
+   "color": "#16a3b8"
+  },
+  {
+   "id": "HUM",
+   "name_es": "Humanidades y Ciencias Sociales",
+   "name_it": "Area umanistica",
+   "color": "#b07d48"
+  },
+  {
+   "id": "ART",
+   "name_es": "Arte y Cultura",
+   "name_it": "Arte e Cultura",
+   "color": "#9b6bff"
+  },
+  {
+   "id": "EFI",
+   "name_es": "Educación Física",
+   "name_it": "Educazione Fisica",
+   "color": "#2bb673"
+  },
+  {
+   "id": "FOR",
+   "name_es": "Formación y Religión",
+   "name_it": "Formazione e Religione",
+   "color": "#8a94a6"
+  }
+ ],
+ "subjects": [
+  {
+   "id": "IT",
+   "name_es": "Italiano",
+   "name_it": "Italiano",
+   "short": "IT",
+   "area_id": "LEN",
+   "color": "#4f7cff",
+   "core": true
+  },
+  {
+   "id": "ES",
+   "name_es": "Comunicación (Castellano)",
+   "name_it": "Spagnolo",
+   "short": "ES",
+   "area_id": "LEN",
+   "color": "#6b8cff",
+   "core": true
+  },
+  {
+   "id": "EN",
+   "name_es": "Inglés",
+   "name_it": "Inglese",
+   "short": "EN",
+   "area_id": "LEN",
+   "color": "#2f9e8f",
+   "core": true
+  },
+  {
+   "id": "CN",
+   "name_es": "Chino mandarín",
+   "name_it": "Cinese mandarino",
+   "short": "CN",
+   "area_id": "LEN",
+   "color": "#e0457b",
+   "core": false
+  },
+  {
+   "id": "LA",
+   "name_es": "Latín",
+   "name_it": "Latino",
+   "short": "LA",
+   "area_id": "LEN",
+   "color": "#7a5cd6",
+   "core": false
+  },
+  {
+   "id": "MA",
+   "name_es": "Matemática",
+   "name_it": "Matematica",
+   "short": "MA",
+   "area_id": "MAT",
+   "color": "#ff8a3d",
+   "core": true
+  },
+  {
+   "id": "FI",
+   "name_es": "Física",
+   "name_it": "Fisica",
+   "short": "FI",
+   "area_id": "CIE",
+   "color": "#f2a900",
+   "core": false
+  },
+  {
+   "id": "SC",
+   "name_es": "Ciencias",
+   "name_it": "Scienze",
+   "short": "SC",
+   "area_id": "CIE",
+   "color": "#16a3b8",
+   "core": false
+  },
+  {
+   "id": "ST",
+   "name_es": "Historia",
+   "name_it": "Storia",
+   "short": "ST",
+   "area_id": "HUM",
+   "color": "#b07d48",
+   "core": false
+  },
+  {
+   "id": "GE",
+   "name_es": "Geografía",
+   "name_it": "Geografia",
+   "short": "GE",
+   "area_id": "HUM",
+   "color": "#8f9f3a",
+   "core": false
+  },
+  {
+   "id": "FL",
+   "name_es": "Filosofía",
+   "name_it": "Filosofia",
+   "short": "FL",
+   "area_id": "HUM",
+   "color": "#a0522d",
+   "core": false
+  },
+  {
+   "id": "PS",
+   "name_es": "Personal Social",
+   "name_it": "Educazione civica",
+   "short": "PS",
+   "area_id": "HUM",
+   "color": "#c49a6c",
+   "core": false
+  },
+  {
+   "id": "AR",
+   "name_es": "Arte",
+   "name_it": "Arte e immagine",
+   "short": "AR",
+   "area_id": "ART",
+   "color": "#9b6bff",
+   "core": false
+  },
+  {
+   "id": "SA",
+   "name_es": "Historia del arte",
+   "name_it": "Storia dell'arte",
+   "short": "SA",
+   "area_id": "ART",
+   "color": "#b38cff",
+   "core": false
+  },
+  {
+   "id": "DG",
+   "name_es": "Diseño y dibujo",
+   "name_it": "Discipline grafiche",
+   "short": "DG",
+   "area_id": "ART",
+   "color": "#d16ba5",
+   "core": false
+  },
+  {
+   "id": "MU",
+   "name_es": "Música",
+   "name_it": "Musica",
+   "short": "MU",
+   "area_id": "ART",
+   "color": "#c56cf0",
+   "core": false
+  },
+  {
+   "id": "EF",
+   "name_es": "Educación Física",
+   "name_it": "Educazione fisica",
+   "short": "EF",
+   "area_id": "EFI",
+   "color": "#2bb673",
+   "core": false
+  },
+  {
+   "id": "RE",
+   "name_es": "Religión",
+   "name_it": "Religione",
+   "short": "RE",
+   "area_id": "FOR",
+   "color": "#8a94a6",
+   "core": false
+  }
+ ],
+ "teachers": [
+  {
+   "id": "IT1",
+   "name": "Lucía Bianchi",
+   "short": "IT1",
+   "subject_ids": [
+    "IT"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "MON",
+     "start": 480,
+     "end": 525
+    },
+    {
+     "day": "TUE",
+     "start": 635,
+     "end": 680
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "IT2",
+   "name": "Marco Huamán",
+   "short": "IT2",
+   "subject_ids": [
+    "IT"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "WED",
+     "start": 810,
+     "end": 855
+    },
+    {
+     "day": "THU",
+     "start": 570,
+     "end": 615
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "IT3",
+   "name": "Giulia Conti",
+   "short": "IT3",
+   "subject_ids": [
+    "IT"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "FRI",
+     "start": 725,
+     "end": 770
+    },
+    {
+     "day": "MON",
+     "start": 525,
+     "end": 570
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "IT4",
+   "name": "Andrés Chávez",
+   "short": "IT4",
+   "subject_ids": [
+    "IT"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "TUE",
+     "start": 680,
+     "end": 725
+    },
+    {
+     "day": "WED",
+     "start": 480,
+     "end": 525
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "IT5",
+   "name": "Chiara Rinaldi",
+   "short": "IT5",
+   "subject_ids": [
+    "IT"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "ES1",
+   "name": "Diego Aguilar",
+   "short": "ES1",
+   "subject_ids": [
+    "ES"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "THU",
+     "start": 635,
+     "end": 680
+    },
+    {
+     "day": "FRI",
+     "start": 810,
+     "end": 855
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "ES2",
+   "name": "Francesca Romano",
+   "short": "ES2",
+   "subject_ids": [
+    "ES"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "MON",
+     "start": 570,
+     "end": 615
+    },
+    {
+     "day": "TUE",
+     "start": 725,
+     "end": 770
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "ES3",
+   "name": "Javier Vargas",
+   "short": "ES3",
+   "subject_ids": [
+    "ES"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "WED",
+     "start": 525,
+     "end": 570
+    },
+    {
+     "day": "THU",
+     "start": 680,
+     "end": 725
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "ES4",
+   "name": "Elena Gallo",
+   "short": "ES4",
+   "subject_ids": [
+    "ES"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "FRI",
+     "start": 480,
+     "end": 525
+    },
+    {
+     "day": "MON",
+     "start": 635,
+     "end": 680
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "MA1",
+   "name": "Paolo Gutiérrez",
+   "short": "MA1",
+   "subject_ids": [
+    "MA"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "MA2",
+   "name": "Valeria Caruso",
+   "short": "MA2",
+   "subject_ids": [
+    "MA"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "MA3",
+   "name": "Luca Cruz",
+   "short": "MA3",
+   "subject_ids": [
+    "MA"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "TUE",
+     "start": 810,
+     "end": 855
+    },
+    {
+     "day": "WED",
+     "start": 570,
+     "end": 615
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "MA4",
+   "name": "Camila Ferrari",
+   "short": "MA4",
+   "subject_ids": [
+    "MA"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "EN1",
+   "name": "Matteo Torres",
+   "short": "EN1",
+   "subject_ids": [
+    "EN"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "THU",
+     "start": 725,
+     "end": 770
+    },
+    {
+     "day": "FRI",
+     "start": 525,
+     "end": 570
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "EN2",
+   "name": "Rosa Costa",
+   "short": "EN2",
+   "subject_ids": [
+    "EN"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "MON",
+     "start": 680,
+     "end": 725
+    },
+    {
+     "day": "TUE",
+     "start": 480,
+     "end": 525
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "EN3",
+   "name": "Sergio Paredes",
+   "short": "EN3",
+   "subject_ids": [
+    "EN"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "WED",
+     "start": 635,
+     "end": 680
+    },
+    {
+     "day": "THU",
+     "start": 810,
+     "end": 855
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "SC1",
+   "name": "Silvia Ferraro",
+   "short": "SC1",
+   "subject_ids": [
+    "SC"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "FRI",
+     "start": 570,
+     "end": 615
+    },
+    {
+     "day": "MON",
+     "start": 725,
+     "end": 770
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "SC2",
+   "name": "Tomás Navarro",
+   "short": "SC2",
+   "subject_ids": [
+    "SC"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "PS1",
+   "name": "Anna Esposito",
+   "short": "PS1",
+   "subject_ids": [
+    "PS"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "TUE",
+     "start": 525,
+     "end": 570
+    },
+    {
+     "day": "WED",
+     "start": 680,
+     "end": 725
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "AR1",
+   "name": "Bruno Rojas",
+   "short": "AR1",
+   "subject_ids": [
+    "AR"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "MU1",
+   "name": "Carla Fontana",
+   "short": "MU1",
+   "subject_ids": [
+    "MU"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "THU",
+     "start": 480,
+     "end": 525
+    },
+    {
+     "day": "FRI",
+     "start": 635,
+     "end": 680
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "EF1",
+   "name": "Davide Soto",
+   "short": "EF1",
+   "subject_ids": [
+    "EF"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "MON",
+     "start": 810,
+     "end": 855
+    },
+    {
+     "day": "TUE",
+     "start": 570,
+     "end": 615
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "EF2",
+   "name": "Inés Leone",
+   "short": "EF2",
+   "subject_ids": [
+    "EF"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "WED",
+     "start": 725,
+     "end": 770
+    },
+    {
+     "day": "THU",
+     "start": 525,
+     "end": 570
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "RE1",
+   "name": "Fabio Quispe",
+   "short": "RE1",
+   "subject_ids": [
+    "RE"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "FRI",
+     "start": 680,
+     "end": 725
+    },
+    {
+     "day": "MON",
+     "start": 480,
+     "end": 525
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "CN1",
+   "name": "Gabriela Ricci",
+   "short": "CN1",
+   "subject_ids": [
+    "CN"
+   ],
+   "max_day": 8,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "TUE",
+     "start": 635,
+     "end": 680
+    },
+    {
+     "day": "WED",
+     "start": 810,
+     "end": 855
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "ST1",
+   "name": "Hugo Flores",
+   "short": "ST1",
+   "subject_ids": [
+    "ST"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "GE1",
+   "name": "Irene Moretti",
+   "short": "GE1",
+   "subject_ids": [
+    "GE"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "THU",
+     "start": 570,
+     "end": 615
+    },
+    {
+     "day": "FRI",
+     "start": 725,
+     "end": 770
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "FI1",
+   "name": "Jorge Díaz",
+   "short": "FI1",
+   "subject_ids": [
+    "FI"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "MON",
+     "start": 525,
+     "end": 570
+    },
+    {
+     "day": "TUE",
+     "start": 680,
+     "end": 725
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "LA1",
+   "name": "Laura Longo",
+   "short": "LA1",
+   "subject_ids": [
+    "LA"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "WED",
+     "start": 480,
+     "end": 525
+    },
+    {
+     "day": "THU",
+     "start": 635,
+     "end": 680
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "FL1",
+   "name": "Mario Salazar",
+   "short": "FL1",
+   "subject_ids": [
+    "FL"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "FRI",
+     "start": 810,
+     "end": 855
+    },
+    {
+     "day": "MON",
+     "start": 570,
+     "end": 615
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "SA1",
+   "name": "Nadia Marino",
+   "short": "SA1",
+   "subject_ids": [
+    "SA"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "TUE",
+     "start": 725,
+     "end": 770
+    },
+    {
+     "day": "WED",
+     "start": 525,
+     "end": 570
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  },
+  {
+   "id": "DG1",
+   "name": "Óscar Ramos",
+   "short": "DG1",
+   "subject_ids": [
+    "DG"
+   ],
+   "max_day": 6,
+   "max_week": 24,
+   "cover_eligible": true,
+   "cover_duty": [
+    {
+     "day": "THU",
+     "start": 680,
+     "end": 725
+    },
+    {
+     "day": "FRI",
+     "start": 480,
+     "end": 525
+    }
+   ],
+   "email": "",
+   "contract_note": "Ficticio: carga lectiva separada de apoyo/tutoría"
+  }
+ ],
+ "sections": [
+  {
+   "id": "1P",
+   "name": "1° Primaria",
+   "level": "primaria",
+   "track": null,
+   "bell_id": "PRIM",
+   "home_room": "A-1P",
+   "groups": [],
+   "plan": "PRIM"
+  },
+  {
+   "id": "2P",
+   "name": "2° Primaria",
+   "level": "primaria",
+   "track": null,
+   "bell_id": "PRIM",
+   "home_room": "A-2P",
+   "groups": [],
+   "plan": "PRIM"
+  },
+  {
+   "id": "3P",
+   "name": "3° Primaria",
+   "level": "primaria",
+   "track": null,
+   "bell_id": "PRIM",
+   "home_room": "A-3P",
+   "groups": [],
+   "plan": "PRIM"
+  },
+  {
+   "id": "4P",
+   "name": "4° Primaria",
+   "level": "primaria",
+   "track": null,
+   "bell_id": "PRIM",
+   "home_room": "A-4P",
+   "groups": [],
+   "plan": "PRIM"
+  },
+  {
+   "id": "5P",
+   "name": "5° Primaria",
+   "level": "primaria",
+   "track": null,
+   "bell_id": "PRIM",
+   "home_room": "A-5P",
+   "groups": [],
+   "plan": "PRIM"
+  },
+  {
+   "id": "1M",
+   "name": "1ª Media",
+   "level": "media",
+   "track": null,
+   "bell_id": "SEC",
+   "home_room": "A-1M",
+   "groups": [],
+   "plan": "MED"
+  },
+  {
+   "id": "2M",
+   "name": "2ª Media",
+   "level": "media",
+   "track": null,
+   "bell_id": "SEC",
+   "home_room": "A-2M",
+   "groups": [],
+   "plan": "MED"
+  },
+  {
+   "id": "3M",
+   "name": "3ª Media",
+   "level": "media",
+   "track": null,
+   "bell_id": "SEC",
+   "home_room": "A-3M",
+   "groups": [],
+   "plan": "MED"
+  },
+  {
+   "id": "1LS",
+   "name": "1° Liceo Científico",
+   "level": "liceo",
+   "track": "scientifico",
+   "bell_id": "SEC",
+   "home_room": "A-1LS",
+   "groups": [],
+   "plan": "LSC"
+  },
+  {
+   "id": "2LS",
+   "name": "2° Liceo Científico",
+   "level": "liceo",
+   "track": "scientifico",
+   "bell_id": "SEC",
+   "home_room": "A-2LS",
+   "groups": [],
+   "plan": "LSC"
+  },
+  {
+   "id": "1LL",
+   "name": "1° Liceo Lingüístico",
+   "level": "liceo",
+   "track": "linguistico",
+   "bell_id": "SEC",
+   "home_room": "A-1LL",
+   "groups": [
+    {
+     "id": "A",
+     "name": "Grupo A"
+    },
+    {
+     "id": "B",
+     "name": "Grupo B"
+    }
+   ],
+   "plan": "LLI"
+  },
+  {
+   "id": "2LL",
+   "name": "2° Liceo Lingüístico",
+   "level": "liceo",
+   "track": "linguistico",
+   "bell_id": "SEC",
+   "home_room": "A-2LL",
+   "groups": [
+    {
+     "id": "A",
+     "name": "Grupo A"
+    },
+    {
+     "id": "B",
+     "name": "Grupo B"
+    }
+   ],
+   "plan": "LLI"
+  },
+  {
+   "id": "1LA",
+   "name": "1° Liceo Artístico",
+   "level": "liceo",
+   "track": "artistico",
+   "bell_id": "SEC",
+   "home_room": "A-1LA",
+   "groups": [],
+   "plan": "LAR"
+  },
+  {
+   "id": "2LA",
+   "name": "2° Liceo Artístico",
+   "level": "liceo",
+   "track": "artistico",
+   "bell_id": "SEC",
+   "home_room": "A-2LA",
+   "groups": [],
+   "plan": "LAR"
+  }
+ ],
+ "rooms": [
+  {
+   "id": "A-1P",
+   "name": "Aula 1P",
+   "kind": "home"
+  },
+  {
+   "id": "A-2P",
+   "name": "Aula 2P",
+   "kind": "home"
+  },
+  {
+   "id": "A-3P",
+   "name": "Aula 3P",
+   "kind": "home"
+  },
+  {
+   "id": "A-4P",
+   "name": "Aula 4P",
+   "kind": "home"
+  },
+  {
+   "id": "A-5P",
+   "name": "Aula 5P",
+   "kind": "home"
+  },
+  {
+   "id": "A-1M",
+   "name": "Aula 1M",
+   "kind": "home"
+  },
+  {
+   "id": "A-2M",
+   "name": "Aula 2M",
+   "kind": "home"
+  },
+  {
+   "id": "A-3M",
+   "name": "Aula 3M",
+   "kind": "home"
+  },
+  {
+   "id": "A-1LS",
+   "name": "Aula 1LS",
+   "kind": "home"
+  },
+  {
+   "id": "A-2LS",
+   "name": "Aula 2LS",
+   "kind": "home"
+  },
+  {
+   "id": "A-1LL",
+   "name": "Aula 1LL",
+   "kind": "home"
+  },
+  {
+   "id": "A-2LL",
+   "name": "Aula 2LL",
+   "kind": "home"
+  },
+  {
+   "id": "A-1LA",
+   "name": "Aula 1LA",
+   "kind": "home"
+  },
+  {
+   "id": "A-2LA",
+   "name": "Aula 2LA",
+   "kind": "home"
+  },
+  {
+   "id": "LAB",
+   "name": "Laboratorio de ciencias",
+   "kind": "science_lab"
+  },
+  {
+   "id": "ART1",
+   "name": "Taller de arte 1",
+   "kind": "art_studio"
+  },
+  {
+   "id": "ART2",
+   "name": "Taller de arte 2",
+   "kind": "art_studio"
+  },
+  {
+   "id": "GYM1",
+   "name": "Gimnasio",
+   "kind": "gym"
+  },
+  {
+   "id": "GYM2",
+   "name": "Patio deportivo",
+   "kind": "gym"
+  },
+  {
+   "id": "MUS",
+   "name": "Sala de música",
+   "kind": "music"
+  },
+  {
+   "id": "LANG",
+   "name": "Laboratorio de idiomas",
+   "kind": "language_lab"
+  }
+ ],
+ "lessons": [
+  {
+   "id": "1P-IT",
+   "section_id": "1P",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT1"
+   ],
+   "periods_per_week": 7,
+   "blocks": [
+    2,
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1P"
+   ]
+  },
+  {
+   "id": "1P-ES",
+   "section_id": "1P",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES1"
+   ],
+   "periods_per_week": 5,
+   "blocks": [
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1P"
+   ]
+  },
+  {
+   "id": "1P-MA",
+   "section_id": "1P",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA1"
+   ],
+   "periods_per_week": 6,
+   "blocks": [
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1P"
+   ]
+  },
+  {
+   "id": "1P-EN",
+   "section_id": "1P",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1P"
+   ]
+  },
+  {
+   "id": "1P-SC",
+   "section_id": "1P",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "1P-PS",
+   "section_id": "1P",
+   "subject_id": "PS",
+   "teacher_ids": [
+    "PS1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1P"
+   ]
+  },
+  {
+   "id": "1P-AR",
+   "section_id": "1P",
+   "subject_id": "AR",
+   "teacher_ids": [
+    "AR1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "A-1P"
+   ]
+  },
+  {
+   "id": "1P-MU",
+   "section_id": "1P",
+   "subject_id": "MU",
+   "teacher_ids": [
+    "MU1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "MUS"
+   ]
+  },
+  {
+   "id": "1P-EF",
+   "section_id": "1P",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "1P-RE",
+   "section_id": "1P",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-1P"
+   ]
+  },
+  {
+   "id": "2P-IT",
+   "section_id": "2P",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT1"
+   ],
+   "periods_per_week": 7,
+   "blocks": [
+    2,
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2P"
+   ]
+  },
+  {
+   "id": "2P-ES",
+   "section_id": "2P",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES1"
+   ],
+   "periods_per_week": 5,
+   "blocks": [
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2P"
+   ]
+  },
+  {
+   "id": "2P-MA",
+   "section_id": "2P",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA1"
+   ],
+   "periods_per_week": 6,
+   "blocks": [
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2P"
+   ]
+  },
+  {
+   "id": "2P-EN",
+   "section_id": "2P",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2P"
+   ]
+  },
+  {
+   "id": "2P-SC",
+   "section_id": "2P",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "2P-PS",
+   "section_id": "2P",
+   "subject_id": "PS",
+   "teacher_ids": [
+    "PS1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2P"
+   ]
+  },
+  {
+   "id": "2P-AR",
+   "section_id": "2P",
+   "subject_id": "AR",
+   "teacher_ids": [
+    "AR1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "A-2P"
+   ]
+  },
+  {
+   "id": "2P-MU",
+   "section_id": "2P",
+   "subject_id": "MU",
+   "teacher_ids": [
+    "MU1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "MUS"
+   ]
+  },
+  {
+   "id": "2P-EF",
+   "section_id": "2P",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "2P-RE",
+   "section_id": "2P",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-2P"
+   ]
+  },
+  {
+   "id": "3P-IT",
+   "section_id": "3P",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT2"
+   ],
+   "periods_per_week": 7,
+   "blocks": [
+    2,
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-3P"
+   ]
+  },
+  {
+   "id": "3P-ES",
+   "section_id": "3P",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES1"
+   ],
+   "periods_per_week": 5,
+   "blocks": [
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-3P"
+   ]
+  },
+  {
+   "id": "3P-MA",
+   "section_id": "3P",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA1"
+   ],
+   "periods_per_week": 6,
+   "blocks": [
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-3P"
+   ]
+  },
+  {
+   "id": "3P-EN",
+   "section_id": "3P",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-3P"
+   ]
+  },
+  {
+   "id": "3P-SC",
+   "section_id": "3P",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "3P-PS",
+   "section_id": "3P",
+   "subject_id": "PS",
+   "teacher_ids": [
+    "PS1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-3P"
+   ]
+  },
+  {
+   "id": "3P-AR",
+   "section_id": "3P",
+   "subject_id": "AR",
+   "teacher_ids": [
+    "AR1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "A-3P"
+   ]
+  },
+  {
+   "id": "3P-MU",
+   "section_id": "3P",
+   "subject_id": "MU",
+   "teacher_ids": [
+    "MU1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "MUS"
+   ]
+  },
+  {
+   "id": "3P-EF",
+   "section_id": "3P",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "3P-RE",
+   "section_id": "3P",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-3P"
+   ]
+  },
+  {
+   "id": "4P-IT",
+   "section_id": "4P",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT2"
+   ],
+   "periods_per_week": 7,
+   "blocks": [
+    2,
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-4P"
+   ]
+  },
+  {
+   "id": "4P-ES",
+   "section_id": "4P",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES2"
+   ],
+   "periods_per_week": 5,
+   "blocks": [
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-4P"
+   ]
+  },
+  {
+   "id": "4P-MA",
+   "section_id": "4P",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA2"
+   ],
+   "periods_per_week": 6,
+   "blocks": [
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-4P"
+   ]
+  },
+  {
+   "id": "4P-EN",
+   "section_id": "4P",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-4P"
+   ]
+  },
+  {
+   "id": "4P-SC",
+   "section_id": "4P",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "4P-PS",
+   "section_id": "4P",
+   "subject_id": "PS",
+   "teacher_ids": [
+    "PS1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-4P"
+   ]
+  },
+  {
+   "id": "4P-AR",
+   "section_id": "4P",
+   "subject_id": "AR",
+   "teacher_ids": [
+    "AR1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "A-4P"
+   ]
+  },
+  {
+   "id": "4P-MU",
+   "section_id": "4P",
+   "subject_id": "MU",
+   "teacher_ids": [
+    "MU1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "MUS"
+   ]
+  },
+  {
+   "id": "4P-EF",
+   "section_id": "4P",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "4P-RE",
+   "section_id": "4P",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-4P"
+   ]
+  },
+  {
+   "id": "5P-IT",
+   "section_id": "5P",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT3"
+   ],
+   "periods_per_week": 7,
+   "blocks": [
+    2,
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-5P"
+   ]
+  },
+  {
+   "id": "5P-ES",
+   "section_id": "5P",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES2"
+   ],
+   "periods_per_week": 5,
+   "blocks": [
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-5P"
+   ]
+  },
+  {
+   "id": "5P-MA",
+   "section_id": "5P",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA2"
+   ],
+   "periods_per_week": 6,
+   "blocks": [
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-5P"
+   ]
+  },
+  {
+   "id": "5P-EN",
+   "section_id": "5P",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-5P"
+   ]
+  },
+  {
+   "id": "5P-SC",
+   "section_id": "5P",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "5P-PS",
+   "section_id": "5P",
+   "subject_id": "PS",
+   "teacher_ids": [
+    "PS1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-5P"
+   ]
+  },
+  {
+   "id": "5P-AR",
+   "section_id": "5P",
+   "subject_id": "AR",
+   "teacher_ids": [
+    "AR1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "A-5P"
+   ]
+  },
+  {
+   "id": "5P-MU",
+   "section_id": "5P",
+   "subject_id": "MU",
+   "teacher_ids": [
+    "MU1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "MUS"
+   ]
+  },
+  {
+   "id": "5P-EF",
+   "section_id": "5P",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "5P-RE",
+   "section_id": "5P",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-5P"
+   ]
+  },
+  {
+   "id": "1M-IT",
+   "section_id": "1M",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT3"
+   ],
+   "periods_per_week": 6,
+   "blocks": [
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1M"
+   ]
+  },
+  {
+   "id": "1M-ES",
+   "section_id": "1M",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES2"
+   ],
+   "periods_per_week": 4,
+   "blocks": [
+    2,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1M"
+   ]
+  },
+  {
+   "id": "1M-MA",
+   "section_id": "1M",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA2"
+   ],
+   "periods_per_week": 5,
+   "blocks": [
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1M"
+   ]
+  },
+  {
+   "id": "1M-EN",
+   "section_id": "1M",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN2"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1M"
+   ]
+  },
+  {
+   "id": "1M-CN",
+   "section_id": "1M",
+   "subject_id": "CN",
+   "teacher_ids": [
+    "CN1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "A-1M"
+   ]
+  },
+  {
+   "id": "1M-SC",
+   "section_id": "1M",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "1M-ST",
+   "section_id": "1M",
+   "subject_id": "ST",
+   "teacher_ids": [
+    "ST1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1M"
+   ]
+  },
+  {
+   "id": "1M-GE",
+   "section_id": "1M",
+   "subject_id": "GE",
+   "teacher_ids": [
+    "GE1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1M"
+   ]
+  },
+  {
+   "id": "1M-AR",
+   "section_id": "1M",
+   "subject_id": "AR",
+   "teacher_ids": [
+    "AR1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "ART1",
+    "ART2"
+   ]
+  },
+  {
+   "id": "1M-MU",
+   "section_id": "1M",
+   "subject_id": "MU",
+   "teacher_ids": [
+    "MU1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "MUS"
+   ]
+  },
+  {
+   "id": "1M-EF",
+   "section_id": "1M",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "1M-RE",
+   "section_id": "1M",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-1M"
+   ]
+  },
+  {
+   "id": "2M-IT",
+   "section_id": "2M",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT4"
+   ],
+   "periods_per_week": 6,
+   "blocks": [
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2M"
+   ]
+  },
+  {
+   "id": "2M-ES",
+   "section_id": "2M",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES3"
+   ],
+   "periods_per_week": 4,
+   "blocks": [
+    2,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2M"
+   ]
+  },
+  {
+   "id": "2M-MA",
+   "section_id": "2M",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA3"
+   ],
+   "periods_per_week": 5,
+   "blocks": [
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2M"
+   ]
+  },
+  {
+   "id": "2M-EN",
+   "section_id": "2M",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN2"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2M"
+   ]
+  },
+  {
+   "id": "2M-CN",
+   "section_id": "2M",
+   "subject_id": "CN",
+   "teacher_ids": [
+    "CN1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "A-2M"
+   ]
+  },
+  {
+   "id": "2M-SC",
+   "section_id": "2M",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "2M-ST",
+   "section_id": "2M",
+   "subject_id": "ST",
+   "teacher_ids": [
+    "ST1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2M"
+   ]
+  },
+  {
+   "id": "2M-GE",
+   "section_id": "2M",
+   "subject_id": "GE",
+   "teacher_ids": [
+    "GE1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2M"
+   ]
+  },
+  {
+   "id": "2M-AR",
+   "section_id": "2M",
+   "subject_id": "AR",
+   "teacher_ids": [
+    "AR1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "ART1",
+    "ART2"
+   ]
+  },
+  {
+   "id": "2M-MU",
+   "section_id": "2M",
+   "subject_id": "MU",
+   "teacher_ids": [
+    "MU1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "MUS"
+   ]
+  },
+  {
+   "id": "2M-EF",
+   "section_id": "2M",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "2M-RE",
+   "section_id": "2M",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-2M"
+   ]
+  },
+  {
+   "id": "3M-IT",
+   "section_id": "3M",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT4"
+   ],
+   "periods_per_week": 6,
+   "blocks": [
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-3M"
+   ]
+  },
+  {
+   "id": "3M-ES",
+   "section_id": "3M",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES3"
+   ],
+   "periods_per_week": 4,
+   "blocks": [
+    2,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-3M"
+   ]
+  },
+  {
+   "id": "3M-MA",
+   "section_id": "3M",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA3"
+   ],
+   "periods_per_week": 5,
+   "blocks": [
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-3M"
+   ]
+  },
+  {
+   "id": "3M-EN",
+   "section_id": "3M",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN2"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-3M"
+   ]
+  },
+  {
+   "id": "3M-CN",
+   "section_id": "3M",
+   "subject_id": "CN",
+   "teacher_ids": [
+    "CN1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "A-3M"
+   ]
+  },
+  {
+   "id": "3M-SC",
+   "section_id": "3M",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC2"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "3M-ST",
+   "section_id": "3M",
+   "subject_id": "ST",
+   "teacher_ids": [
+    "ST1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-3M"
+   ]
+  },
+  {
+   "id": "3M-GE",
+   "section_id": "3M",
+   "subject_id": "GE",
+   "teacher_ids": [
+    "GE1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-3M"
+   ]
+  },
+  {
+   "id": "3M-AR",
+   "section_id": "3M",
+   "subject_id": "AR",
+   "teacher_ids": [
+    "AR1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "ART1",
+    "ART2"
+   ]
+  },
+  {
+   "id": "3M-MU",
+   "section_id": "3M",
+   "subject_id": "MU",
+   "teacher_ids": [
+    "MU1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "MUS"
+   ]
+  },
+  {
+   "id": "3M-EF",
+   "section_id": "3M",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF2"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "3M-RE",
+   "section_id": "3M",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-3M"
+   ]
+  },
+  {
+   "id": "1LS-IT",
+   "section_id": "1LS",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT4"
+   ],
+   "periods_per_week": 4,
+   "blocks": [
+    2,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LS"
+   ]
+  },
+  {
+   "id": "1LS-ES",
+   "section_id": "1LS",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES3"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "A-1LS"
+   ]
+  },
+  {
+   "id": "1LS-MA",
+   "section_id": "1LS",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA3"
+   ],
+   "periods_per_week": 5,
+   "blocks": [
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LS"
+   ]
+  },
+  {
+   "id": "1LS-FI",
+   "section_id": "1LS",
+   "subject_id": "FI",
+   "teacher_ids": [
+    "FI1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "1LS-EN",
+   "section_id": "1LS",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN2"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LS"
+   ]
+  },
+  {
+   "id": "1LS-LA",
+   "section_id": "1LS",
+   "subject_id": "LA",
+   "teacher_ids": [
+    "LA1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LS"
+   ]
+  },
+  {
+   "id": "1LS-SC",
+   "section_id": "1LS",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC2"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "1LS-ST",
+   "section_id": "1LS",
+   "subject_id": "ST",
+   "teacher_ids": [
+    "ST1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LS"
+   ]
+  },
+  {
+   "id": "1LS-FL",
+   "section_id": "1LS",
+   "subject_id": "FL",
+   "teacher_ids": [
+    "FL1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LS"
+   ]
+  },
+  {
+   "id": "1LS-AR",
+   "section_id": "1LS",
+   "subject_id": "AR",
+   "teacher_ids": [
+    "AR1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "ART1",
+    "ART2"
+   ]
+  },
+  {
+   "id": "1LS-EF",
+   "section_id": "1LS",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF2"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "1LS-RE",
+   "section_id": "1LS",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-1LS"
+   ]
+  },
+  {
+   "id": "2LS-IT",
+   "section_id": "2LS",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT5"
+   ],
+   "periods_per_week": 4,
+   "blocks": [
+    2,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LS"
+   ]
+  },
+  {
+   "id": "2LS-ES",
+   "section_id": "2LS",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES3"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "A-2LS"
+   ]
+  },
+  {
+   "id": "2LS-MA",
+   "section_id": "2LS",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA4"
+   ],
+   "periods_per_week": 5,
+   "blocks": [
+    2,
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LS"
+   ]
+  },
+  {
+   "id": "2LS-FI",
+   "section_id": "2LS",
+   "subject_id": "FI",
+   "teacher_ids": [
+    "FI1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "2LS-EN",
+   "section_id": "2LS",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN2"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LS"
+   ]
+  },
+  {
+   "id": "2LS-LA",
+   "section_id": "2LS",
+   "subject_id": "LA",
+   "teacher_ids": [
+    "LA1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LS"
+   ]
+  },
+  {
+   "id": "2LS-SC",
+   "section_id": "2LS",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC2"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "2LS-ST",
+   "section_id": "2LS",
+   "subject_id": "ST",
+   "teacher_ids": [
+    "ST1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LS"
+   ]
+  },
+  {
+   "id": "2LS-FL",
+   "section_id": "2LS",
+   "subject_id": "FL",
+   "teacher_ids": [
+    "FL1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LS"
+   ]
+  },
+  {
+   "id": "2LS-AR",
+   "section_id": "2LS",
+   "subject_id": "AR",
+   "teacher_ids": [
+    "AR1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "ART1",
+    "ART2"
+   ]
+  },
+  {
+   "id": "2LS-EF",
+   "section_id": "2LS",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF2"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "2LS-RE",
+   "section_id": "2LS",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-2LS"
+   ]
+  },
+  {
+   "id": "1LL-IT",
+   "section_id": "1LL",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT5"
+   ],
+   "periods_per_week": 4,
+   "blocks": [
+    2,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LL"
+   ]
+  },
+  {
+   "id": "1LL-ES",
+   "section_id": "1LL",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES4"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "A-1LL"
+   ]
+  },
+  {
+   "id": "1LL-MA",
+   "section_id": "1LL",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA4"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LL"
+   ]
+  },
+  {
+   "id": "1LL-EN",
+   "section_id": "1LL",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN3"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LL"
+   ]
+  },
+  {
+   "id": "1LL-ENA",
+   "section_id": "1LL",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN3"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "group_id": "A",
+   "room_ids": [
+    "A-1LL"
+   ]
+  },
+  {
+   "id": "1LL-ENB",
+   "section_id": "1LL",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN3"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "group_id": "B",
+   "room_ids": [
+    "LANG"
+   ]
+  },
+  {
+   "id": "1LL-CN",
+   "section_id": "1LL",
+   "subject_id": "CN",
+   "teacher_ids": [
+    "CN1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "A-1LL"
+   ]
+  },
+  {
+   "id": "1LL-LA",
+   "section_id": "1LL",
+   "subject_id": "LA",
+   "teacher_ids": [
+    "LA1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LL"
+   ]
+  },
+  {
+   "id": "1LL-SC",
+   "section_id": "1LL",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC2"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "1LL-ST",
+   "section_id": "1LL",
+   "subject_id": "ST",
+   "teacher_ids": [
+    "ST1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LL"
+   ]
+  },
+  {
+   "id": "1LL-FL",
+   "section_id": "1LL",
+   "subject_id": "FL",
+   "teacher_ids": [
+    "FL1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LL"
+   ]
+  },
+  {
+   "id": "1LL-SA",
+   "section_id": "1LL",
+   "subject_id": "SA",
+   "teacher_ids": [
+    "SA1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LL"
+   ]
+  },
+  {
+   "id": "1LL-EF",
+   "section_id": "1LL",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF2"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "1LL-RE",
+   "section_id": "1LL",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-1LL"
+   ]
+  },
+  {
+   "id": "2LL-IT",
+   "section_id": "2LL",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT5"
+   ],
+   "periods_per_week": 4,
+   "blocks": [
+    2,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LL"
+   ]
+  },
+  {
+   "id": "2LL-ES",
+   "section_id": "2LL",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES4"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "A-2LL"
+   ]
+  },
+  {
+   "id": "2LL-MA",
+   "section_id": "2LL",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA4"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LL"
+   ]
+  },
+  {
+   "id": "2LL-EN",
+   "section_id": "2LL",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN3"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LL"
+   ]
+  },
+  {
+   "id": "2LL-ENA",
+   "section_id": "2LL",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN3"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "group_id": "A",
+   "room_ids": [
+    "A-2LL"
+   ]
+  },
+  {
+   "id": "2LL-ENB",
+   "section_id": "2LL",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN3"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "group_id": "B",
+   "room_ids": [
+    "LANG"
+   ]
+  },
+  {
+   "id": "2LL-CN",
+   "section_id": "2LL",
+   "subject_id": "CN",
+   "teacher_ids": [
+    "CN1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "A-2LL"
+   ]
+  },
+  {
+   "id": "2LL-LA",
+   "section_id": "2LL",
+   "subject_id": "LA",
+   "teacher_ids": [
+    "LA1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LL"
+   ]
+  },
+  {
+   "id": "2LL-SC",
+   "section_id": "2LL",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC2"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "2LL-ST",
+   "section_id": "2LL",
+   "subject_id": "ST",
+   "teacher_ids": [
+    "ST1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LL"
+   ]
+  },
+  {
+   "id": "2LL-FL",
+   "section_id": "2LL",
+   "subject_id": "FL",
+   "teacher_ids": [
+    "FL1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LL"
+   ]
+  },
+  {
+   "id": "2LL-SA",
+   "section_id": "2LL",
+   "subject_id": "SA",
+   "teacher_ids": [
+    "SA1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LL"
+   ]
+  },
+  {
+   "id": "2LL-EF",
+   "section_id": "2LL",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF2"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "2LL-RE",
+   "section_id": "2LL",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-2LL"
+   ]
+  },
+  {
+   "id": "1LA-IT",
+   "section_id": "1LA",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT5"
+   ],
+   "periods_per_week": 4,
+   "blocks": [
+    2,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LA"
+   ]
+  },
+  {
+   "id": "1LA-ES",
+   "section_id": "1LA",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES4"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "A-1LA"
+   ]
+  },
+  {
+   "id": "1LA-MA",
+   "section_id": "1LA",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA4"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LA"
+   ]
+  },
+  {
+   "id": "1LA-EN",
+   "section_id": "1LA",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN3"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LA"
+   ]
+  },
+  {
+   "id": "1LA-ST",
+   "section_id": "1LA",
+   "subject_id": "ST",
+   "teacher_ids": [
+    "ST1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LA"
+   ]
+  },
+  {
+   "id": "1LA-FL",
+   "section_id": "1LA",
+   "subject_id": "FL",
+   "teacher_ids": [
+    "FL1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-1LA"
+   ]
+  },
+  {
+   "id": "1LA-SA",
+   "section_id": "1LA",
+   "subject_id": "SA",
+   "teacher_ids": [
+    "SA1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "A-1LA"
+   ]
+  },
+  {
+   "id": "1LA-DG",
+   "section_id": "1LA",
+   "subject_id": "DG",
+   "teacher_ids": [
+    "DG1"
+   ],
+   "periods_per_week": 6,
+   "blocks": [
+    2,
+    2,
+    2
+   ],
+   "room_ids": [
+    "ART1",
+    "ART2"
+   ]
+  },
+  {
+   "id": "1LA-SC",
+   "section_id": "1LA",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC2"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "1LA-EF",
+   "section_id": "1LA",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF2"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "1LA-RE",
+   "section_id": "1LA",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-1LA"
+   ]
+  },
+  {
+   "id": "2LA-IT",
+   "section_id": "2LA",
+   "subject_id": "IT",
+   "teacher_ids": [
+    "IT5"
+   ],
+   "periods_per_week": 4,
+   "blocks": [
+    2,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LA"
+   ]
+  },
+  {
+   "id": "2LA-ES",
+   "section_id": "2LA",
+   "subject_id": "ES",
+   "teacher_ids": [
+    "ES4"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "A-2LA"
+   ]
+  },
+  {
+   "id": "2LA-MA",
+   "section_id": "2LA",
+   "subject_id": "MA",
+   "teacher_ids": [
+    "MA4"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LA"
+   ]
+  },
+  {
+   "id": "2LA-EN",
+   "section_id": "2LA",
+   "subject_id": "EN",
+   "teacher_ids": [
+    "EN3"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    1,
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LA"
+   ]
+  },
+  {
+   "id": "2LA-ST",
+   "section_id": "2LA",
+   "subject_id": "ST",
+   "teacher_ids": [
+    "ST1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LA"
+   ]
+  },
+  {
+   "id": "2LA-FL",
+   "section_id": "2LA",
+   "subject_id": "FL",
+   "teacher_ids": [
+    "FL1"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "A-2LA"
+   ]
+  },
+  {
+   "id": "2LA-SA",
+   "section_id": "2LA",
+   "subject_id": "SA",
+   "teacher_ids": [
+    "SA1"
+   ],
+   "periods_per_week": 3,
+   "blocks": [
+    2,
+    1
+   ],
+   "room_ids": [
+    "A-2LA"
+   ]
+  },
+  {
+   "id": "2LA-DG",
+   "section_id": "2LA",
+   "subject_id": "DG",
+   "teacher_ids": [
+    "DG1"
+   ],
+   "periods_per_week": 6,
+   "blocks": [
+    2,
+    2,
+    2
+   ],
+   "room_ids": [
+    "ART1",
+    "ART2"
+   ]
+  },
+  {
+   "id": "2LA-SC",
+   "section_id": "2LA",
+   "subject_id": "SC",
+   "teacher_ids": [
+    "SC2"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    1,
+    1
+   ],
+   "room_ids": [
+    "LAB"
+   ]
+  },
+  {
+   "id": "2LA-EF",
+   "section_id": "2LA",
+   "subject_id": "EF",
+   "teacher_ids": [
+    "EF2"
+   ],
+   "periods_per_week": 2,
+   "blocks": [
+    2
+   ],
+   "room_ids": [
+    "GYM1",
+    "GYM2"
+   ]
+  },
+  {
+   "id": "2LA-RE",
+   "section_id": "2LA",
+   "subject_id": "RE",
+   "teacher_ids": [
+    "RE1"
+   ],
+   "periods_per_week": 1,
+   "blocks": [
+    1
+   ],
+   "room_ids": [
+    "A-2LA"
+   ]
+  }
+ ],
+ "constraints": [
+  {
+   "id": "H-CN-DAYS",
+   "type": "teacher_allowed_days",
+   "teacher_id": "CN1",
+   "days": [
+    "TUE",
+    "THU"
+   ],
+   "hard": true,
+   "note": "Ejemplo: docente de chino solo martes y jueves (hipótesis a validar)"
+  },
+  {
+   "id": "H-PT-MON",
+   "type": "teacher_unavailable",
+   "teacher_id": "MU1",
+   "slots": [
+    {
+     "day": "MON",
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "hard": true,
+   "note": "Ejemplo: tiempo parcial, no trabaja lunes"
+  },
+  {
+   "id": "H-FL1-DAYS",
+   "type": "teacher_max_days",
+   "teacher_id": "FL1",
+   "max": 4,
+   "hard": true,
+   "note": "Ejemplo: máximo 4 días con clase"
+  },
+  {
+   "id": "S-CORE",
+   "type": "preferred_periods",
+   "subject_ids": [
+    "IT",
+    "ES",
+    "MA",
+    "EN"
+   ],
+   "periods": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "hard": false,
+   "priority": 2,
+   "note": "Preferencia: materias troncales antes del almuerzo"
+  },
+  {
+   "id": "S-FRI-LAST",
+   "type": "avoid_slot",
+   "day": "FRI",
+   "period": 8,
+   "hard": false,
+   "priority": 3,
+   "note": "Preferencia: evitar la última hora del viernes"
+  },
+  {
+   "id": "S-GAPS",
+   "type": "teacher_gaps",
+   "teacher_ids": [],
+   "hard": false,
+   "priority": 2,
+   "note": "Preferencia: evitar huecos en el día de cada docente"
+  },
+  {
+   "id": "S-COMPACT",
+   "type": "teacher_compact_days",
+   "teacher_ids": [],
+   "hard": false,
+   "priority": 3,
+   "note": "Preferencia: concentrar los días de cada docente"
+  }
+ ],
+ "placements": [
+  {
+   "occ_id": "1LA-DG-1",
+   "day": "THU",
+   "period": 5,
+   "room_id": "ART2",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-DG-2",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "ART2",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-DG-3",
+   "day": "MON",
+   "period": 5,
+   "room_id": "ART2",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-EF-1",
+   "day": "TUE",
+   "period": 7,
+   "room_id": "GYM2",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-EN-1",
+   "day": "THU",
+   "period": 2,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-EN-2",
+   "day": "WED",
+   "period": 2,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-EN-3",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-ES-1",
+   "day": "WED",
+   "period": 4,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-ES-2",
+   "day": "TUE",
+   "period": 2,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-FL-1",
+   "day": "TUE",
+   "period": 6,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-FL-2",
+   "day": "WED",
+   "period": 6,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-IT-1",
+   "day": "MON",
+   "period": 2,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-IT-2",
+   "day": "THU",
+   "period": 3,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-IT-3",
+   "day": "WED",
+   "period": 3,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-MA-1",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-MA-2",
+   "day": "FRI",
+   "period": 3,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-MA-3",
+   "day": "TUE",
+   "period": 5,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-RE-1",
+   "day": "THU",
+   "period": 7,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-SA-1",
+   "day": "MON",
+   "period": 7,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-SA-2",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-SC-1",
+   "day": "TUE",
+   "period": 3,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-SC-2",
+   "day": "THU",
+   "period": 1,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-ST-1",
+   "day": "THU",
+   "period": 8,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-ST-2",
+   "day": "MON",
+   "period": 4,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-CN-1",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-CN-2",
+   "day": "THU",
+   "period": 3,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-EF-1",
+   "day": "THU",
+   "period": 7,
+   "room_id": "GYM2",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-EN-1",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-EN-2",
+   "day": "WED",
+   "period": 5,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-ENA-1",
+   "day": "WED",
+   "period": 4,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-ENB-1",
+   "day": "MON",
+   "period": 4,
+   "room_id": "LANG",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-ES-1",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-ES-2",
+   "day": "TUE",
+   "period": 3,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-FL-1",
+   "day": "TUE",
+   "period": 7,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-FL-2",
+   "day": "WED",
+   "period": 7,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-IT-1",
+   "day": "FRI",
+   "period": 2,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-IT-2",
+   "day": "THU",
+   "period": 1,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-IT-3",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-LA-1",
+   "day": "MON",
+   "period": 6,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-LA-2",
+   "day": "WED",
+   "period": 3,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-MA-1",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-MA-2",
+   "day": "THU",
+   "period": 2,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-MA-3",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-RE-1",
+   "day": "FRI",
+   "period": 7,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-SA-1",
+   "day": "TUE",
+   "period": 6,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-SA-2",
+   "day": "MON",
+   "period": 5,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-SC-1",
+   "day": "TUE",
+   "period": 1,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-SC-2",
+   "day": "MON",
+   "period": 7,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-ST-1",
+   "day": "THU",
+   "period": 5,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-ST-2",
+   "day": "FRI",
+   "period": 5,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-AR-1",
+   "day": "THU",
+   "period": 7,
+   "room_id": "ART2",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-EF-1",
+   "day": "WED",
+   "period": 7,
+   "room_id": "GYM2",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-EN-1",
+   "day": "WED",
+   "period": 3,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-EN-2",
+   "day": "TUE",
+   "period": 5,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-EN-3",
+   "day": "MON",
+   "period": 4,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-ES-1",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-ES-2",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-FI-1",
+   "day": "FRI",
+   "period": 1,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-FI-2",
+   "day": "THU",
+   "period": 6,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-FL-1",
+   "day": "MON",
+   "period": 5,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-FL-2",
+   "day": "TUE",
+   "period": 8,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-IT-1",
+   "day": "TUE",
+   "period": 1,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-IT-2",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-IT-3",
+   "day": "THU",
+   "period": 1,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-LA-1",
+   "day": "MON",
+   "period": 8,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-LA-2",
+   "day": "FRI",
+   "period": 6,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-LA-3",
+   "day": "WED",
+   "period": 5,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-MA-1",
+   "day": "THU",
+   "period": 2,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-MA-2",
+   "day": "TUE",
+   "period": 3,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-MA-3",
+   "day": "FRI",
+   "period": 3,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-MA-4",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-RE-1",
+   "day": "MON",
+   "period": 7,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-SC-1",
+   "day": "THU",
+   "period": 4,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-SC-2",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-ST-1",
+   "day": "TUE",
+   "period": 6,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-ST-2",
+   "day": "MON",
+   "period": 2,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-AR-1",
+   "day": "MON",
+   "period": 7,
+   "room_id": "ART1",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-CN-1",
+   "day": "THU",
+   "period": 1,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-EF-1",
+   "day": "WED",
+   "period": 7,
+   "room_id": "GYM1",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-EN-1",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-EN-2",
+   "day": "WED",
+   "period": 2,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-EN-3",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-ES-1",
+   "day": "FRI",
+   "period": 1,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-ES-2",
+   "day": "TUE",
+   "period": 5,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-ES-3",
+   "day": "MON",
+   "period": 2,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-GE-1",
+   "day": "MON",
+   "period": 5,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-GE-2",
+   "day": "WED",
+   "period": 6,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-IT-1",
+   "day": "TUE",
+   "period": 2,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-IT-2",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-IT-3",
+   "day": "FRI",
+   "period": 3,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-IT-4",
+   "day": "WED",
+   "period": 3,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-IT-5",
+   "day": "THU",
+   "period": 3,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-MA-1",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-MA-2",
+   "day": "MON",
+   "period": 4,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-MA-3",
+   "day": "TUE",
+   "period": 1,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-MA-4",
+   "day": "THU",
+   "period": 5,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-MU-1",
+   "day": "THU",
+   "period": 7,
+   "room_id": "MUS",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-MU-2",
+   "day": "FRI",
+   "period": 6,
+   "room_id": "MUS",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-RE-1",
+   "day": "THU",
+   "period": 8,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-SC-1",
+   "day": "TUE",
+   "period": 7,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-SC-2",
+   "day": "WED",
+   "period": 1,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-ST-1",
+   "day": "FRI",
+   "period": 7,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-ST-2",
+   "day": "MON",
+   "period": 6,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-AR-1",
+   "day": "MON",
+   "period": 6,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-EF-1",
+   "day": "TUE",
+   "period": 6,
+   "room_id": "GYM1",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-EN-1",
+   "day": "TUE",
+   "period": 3,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-EN-2",
+   "day": "THU",
+   "period": 2,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-EN-3",
+   "day": "WED",
+   "period": 5,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-ES-1",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-ES-2",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-ES-3",
+   "day": "WED",
+   "period": 3,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-ES-4",
+   "day": "THU",
+   "period": 3,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-IT-1",
+   "day": "FRI",
+   "period": 1,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-IT-2",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-IT-3",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-IT-4",
+   "day": "TUE",
+   "period": 2,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-IT-5",
+   "day": "MON",
+   "period": 5,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-MA-1",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-MA-2",
+   "day": "THU",
+   "period": 1,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-MA-3",
+   "day": "FRI",
+   "period": 3,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-MA-4",
+   "day": "WED",
+   "period": 4,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-MA-5",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-MU-1",
+   "day": "THU",
+   "period": 5,
+   "room_id": "MUS",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-PS-1",
+   "day": "WED",
+   "period": 7,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-PS-2",
+   "day": "FRI",
+   "period": 5,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-RE-1",
+   "day": "THU",
+   "period": 6,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
+   "occ_id": "1P-SC-1",
+   "day": "FRI",
+   "period": 6,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-DG-1",
+   "day": "THU",
+   "period": 7,
+   "room_id": "ART1",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-DG-2",
+   "day": "MON",
+   "period": 7,
+   "room_id": "ART2",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-DG-3",
+   "day": "FRI",
+   "period": 2,
+   "room_id": "ART2",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-EF-1",
+   "day": "THU",
+   "period": 5,
+   "room_id": "GYM2",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-EN-1",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-EN-2",
+   "day": "MON",
+   "period": 2,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-EN-3",
+   "day": "THU",
+   "period": 1,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-ES-1",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-ES-2",
+   "day": "WED",
+   "period": 3,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-FL-1",
+   "day": "WED",
+   "period": 5,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-FL-2",
+   "day": "MON",
+   "period": 6,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-IT-1",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-IT-2",
+   "day": "WED",
+   "period": 4,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-IT-3",
+   "day": "THU",
+   "period": 2,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-MA-1",
+   "day": "TUE",
+   "period": 3,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-MA-2",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-MA-3",
+   "day": "THU",
+   "period": 3,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-RE-1",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-SA-1",
+   "day": "TUE",
+   "period": 7,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-SA-2",
+   "day": "MON",
+   "period": 4,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-SC-1",
+   "day": "WED",
+   "period": 2,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-SC-2",
+   "day": "TUE",
+   "period": 2,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-ST-1",
+   "day": "MON",
+   "period": 5,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-ST-2",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-CN-1",
+   "day": "TUE",
+   "period": 2,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-CN-2",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-EF-1",
+   "day": "FRI",
+   "period": 5,
+   "room_id": "GYM1",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-EN-1",
+   "day": "THU",
+   "period": 5,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-EN-2",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-ENA-1",
+   "day": "THU",
+   "period": 3,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-ENB-1",
+   "day": "WED",
+   "period": 3,
+   "room_id": "LANG",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-ES-1",
+   "day": "THU",
+   "period": 1,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-ES-2",
+   "day": "TUE",
+   "period": 1,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-FL-1",
+   "day": "MON",
+   "period": 8,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-FL-2",
+   "day": "WED",
+   "period": 8,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-IT-1",
+   "day": "MON",
+   "period": 4,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-IT-2",
+   "day": "WED",
+   "period": 5,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-IT-3",
+   "day": "FRI",
+   "period": 1,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-LA-1",
+   "day": "MON",
+   "period": 7,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-LA-2",
+   "day": "WED",
+   "period": 6,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-MA-1",
+   "day": "FRI",
+   "period": 2,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-MA-2",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-MA-3",
+   "day": "MON",
+   "period": 2,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-RE-1",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-SA-1",
+   "day": "MON",
+   "period": 6,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-SA-2",
+   "day": "TUE",
+   "period": 5,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-SC-1",
+   "day": "FRI",
+   "period": 7,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-SC-2",
+   "day": "WED",
+   "period": 4,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-ST-1",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-ST-2",
+   "day": "THU",
+   "period": 7,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-AR-1",
+   "day": "WED",
+   "period": 7,
+   "room_id": "ART2",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-EF-1",
+   "day": "WED",
+   "period": 5,
+   "room_id": "GYM1",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-EN-1",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-EN-2",
+   "day": "FRI",
+   "period": 2,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-EN-3",
+   "day": "THU",
+   "period": 5,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-ES-1",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-ES-2",
+   "day": "TUE",
+   "period": 3,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-FI-1",
+   "day": "THU",
+   "period": 7,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-FI-2",
+   "day": "FRI",
+   "period": 3,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-FL-1",
+   "day": "TUE",
+   "period": 5,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-FL-2",
+   "day": "MON",
+   "period": 7,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-IT-1",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-IT-2",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-IT-3",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-LA-1",
+   "day": "FRI",
+   "period": 5,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-LA-2",
+   "day": "MON",
+   "period": 5,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-LA-3",
+   "day": "WED",
+   "period": 4,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-MA-1",
+   "day": "TUE",
+   "period": 1,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-MA-2",
+   "day": "FRI",
+   "period": 1,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-MA-3",
+   "day": "MON",
+   "period": 4,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-MA-4",
+   "day": "THU",
+   "period": 1,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-RE-1",
+   "day": "MON",
+   "period": 8,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-SC-1",
+   "day": "THU",
+   "period": 2,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-SC-2",
+   "day": "WED",
+   "period": 3,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-ST-1",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2LS-ST-2",
+   "day": "TUE",
+   "period": 8,
+   "room_id": "A-2LS",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-AR-1",
+   "day": "TUE",
+   "period": 7,
+   "room_id": "ART2",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-CN-1",
+   "day": "THU",
+   "period": 5,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-EF-1",
+   "day": "MON",
+   "period": 7,
+   "room_id": "GYM2",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-EN-1",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-EN-2",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-EN-3",
+   "day": "TUE",
+   "period": 3,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-ES-1",
+   "day": "THU",
+   "period": 1,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-ES-2",
+   "day": "MON",
+   "period": 4,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-ES-3",
+   "day": "WED",
+   "period": 4,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-GE-1",
+   "day": "WED",
+   "period": 5,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-GE-2",
+   "day": "MON",
+   "period": 6,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-IT-1",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-IT-2",
+   "day": "MON",
+   "period": 5,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-IT-3",
+   "day": "WED",
+   "period": 3,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-IT-4",
+   "day": "FRI",
+   "period": 5,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-IT-5",
+   "day": "THU",
+   "period": 3,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-MA-1",
+   "day": "FRI",
+   "period": 1,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-MA-2",
+   "day": "MON",
+   "period": 2,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-MA-3",
+   "day": "TUE",
+   "period": 2,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-MA-4",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-MU-1",
+   "day": "THU",
+   "period": 8,
+   "room_id": "MUS",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-MU-2",
+   "day": "FRI",
+   "period": 7,
+   "room_id": "MUS",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-RE-1",
+   "day": "FRI",
+   "period": 3,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-SC-1",
+   "day": "WED",
+   "period": 7,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-SC-2",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-ST-1",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-ST-2",
+   "day": "FRI",
+   "period": 6,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-AR-1",
+   "day": "TUE",
+   "period": 5,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-EF-1",
+   "day": "FRI",
+   "period": 6,
+   "room_id": "GYM2",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-EN-1",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-EN-2",
+   "day": "THU",
+   "period": 1,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-EN-3",
+   "day": "TUE",
+   "period": 2,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-ES-1",
+   "day": "FRI",
+   "period": 1,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-ES-2",
+   "day": "MON",
+   "period": 5,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-ES-3",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-ES-4",
+   "day": "WED",
+   "period": 2,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-IT-1",
+   "day": "WED",
+   "period": 3,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-IT-2",
+   "day": "FRI",
+   "period": 3,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-IT-3",
+   "day": "TUE",
+   "period": 1,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-IT-4",
+   "day": "MON",
+   "period": 4,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-IT-5",
+   "day": "THU",
+   "period": 5,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-MA-1",
+   "day": "THU",
+   "period": 2,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-MA-2",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-MA-3",
+   "day": "WED",
+   "period": 5,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-MA-4",
+   "day": "FRI",
+   "period": 5,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-MA-5",
+   "day": "TUE",
+   "period": 3,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-MU-1",
+   "day": "THU",
+   "period": 7,
+   "room_id": "MUS",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-PS-1",
+   "day": "WED",
+   "period": 6,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-PS-2",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-RE-1",
+   "day": "MON",
+   "period": 6,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-SC-1",
+   "day": "MON",
+   "period": 1,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-AR-1",
+   "day": "FRI",
+   "period": 7,
+   "room_id": "ART2",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-CN-1",
+   "day": "THU",
+   "period": 7,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-EF-1",
+   "day": "TUE",
+   "period": 5,
+   "room_id": "GYM2",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-EN-1",
+   "day": "MON",
+   "period": 2,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-EN-2",
+   "day": "FRI",
+   "period": 1,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-EN-3",
+   "day": "WED",
+   "period": 4,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-ES-1",
+   "day": "TUE",
+   "period": 1,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-ES-2",
+   "day": "MON",
+   "period": 5,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-ES-3",
+   "day": "WED",
+   "period": 3,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-GE-1",
+   "day": "MON",
+   "period": 7,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-GE-2",
+   "day": "WED",
+   "period": 7,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-IT-1",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-IT-2",
+   "day": "TUE",
+   "period": 3,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-IT-3",
+   "day": "MON",
+   "period": 4,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-IT-4",
+   "day": "THU",
+   "period": 2,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-IT-5",
+   "day": "FRI",
+   "period": 3,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-MA-1",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-MA-2",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-MA-3",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-MA-4",
+   "day": "THU",
+   "period": 1,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-MU-1",
+   "day": "FRI",
+   "period": 2,
+   "room_id": "MUS",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-MU-2",
+   "day": "THU",
+   "period": 3,
+   "room_id": "MUS",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-RE-1",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-SC-1",
+   "day": "WED",
+   "period": 5,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-SC-2",
+   "day": "MON",
+   "period": 8,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-ST-1",
+   "day": "TUE",
+   "period": 7,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3M-ST-2",
+   "day": "THU",
+   "period": 6,
+   "room_id": "A-3M",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-AR-1",
+   "day": "FRI",
+   "period": 6,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-EF-1",
+   "day": "MON",
+   "period": 6,
+   "room_id": "GYM2",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-EN-1",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-EN-2",
+   "day": "THU",
+   "period": 3,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-EN-3",
+   "day": "WED",
+   "period": 2,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-ES-1",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-ES-2",
+   "day": "THU",
+   "period": 5,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-ES-3",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-ES-4",
+   "day": "FRI",
+   "period": 3,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-IT-1",
+   "day": "THU",
+   "period": 1,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-IT-2",
+   "day": "FRI",
+   "period": 1,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-IT-3",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-IT-4",
+   "day": "TUE",
+   "period": 3,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-IT-5",
+   "day": "WED",
+   "period": 4,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-MA-1",
+   "day": "TUE",
+   "period": 1,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-MA-2",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-MA-3",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-MA-4",
+   "day": "MON",
+   "period": 4,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-MA-5",
+   "day": "WED",
+   "period": 3,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-MU-1",
+   "day": "FRI",
+   "period": 5,
+   "room_id": "MUS",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-PS-1",
+   "day": "WED",
+   "period": 5,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-PS-2",
+   "day": "TUE",
+   "period": 5,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-RE-1",
+   "day": "MON",
+   "period": 5,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
+   "occ_id": "3P-SC-1",
+   "day": "TUE",
+   "period": 6,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-AR-1",
+   "day": "WED",
+   "period": 6,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-EF-1",
+   "day": "THU",
+   "period": 6,
+   "room_id": "GYM1",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-EN-1",
+   "day": "THU",
+   "period": 5,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-EN-2",
+   "day": "WED",
+   "period": 3,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-EN-3",
+   "day": "TUE",
+   "period": 5,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-ES-1",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-ES-2",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-ES-3",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-ES-4",
+   "day": "MON",
+   "period": 4,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-IT-1",
+   "day": "TUE",
+   "period": 1,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-IT-2",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-IT-3",
+   "day": "WED",
+   "period": 5,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-IT-4",
+   "day": "FRI",
+   "period": 3,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-IT-5",
+   "day": "THU",
+   "period": 3,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-MA-1",
+   "day": "FRI",
+   "period": 1,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-MA-2",
+   "day": "WED",
+   "period": 4,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-MA-3",
+   "day": "TUE",
+   "period": 3,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-MA-4",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-MA-5",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-MU-1",
+   "day": "THU",
+   "period": 2,
+   "room_id": "MUS",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-PS-1",
+   "day": "FRI",
+   "period": 6,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-PS-2",
+   "day": "TUE",
+   "period": 6,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-RE-1",
+   "day": "MON",
+   "period": 7,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-SC-1",
+   "day": "MON",
+   "period": 5,
+   "room_id": "LAB",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-AR-1",
+   "day": "THU",
+   "period": 6,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-EF-1",
+   "day": "WED",
+   "period": 6,
+   "room_id": "GYM2",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-EN-1",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-EN-2",
+   "day": "WED",
+   "period": 4,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-EN-3",
+   "day": "TUE",
+   "period": 1,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-ES-1",
+   "day": "TUE",
+   "period": 2,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-ES-2",
+   "day": "FRI",
+   "period": 5,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-ES-3",
+   "day": "WED",
+   "period": 3,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-ES-4",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-IT-1",
+   "day": "FRI",
+   "period": 1,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-IT-2",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-IT-3",
+   "day": "THU",
+   "period": 5,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-IT-4",
+   "day": "MON",
+   "period": 5,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-IT-5",
+   "day": "TUE",
+   "period": 5,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-MA-1",
+   "day": "THU",
+   "period": 2,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-MA-2",
+   "day": "FRI",
+   "period": 3,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-MA-3",
+   "day": "WED",
+   "period": 5,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-MA-4",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-MA-5",
+   "day": "MON",
+   "period": 2,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-MU-1",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "MUS",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-PS-1",
+   "day": "FRI",
+   "period": 7,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-PS-2",
+   "day": "TUE",
+   "period": 7,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-RE-1",
+   "day": "FRI",
+   "period": 6,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-SC-1",
+   "day": "MON",
+   "period": 3,
+   "room_id": "LAB",
+   "locked": false
+  }
+ ],
+ "absences": [],
+ "substitutions": []
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi horario</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 20px 16px; }
+    .head { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+    .head h1 { font-size: 20px; margin: 0; flex: 1; }
+    .tt .lesson { cursor: default; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1 id="h"></h1>
+    <a id="ics" class="no-print"><button>📅 .ics</button></a>
+    <button class="no-print" onclick="window.print()" id="pr"></button>
+    <span class="lang-switch no-print"><button data-l="es" onclick="setL('es')">ES</button><button data-l="it" onclick="setL('it')">IT</button></span>
+  </div>
+  <div id="grid"></div>
+  <div id="covers" style="margin-top:16px"></div>
+  <p class="small muted" id="foot"></p>
+</div>
+<script src="/static/i18n.js"></script>
+<script>
+  const [, , tid, token] = location.pathname.split("/");
+  let lang = new URLSearchParams(location.search).get("lang") || "es", D = null;
+  const T = (k) => I18N[lang][k] || k, DN = (d) => DAYN[lang][d];
+  const hhmm = (m) => `${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`;
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  function setL(l) { lang = l; render(); }
+  async function main() {
+    const r = await fetch(`/api/teacher/${tid}/${token}`);
+    if (!r.ok) { document.getElementById("grid").innerHTML = `<div class="banner bad">${r.status}</div>`; return; }
+    D = await r.json(); render();
+  }
+  function render() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-l]").forEach((b) => b.classList.toggle("active", b.dataset.l === lang));
+    document.getElementById("h").textContent = `${T("teacher_page")} · ${D.teacher.name}`;
+    document.getElementById("pr").textContent = "🖨 " + T("print");
+    document.getElementById("ics").href = `/api/teacher/${tid}/${token}/ics?lang=${lang}`;
+    const subj = Object.fromEntries(D.subjects.map((s) => [s.id, s]));
+    const bells = Object.fromEntries(D.bells.map((b) => [b.id, b]));
+    const items = D.placements.map((p) => {
+      const o = D.occurrences[p.occ_id]; const ps = bells[o.bell_id].periods;
+      return { p, o, s: ps[p.period - 1].start, e: ps[p.period - 1 + o.duration - 1].end };
+    });
+    // rows = distinct real time ranges (works across bells: primaria + media + liceo)
+    const times = [...new Set(items.map((x) => `${x.s}-${x.e}`))].map((k) => k.split("-").map(Number)).sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    const days = D.days;
+    let html = `<div class="tt" style="grid-template-columns:90px repeat(${days.length},minmax(110px,1fr))"><div class="h"></div>${days.map((d) => `<div class="h">${DN(d)}</div>`).join("")}`;
+    for (const [s, e] of times) {
+      html += `<div class="p"><b>${hhmm(s)}</b>${hhmm(e)}</div>`;
+      for (const d of days) {
+        const hit = items.filter((x) => x.p.day === d && x.s === s && x.e === e);
+        html += `<div class="cell">${hit.map((x) => `<div class="lesson" style="background:${subj[x.o.subject_id]?.color || "#567"}">
+          <div class="s">${esc(subj[x.o.subject_id]?.["name_" + lang] || x.o.subject_id)}</div>
+          <div class="m">${esc(x.o.section_id)}${x.o.group_id ? "/" + esc(x.o.group_id) : ""} · ${esc(x.p.room_id || "")}</div></div>`).join("")}</div>`;
+      }
+    }
+    document.getElementById("grid").innerHTML = html + "</div>";
+    const covers = D.covers.filter((c) => c.date >= new Date().toISOString().slice(0, 10));
+    document.getElementById("covers").innerHTML = covers.length ? `<h3>${T("substitutions_mine")}</h3><table class="t"><tbody>${covers.map((c) => {
+      const o = D.occurrences[c.occ_id]; const p = D.cover_placements.find((x) => x.occ_id === c.occ_id) || {};
+      const b = bells[o.bell_id].periods[p.period - 1] || {};
+      return `<tr><td>${c.date}</td><td>${hhmm(b.start || 0)}</td><td>${esc(subj[o.subject_id]?.["name_" + lang] || o.subject_id)}</td><td>${esc(o.section_id)}</td><td>${esc(p.room_id || "")}</td></tr>`; }).join("")}</tbody></table>` : "";
+    document.getElementById("foot").textContent = `${D.meta.name || ""} · ${T("version")} ${D.version}${D.meta.synthetic ? " · " + T("synthetic") : ""}`;
+  }
+  main();
+</script>
+</body>
+</html>

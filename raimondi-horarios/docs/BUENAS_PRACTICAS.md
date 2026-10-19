@@ -1,0 +1,33 @@
+# Buenas prácticas de horarios escolares → decisiones del MVP
+
+Investigación del 19/10/2026: búsqueda web actual, más el handoff de investigación sobre aSc del mismo día. Cada fila conecta una práctica con lo que el MVP implementa.
+
+| # | Buena práctica (estado del arte) | Cómo la aplica el MVP |
+|---|---|---|
+| 1 | **Separar reglas duras y preferencias.** Las duras nunca se violan y las blandas van en una función objetivo ponderada (modelado Partial Weighted MaxSAT/CP de Demirović y Musliu; mismo patrón en CP-SAT). | Cada regla tiene `hard: true/false`. Las duras son restricciones del modelo y las preferencias, términos ponderados por prioridad (1 = 100, 2 = 10, 3 = 1). La interfaz distingue "Obligatoria" de "Preferencia". |
+| 2 | **Validador independiente después del solver.** Los pipelines recientes con CP-SAT para horarios añaden un validador que recalcula violaciones duras y satisfacción de preferencias. | `app/validator.py` recalcula todo desde las colocaciones, sin confiar en el estado del solver. Ninguna propuesta se acepta si el validador encuentra una violación dura. |
+| 3 | **Estados del solver honestos.** OR-Tools distingue OPTIMAL, FEASIBLE, INFEASIBLE, MODEL_INVALID y UNKNOWN. UNKNOWN (tiempo agotado) no significa "imposible", y FEASIBLE no significa "óptimo". | La interfaz muestra cada estado con su significado exacto (`st_*`). UNKNOWN se explica como "no concluyente". |
+| 4 | **Diagnóstico antes de resolver.** Primero un borrador y después las restricciones de forma gradual (lo que recomienda aSc). Explicar la imposibilidad con aritmética entendible. | `app/diagnostics.py` revisa la capacidad de cada docente, sección y aula, los bloques en días distintos y las fijaciones contradictorias. Ejemplo: "CN1 necesita 4 horas y solo tiene 2 franjas (4 > 2)", con opciones para resolverlo. |
+| 5 | **Explicar conflictos con conjuntos de reglas.** Prueba por eliminación: qué regla, si se relaja, vuelve factible el horario. No llamarlo "mínimo" sin demostrarlo. | `explain_infeasibility()` prueba cada regla dura, tope diario y fijación. El resultado se presenta como "suficiente, no mínimo demostrado". |
+| 6 | **Tiempo real, no números de hora.** aSc 2027 ya controla solapamientos por horas reales entre campanas distintas. Es clave para docentes compartidos entre primaria, media y liceo. | Todo choque se calcula en minutos reales. Primaria (40 min) y Media/Liceo (45 min) conviven, y lo verifica la prueba de regresión multicampana. |
+| 7 | **Bloques que no cruzan recreos.** Las dobles horas son nativas en los generadores modernos. | Ventanas de bloque válidas: nunca cruzan un recreo declarado ni un hueco sin declarar. |
+| 8 | **Divisiones, grupos y clases unidas.** Tanto FET como aSc modelan grupos que pueden ir en paralelo. | Una sección puede tener grupos (A/B). Una lección de grupo solo bloquea a su grupo y una lección de sección completa bloquea a todos. |
+| 9 | **Restricciones docentes estándar.** Indisponibilidad, máximo de días, máximo diario y semanal, huecos y concentración (catálogo de FET y aSc). | Catálogo cerrado: `teacher_unavailable`, `teacher_allowed_days`, `teacher_max_days`, `max_day`, `max_week`, `teacher_gaps`, `teacher_compact_days`, `preferred_periods`, `avoid_slot`, `section_unavailable`. |
+| 10 | **Cambio mínimo sobre un horario aceptado.** En plena operación nadie quiere que se mueva todo. | Al regenerar, "Mover lo mínimo" penaliza cada cambio respecto al horario vigente. Un arrastre que choca se convierte en una **propuesta de reorganización mínima**. |
+| 11 | **Edición manual con verificación inmediata.** Es la experiencia aSc: arrastrar y ver qué está permitido. | Al arrastrar, la grilla se colorea: verde = posible, ámbar = posible con preferencia incumplida, rojo = choque, con el motivo exacto. |
+| 12 | **Reemplazos por idoneidad, no por orden alfabético**, con equidad y auditoría (guías de gestión de suplencias). | Hay dos niveles. A = de guardia. B = libre y habilitado, pero siempre pide confirmación. **Una franja vacía nunca habilita por sí sola.** El ranking pondera misma materia, conoce la sección, misma área, reemplazos de los últimos 30 días y carga del día. Todo queda registrado. |
+| 13 | **Versionado y reversión exacta.** | Cada cambio guarda una instantánea completa en SQLite, con comparación (horario y reglas) y restauración exacta. |
+| 14 | **Publicación individual.** Cada docente recibe su horario. | Enlace personal firmado (HMAC), horario imprimible, calendario `.ics` semanal y correo prellenado. |
+| 15 | **Conversación sobre operaciones cerradas.** El lenguaje natural se traduce a una operación de una lista cerrada, con IDs resueltos y confirmación humana. El LLM nunca decide la factibilidad. | `app/assistant.py`: hay 12 intenciones y la validación de IDs falla en cerrado. Sin credenciales funciona en modo **"Reglas (sin IA)"**, y la interfaz lo etiqueta como tal. Con `ANTHROPIC_API_KEY` usa Claude con salida JSON estructurada. |
+| 16 | **Descomponer instancias grandes** (por bloques o aulas) con control global de recursos compartidos. | Para la escala de Raimondi no hace falta (12,7k variables, solución válida en menos de 90 s). Queda en la hoja de ruta para multisede. |
+
+## Fuentes
+
+- Demirović, E. & Musliu, N. *Modeling High School Timetabling as Partial Weighted maxSAT*. TU Wien. https://dbai.tuwien.ac.at/user/demir/papers/
+- *CP-SAT para horarios universitarios con descomposición y validador posterior* (SBC, SEMISH). https://sol.sbc.org.br/index.php/semish/article/download/43522/43285/
+- *Horarios de secundaria con medios bloques* (CP 2026, LIPIcs). https://drops.dagstuhl.de/storage/00lipics/lipics-vol379-cp2026/LIPIcs.CP.2026.22/LIPIcs.CP.2026.22.pdf
+- Tesis Brno, LNS + recocido simulado en dos fases (factibilidad y después preferencias). https://is.muni.cz/th/n3p1i/thesis.pdf
+- FET, software libre de horarios: restricciones docentes y pesos por restricción. https://en.wikipedia.org/wiki/FET_(timetabling_software) · https://en.opensuse.org/FET
+- Gestión de suplencias: idoneidad, disponibilidad, auditoría. https://openeducat.org/articles/substitute-teacher-management-software-guide/ · https://www.frontlineeducation.com/blog/best-practices-for-ensuring-substitute-teacher-coverage
+- Google OR-Tools CP-SAT: estados del solver. https://developers.google.com/optimization/cp/cp_solver
+- Handoff de investigación del 19/10/2026 (aSc 2027: IA por región, comprobación por horas reales, límites del XML). No se incluye en el repo porque enlaza documentos internos del colegio; solo se usa su fixture ficticio (`data/fixture_original.json`).

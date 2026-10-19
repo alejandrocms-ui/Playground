@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raimondi Horarios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">Raimondi · Horarios<small id="brand-sub"></small></div>
+    <nav class="nav" id="nav"></nav>
+    <div class="foot" id="foot"></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div class="title" id="title"></div>
+      <span id="status-chip"></span>
+      <button class="primary" id="btn-generate" onclick="App.generate()"></button>
+      <button onclick="App.toggleAssistant()" id="btn-assistant"></button>
+      <span class="lang-switch">
+        <button data-lang="es" onclick="App.setLang('es')">ES</button>
+        <button data-lang="it" onclick="App.setLang('it')">IT</button>
+      </span>
+    </div>
+    <div class="content" id="content"></div>
+  </div>
+</div>
+<aside class="drawer" id="assistant">
+  <header><h3 id="as-title"></h3><span id="as-mode"></span><button class="ghost" onclick="App.toggleAssistant()">✕</button></header>
+  <div class="body" id="as-body"></div>
+  <footer>
+    <input id="as-input" onkeydown="if(event.key==='Enter')App.ask()">
+    <button class="primary" onclick="App.ask()">➤</button>
+  </footer>
+</aside>
+<div id="modal-root"></div>
+<script src="/static/i18n.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>
