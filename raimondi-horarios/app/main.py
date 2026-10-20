@@ -13,7 +13,9 @@ from fastapi import Body, FastAPI, HTTPException, Query
 from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse, Response
 from fastapi.staticfiles import StaticFiles
 
-from . import assistant, exports, moves, substitutions
+import base64
+
+from . import assistant, exports, moves, spreadsheet, substitutions
 from .diagnostics import precheck
 from .model import CONSTRAINT_TYPES, ENTITY_KINDS, build_ctx
 from .solver import diff_placements, solve
@@ -163,7 +165,7 @@ def diagnose():
 def run_solver(time_limit: float = Body(20, embed=True), keep_current: bool = Body(True, embed=True),
                stability_weight: int = Body(3, embed=True)):
     n, data = current()
-    res = solve(data, time_limit=min(time_limit, 300), stability_weight=stability_weight if keep_current else 0)
+    res = solve(data, time_limit=min(time_limit, 600), stability_weight=stability_weight if keep_current else 0)
     if res["placements"] is not None:
         pid = uuid.uuid4().hex[:8]
         PROPOSALS[pid] = {"base_version": n, "placements": res["placements"]}
@@ -236,10 +238,11 @@ def loads():
         by_subject.setdefault(occ.subject_id, {"periods": 0, "teachers": set(), "sections": set()})
         by_subject[occ.subject_id]["periods"] += occ.duration
         by_subject[occ.subject_id]["teachers"].update(occ.teacher_ids)
-        by_subject[occ.subject_id]["sections"].add(occ.section_id)
-        sec = by_section.setdefault(occ.section_id, {"periods": 0, "slots": 0, "by_area": {}})
-        sec["periods"] += occ.duration if not occ.group_id else 0
-        sec["by_area"][a] = sec["by_area"].get(a, 0) + occ.duration
+        by_subject[occ.subject_id]["sections"].update(occ.section_ids)
+        for sid in occ.section_ids:
+            sec = by_section.setdefault(sid, {"periods": 0, "slots": 0, "by_area": {}})
+            sec["periods"] += occ.duration if not occ.group_id else 0
+            sec["by_area"][a] = sec["by_area"].get(a, 0) + occ.duration
     for s_id, s in by_section.items():
         s["slots"] = len(ctx.periods(ctx.sections[s_id]["bell_id"])) * len(ctx.days)
     fix = lambda d: {k: {kk: sorted(vv) if isinstance(vv, set) else vv for kk, vv in v_.items()} for k, v_ in d.items()}
@@ -369,6 +372,44 @@ def import_csv(text: str = Body(..., embed=True), dry_run: bool = Query(False)):
     return {"applied": True, "validation": v["summary"], **commit(data, "Importación CSV de colocaciones")}
 
 
+@app.post("/api/import/xlsx")
+def import_xlsx(file_b64: str = Body(...), dry_run: bool = Body(True), name: str = Body("")):
+    """Upload the school workbook. dry_run=True only reports; False replaces the scenario
+    (previous one stays in the version history) and leaves it ready for a first pass."""
+    try:
+        content = base64.b64decode(file_b64.split(",")[-1])
+        data, report = spreadsheet.import_xlsx(content, {"name": name or "Escenario importado"})
+    except Exception as exc:  # unreadable file: report, never 500
+        return {"report": {"ok": False, "errors": [{"sheet": None, "row": None, "message": {
+            "es": f"No se pudo leer el archivo: {exc}", "it": f"Impossibile leggere il file: {exc}"}}], "warnings": [], "info": []}}
+    out = {"report": report}
+    if report["ok"]:
+        pre = precheck(data)
+        pre.pop("candidates")
+        out["diagnostics"] = pre
+        out["validation"] = validate(data)["summary"]
+        if not dry_run:
+            PROPOSALS.clear()
+            out.update(commit(data, f"Importación de planilla ({name or 'sin nombre'})"))
+    return out
+
+
+@app.get("/api/export/xlsx")
+def export_xlsx_current():
+    n, data = current()
+    return Response(spreadsheet.export_xlsx(data),
+                    media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    headers={"Content-Disposition": f'attachment; filename="horarios_v{n}.xlsx"'})
+
+
+@app.get("/api/template/xlsx")
+def template_xlsx():
+    """Example workbook built from the fictional demo school: same sheets the import expects."""
+    return Response(spreadsheet.export_xlsx(load_seed("school")),
+                    media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    headers={"Content-Disposition": 'attachment; filename="plantilla_horarios.xlsx"'})
+
+
 @app.get("/api/publish")
 def publish():
     _, data = current()
@@ -420,7 +461,7 @@ def ask(text: str = Body(..., embed=True)):
 
 def resolve_occ(data: dict, section_id: str, subject_id: str, day: str | None):
     ctx = build_ctx(data)
-    occs = [o for o in ctx.occurrences.values() if o.section_id == section_id and o.subject_id == subject_id]
+    occs = [o for o in ctx.occurrences.values() if section_id in o.section_ids and o.subject_id == subject_id]
     if not occs:
         return None
     if day:

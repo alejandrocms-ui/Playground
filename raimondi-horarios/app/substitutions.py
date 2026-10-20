@@ -90,7 +90,7 @@ def candidates_for(data: dict, date: str, occ_id: str) -> dict:
     s, e, _ = ctx.occ_window(occ, int(p["period"]))
     absents = absent_on(data, date)
     busy = busy_intervals(data, date)
-    sec_teachers = {t for o in ctx.occurrences.values() if o.section_id == occ.section_id for t in o.teacher_ids}
+    sec_teachers = {t for o in ctx.occurrences.values() if set(o.section_ids) & set(occ.section_ids) for t in o.teacher_ids}
     area = ctx.subjects.get(occ.subject_id, {}).get("area_id")
     ranked, excluded = [], defaultdict(int)
     for t_id, t in ctx.teachers.items():

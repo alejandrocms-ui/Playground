@@ -27,7 +27,7 @@ def static_issues(ctx: Ctx, occ: Occurrence, day: str, start_period: int, room_i
             hit = day not in c.get("days", [])
         elif t == "teacher_unavailable" and c.get("teacher_id") in occ.teacher_ids:
             hit = slot_blocked(c.get("slots", []), day, start, end)
-        elif t == "section_unavailable" and c.get("section_id") == occ.section_id:
+        elif t == "section_unavailable" and c.get("section_id") in occ.section_ids:
             hit = slot_blocked(c.get("slots", []), day, start, end)
         elif t == "preferred_periods" and applies_to(c, occ):
             outside = [n for n in nums if n not in c.get("periods", [])]
@@ -45,7 +45,7 @@ def static_issues(ctx: Ctx, occ: Occurrence, day: str, start_period: int, room_i
 def applies_to(c: dict, occ: Occurrence) -> bool:
     subs = c.get("subject_ids") or []
     secs = c.get("section_ids") or []
-    return (not subs or occ.subject_id in subs) and (not secs or occ.section_id in secs)
+    return (not subs or occ.subject_id in subs) and (not secs or any(x in secs for x in occ.section_ids))
 
 
 def candidates(ctx: Ctx, occ: Occurrence) -> list:

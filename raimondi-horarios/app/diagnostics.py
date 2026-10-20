@@ -59,7 +59,8 @@ def precheck(data: dict, ctx: Ctx | None = None) -> dict:
     sec_demand = defaultdict(int)
     for occ in ctx.occurrences.values():
         if not occ.group_id:
-            sec_demand[occ.section_id] += occ.duration
+            for sid in occ.section_ids:
+                sec_demand[sid] += occ.duration
     for s_id, need in sec_demand.items():
         cap = len(ctx.periods(ctx.sections[s_id]["bell_id"])) * len(ctx.days)
         if need > cap:

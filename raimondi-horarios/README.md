@@ -8,6 +8,8 @@ Aplicación integral y autónoma para crear, revisar, publicar y operar el horar
 
 | Módulo | Para quién | Qué resuelve |
 |---|---|---|
+| **Importar planilla** | Coordinación | Suben una sola planilla Excel (campanas, secciones, materias ES/IT, docentes, carga por sección, reglas, compromisos). La app la valida antes de cambiar nada: errores con hoja y fila, avisos y diagnóstico de capacidad. Después carga los datos y genera la **primera pasada** del horario. |
+| **Guía** | Todos | Guía integrada paso a paso (ES/IT) con enlaces a cada pantalla y preguntas frecuentes. |
 | **Panel de dirección** | Dirección / coordinación | Estado del horario (válido o con conflictos), problemas que bloquean, preferencias incumplidas, carga por docente (asignada, colocada, por día, huecos, días), carga por área y ocupación por sección. |
 | **Horario** | Coordinación | Grilla por sección, docente o aula. Arrastrar y soltar con semáforo (verde / ámbar / rojo) y motivo exacto. Fijar o liberar clases, bandeja de clases sin colocar e impresión. |
 | **Vista general** | Dirección | Matriz de todos los docentes, secciones o aulas a la vez, con choques reales en rojo. |
@@ -18,6 +20,26 @@ Aplicación integral y autónoma para crear, revisar, publicar y operar el horar
 | **Profesores** | Cada docente | Enlace personal (sin cuenta) con su horario y sus reemplazos, calendario `.ics` y envío por correo. |
 | **Historial** | Dirección | Cada cambio es una versión: comparar y restaurar exactamente. |
 | **Asistente** | Coordinación | Instrucciones en ES/IT ("CN1 solo puede martes y jueves", "IT2 è assente domani"). Se convierten en una operación revisable que se confirma antes de aplicar. Sin clave API funciona en modo **Reglas (sin IA)**, etiquetado como tal. Con `ANTHROPIC_API_KEY` usa Claude. |
+
+## Flujo de trabajo del colegio
+
+1. **Guía → Importar planilla → Descargar plantilla de ejemplo.** Es la misma estructura que espera el importador, con un colegio ficticio.
+2. Rellenan las hojas (o exportan los datos actuales con **Exportar Excel** y los editan).
+3. **Subir la planilla.** La app revisa todo sin aplicar nada: secciones con más horas que franjas, materias desconocidas, docentes escritos de dos formas, clases unidas y compromisos.
+4. **Cargar y generar primera pasada.** El motor coloca todas las clases respetando las reglas obligatorias y reduce los huecos.
+5. **Ajustes manuales** arrastrando clases, con el semáforo y la reorganización mínima. Cada cambio queda en el Historial.
+
+Modelos que soporta la planilla y que existen en el colegio:
+- **Campanas distintas por nivel**, comparadas en minutos reales (Inicial de 35 min, Primaria con pranzo a las 11:55, Liceo con pranzo a las 13:25, Artístico hasta las 17:15).
+- **Clases unidas** (`unida_con`): la misma clase para varias secciones a la vez, como la Ed. Física de todo un año.
+- **Grupos** (A/B): medias secciones en paralelo, como alemán y chino.
+- **Co-docencia** (`Docente 1 / Docente 2`) y **compromisos fijos** (reuniones, vigilancia de recreo) que bloquean horas.
+
+### Datos reales (privados)
+
+`data/private/` está ignorado por git. Si existe `data/private/seed_raimondi.json`, la app lo carga como semilla "Raimondi" (por ejemplo, el escenario generado desde la planilla del colegio). Ni los nombres reales ni los documentos del colegio se suben al repositorio.
+
+Validación con los documentos 2026 del colegio (planes de estudio y distribución horaria): **62 secciones, 126 docentes, 894 lecciones y 2.622 horas semanales.** La primera pasada sale con **0 violaciones duras** (OPTIMAL en unos 10 s sin preferencias). Con la preferencia de huecos, el motor los reduce de 1.356 a 410 en 4 minutos.
 
 ## Arranque
 
@@ -42,7 +64,7 @@ Variables opcionales:
 ## Pruebas
 
 ```bash
-python -m pytest -q     # 21 pruebas: los 11 casos de aceptación del handoff + reemplazos, publicación y asistente
+python -m pytest -q     # 27 pruebas: los 11 casos de aceptación del handoff + planilla, clases unidas, reemplazos, publicación y asistente
 ```
 
 Los 11 casos de `demo_acceptance_spec.md` están en `tests/test_acceptance.py`: testigo 52/30, docente entre niveles, movimiento con doble choque y propuesta, preferencia de horas centrales, bloque que cruza el recreo, capacidad de chino 4 > 2, fijaciones contradictorias, UNKNOWN ≠ imposible, versión, comparación y deshacer exacto, exportación y reimportación, y solapamiento multicampana por minutos reales.
@@ -60,6 +82,7 @@ app/
   substitutions.py ausencias, candidatos, asignación
   assistant.py     intérprete ES/IT → operación cerrada (Claude o reglas)
   exports.py       JSON, CSV reimportable, iCalendar por docente
+  spreadsheet.py   importación/exportación Excel (plantilla del colegio ⇄ esquema canónico) con informe de errores
   store.py         versiones en SQLite
   main.py          API REST + archivos estáticos
 static/            interfaz (HTML/CSS/JS sin compilación), i18n ES/IT, página del docente

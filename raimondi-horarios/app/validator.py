@@ -190,7 +190,7 @@ def teacher_loads(ctx: Ctx, data: dict) -> dict:
     for occ in ctx.occurrences.values():
         for t in occ.teacher_ids:
             load[t]["assigned"] += occ.duration
-            load[t]["sections"].add(occ.section_id)
+            load[t]["sections"].update(occ.section_ids)
             load[t]["subjects"].add(occ.subject_id)
     for p, occ, s, e, _ in placed_items(ctx, data):
         for t in occ.teacher_ids:

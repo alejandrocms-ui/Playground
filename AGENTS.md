@@ -10,7 +10,7 @@ El proyecto principal de este repo es **`raimondi-horarios/`**: el MVP de horari
 cd raimondi-horarios
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python -m pytest -q                     # 21 pruebas; todas deben pasar antes de cada commit
+python -m pytest -q                     # 27 pruebas; todas deben pasar antes de cada commit
 uvicorn app.main:app --port 8000        # http://localhost:8000
 python scripts/make_seed_school.py --time 90   # regenera la escuela demo (solo si cambias el generador o el modelo)
 ```
@@ -33,6 +33,7 @@ python scripts/make_seed_school.py --time 90   # regenera la escuela demo (solo 
 | `app/moves.py` | Chequeo incremental para arrastrar y soltar |
 | `app/substitutions.py` | Ausencias, candidatos a reemplazo, asignación |
 | `app/exports.py` | JSON, CSV reimportable, `.ics` por docente |
+| `app/spreadsheet.py` | Planilla Excel del colegio ⇄ esquema canónico (importar con informe de errores, exportar = plantilla) |
 | `app/store.py` | Versiones en SQLite |
 | `app/main.py` | API REST (todas las rutas bajo `/api`) y archivos estáticos |
 | `static/app.js` | SPA: panel, grilla, vista general, datos, reglas, reemplazos, publicación, historial, asistente |
@@ -51,7 +52,9 @@ python scripts/make_seed_school.py --time 90   # regenera la escuela demo (solo 
 9. **Privacidad:** solo datos ficticios en el repo. Nada de nombres reales, contratos, datos de alumnos ni diagnósticos (las ausencias guardan solo la categoría).
 10. **aSc:** no hay integración. No presentes CSV/JSON como ida y vuelta con aSc hasta probarlo en una copia del archivo real.
 
-## Integrar información real del colegio (tarea prioritaria para Codex)
+## Integrar información real del colegio
+
+**Estado (20/10/2026):** el importador de planillas ya existe (`app/spreadsheet.py`, pantalla "Importar planilla"). Los documentos 2026 del colegio están transcritos en `data/private/` (ignorado por git), con 62 secciones y una primera pasada válida. Para nuevos datos, extiende la planilla o el importador en lugar de escribir importadores paralelos.
 
 **Esta rama es la base oficial.** Se conservan su arquitectura, su UI (grilla tipo aSc con arrastrar y soltar, panel de dirección, vista general, reemplazos, ES/IT) y su motor. Si existe otra versión del programa de horarios, **no la fusiones**: úsala solo como fuente de información del colegio.
 
@@ -69,7 +72,7 @@ Qué traer, convertido al esquema canónico (`docs/ARQUITECTURA.md`, sección "E
 
 Cómo hacerlo:
 
-1. Escribe un importador reproducible, `scripts/import_raimondi.py`, que lea las fuentes (CSV/JSON/Excel exportados) y genere el escenario.
+1. La entrada oficial es la planilla `.xlsx` (hojas Campanas, Areas, Materias, Docentes, Secciones, Aulas, Carga, Reglas, Compromisos). Plantilla: `GET /api/template/xlsx`.
 2. **Los datos reales van solo en `data/private/seed_raimondi.json`** (ignorado por git). La app lo carga como semilla "raimondi" si existe. Nunca hagas commit de nombres reales ni de documentos del colegio; en el repo solo van el importador y, si sirve, un ejemplo seudonimizado.
 3. Ejecuta `validate()` y el diagnóstico sobre el escenario importado, y luego el solver. Reporta lo que no cuadre (horas del plan ≠ suma de bloques, docentes sin capacidad, etc.) en vez de "arreglarlo" en silencio.
 4. Si una regla del colegio no existe en el catálogo, agrégala en las cuatro capas (invariante 7), con su prueba.

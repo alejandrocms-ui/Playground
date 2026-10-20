@@ -169,3 +169,9 @@ table.t tr:hover td { background: #fafcff; }
 }
 .print-only { display: none; }
 body.dragging .lesson-wrap .lesson { pointer-events: none !important; }
+
+.guide { display: flex; flex-direction: column; gap: 10px; }
+.guide-step { display: flex; gap: 14px; align-items: center; }
+.guide-step h3 { margin: 0 0 4px; } .guide-step p { margin: 0; color: var(--muted); }
+.guide-step .num { width: 34px; height: 34px; border-radius: 50%; background: var(--brand-2); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex: none; }
+details.card summary { cursor: pointer; }

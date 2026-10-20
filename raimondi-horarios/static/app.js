@@ -53,10 +53,11 @@
   const secName = (id) => (byId("sections")[id] || {}).name || id;
   const areaName = (id) => { const a = byId("areas")[id] || {}; return a["name_" + S.lang] || a.name_es || id; };
   const occSec = (o) => S.occ[o] && S.occ[o].section_id;
+  const secLabel = (o) => (o.joint_section_ids || []).length ? `${o.section_id}+${o.joint_section_ids.length}` : o.section_id;
 
   // ---------------------------------------------------------------- shell
-  const NAV = [["dashboard", "▦"], ["timetable", "▤"], ["overview", "▥"], ["data", "☰"], ["rules", "⚖"],
-               ["subs", "⇄"], ["publish", "✉"], ["history", "↺"]];
+  const NAV = [["guide", "?"], ["import", "⤒"], ["dashboard", "▦"], ["timetable", "▤"], ["overview", "▥"], ["data", "☰"],
+               ["rules", "⚖"], ["subs", "⇄"], ["publish", "✉"], ["history", "↺"]];
   function render() {
     document.documentElement.lang = S.lang;
     document.getElementById("brand-sub").textContent = T("app_sub");
@@ -76,7 +77,7 @@
     document.querySelectorAll(".lang-switch button").forEach((b) => b.classList.toggle("active", b.dataset.lang === S.lang));
     renderAssistantShell();
     const c = document.getElementById("content");
-    const views = { dashboard, timetable, overview, dataView, rules, subs, publish, history };
+    const views = { dashboard, timetable, overview, dataView, rules, subs, publish, history, import: importView, guide };
     const fn = views[S.view === "data" ? "dataView" : S.view] || dashboard;
     c.innerHTML = proposalBanner() + fn();
     if (S.view === "dashboard") loadReports();
@@ -122,7 +123,9 @@
     const fl = (list) => list.length ? `<ul class="list-issues">${list.slice(0, 40).map((f) =>
       `<li>${f.occ_ids && f.occ_ids[0] ? `<a href="#" onclick="App.focusOcc(${q(f.occ_ids[0])});return false">${esc(M(f.message))}</a>` : esc(M(f.message))}</li>`).join("")}${list.length > 40 ? `<li class="muted">… +${list.length - 40}</li>` : ""}</ul>` : `<p class="muted">${T("none")}</p>`;
     const rulesSoft = Object.entries(s.soft_by_rule || {}).map(([r, x]) => `<span class="chip warn">${esc(r)}: ${x.count}</span>`).join(" ");
+    const empty = s.occurrences && !s.placed_occurrences;
     return `
+    ${empty ? `<div class="banner warn">⚠ ${T("unplaced")}: ${s.occurrences} · <button class="primary" onclick="App.generate()">⚙ ${T("generate")}</button></div>` : ""}
     <div class="banner info">${T("engine_help")}</div>
     <div class="grid-cards">
       ${k(d.sections.length, T("kpi_sections"))}
@@ -189,7 +192,7 @@
   function entityPlacements(mode, id) {
     return currentPlacements().filter((p) => {
       const o = S.occ[p.occ_id]; if (!o) return false;
-      if (mode === "section") return o.section_id === id;
+      if (mode === "section") return o.section_id === id || (o.joint_section_ids || []).includes(id);
       if (mode === "teacher") return o.teacher_ids.includes(id);
       return p.room_id === id;
     });
@@ -246,8 +249,8 @@
         const s = subj(o.subject_id);
         const foreign = o.bell_id !== b.id;
         const w = occWindow(o, p.period);
-        const line2 = mode === "section" ? o.teacher_ids.join(", ") + (o.group_id ? ` · ${T("group")} ${o.group_id}` : "")
-          : mode === "teacher" ? `${o.section_id}${o.group_id ? "/" + o.group_id : ""}` : `${o.section_id} · ${o.teacher_ids.join(", ")}`;
+        const line2 = mode === "section" ? o.teacher_ids.map(teacherName).join(" / ") + (o.group_id ? ` · ${T("group")} ${o.group_id}` : "")
+          : mode === "teacher" ? `${secLabel(o)}${o.group_id ? "/" + o.group_id : ""}` : `${secLabel(o)} · ${o.teacher_ids.join(", ")}`;
         const sub = subsByOcc[o.id];
         html += `<div class="lesson ${hardOcc.has(o.id) ? "conflict" : ""} ${changed.has(o.id) ? "changed" : ""} ${foreign ? "foreign" : ""} ${sub ? "sub" : ""}"
           style="background:${s.color || "#5b6b8c"};flex:1;pointer-events:auto" draggable="${!S.preview}" data-occ="${esc(o.id)}"
@@ -271,7 +274,7 @@
     if (!findEntity(S.ttMode, S.ttId)) S.ttId = (list[0] || {}).id;
     const ent = findEntity(S.ttMode, S.ttId) || {};
     const unplaced = Object.values(S.occ).filter((o) => !currentPlacements().some((p) => p.occ_id === o.id) &&
-      (S.ttMode === "section" ? o.section_id === S.ttId : S.ttMode === "teacher" ? o.teacher_ids.includes(S.ttId) : o.room_ids.includes(S.ttId)));
+      (S.ttMode === "section" ? (o.section_id === S.ttId || (o.joint_section_ids || []).includes(S.ttId)) : S.ttMode === "teacher" ? o.teacher_ids.includes(S.ttId) : o.room_ids.includes(S.ttId)));
     const load = (S.validation.teacher_load || {})[S.ttId];
     return `
     <div class="toolbar no-print">
@@ -348,7 +351,7 @@
     modal(`${subjName(o.subject_id)} · ${o.section_id}`, `
       <div class="op-card"><dl>
         <dt>ID</dt><dd>${esc(o.id)}</dd>
-        <dt>${T("section")}</dt><dd>${esc(secName(o.section_id))}${o.group_id ? ` · ${T("group")} ${esc(o.group_id)}` : ""}</dd>
+        <dt>${T("section")}</dt><dd>${[o.section_id, ...(o.joint_section_ids || [])].map((x) => esc(secName(x))).join(" + ")}${o.group_id ? ` · ${T("group")} ${esc(o.group_id)}` : ""}</dd>
         <dt>${T("teachers")}</dt><dd>${o.teacher_ids.map((t) => `${esc(t)} ${esc(teacherName(t))}`).join("<br>")}</dd>
         <dt>${T("periods")}</dt><dd>${o.duration}</dd>
         <dt>${T("day")}</dt><dd>${p ? `${DN(p.day)} · ${T("period")} ${p.period} · ${hhmm(w[0])}–${hhmm(w[1])}` : T("unplaced")}</dd>
@@ -383,7 +386,7 @@
     for (const p of currentPlacements()) {
       const o = S.occ[p.occ_id]; if (!o) continue;
       const w = occWindow(o, p.period); if (!w) continue;
-      const keys = mode === "teacher" ? o.teacher_ids : mode === "section" ? [o.section_id] : [p.room_id];
+      const keys = mode === "teacher" ? o.teacher_ids : mode === "section" ? [o.section_id, ...(o.joint_section_ids || [])] : [p.room_id];
       for (const k of keys) (index[k] = index[k] || []).push({ p, o, w });
     }
     for (const e of list) {
@@ -397,7 +400,7 @@
           // red only for a real clash (overlapping minutes) or a validator finding, not for two short periods in one column
           const clash = hits.some((a, i) => hits.some((b2, j) => j > i && a.w[0] < b2.w[1] && b2.w[0] < a.w[1] && !(mode === "section" && a.o.group_id && b2.o.group_id && a.o.group_id !== b2.o.group_id)));
           const bad = clash || hits.some((h) => hardOcc.has(h.o.id));
-          const label = mode === "teacher" ? x.o.section_id : subjShort(x.o.subject_id);
+          const label = mode === "teacher" ? secLabel(x.o) : subjShort(x.o.subject_id);
           html += `<td class="${cls}" title="${esc(hits.map((h) => `${subjName(h.o.subject_id)} · ${h.o.section_id} · ${h.o.teacher_ids.join(",")} · ${hhmm(h.w[0])}`).join("\n"))}">
             <div style="background:${bad ? "#d23c3c" : subj(x.o.subject_id).color}">${esc(label)}${hits.length > 1 ? "+" : ""}</div></td>`;
         });
@@ -447,7 +450,7 @@
     return `<div class="tabs">${tabs.map((t) => `<button class="${t === kind ? "active" : ""}" onclick="App.setDataTab('${t}')">${T(t)} (${(S.data[t] || []).length})</button>`).join("")}</div>
       <div class="toolbar"><input placeholder="${T("filter")}" value="${esc(S.filter)}" oninput="App.setFilter(this.value)">
       <span class="spacer"></span>
-      <button onclick="App.exportFile('json')">${T("export_json")}</button><button onclick="App.exportFile('csv')">${T("export_csv")}</button>
+      <button onclick="App.exportFile('xlsx')">${T("export_xlsx")}</button><button onclick="App.exportFile('json')">${T("export_json")}</button><button onclick="App.exportFile('csv')">${T("export_csv")}</button>
       <button onclick="document.getElementById('imp').click()">${T("import_json")}</button><input type="file" id="imp" accept=".json" style="display:none" onchange="App.importJson(this.files[0])">
       <button class="primary" onclick="App.editEntity('${kind}',null)">+ ${T("add")}</button></div>
       <div class="table-wrap"><table class="t"><thead><tr>${cols.map(([k]) => `<th>${esc(T(LABEL[k] || k))}</th>`).join("")}${kind === "teachers" ? `<th>${T("periods_week")}</th>` : ""}<th></th></tr></thead><tbody>
@@ -741,12 +744,73 @@
     toast(`v${body.version} · ${T("kpi_hard")}: ${body.validation.hard_violations}`); await load();
   }
 
+
+  // ---------------------------------------------------------------- import wizard (spreadsheet → scenario → first pass)
+  function importView() {
+    const r = S.imp || {};
+    const rep = r.report;
+    const list = (items) => `<ul class="list-issues">${items.slice(0, 60).map((x) => `<li>${x.sheet ? `<span class="chip">${T("imp_sheet")} ${esc(x.sheet)}${x.row ? ` · ${T("imp_row")} ${x.row}` : ""}</span> ` : ""}${esc(M(x.message))}</li>`).join("")}${items.length > 60 ? `<li class="muted">… +${items.length - 60}</li>` : ""}</ul>`;
+    let res = "";
+    if (r.busy) res = `<p><span class="spinner"></span> ${T("imp_checking")}</p>`;
+    else if (rep) {
+      res += `<div class="grid-cards">${(rep.info || []).map((i) => `<div class="card kpi"><div class="v">${i.value}</div><div class="l">${T("info_" + i.key)}</div></div>`).join("")}</div>`;
+      if (rep.errors.length) res += `<div class="banner bad">✕ ${rep.errors.length} · ${T("imp_errors")}</div>${list(rep.errors)}`;
+      else res += `<div class="banner ok">✓ ${T("imp_ok")}</div>`;
+      if (rep.warnings.length) res += `<h3>${T("imp_warnings")} (${rep.warnings.length})</h3>${list(rep.warnings)}`;
+      if (r.diagnostics) res += r.diagnostics.fatal.length ? `<h3>${T("diag")}</h3><ul class="list-issues">${r.diagnostics.fatal.map(issueLi).join("")}</ul>` : `<p class="muted">✓ ${T("imp_diag_ok")}</p>`;
+    }
+    const canLoad = rep && rep.ok && !r.busy;
+    return `<div class="banner info">${T("guide_steps")[0][2]}</div>
+      <div class="row">
+        <div class="col card"><h3>${T("imp_step1")}</h3><p class="small muted">${T("imp_step1_txt")}</p>
+          <button onclick="location.href='/api/template/xlsx'">⤓ ${T("imp_template")}</button>
+          <button onclick="App.exportFile('xlsx')">⤓ ${T("imp_export")}</button></div>
+        <div class="col card"><h3>${T("imp_step2")}</h3><p class="small muted">${T("imp_step2_txt")}</p>
+          <label>${T("imp_name")}</label><input id="imp_name" value="${esc(r.name || "")}" placeholder="Raimondi 2027 · v1" style="width:100%">
+          <label>${T("imp_file")}</label><input type="file" accept=".xlsx" onchange="App.checkXlsx(this.files[0])"></div>
+      </div>
+      <div class="card" style="margin-top:14px">${res || `<p class="muted">—</p>`}</div>
+      <div class="card" style="margin-top:14px"><h3>${T("imp_step3")}</h3><p class="small muted">${T("imp_step3_txt")}</p>
+        <div class="toolbar"><label style="margin:0">${T("imp_time")}</label>
+          <select id="imp_time">${[60, 120, 240, 480].map((x) => `<option value="${x}" ${x === 240 ? "selected" : ""}>${x / 60} ${T("min")}</option>`).join("")}</select>
+          <button ${canLoad ? "" : "disabled"} onclick="App.loadXlsx(false)">${T("imp_load")}</button>
+          <button class="primary" ${canLoad ? "" : "disabled"} onclick="App.loadXlsx(true)">⚙ ${T("imp_load_gen")}</button></div></div>`;
+  }
+  async function checkXlsx(file) {
+    if (!file) return;
+    const b64 = await new Promise((ok) => { const fr = new FileReader(); fr.onload = () => ok(fr.result); fr.readAsDataURL(file); });
+    const name = document.getElementById("imp_name").value || file.name.replace(/\.xlsx$/i, "");
+    S.imp = { busy: true, name, b64 }; render();
+    const { body } = await api("/api/import/xlsx", { method: "POST", body: { file_b64: b64, dry_run: true, name } });
+    S.imp = { ...S.imp, busy: false, ...body }; render();
+  }
+  async function loadXlsx(andGenerate) {
+    const { b64, name } = S.imp; const t = +document.getElementById("imp_time").value;
+    const { body } = await api("/api/import/xlsx", { method: "POST", body: { file_b64: b64, dry_run: false, name } });
+    if (!body.version) return toast(T("error"));
+    S.imp = null; S.proposal = null; S.preview = null; S.ttId = null;
+    await load(); toast(T("data_saved"));
+    if (andGenerate) { go("dashboard"); await generate(t); }
+  }
+
+  // ---------------------------------------------------------------- integrated guide
+  function guide() {
+    const steps = T("guide_steps"), qa = T("guide_qa");
+    return `<div class="banner info">${T("guide_intro")}</div>
+      <div class="guide">${steps.map(([view, title, body], i) => `<div class="card guide-step"><div class="num">${i + 1}</div>
+        <div style="flex:1"><h3>${esc(title)}</h3><p>${esc(body)}</p></div>
+        <button onclick="App.go('${view}')">${T("go_there")} →</button></div>`).join("")}</div>
+      <h2 style="margin-top:20px">${T("guide_faq")}</h2>
+      ${qa.map(([q, a]) => `<details class="card" style="margin-bottom:8px"><summary><b>${esc(q)}</b></summary><p>${esc(a)}</p></details>`).join("")}`;
+  }
+
   // ---------------------------------------------------------------- engine
-  async function generate() {
+  async function generate(timeLimit) {
     if (S.busy) return;
     S.busy = true; render();
     try {
-      const { body } = await api("/api/solve", { method: "POST", body: { time_limit: 30, keep_current: true } });
+      const fresh = !S.data.placements.length;
+      const { body } = await api("/api/solve", { method: "POST", body: { time_limit: timeLimit || (fresh ? 120 : 30), keep_current: !fresh } });
       S.proposal = body; S.preview = null;
     } catch (e) { toast(T("error") + ": " + e.message); }
     S.busy = false; render();
@@ -841,7 +905,7 @@
     dragStart, dragEnd, dragOver, drop, proposeMove, lessonPanel, lock, unplace, focusOcc,
     editEntity, saveEntity, deleteEntity, availability, cycleAvail, saveAvail,
     editRule, renderRuleForm, saveRule, toggleRule, setSetting, diagnose,
-    addAbsence, delAbsence, autoAssign, candidates, assignSub,
+    addAbsence, delAbsence, autoAssign, candidates, assignSub, checkXlsx, loadXlsx,
     versionDiff, restore, resetDemo, exportFile, importJson,
     togglePreview, acceptProposal, discardProposal,
   };

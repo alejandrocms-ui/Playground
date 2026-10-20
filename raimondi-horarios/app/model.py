@@ -50,6 +50,11 @@ class Occurrence:
     group_id: str | None
     room_ids: list
     bell_id: str
+    joint_section_ids: list = field(default_factory=list)  # "clases unidas": other sections in the same lesson
+
+    @property
+    def section_ids(self) -> list:
+        return [self.section_id, *self.joint_section_ids]
 
 
 @dataclass
@@ -91,13 +96,16 @@ class Ctx:
     def section_resource_keys(self, occ: Occurrence) -> list:
         """Student-cohort resources occupied by an occurrence. A whole-section lesson
         blocks every group of the section; a group lesson only its own group."""
-        sec = self.sections[occ.section_id]
-        groups = [g["id"] for g in sec.get("groups", [])]
-        if not groups:
-            return [("section", occ.section_id, "*")]
-        if occ.group_id:
-            return [("section", occ.section_id, occ.group_id)]
-        return [("section", occ.section_id, g) for g in groups]
+        keys = []
+        for sid in occ.section_ids:
+            groups = [g["id"] for g in self.sections[sid].get("groups", [])]
+            if not groups:
+                keys.append(("section", sid, "*"))
+            elif occ.group_id and sid == occ.section_id:
+                keys.append(("section", sid, occ.group_id))
+            else:
+                keys += [("section", sid, g) for g in groups]
+        return keys
 
     def resources(self, occ: Occurrence, room_id: str | None) -> list:
         keys = [("teacher", t, "") for t in occ.teacher_ids]
@@ -172,6 +180,11 @@ def build_ctx(data: dict) -> Ctx:
         for r in rooms:
             if r not in ctx.rooms:
                 ctx.errors.append({"code": "unknown_room", "entity": lesson["id"], "ref": r})
+        joint = [j for j in lesson.get("joint_section_ids", []) if j != sec["id"]]
+        for j in joint:
+            if j not in ctx.sections:
+                ctx.errors.append({"code": "unknown_section", "entity": lesson["id"], "ref": j})
+        joint = [j for j in joint if j in ctx.sections]
         bell_id = sec.get("bell_id")
         if bell_id not in ctx.bells:
             ctx.errors.append({"code": "unknown_bell", "entity": sec["id"], "ref": bell_id})
@@ -183,7 +196,7 @@ def build_ctx(data: dict) -> Ctx:
                 section_id=sec["id"], subject_id=lesson["subject_id"],
                 teacher_ids=[t for t in lesson.get("teacher_ids", []) if t in ctx.teachers],
                 group_id=lesson.get("group_id"), room_ids=[r for r in rooms if r in ctx.rooms],
-                bell_id=bell_id,
+                bell_id=bell_id, joint_section_ids=joint,
             )
     return ctx
 
