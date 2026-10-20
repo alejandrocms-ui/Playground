@@ -30,7 +30,7 @@ Aplicación integral y autónoma para crear, revisar, publicar y operar el horar
 5. **Ajustes manuales** arrastrando clases, con el semáforo y la reorganización mínima. Cada cambio queda en el Historial.
 
 Modelos que soporta la planilla y que existen en el colegio:
-- **Campanas distintas por nivel**, comparadas en minutos reales (Inicial de 35 min, Primaria con pranzo a las 11:55, Liceo con pranzo a las 13:25, Artístico hasta las 17:15).
+- **Campanas distintas por nivel**, comparadas en minutos reales (Inicial de 35 min, Primaria con pranzo a las 11:55, Media a las 12:40, Liceo a las 13:25, Artístico hasta las 17:15).
 - **Clases unidas** (`unida_con`): la misma clase para varias secciones a la vez, como la Ed. Física de todo un año.
 - **Grupos** (A/B): medias secciones en paralelo, como alemán y chino.
 - **Co-docencia** (`Docente 1 / Docente 2`) y **compromisos fijos** (reuniones, vigilancia de recreo) que bloquean horas.
@@ -39,7 +39,7 @@ Modelos que soporta la planilla y que existen en el colegio:
 
 `data/private/` está ignorado por git. Si existe `data/private/seed_raimondi.json`, la app lo carga como semilla "Raimondi" (por ejemplo, el escenario generado desde la planilla del colegio). Ni los nombres reales ni los documentos del colegio se suben al repositorio.
 
-Validación con los documentos 2026 del colegio (planes de estudio y distribución horaria): **62 secciones, 126 docentes, 894 lecciones y 2.622 horas semanales.** La primera pasada sale con **0 violaciones duras** (OPTIMAL en unos 10 s sin preferencias). Con la preferencia de huecos, el motor los reduce de 1.356 a 410 en 4 minutos.
+Validación con los documentos 2026 del colegio (planes de estudio y distribución horaria): **62 secciones, 126 docentes, 894 lecciones y 2.622 horas semanales.** La primera pasada sale con **0 violaciones duras** (OPTIMAL en unos 10 s sin preferencias). Con la preferencia de huecos, el motor los reduce de 1.356 a ~400 en 4 minutos. Coherencia: con la Ed. Física en parejas, los dos docentes de EF suman 28 h cada uno, igual que su contrato.
 
 ## Arranque
 
