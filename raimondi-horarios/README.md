@@ -42,7 +42,7 @@ Variables opcionales:
 ## Pruebas
 
 ```bash
-python -m pytest -q     # 21 pruebas: los 11 casos de aceptación del handoff + reemplazos, publicación y asistente
+python -m pytest -q     # 45 pruebas: 21 originales y 24 de importación, datos inválidos y API
 ```
 
 Los 11 casos de `demo_acceptance_spec.md` están en `tests/test_acceptance.py`: testigo 52/30, docente entre niveles, movimiento con doble choque y propuesta, preferencia de horas centrales, bloque que cruza el recreo, capacidad de chino 4 > 2, fijaciones contradictorias, UNKNOWN ≠ imposible, versión, comparación y deshacer exacto, exportación y reimportación, y solapamiento multicampana por minutos reales.
@@ -75,3 +75,7 @@ docs/              buenas prácticas y arquitectura/escalabilidad
 - Las reglas de ejemplo (chino martes/jueves, horas troncales, viernes última hora, 28 horas) son **hipótesis para validar** con coordinación, no políticas confirmadas.
 - La carga lectiva (`max_week`) está separada de apoyo, tutoría y permanencia. Antes de usar datos reales hay que acordar cómo se computa el contrato.
 - Los enlaces de docente se firman con HMAC. Para producción conviene el SSO del colegio y HTTPS.
+
+## Importar fuentes privadas del colegio
+
+Usa `scripts/import_raimondi.py` para convertir JSON revisado o tablas CSV exportadas de Excel/Sheets al esquema canónico. Los escenarios e informes se guardan solo en `data/private/`, ignorado por git. Las fuentes incompletas quedan disponibles para revisión y bloquean la generación con `MODEL_INVALID`; no se declara imposibilidad sin datos suficientes. Consulta [el formato, las aprobaciones y los comandos](docs/IMPORTACION_PRIVADA.md). El ejemplo `data/import_example.json` es totalmente ficticio.

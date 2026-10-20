@@ -17,6 +17,20 @@
   const hhmm = (m) => `${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`;
   const M = (msg) => (msg && (msg[S.lang] || msg.es)) || "";
   const byId = (kind) => Object.fromEntries((S.data[kind] || []).map((x) => [x.id, x]));
+  const importBlocked = () => !!S.data.meta?.import_audit?.blockers?.length;
+
+  function importReview() {
+    if (!importBlocked()) return "";
+    const issues = S.data.meta.import_audit.blockers;
+    const details = [...new Set(issues.map((x) => x.detail))];
+    return `<div class="banner warn"><b>${T("import_pending")}</b>
+      <p>${T("import_pending_help")}</p>
+      <p>${T("sections")}: ${S.data.sections.length} · ${T("lessons")}: ${S.data.lessons.length}</p>
+      <button onclick="App.go('data')">${T("nav_data")}</button>
+      <details><summary>${T("data_list")} (${issues.length})</summary>
+        <ul>${details.slice(0, 50).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+      </details></div>`;
+  }
 
   async function api(path, opts = {}) {
     const o = { headers: { "Content-Type": "application/json" }, ...opts };
@@ -71,14 +85,18 @@
       ? `<span class="chip ok">✓ ${T("valid")} · ${sum.placed_occurrences}/${sum.occurrences}</span>`
       : `<span class="chip bad">✕ ${T("invalid")} · ${sum.hard_violations + sum.data_issues}</span>`;
     document.getElementById("btn-generate").textContent = S.busy ? T("generating") : "⚙ " + T("generate");
-    document.getElementById("btn-generate").disabled = S.busy;
+    document.getElementById("btn-generate").disabled = S.busy || importBlocked();
     document.getElementById("btn-assistant").textContent = "💬 " + T("assistant");
     document.querySelectorAll(".lang-switch button").forEach((b) => b.classList.toggle("active", b.dataset.lang === S.lang));
     renderAssistantShell();
     const c = document.getElementById("content");
     const views = { dashboard, timetable, overview, dataView, rules, subs, publish, history };
     const fn = views[S.view === "data" ? "dataView" : S.view] || dashboard;
-    c.innerHTML = proposalBanner() + fn();
+    if (importBlocked() && !["data", "history"].includes(S.view)) {
+      c.innerHTML = importReview();
+      return;
+    }
+    c.innerHTML = importReview() + proposalBanner() + fn();
     if (S.view === "dashboard") loadReports();
     if (S.view === "subs") loadSubs();
     if (S.view === "publish") loadPublish();
@@ -178,7 +196,7 @@
       if ((mode === "teacher" && o.teacher_ids.includes(id)) || (mode === "room" && p.room_id === id)) counts[o.bell_id] = (counts[o.bell_id] || 0) + 1;
     }
     const best = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
-    return best ? best[0] : S.data.bells[S.data.bells.length - 1].id;
+    return best ? best[0] : S.data.bells[S.data.bells.length - 1]?.id;
   }
   const currentPlacements = () => S.preview || S.data.placements;
   const bell = (id) => S.data.bells.find((b) => b.id === id);
@@ -452,7 +470,7 @@
       <button class="primary" onclick="App.editEntity('${kind}',null)">+ ${T("add")}</button></div>
       <div class="table-wrap"><table class="t"><thead><tr>${cols.map(([k]) => `<th>${esc(T(LABEL[k] || k))}</th>`).join("")}${kind === "teachers" ? `<th>${T("periods_week")}</th>` : ""}<th></th></tr></thead><tbody>
       ${items.map((x) => `<tr>${cols.map(([k, t]) => `<td>${cell(x, k, t)}</td>`).join("")}
-        ${kind === "teachers" ? `<td>${(S.validation.teacher_load[x.id] || {}).assigned ?? 0}</td>` : ""}
+        ${kind === "teachers" ? `<td>${importBlocked() ? "—" : ((S.validation.teacher_load[x.id] || {}).assigned ?? 0)}</td>` : ""}
         <td style="white-space:nowrap">${kind === "teachers" ? `<button class="small" onclick="App.availability(${q(x.id)})">${T("availability")}</button> ` : ""}
         ${["teachers", "sections", "rooms"].includes(kind) ? `<button class="small" onclick="App.openTT('${kind.slice(0, -1)}',${q(x.id)})">▤</button> ` : ""}
         <button class="small" onclick="App.editEntity('${kind}',${q(x.id)})">${T("edit")}</button>
@@ -510,6 +528,7 @@
   // teacher availability grid: unavailable (hard rule) / cover duty / free
   function teacherBell(tid) { return bell(bellFor("teacher", tid)); }
   function availability(tid) {
+    if (importBlocked()) { toast(T("import_pending_help")); return; }
     const t = byId("teachers")[tid]; const b = teacherBell(tid);
     const rid = `R-${tid}-UNAV-GRID`;
     const rule = (S.data.constraints || []).find((c) => c.id === rid);

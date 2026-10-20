@@ -166,6 +166,9 @@ def solve(data: dict, time_limit: float = 20.0, stability_weight: int = 0, worke
     ctx = build_ctx(data)
     pre = precheck(data, ctx)
     base = {"diagnostics": {"fatal": pre["fatal"], "warnings": pre["warnings"]}}
+    if ctx.errors:
+        return {**base, "status": "MODEL_INVALID", "placements": None,
+                "wall_time": time.time() - t0, "explanation_kind": "input_data"}
     if not pre["ok"]:
         return {**base, "status": "INFEASIBLE_PRECHECK", "placements": None, "wall_time": time.time() - t0,
                 "explanation_kind": "arithmetic"}

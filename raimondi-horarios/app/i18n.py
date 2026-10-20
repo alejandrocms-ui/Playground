@@ -1,6 +1,11 @@
 """Server-side message catalogue (Spanish / Italian) for findings and diagnostics."""
 
 MESSAGES = {
+    "import_incomplete": (
+        "Importación incompleta: {count} asuntos pendientes en meta.import_audit.blockers. "
+        "Completa y confirma las fuentes y vuelve a importar; no se puede evaluar la factibilidad.",
+        "Importazione incompleta: {count} questioni aperte in meta.import_audit.blockers. "
+        "Completa e conferma le fonti, poi importa di nuovo; la fattibilità non è valutabile."),
     "unknown_section": ("La lección {entity} referencia una sección inexistente ({ref}).",
                         "La lezione {entity} fa riferimento a una classe inesistente ({ref})."),
     "unknown_subject": ("La lección {entity} referencia una materia inexistente ({ref}).",

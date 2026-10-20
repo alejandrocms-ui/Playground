@@ -18,7 +18,10 @@ def precheck(data: dict, ctx: Ctx | None = None) -> dict:
     ctx = ctx or build_ctx(data)
     fatal, warnings = [], []
     for e in ctx.errors:
-        fatal.append(issue(e["code"], [e.get("entity")], **e))
+        fatal.append(issue(e["code"], [e.get("entity")],
+                           **{k: v for k, v in e.items() if k != "code"}))
+    if fatal:
+        return {"ok": False, "fatal": fatal, "warnings": warnings, "candidates": {}}
 
     cand = {o: candidates(ctx, occ) for o, occ in ctx.occurrences.items()}
     for o, lst in cand.items():

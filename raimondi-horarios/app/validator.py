@@ -57,7 +57,8 @@ def validate(data: dict, ctx: Ctx | None = None) -> dict:
     ctx = ctx or build_ctx(data)
     hard, soft, data_issues = [], [], []
     for e in ctx.errors:
-        data_issues.append(finding("DATA", "data", e["code"], entities=[e.get("entity")], **e))
+        data_issues.append(finding("DATA", "data", e["code"], entities=[e.get("entity")],
+                                   **{k: v for k, v in e.items() if k != "code"}))
 
     counts = defaultdict(int)
     for p in data.get("placements", []):

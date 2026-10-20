@@ -152,6 +152,13 @@ def build_ctx(data: dict) -> Ctx:
         lessons=index(data.get("lessons", [])),
         areas=index(data.get("areas", [])),
     )
+    # A partial documentary import is useful for review, never a schedulable model.
+    # Keep this gate shared by the API, solver and independent validator.
+    blockers = data.get("meta", {}).get("import_audit", {}).get("blockers", [])
+    if blockers:
+        ctx.errors.append({"code": "import_incomplete", "entity": "import",
+                           "count": len(blockers)})
+        return ctx
     for lesson in data.get("lessons", []):
         sec = ctx.sections.get(lesson["section_id"])
         if sec is None:
