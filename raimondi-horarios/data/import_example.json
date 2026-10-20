@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "name": "Ejemplo ficticio de importación",
+    "academic_year": 2027,
+    "synthetic": true,
+    "timezone": "America/Lima"
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Synthetic fixture, not school data"
+    }
+  ],
+  "days": [
+    "MON"
+  ],
+  "settings": {
+    "spread_lessons": false
+  },
+  "calendar_review": {
+    "source_ref": "S1",
+    "confirmed": true,
+    "approval": {
+      "by": "Synthetic reviewer",
+      "academic_year": 2027
+    }
+  },
+  "coverage_review": {
+    "source_ref": "S1",
+    "confirmed": true,
+    "approval": {
+      "by": "Synthetic reviewer",
+      "academic_year": 2027
+    }
+  },
+  "areas": [
+    {
+      "source_ref": "S1",
+      "confirmed": true,
+      "approval": {
+        "by": "Synthetic reviewer",
+        "academic_year": 2027
+      },
+      "id": "A1",
+      "name_es": "Área demo",
+      "name_it": "Area demo"
+    }
+  ],
+  "subjects": [
+    {
+      "source_ref": "S1",
+      "confirmed": true,
+      "approval": {
+        "by": "Synthetic reviewer",
+        "academic_year": 2027
+      },
+      "id": "M1",
+      "name_es": "Materia demo",
+      "name_it": "Materia demo",
+      "area_id": "A1"
+    }
+  ],
+  "bells": [
+    {
+      "source_ref": "S1",
+      "confirmed": true,
+      "approval": {
+        "by": "Synthetic reviewer",
+        "academic_year": 2027
+      },
+      "id": "B1",
+      "periods": [
+        {
+          "start": 480,
+          "end": 520
+        },
+        {
+          "start": 520,
+          "end": 560
+        }
+      ],
+      "breaks": []
+    }
+  ],
+  "rooms": [
+    {
+      "source_ref": "S1",
+      "confirmed": true,
+      "approval": {
+        "by": "Synthetic reviewer",
+        "academic_year": 2027
+      },
+      "id": "R1",
+      "name": "Aula demo"
+    }
+  ],
+  "sections": [
+    {
+      "source_ref": "S1",
+      "confirmed": true,
+      "approval": {
+        "by": "Synthetic reviewer",
+        "academic_year": 2027
+      },
+      "id": "C1",
+      "name": "Sección demo",
+      "bell_id": "B1",
+      "home_room": "R1",
+      "weekly_total": 2,
+      "groups": []
+    }
+  ],
+  "teachers": [
+    {
+      "source_ref": "S1",
+      "confirmed": true,
+      "approval": {
+        "by": "Synthetic reviewer",
+        "academic_year": 2027
+      },
+      "id": "T1",
+      "name": "Docente ficticio",
+      "subject_ids": [
+        "M1"
+      ],
+      "max_week": 2
+    }
+  ],
+  "aliases": [
+    {
+      "alias": "source:T1",
+      "teacher_id": "T1",
+      "source_ref": "S1",
+      "confirmed": true,
+      "approval": {
+        "by": "Synthetic reviewer",
+        "academic_year": 2027
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "source_ref": "S1",
+      "confirmed": true,
+      "approval": {
+        "by": "Synthetic reviewer",
+        "academic_year": 2027
+      },
+      "id": "L1",
+      "section_id": "C1",
+      "subject_id": "M1",
+      "teacher_aliases": [
+        "source:T1"
+      ],
+      "periods_per_week": 2,
+      "blocks": [
+        2
+      ]
+    }
+  ],
+  "constraints": []
+}
