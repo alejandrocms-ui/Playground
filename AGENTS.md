@@ -51,6 +51,30 @@ python scripts/make_seed_school.py --time 90   # regenera la escuela demo (solo 
 9. **Privacidad:** solo datos ficticios en el repo. Nada de nombres reales, contratos, datos de alumnos ni diagnósticos (las ausencias guardan solo la categoría).
 10. **aSc:** no hay integración. No presentes CSV/JSON como ida y vuelta con aSc hasta probarlo en una copia del archivo real.
 
+## Integrar información real del colegio (tarea prioritaria para Codex)
+
+**Esta rama es la base oficial.** Se conservan su arquitectura, su UI (grilla tipo aSc con arrastrar y soltar, panel de dirección, vista general, reemplazos, ES/IT) y su motor. Si existe otra versión del programa de horarios, **no la fusiones**: úsala solo como fuente de información del colegio.
+
+Qué traer, convertido al esquema canónico (`docs/ARQUITECTURA.md`, sección "Esquema canónico"):
+
+| Conocimiento del colegio | Destino en el esquema |
+|---|---|
+| Campanas y recreos por nivel (horas reales) | `bells[]` (`periods` y `breaks` en minutos desde 00:00) |
+| Niveles, secciones, itinerarios, grupos/divisiones | `sections[]` (`level`, `track`, `bell_id`, `home_room`, `groups`) |
+| Materias con nombre ES e IT y área peruana / disciplina italiana | `subjects[]` y `areas[]` |
+| Plan de estudios (horas por materia y sección, bloques 2+1+1, etc.) | `lessons[]` (`periods_per_week`, `blocks`, `room_ids`, `group_id`) |
+| Distribución docente (quién dicta qué y dónde) | `lessons[].teacher_ids`; una sola identidad por persona aunque tenga varios códigos |
+| Carga lectiva, máximo diario, guardias | `teachers[]` (`max_week`, `max_day`, `cover_duty`, `cover_eligible`) |
+| Reglas acordadas (disponibilidades, chino, horas centrales, viernes, etc.) | `constraints[]` del catálogo; `hard` solo si está confirmado; `note` con la fuente y quién lo aprobó |
+
+Cómo hacerlo:
+
+1. Escribe un importador reproducible, `scripts/import_raimondi.py`, que lea las fuentes (CSV/JSON/Excel exportados) y genere el escenario.
+2. **Los datos reales van solo en `data/private/seed_raimondi.json`** (ignorado por git). La app lo carga como semilla "raimondi" si existe. Nunca hagas commit de nombres reales ni de documentos del colegio; en el repo solo van el importador y, si sirve, un ejemplo seudonimizado.
+3. Ejecuta `validate()` y el diagnóstico sobre el escenario importado, y luego el solver. Reporta lo que no cuadre (horas del plan ≠ suma de bloques, docentes sin capacidad, etc.) en vez de "arreglarlo" en silencio.
+4. Si una regla del colegio no existe en el catálogo, agrégala en las cuatro capas (invariante 7), con su prueba.
+5. Si hace falta rehacer la UI, extiende `static/app.js` / `styles.css` con el mismo estilo; no reemplaces la interfaz.
+
 ## Convenciones
 
 - Código e identificadores en inglés; textos de UI y mensajes en ES/IT (`app/i18n.py` para el backend, `static/i18n.js` para el frontend).

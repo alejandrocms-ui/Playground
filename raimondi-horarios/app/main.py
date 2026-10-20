@@ -23,7 +23,9 @@ from .validator import validate
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = Path(os.environ.get("RAIMONDI_DATA", ROOT / "data"))
 SEEDS = {"school": DATA_DIR / "seed_school.json", "fixture": DATA_DIR / "seed_fixture.json",
-         "multibell": DATA_DIR / "seed_multibell.json"}
+         "multibell": DATA_DIR / "seed_multibell.json",
+         # real school data lives outside git (data/private/ is ignored); see AGENTS.md
+         "raimondi": Path(os.environ.get("RAIMONDI_PRIVATE_SEED", DATA_DIR / "private" / "seed_raimondi.json"))}
 SECRET = os.environ.get("RAIMONDI_SECRET", "cambia-esta-clave-en-produccion").encode()
 
 app = FastAPI(title="Raimondi Horarios MVP", version="0.1.0")
@@ -40,7 +42,7 @@ def load_seed(name: str) -> dict:
 def current() -> tuple[int, dict]:
     n, data = store.current()
     if data is None:
-        seed = "school" if SEEDS["school"].exists() else "fixture"
+        seed = next(k for k in ("raimondi", "school", "fixture") if SEEDS[k].exists())
         data = load_seed(seed)
         n = store.commit(data, f"Carga inicial ({seed})", "sistema")
     return n, data
@@ -62,7 +64,8 @@ def get_state():
     v = validate(data)
     return {"version": n, "data": data, "validation": v,
             "occurrences": {o: occ.__dict__ for o, occ in build_ctx(data).occurrences.items()},
-            "constraint_types": CONSTRAINT_TYPES, "llm": assistant.claude_available()}
+            "constraint_types": CONSTRAINT_TYPES, "llm": assistant.claude_available(),
+            "seeds": [k for k, p in SEEDS.items() if p.exists()]}
 
 
 @app.post("/api/reset")

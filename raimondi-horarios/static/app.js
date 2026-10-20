@@ -36,7 +36,7 @@
   async function load() {
     const { body } = await api("/api/state");
     S.data = body.data; S.validation = body.validation; S.occ = body.occurrences;
-    S.version = body.version; S.llm = body.llm; S.ctypes = body.constraint_types;
+    S.version = body.version; S.llm = body.llm; S.seeds = body.seeds || []; S.ctypes = body.constraint_types;
     if (!S.ttId || !findEntity(S.ttMode, S.ttId)) S.ttId = (S.data.sections[0] || {}).id;
     render();
   }
@@ -707,7 +707,7 @@
   // ---------------------------------------------------------------- history
   function history() {
     return `<div class="banner info">${T("history_intro")}</div>
-      <div class="toolbar"><span class="spacer"></span><select id="seed">${["school", "fixture", "multibell"].map((s) => `<option value="${s}">${T("seed_" + s)}</option>`).join("")}</select>
+      <div class="toolbar"><span class="spacer"></span><select id="seed">${S.seeds.map((s) => `<option value="${s}">${T("seed_" + s)}</option>`).join("")}</select>
       <button onclick="App.resetDemo()">${T("reset_demo")}</button></div><div id="hist"><span class="spinner"></span></div>`;
   }
   async function loadHistory() {
