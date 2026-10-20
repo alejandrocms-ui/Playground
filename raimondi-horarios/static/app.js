@@ -68,7 +68,9 @@
       `${esc(meta.name || "")}<br>${meta.synthetic ? "⚠ " + T("synthetic") : ""}<br>${T("version")} ${S.version}`;
     document.getElementById("title").innerHTML = `${T("nav_" + S.view)}<small>${esc(meta.school || "")} · ${meta.academic_year || ""}</small>`;
     const sum = S.validation.summary;
-    document.getElementById("status-chip").innerHTML = S.validation.valid
+    document.getElementById("status-chip").innerHTML = sum.occurrences && !sum.placed_occurrences
+      ? `<span class="chip warn">⚙ ${T("not_generated")} · ${sum.occurrences}</span>`
+      : S.validation.valid
       ? `<span class="chip ok">✓ ${T("valid")} · ${sum.placed_occurrences}/${sum.occurrences}</span>`
       : `<span class="chip bad">✕ ${T("invalid")} · ${sum.hard_violations + sum.data_issues}</span>`;
     document.getElementById("btn-generate").textContent = S.busy ? T("generating") : "⚙ " + T("generate");
