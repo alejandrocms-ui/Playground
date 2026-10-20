@@ -45,7 +45,7 @@ Validación con los documentos 2026 del colegio (planes de estudio y distribuci�
 
 ```bash
 cd raimondi-horarios
-./run.sh                      # instala dependencias y abre en http://localhost:8000
+./run.sh                      # crea .venv, instala, libera el puerto, activa Claude si hay clave y abre el navegador
 # o bien
 pip install -r requirements.txt
 uvicorn app.main:app --reload
@@ -57,7 +57,7 @@ Variables opcionales:
 
 | Variable | Uso |
 |---|---|
-| `ANTHROPIC_API_KEY` | Activa el asistente con Claude (`claude-opus-5-5`; cambiar con `RAIMONDI_MODEL`). |
+| `ANTHROPIC_API_KEY` (o archivo `.anthropic_key`, ignorado por git) | Activa el asistente con Claude (`claude-opus-5-5`; cambiar con `RAIMONDI_MODEL`). |
 | `RAIMONDI_SECRET` | Clave para firmar los enlaces personales de docentes. **Cambiar en producción.** |
 | `RAIMONDI_DB` | Ruta de la base SQLite de versiones (por defecto `data/raimondi.db`). |
 
