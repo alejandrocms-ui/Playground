@@ -25,7 +25,15 @@ CONSTRAINT_TYPES = {
     "avoid_slot": {"default_hard": False, "params": ["day", "period", "section_ids", "subject_ids"]},
     "teacher_compact_days": {"default_hard": False, "params": ["teacher_ids"]},
     "teacher_gaps": {"default_hard": False, "params": ["teacher_ids"]},
+    # pedagogical distribution rules
+    "block_shape": {"default_hard": True, "params": ["subject_ids", "section_ids", "hours", "pattern"]},
+    "prefer_double_periods": {"default_hard": False, "params": ["subject_ids", "section_ids"]},
+    "avoid_after_lunch": {"default_hard": False, "params": ["subject_ids", "section_ids"]},
+    "balanced_distribution": {"default_hard": False, "params": ["subject_ids", "section_ids"]},
 }
+
+LUNCH_EARLIEST = 11 * 60 + 30   # a break starting after 11:30 and lasting >= 30 min is "lunch"
+SEGMENT_MIN_BREAK = 15          # breaks of at least 15 min split the day into blocks
 
 PRIORITY_WEIGHT = {1: 100, 2: 10, 3: 1}
 
@@ -126,6 +134,43 @@ class Ctx:
     def periods_covered(self, bell_id: str, start: int, end: int) -> list:
         return [i for i, p in enumerate(self.periods(bell_id)) if p["start"] < end and start < p["end"]]
 
+    def lunch(self, bell_id: str):
+        """(start, end) of the lunch break of a bell, or None (e.g. Inicial has none)."""
+        for br in sorted(self.bells[bell_id].get("breaks", []), key=lambda b: b["start"]):
+            if br["start"] >= LUNCH_EARLIEST and br["end"] - br["start"] >= 30:
+                return br["start"], br["end"]
+        return None
+
+    def segments(self, bell_id: str) -> list:
+        """Day blocks of a bell: period numbers grouped between breaks of >= 15 min
+        (Primaria, Media and Liceo all have three: before the pause, before lunch, after)."""
+        min_break = int(self.data.get("settings", {}).get("segment_min_break", SEGMENT_MIN_BREAK))
+        periods, bell = self.periods(bell_id), self.bells[bell_id]
+        out, cur = [], []
+        for i, p in enumerate(periods):
+            if cur:
+                prev = periods[i - 1]
+                gap = [br for br in bell.get("breaks", []) if br["start"] >= prev["end"] and br["end"] <= p["start"]]
+                if any(br["end"] - br["start"] >= min_break for br in gap) or (not gap and p["start"] - prev["end"] >= min_break):
+                    out.append(cur)
+                    cur = []
+            cur.append(p["n"])
+        if cur:
+            out.append(cur)
+        return out
+
+    def segment_of(self, bell_id: str, period: int) -> int:
+        return next(i for i, seg in enumerate(self.segments(bell_id)) if period in seg)
+
+    def morning_segments(self, bell_id: str) -> list:
+        """Indexes of the day blocks that end before lunch (all of them if there is no lunch)."""
+        lunch = self.lunch(bell_id)
+        segs = self.segments(bell_id)
+        if not lunch:
+            return list(range(len(segs)))
+        per = {p["n"]: p for p in self.periods(bell_id)}
+        return [i for i, seg in enumerate(segs) if per[seg[-1]]["end"] <= lunch[0]]
+
     def subject_name(self, subject_id: str, lang: str = "es") -> str:
         s = self.subjects.get(subject_id, {})
         return s.get(f"name_{lang}") or s.get("name_es") or subject_id
@@ -172,7 +217,7 @@ def build_ctx(data: dict) -> Ctx:
                 ctx.errors.append({"code": "unknown_teacher", "entity": lesson["id"], "ref": t})
         if not lesson.get("teacher_ids"):
             ctx.errors.append({"code": "no_teacher", "entity": lesson["id"]})
-        blocks = lesson.get("blocks") or [1] * int(lesson.get("periods_per_week", 0))
+        blocks = shape_blocks(data, lesson, lesson.get("blocks") or [1] * int(lesson.get("periods_per_week", 0)))
         if sum(blocks) != int(lesson.get("periods_per_week", sum(blocks))):
             ctx.errors.append({"code": "blocks_mismatch", "entity": lesson["id"],
                                "expected": lesson.get("periods_per_week"), "actual": sum(blocks)})
@@ -201,6 +246,31 @@ def build_ctx(data: dict) -> Ctx:
     return ctx
 
 
+def rule_applies(c: dict, subject_id: str, section_ids: list) -> bool:
+    subs = c.get("subject_ids") or []
+    secs = c.get("section_ids") or []
+    return (not subs or subject_id in subs) and (not secs or any(x in secs for x in section_ids))
+
+
+def shape_blocks(data: dict, lesson: dict, blocks: list) -> list:
+    """Structural rule 'block_shape': lessons given as single hours are regrouped, e.g. every
+    2-hour subject as one double block, or Italian as 2+2+2+1. Explicit blocks are respected."""
+    hours = sum(blocks)
+    if len(blocks) < 2 or any(b != 1 for b in blocks):
+        return blocks
+    secs = [lesson["section_id"], *lesson.get("joint_section_ids", [])]
+    for c in active_constraints(data):
+        if c["type"] != "block_shape" or not rule_applies(c, lesson["subject_id"], secs):
+            continue
+        if c.get("hours") and int(c["hours"]) != hours:
+            continue
+        pattern = [int(x) for x in (c.get("pattern") or []) if int(x) > 0]
+        if not pattern or sum(pattern) != hours:
+            pattern = [2] * (hours // 2) + [1] * (hours % 2)
+        return pattern
+    return blocks
+
+
 def active_constraints(data: dict) -> list:
     return [c for c in data.get("constraints", []) if c.get("enabled", True)]
 
@@ -215,6 +285,11 @@ def weight(c: dict) -> int:
     if "weight" in c:
         return int(c["weight"])
     return PRIORITY_WEIGHT.get(int(c.get("priority", 2)), 10)
+
+
+def tier(c: dict) -> int:
+    """Priority level of a preference: 1 is optimised first and never traded for 2 or 3."""
+    return min(3, max(1, int(c.get("priority", 2))))
 
 
 def slot_blocked(slots: list, day: str, start: int, end: int) -> bool:

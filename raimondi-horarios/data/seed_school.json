@@ -3999,24 +3999,39 @@
    "note": "Ejemplo: máximo 4 días con clase"
   },
   {
+   "id": "R-DOBLE-2H",
+   "type": "block_shape",
+   "hours": 2,
+   "pattern": [
+    2
+   ],
+   "subject_ids": [],
+   "section_ids": [],
+   "hard": true,
+   "note": "Cursos de 2 h en un solo bloque, nunca partido por un recreo"
+  },
+  {
    "id": "S-CORE",
-   "type": "preferred_periods",
+   "type": "avoid_after_lunch",
    "subject_ids": [
     "IT",
     "ES",
     "MA",
     "EN"
    ],
-   "periods": [
-    1,
-    2,
-    3,
-    4,
-    5
-   ],
+   "section_ids": [],
+   "hard": false,
+   "priority": 1,
+   "note": "Preferencia: materias base en la mañana, no después del almuerzo"
+  },
+  {
+   "id": "S-EQUIDAD",
+   "type": "balanced_distribution",
+   "subject_ids": [],
+   "section_ids": [],
    "hard": false,
    "priority": 2,
-   "note": "Preferencia: materias troncales antes del almuerzo"
+   "note": "Preferencia: distribución equitativa en la semana y en los bloques del día"
   },
   {
    "id": "S-FRI-LAST",
@@ -4047,29 +4062,29 @@
  "placements": [
   {
    "occ_id": "1LA-DG-1",
+   "day": "FRI",
+   "period": 2,
+   "room_id": "ART1",
+   "locked": false
+  },
+  {
+   "occ_id": "1LA-DG-2",
    "day": "THU",
    "period": 5,
    "room_id": "ART2",
    "locked": false
   },
   {
-   "occ_id": "1LA-DG-2",
-   "day": "FRI",
-   "period": 4,
-   "room_id": "ART2",
-   "locked": false
-  },
-  {
    "occ_id": "1LA-DG-3",
-   "day": "MON",
-   "period": 5,
-   "room_id": "ART2",
+   "day": "TUE",
+   "period": 7,
+   "room_id": "ART1",
    "locked": false
   },
   {
    "occ_id": "1LA-EF-1",
    "day": "TUE",
-   "period": 7,
+   "period": 5,
    "room_id": "GYM2",
    "locked": false
   },
@@ -4082,50 +4097,43 @@
   },
   {
    "occ_id": "1LA-EN-2",
-   "day": "WED",
-   "period": 2,
-   "room_id": "A-1LA",
-   "locked": false
-  },
-  {
-   "occ_id": "1LA-EN-3",
-   "day": "MON",
+   "day": "TUE",
    "period": 1,
    "room_id": "A-1LA",
    "locked": false
   },
   {
-   "occ_id": "1LA-ES-1",
+   "occ_id": "1LA-EN-3",
    "day": "WED",
    "period": 4,
    "room_id": "A-1LA",
    "locked": false
   },
   {
+   "occ_id": "1LA-ES-1",
+   "day": "WED",
+   "period": 5,
+   "room_id": "A-1LA",
+   "locked": false
+  },
+  {
    "occ_id": "1LA-ES-2",
-   "day": "TUE",
-   "period": 2,
+   "day": "THU",
+   "period": 1,
    "room_id": "A-1LA",
    "locked": false
   },
   {
    "occ_id": "1LA-FL-1",
-   "day": "TUE",
-   "period": 6,
-   "room_id": "A-1LA",
-   "locked": false
-  },
-  {
-   "occ_id": "1LA-FL-2",
-   "day": "WED",
-   "period": 6,
+   "day": "MON",
+   "period": 7,
    "room_id": "A-1LA",
    "locked": false
   },
   {
    "occ_id": "1LA-IT-1",
-   "day": "MON",
-   "period": 2,
+   "day": "FRI",
+   "period": 5,
    "room_id": "A-1LA",
    "locked": false
   },
@@ -4138,153 +4146,125 @@
   },
   {
    "occ_id": "1LA-IT-3",
-   "day": "WED",
-   "period": 3,
+   "day": "MON",
+   "period": 2,
    "room_id": "A-1LA",
    "locked": false
   },
   {
    "occ_id": "1LA-MA-1",
-   "day": "THU",
-   "period": 4,
+   "day": "MON",
+   "period": 5,
    "room_id": "A-1LA",
    "locked": false
   },
   {
    "occ_id": "1LA-MA-2",
-   "day": "FRI",
-   "period": 3,
+   "day": "THU",
+   "period": 4,
    "room_id": "A-1LA",
    "locked": false
   },
   {
    "occ_id": "1LA-MA-3",
    "day": "TUE",
-   "period": 5,
+   "period": 3,
    "room_id": "A-1LA",
    "locked": false
   },
   {
    "occ_id": "1LA-RE-1",
-   "day": "THU",
-   "period": 7,
+   "day": "MON",
+   "period": 6,
    "room_id": "A-1LA",
    "locked": false
   },
   {
    "occ_id": "1LA-SA-1",
-   "day": "MON",
+   "day": "THU",
    "period": 7,
    "room_id": "A-1LA",
    "locked": false
   },
   {
    "occ_id": "1LA-SA-2",
-   "day": "TUE",
+   "day": "FRI",
    "period": 4,
    "room_id": "A-1LA",
    "locked": false
   },
   {
    "occ_id": "1LA-SC-1",
-   "day": "TUE",
-   "period": 3,
-   "room_id": "LAB",
-   "locked": false
-  },
-  {
-   "occ_id": "1LA-SC-2",
-   "day": "THU",
-   "period": 1,
+   "day": "WED",
+   "period": 2,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "1LA-ST-1",
-   "day": "THU",
-   "period": 8,
-   "room_id": "A-1LA",
-   "locked": false
-  },
-  {
-   "occ_id": "1LA-ST-2",
-   "day": "MON",
-   "period": 4,
+   "day": "WED",
+   "period": 7,
    "room_id": "A-1LA",
    "locked": false
   },
   {
    "occ_id": "1LL-CN-1",
+   "day": "THU",
+   "period": 7,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-CN-2",
    "day": "TUE",
    "period": 4,
    "room_id": "A-1LL",
    "locked": false
   },
   {
-   "occ_id": "1LL-CN-2",
-   "day": "THU",
-   "period": 3,
-   "room_id": "A-1LL",
-   "locked": false
-  },
-  {
    "occ_id": "1LL-EF-1",
-   "day": "THU",
-   "period": 7,
+   "day": "WED",
+   "period": 5,
    "room_id": "GYM2",
    "locked": false
   },
   {
    "occ_id": "1LL-EN-1",
-   "day": "THU",
-   "period": 4,
-   "room_id": "A-1LL",
-   "locked": false
-  },
-  {
-   "occ_id": "1LL-EN-2",
-   "day": "WED",
-   "period": 5,
+   "day": "TUE",
+   "period": 2,
    "room_id": "A-1LL",
    "locked": false
   },
   {
    "occ_id": "1LL-ENA-1",
-   "day": "WED",
+   "day": "THU",
    "period": 4,
    "room_id": "A-1LL",
    "locked": false
   },
   {
    "occ_id": "1LL-ENB-1",
-   "day": "MON",
-   "period": 4,
+   "day": "THU",
+   "period": 3,
    "room_id": "LANG",
    "locked": false
   },
   {
    "occ_id": "1LL-ES-1",
-   "day": "WED",
-   "period": 1,
+   "day": "THU",
+   "period": 5,
    "room_id": "A-1LL",
    "locked": false
   },
   {
    "occ_id": "1LL-ES-2",
-   "day": "TUE",
+   "day": "WED",
    "period": 3,
    "room_id": "A-1LL",
    "locked": false
   },
   {
    "occ_id": "1LL-FL-1",
-   "day": "TUE",
-   "period": 7,
-   "room_id": "A-1LL",
-   "locked": false
-  },
-  {
-   "occ_id": "1LL-FL-2",
    "day": "WED",
    "period": 7,
    "room_id": "A-1LL",
@@ -4292,121 +4272,93 @@
   },
   {
    "occ_id": "1LL-IT-1",
-   "day": "FRI",
-   "period": 2,
+   "day": "TUE",
+   "period": 5,
    "room_id": "A-1LL",
    "locked": false
   },
   {
    "occ_id": "1LL-IT-2",
-   "day": "THU",
-   "period": 1,
-   "room_id": "A-1LL",
-   "locked": false
-  },
-  {
-   "occ_id": "1LL-IT-3",
-   "day": "MON",
-   "period": 1,
-   "room_id": "A-1LL",
-   "locked": false
-  },
-  {
-   "occ_id": "1LL-LA-1",
-   "day": "MON",
-   "period": 6,
-   "room_id": "A-1LL",
-   "locked": false
-  },
-  {
-   "occ_id": "1LL-LA-2",
-   "day": "WED",
+   "day": "FRI",
    "period": 3,
    "room_id": "A-1LL",
    "locked": false
   },
   {
+   "occ_id": "1LL-IT-3",
+   "day": "THU",
+   "period": 2,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
+   "occ_id": "1LL-LA-1",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-1LL",
+   "locked": false
+  },
+  {
    "occ_id": "1LL-MA-1",
-   "day": "FRI",
-   "period": 4,
+   "day": "TUE",
+   "period": 1,
    "room_id": "A-1LL",
    "locked": false
   },
   {
    "occ_id": "1LL-MA-2",
-   "day": "THU",
+   "day": "MON",
    "period": 2,
    "room_id": "A-1LL",
    "locked": false
   },
   {
    "occ_id": "1LL-MA-3",
-   "day": "MON",
-   "period": 3,
+   "day": "WED",
+   "period": 4,
    "room_id": "A-1LL",
    "locked": false
   },
   {
    "occ_id": "1LL-RE-1",
-   "day": "FRI",
+   "day": "MON",
    "period": 7,
    "room_id": "A-1LL",
    "locked": false
   },
   {
    "occ_id": "1LL-SA-1",
-   "day": "TUE",
-   "period": 6,
-   "room_id": "A-1LL",
-   "locked": false
-  },
-  {
-   "occ_id": "1LL-SA-2",
-   "day": "MON",
-   "period": 5,
+   "day": "FRI",
+   "period": 1,
    "room_id": "A-1LL",
    "locked": false
   },
   {
    "occ_id": "1LL-SC-1",
-   "day": "TUE",
-   "period": 1,
-   "room_id": "LAB",
-   "locked": false
-  },
-  {
-   "occ_id": "1LL-SC-2",
-   "day": "MON",
-   "period": 7,
+   "day": "FRI",
+   "period": 4,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "1LL-ST-1",
-   "day": "THU",
-   "period": 5,
-   "room_id": "A-1LL",
-   "locked": false
-  },
-  {
-   "occ_id": "1LL-ST-2",
-   "day": "FRI",
+   "day": "MON",
    "period": 5,
    "room_id": "A-1LL",
    "locked": false
   },
   {
    "occ_id": "1LS-AR-1",
-   "day": "THU",
+   "day": "WED",
    "period": 7,
    "room_id": "ART2",
    "locked": false
   },
   {
    "occ_id": "1LS-EF-1",
-   "day": "WED",
+   "day": "TUE",
    "period": 7,
-   "room_id": "GYM2",
+   "room_id": "GYM1",
    "locked": false
   },
   {
@@ -4418,204 +4370,190 @@
   },
   {
    "occ_id": "1LS-EN-2",
-   "day": "TUE",
-   "period": 5,
+   "day": "FRI",
+   "period": 3,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1LS-EN-3",
    "day": "MON",
-   "period": 4,
+   "period": 5,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1LS-ES-1",
-   "day": "WED",
-   "period": 1,
+   "day": "FRI",
+   "period": 4,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1LS-ES-2",
-   "day": "MON",
-   "period": 3,
+   "day": "THU",
+   "period": 2,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1LS-FI-1",
    "day": "FRI",
-   "period": 1,
+   "period": 7,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "1LS-FI-2",
-   "day": "THU",
-   "period": 6,
+   "day": "MON",
+   "period": 3,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "1LS-FL-1",
-   "day": "MON",
+   "day": "WED",
    "period": 5,
-   "room_id": "A-1LS",
-   "locked": false
-  },
-  {
-   "occ_id": "1LS-FL-2",
-   "day": "TUE",
-   "period": 8,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1LS-IT-1",
    "day": "TUE",
-   "period": 1,
+   "period": 2,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1LS-IT-2",
-   "day": "FRI",
-   "period": 4,
+   "day": "MON",
+   "period": 6,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1LS-IT-3",
    "day": "THU",
-   "period": 1,
-   "room_id": "A-1LS",
-   "locked": false
-  },
-  {
-   "occ_id": "1LS-LA-1",
-   "day": "MON",
-   "period": 8,
-   "room_id": "A-1LS",
-   "locked": false
-  },
-  {
-   "occ_id": "1LS-LA-2",
-   "day": "FRI",
-   "period": 6,
-   "room_id": "A-1LS",
-   "locked": false
-  },
-  {
-   "occ_id": "1LS-LA-3",
-   "day": "WED",
    "period": 5,
    "room_id": "A-1LS",
    "locked": false
   },
   {
-   "occ_id": "1LS-MA-1",
+   "occ_id": "1LS-LA-1",
+   "day": "TUE",
+   "period": 1,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-LA-2",
+   "day": "WED",
+   "period": 4,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-LA-3",
    "day": "THU",
-   "period": 2,
+   "period": 7,
+   "room_id": "A-1LS",
+   "locked": false
+  },
+  {
+   "occ_id": "1LS-MA-1",
+   "day": "WED",
+   "period": 1,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1LS-MA-2",
-   "day": "TUE",
+   "day": "THU",
    "period": 3,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1LS-MA-3",
-   "day": "FRI",
-   "period": 3,
+   "day": "MON",
+   "period": 4,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1LS-MA-4",
-   "day": "MON",
-   "period": 1,
+   "day": "TUE",
+   "period": 4,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1LS-RE-1",
    "day": "MON",
-   "period": 7,
+   "period": 8,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1LS-SC-1",
-   "day": "THU",
-   "period": 4,
+   "day": "FRI",
+   "period": 1,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "1LS-SC-2",
-   "day": "TUE",
-   "period": 4,
+   "day": "THU",
+   "period": 6,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "1LS-ST-1",
    "day": "TUE",
-   "period": 6,
-   "room_id": "A-1LS",
-   "locked": false
-  },
-  {
-   "occ_id": "1LS-ST-2",
-   "day": "MON",
-   "period": 2,
+   "period": 5,
    "room_id": "A-1LS",
    "locked": false
   },
   {
    "occ_id": "1M-AR-1",
-   "day": "MON",
+   "day": "THU",
    "period": 7,
-   "room_id": "ART1",
+   "room_id": "ART2",
    "locked": false
   },
   {
    "occ_id": "1M-CN-1",
-   "day": "THU",
-   "period": 1,
+   "day": "TUE",
+   "period": 5,
    "room_id": "A-1M",
    "locked": false
   },
   {
    "occ_id": "1M-EF-1",
-   "day": "WED",
+   "day": "MON",
    "period": 7,
-   "room_id": "GYM1",
+   "room_id": "GYM2",
    "locked": false
   },
   {
    "occ_id": "1M-EN-1",
-   "day": "THU",
-   "period": 4,
+   "day": "MON",
+   "period": 3,
    "room_id": "A-1M",
    "locked": false
   },
   {
    "occ_id": "1M-EN-2",
-   "day": "WED",
-   "period": 2,
+   "day": "FRI",
+   "period": 5,
    "room_id": "A-1M",
    "locked": false
   },
   {
    "occ_id": "1M-EN-3",
-   "day": "TUE",
-   "period": 4,
+   "day": "WED",
+   "period": 5,
    "room_id": "A-1M",
    "locked": false
   },
@@ -4628,29 +4566,22 @@
   },
   {
    "occ_id": "1M-ES-2",
-   "day": "TUE",
-   "period": 5,
+   "day": "THU",
+   "period": 4,
    "room_id": "A-1M",
    "locked": false
   },
   {
    "occ_id": "1M-ES-3",
-   "day": "MON",
-   "period": 2,
+   "day": "TUE",
+   "period": 4,
    "room_id": "A-1M",
    "locked": false
   },
   {
    "occ_id": "1M-GE-1",
-   "day": "MON",
-   "period": 5,
-   "room_id": "A-1M",
-   "locked": false
-  },
-  {
-   "occ_id": "1M-GE-2",
    "day": "WED",
-   "period": 6,
+   "period": 7,
    "room_id": "A-1M",
    "locked": false
   },
@@ -4663,301 +4594,280 @@
   },
   {
    "occ_id": "1M-IT-2",
-   "day": "MON",
+   "day": "THU",
    "period": 3,
    "room_id": "A-1M",
    "locked": false
   },
   {
    "occ_id": "1M-IT-3",
-   "day": "FRI",
-   "period": 3,
-   "room_id": "A-1M",
-   "locked": false
-  },
-  {
-   "occ_id": "1M-IT-4",
-   "day": "WED",
-   "period": 3,
-   "room_id": "A-1M",
-   "locked": false
-  },
-  {
-   "occ_id": "1M-IT-5",
-   "day": "THU",
-   "period": 3,
-   "room_id": "A-1M",
-   "locked": false
-  },
-  {
-   "occ_id": "1M-MA-1",
-   "day": "FRI",
+   "day": "MON",
    "period": 4,
    "room_id": "A-1M",
    "locked": false
   },
   {
+   "occ_id": "1M-IT-4",
+   "day": "FRI",
+   "period": 6,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-IT-5",
+   "day": "WED",
+   "period": 4,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
+   "occ_id": "1M-MA-1",
+   "day": "WED",
+   "period": 2,
+   "room_id": "A-1M",
+   "locked": false
+  },
+  {
    "occ_id": "1M-MA-2",
-   "day": "MON",
+   "day": "FRI",
    "period": 4,
    "room_id": "A-1M",
    "locked": false
   },
   {
    "occ_id": "1M-MA-3",
-   "day": "TUE",
-   "period": 1,
+   "day": "THU",
+   "period": 2,
    "room_id": "A-1M",
    "locked": false
   },
   {
    "occ_id": "1M-MA-4",
-   "day": "THU",
+   "day": "MON",
    "period": 5,
    "room_id": "A-1M",
    "locked": false
   },
   {
    "occ_id": "1M-MU-1",
-   "day": "THU",
+   "day": "TUE",
    "period": 7,
-   "room_id": "MUS",
-   "locked": false
-  },
-  {
-   "occ_id": "1M-MU-2",
-   "day": "FRI",
-   "period": 6,
    "room_id": "MUS",
    "locked": false
   },
   {
    "occ_id": "1M-RE-1",
-   "day": "THU",
-   "period": 8,
+   "day": "FRI",
+   "period": 3,
    "room_id": "A-1M",
    "locked": false
   },
   {
    "occ_id": "1M-SC-1",
-   "day": "TUE",
-   "period": 7,
+   "day": "MON",
+   "period": 1,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "1M-SC-2",
    "day": "WED",
-   "period": 1,
+   "period": 6,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "1M-ST-1",
-   "day": "FRI",
-   "period": 7,
-   "room_id": "A-1M",
-   "locked": false
-  },
-  {
-   "occ_id": "1M-ST-2",
-   "day": "MON",
-   "period": 6,
+   "day": "THU",
+   "period": 5,
    "room_id": "A-1M",
    "locked": false
   },
   {
    "occ_id": "1P-AR-1",
-   "day": "MON",
-   "period": 6,
+   "day": "WED",
+   "period": 1,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-EF-1",
-   "day": "TUE",
-   "period": 6,
-   "room_id": "GYM1",
+   "day": "MON",
+   "period": 1,
+   "room_id": "GYM2",
    "locked": false
   },
   {
    "occ_id": "1P-EN-1",
-   "day": "TUE",
-   "period": 3,
+   "day": "THU",
+   "period": 6,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-EN-2",
-   "day": "THU",
-   "period": 2,
-   "room_id": "A-1P",
-   "locked": false
-  },
-  {
-   "occ_id": "1P-EN-3",
    "day": "WED",
    "period": 5,
    "room_id": "A-1P",
    "locked": false
   },
   {
+   "occ_id": "1P-EN-3",
+   "day": "FRI",
+   "period": 2,
+   "room_id": "A-1P",
+   "locked": false
+  },
+  {
    "occ_id": "1P-ES-1",
-   "day": "MON",
-   "period": 3,
+   "day": "FRI",
+   "period": 5,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-ES-2",
-   "day": "FRI",
+   "day": "WED",
    "period": 4,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-ES-3",
-   "day": "WED",
-   "period": 3,
+   "day": "THU",
+   "period": 1,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-ES-4",
-   "day": "THU",
-   "period": 3,
+   "day": "TUE",
+   "period": 2,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-IT-1",
-   "day": "FRI",
-   "period": 1,
+   "day": "THU",
+   "period": 2,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-IT-2",
    "day": "WED",
-   "period": 1,
+   "period": 6,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-IT-3",
-   "day": "THU",
-   "period": 4,
+   "day": "TUE",
+   "period": 7,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-IT-4",
-   "day": "TUE",
-   "period": 2,
+   "day": "MON",
+   "period": 4,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-IT-5",
-   "day": "MON",
-   "period": 5,
+   "day": "FRI",
+   "period": 1,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-MA-1",
-   "day": "MON",
-   "period": 1,
+   "day": "TUE",
+   "period": 3,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-MA-2",
-   "day": "THU",
-   "period": 1,
+   "day": "WED",
+   "period": 3,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-MA-3",
    "day": "FRI",
-   "period": 3,
+   "period": 7,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-MA-4",
-   "day": "WED",
-   "period": 4,
+   "day": "MON",
+   "period": 5,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-MA-5",
-   "day": "TUE",
-   "period": 4,
+   "day": "THU",
+   "period": 5,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-MU-1",
    "day": "THU",
-   "period": 5,
+   "period": 4,
    "room_id": "MUS",
    "locked": false
   },
   {
    "occ_id": "1P-PS-1",
-   "day": "WED",
-   "period": 7,
-   "room_id": "A-1P",
-   "locked": false
-  },
-  {
-   "occ_id": "1P-PS-2",
    "day": "FRI",
-   "period": 5,
+   "period": 3,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-RE-1",
-   "day": "THU",
-   "period": 6,
+   "day": "MON",
+   "period": 3,
    "room_id": "A-1P",
    "locked": false
   },
   {
    "occ_id": "1P-SC-1",
-   "day": "FRI",
+   "day": "MON",
    "period": 6,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "2LA-DG-1",
+   "day": "FRI",
+   "period": 4,
+   "room_id": "ART1",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-DG-2",
+   "day": "WED",
+   "period": 1,
+   "room_id": "ART2",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-DG-3",
    "day": "THU",
    "period": 7,
    "room_id": "ART1",
    "locked": false
   },
   {
-   "occ_id": "2LA-DG-2",
-   "day": "MON",
-   "period": 7,
-   "room_id": "ART2",
-   "locked": false
-  },
-  {
-   "occ_id": "2LA-DG-3",
-   "day": "FRI",
-   "period": 2,
-   "room_id": "ART2",
-   "locked": false
-  },
-  {
    "occ_id": "2LA-EF-1",
-   "day": "THU",
+   "day": "MON",
    "period": 5,
    "room_id": "GYM2",
    "locked": false
@@ -4965,76 +4875,69 @@
   {
    "occ_id": "2LA-EN-1",
    "day": "WED",
-   "period": 1,
+   "period": 5,
    "room_id": "A-2LA",
    "locked": false
   },
   {
    "occ_id": "2LA-EN-2",
-   "day": "MON",
-   "period": 2,
-   "room_id": "A-2LA",
-   "locked": false
-  },
-  {
-   "occ_id": "2LA-EN-3",
    "day": "THU",
    "period": 1,
    "room_id": "A-2LA",
    "locked": false
   },
   {
-   "occ_id": "2LA-ES-1",
+   "occ_id": "2LA-EN-3",
    "day": "TUE",
    "period": 4,
+   "room_id": "A-2LA",
+   "locked": false
+  },
+  {
+   "occ_id": "2LA-ES-1",
+   "day": "THU",
+   "period": 2,
    "room_id": "A-2LA",
    "locked": false
   },
   {
    "occ_id": "2LA-ES-2",
    "day": "WED",
-   "period": 3,
+   "period": 4,
    "room_id": "A-2LA",
    "locked": false
   },
   {
    "occ_id": "2LA-FL-1",
-   "day": "WED",
+   "day": "TUE",
    "period": 5,
    "room_id": "A-2LA",
    "locked": false
   },
   {
-   "occ_id": "2LA-FL-2",
-   "day": "MON",
-   "period": 6,
-   "room_id": "A-2LA",
-   "locked": false
-  },
-  {
    "occ_id": "2LA-IT-1",
-   "day": "FRI",
+   "day": "THU",
    "period": 4,
    "room_id": "A-2LA",
    "locked": false
   },
   {
    "occ_id": "2LA-IT-2",
-   "day": "WED",
-   "period": 4,
+   "day": "TUE",
+   "period": 3,
    "room_id": "A-2LA",
    "locked": false
   },
   {
    "occ_id": "2LA-IT-3",
-   "day": "THU",
-   "period": 2,
+   "day": "MON",
+   "period": 3,
    "room_id": "A-2LA",
    "locked": false
   },
   {
    "occ_id": "2LA-MA-1",
-   "day": "TUE",
+   "day": "WED",
    "period": 3,
    "room_id": "A-2LA",
    "locked": false
@@ -5042,105 +4945,84 @@
   {
    "occ_id": "2LA-MA-2",
    "day": "MON",
-   "period": 1,
+   "period": 4,
    "room_id": "A-2LA",
    "locked": false
   },
   {
    "occ_id": "2LA-MA-3",
-   "day": "THU",
-   "period": 3,
+   "day": "TUE",
+   "period": 2,
    "room_id": "A-2LA",
    "locked": false
   },
   {
    "occ_id": "2LA-RE-1",
-   "day": "MON",
-   "period": 3,
+   "day": "THU",
+   "period": 6,
    "room_id": "A-2LA",
    "locked": false
   },
   {
    "occ_id": "2LA-SA-1",
-   "day": "TUE",
+   "day": "WED",
    "period": 7,
    "room_id": "A-2LA",
    "locked": false
   },
   {
    "occ_id": "2LA-SA-2",
-   "day": "MON",
-   "period": 4,
+   "day": "FRI",
+   "period": 3,
    "room_id": "A-2LA",
    "locked": false
   },
   {
    "occ_id": "2LA-SC-1",
-   "day": "WED",
-   "period": 2,
-   "room_id": "LAB",
-   "locked": false
-  },
-  {
-   "occ_id": "2LA-SC-2",
-   "day": "TUE",
-   "period": 2,
+   "day": "MON",
+   "period": 7,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "2LA-ST-1",
-   "day": "MON",
-   "period": 5,
-   "room_id": "A-2LA",
-   "locked": false
-  },
-  {
-   "occ_id": "2LA-ST-2",
-   "day": "THU",
-   "period": 4,
+   "day": "TUE",
+   "period": 7,
    "room_id": "A-2LA",
    "locked": false
   },
   {
    "occ_id": "2LL-CN-1",
-   "day": "TUE",
-   "period": 2,
+   "day": "THU",
+   "period": 5,
    "room_id": "A-2LL",
    "locked": false
   },
   {
    "occ_id": "2LL-CN-2",
-   "day": "THU",
-   "period": 4,
+   "day": "TUE",
+   "period": 1,
    "room_id": "A-2LL",
    "locked": false
   },
   {
    "occ_id": "2LL-EF-1",
-   "day": "FRI",
-   "period": 5,
+   "day": "MON",
+   "period": 7,
    "room_id": "GYM1",
    "locked": false
   },
   {
    "occ_id": "2LL-EN-1",
-   "day": "THU",
+   "day": "TUE",
    "period": 5,
    "room_id": "A-2LL",
    "locked": false
   },
   {
-   "occ_id": "2LL-EN-2",
-   "day": "MON",
-   "period": 3,
-   "room_id": "A-2LL",
-   "locked": false
-  },
-  {
    "occ_id": "2LL-ENA-1",
-   "day": "THU",
-   "period": 3,
+   "day": "WED",
+   "period": 6,
    "room_id": "A-2LL",
    "locked": false
   },
@@ -5153,132 +5035,97 @@
   },
   {
    "occ_id": "2LL-ES-1",
-   "day": "THU",
+   "day": "WED",
    "period": 1,
    "room_id": "A-2LL",
    "locked": false
   },
   {
    "occ_id": "2LL-ES-2",
-   "day": "TUE",
-   "period": 1,
+   "day": "THU",
+   "period": 4,
    "room_id": "A-2LL",
    "locked": false
   },
   {
    "occ_id": "2LL-FL-1",
    "day": "MON",
-   "period": 8,
-   "room_id": "A-2LL",
-   "locked": false
-  },
-  {
-   "occ_id": "2LL-FL-2",
-   "day": "WED",
-   "period": 8,
-   "room_id": "A-2LL",
-   "locked": false
-  },
-  {
-   "occ_id": "2LL-IT-1",
-   "day": "MON",
-   "period": 4,
-   "room_id": "A-2LL",
-   "locked": false
-  },
-  {
-   "occ_id": "2LL-IT-2",
-   "day": "WED",
    "period": 5,
    "room_id": "A-2LL",
    "locked": false
   },
   {
-   "occ_id": "2LL-IT-3",
+   "occ_id": "2LL-IT-1",
    "day": "FRI",
    "period": 1,
    "room_id": "A-2LL",
    "locked": false
   },
   {
-   "occ_id": "2LL-LA-1",
+   "occ_id": "2LL-IT-2",
    "day": "MON",
-   "period": 7,
+   "period": 4,
    "room_id": "A-2LL",
    "locked": false
   },
   {
-   "occ_id": "2LL-LA-2",
-   "day": "WED",
-   "period": 6,
+   "occ_id": "2LL-IT-3",
+   "day": "TUE",
+   "period": 4,
+   "room_id": "A-2LL",
+   "locked": false
+  },
+  {
+   "occ_id": "2LL-LA-1",
+   "day": "TUE",
+   "period": 2,
    "room_id": "A-2LL",
    "locked": false
   },
   {
    "occ_id": "2LL-MA-1",
-   "day": "FRI",
-   "period": 2,
+   "day": "WED",
+   "period": 5,
    "room_id": "A-2LL",
    "locked": false
   },
   {
    "occ_id": "2LL-MA-2",
-   "day": "TUE",
-   "period": 4,
+   "day": "MON",
+   "period": 3,
    "room_id": "A-2LL",
    "locked": false
   },
   {
    "occ_id": "2LL-MA-3",
-   "day": "MON",
-   "period": 2,
+   "day": "THU",
+   "period": 1,
    "room_id": "A-2LL",
    "locked": false
   },
   {
    "occ_id": "2LL-RE-1",
-   "day": "FRI",
-   "period": 4,
+   "day": "THU",
+   "period": 3,
    "room_id": "A-2LL",
    "locked": false
   },
   {
    "occ_id": "2LL-SA-1",
-   "day": "MON",
-   "period": 6,
-   "room_id": "A-2LL",
-   "locked": false
-  },
-  {
-   "occ_id": "2LL-SA-2",
-   "day": "TUE",
+   "day": "FRI",
    "period": 5,
    "room_id": "A-2LL",
    "locked": false
   },
   {
    "occ_id": "2LL-SC-1",
-   "day": "FRI",
+   "day": "TUE",
    "period": 7,
    "room_id": "LAB",
    "locked": false
   },
   {
-   "occ_id": "2LL-SC-2",
-   "day": "WED",
-   "period": 4,
-   "room_id": "LAB",
-   "locked": false
-  },
-  {
    "occ_id": "2LL-ST-1",
-   "day": "MON",
-   "period": 1,
-   "room_id": "A-2LL",
-   "locked": false
-  },
-  {
-   "occ_id": "2LL-ST-2",
    "day": "THU",
    "period": 7,
    "room_id": "A-2LL",
@@ -5286,7 +5133,7 @@
   },
   {
    "occ_id": "2LS-AR-1",
-   "day": "WED",
+   "day": "MON",
    "period": 7,
    "room_id": "ART2",
    "locked": false
@@ -5294,160 +5141,153 @@
   {
    "occ_id": "2LS-EF-1",
    "day": "WED",
-   "period": 5,
-   "room_id": "GYM1",
+   "period": 7,
+   "room_id": "GYM2",
    "locked": false
   },
   {
    "occ_id": "2LS-EN-1",
-   "day": "MON",
-   "period": 3,
+   "day": "FRI",
+   "period": 1,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-EN-2",
-   "day": "FRI",
+   "day": "WED",
    "period": 2,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-EN-3",
-   "day": "THU",
-   "period": 5,
+   "day": "MON",
+   "period": 4,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-ES-1",
-   "day": "MON",
-   "period": 1,
+   "day": "THU",
+   "period": 4,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-ES-2",
-   "day": "TUE",
-   "period": 3,
+   "day": "FRI",
+   "period": 2,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-FI-1",
-   "day": "THU",
-   "period": 7,
+   "day": "TUE",
+   "period": 5,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "2LS-FI-2",
-   "day": "FRI",
-   "period": 3,
+   "day": "WED",
+   "period": 1,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "2LS-FL-1",
    "day": "TUE",
-   "period": 5,
-   "room_id": "A-2LS",
-   "locked": false
-  },
-  {
-   "occ_id": "2LS-FL-2",
-   "day": "MON",
    "period": 7,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-IT-1",
-   "day": "WED",
+   "day": "TUE",
    "period": 1,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-IT-2",
-   "day": "THU",
+   "day": "FRI",
    "period": 4,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-IT-3",
-   "day": "TUE",
-   "period": 4,
+   "day": "MON",
+   "period": 5,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-LA-1",
    "day": "FRI",
-   "period": 5,
+   "period": 7,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-LA-2",
-   "day": "MON",
-   "period": 5,
+   "day": "WED",
+   "period": 3,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-LA-3",
-   "day": "WED",
-   "period": 4,
+   "day": "THU",
+   "period": 6,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-MA-1",
-   "day": "TUE",
-   "period": 1,
+   "day": "THU",
+   "period": 2,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-MA-2",
-   "day": "FRI",
-   "period": 1,
+   "day": "WED",
+   "period": 6,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-MA-3",
-   "day": "MON",
+   "day": "TUE",
    "period": 4,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-MA-4",
-   "day": "THU",
-   "period": 1,
+   "day": "MON",
+   "period": 6,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-RE-1",
-   "day": "MON",
-   "period": 8,
+   "day": "THU",
+   "period": 7,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2LS-SC-1",
-   "day": "THU",
-   "period": 2,
+   "day": "WED",
+   "period": 4,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "2LS-SC-2",
-   "day": "WED",
+   "day": "FRI",
    "period": 3,
    "room_id": "LAB",
    "locked": false
@@ -5455,175 +5295,154 @@
   {
    "occ_id": "2LS-ST-1",
    "day": "FRI",
-   "period": 4,
-   "room_id": "A-2LS",
-   "locked": false
-  },
-  {
-   "occ_id": "2LS-ST-2",
-   "day": "TUE",
-   "period": 8,
+   "period": 5,
    "room_id": "A-2LS",
    "locked": false
   },
   {
    "occ_id": "2M-AR-1",
-   "day": "TUE",
-   "period": 7,
+   "day": "FRI",
+   "period": 4,
    "room_id": "ART2",
    "locked": false
   },
   {
    "occ_id": "2M-CN-1",
-   "day": "THU",
-   "period": 5,
+   "day": "TUE",
+   "period": 2,
    "room_id": "A-2M",
    "locked": false
   },
   {
    "occ_id": "2M-EF-1",
-   "day": "MON",
+   "day": "TUE",
    "period": 7,
    "room_id": "GYM2",
    "locked": false
   },
   {
    "occ_id": "2M-EN-1",
-   "day": "MON",
-   "period": 1,
+   "day": "FRI",
+   "period": 2,
    "room_id": "A-2M",
    "locked": false
   },
   {
    "occ_id": "2M-EN-2",
-   "day": "WED",
-   "period": 1,
+   "day": "MON",
+   "period": 2,
    "room_id": "A-2M",
    "locked": false
   },
   {
    "occ_id": "2M-EN-3",
-   "day": "TUE",
-   "period": 3,
+   "day": "WED",
+   "period": 4,
    "room_id": "A-2M",
    "locked": false
   },
   {
    "occ_id": "2M-ES-1",
-   "day": "THU",
-   "period": 1,
-   "room_id": "A-2M",
-   "locked": false
-  },
-  {
-   "occ_id": "2M-ES-2",
-   "day": "MON",
-   "period": 4,
-   "room_id": "A-2M",
-   "locked": false
-  },
-  {
-   "occ_id": "2M-ES-3",
-   "day": "WED",
-   "period": 4,
-   "room_id": "A-2M",
-   "locked": false
-  },
-  {
-   "occ_id": "2M-GE-1",
    "day": "WED",
    "period": 5,
    "room_id": "A-2M",
    "locked": false
   },
   {
-   "occ_id": "2M-GE-2",
+   "occ_id": "2M-ES-2",
+   "day": "FRI",
+   "period": 3,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-ES-3",
+   "day": "THU",
+   "period": 3,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-GE-1",
    "day": "MON",
-   "period": 6,
+   "period": 5,
    "room_id": "A-2M",
    "locked": false
   },
   {
    "occ_id": "2M-IT-1",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-IT-2",
+   "day": "FRI",
+   "period": 6,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-IT-3",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-IT-4",
+   "day": "MON",
+   "period": 3,
+   "room_id": "A-2M",
+   "locked": false
+  },
+  {
+   "occ_id": "2M-IT-5",
    "day": "TUE",
    "period": 4,
    "room_id": "A-2M",
    "locked": false
   },
   {
-   "occ_id": "2M-IT-2",
-   "day": "MON",
-   "period": 5,
-   "room_id": "A-2M",
-   "locked": false
-  },
-  {
-   "occ_id": "2M-IT-3",
-   "day": "WED",
-   "period": 3,
-   "room_id": "A-2M",
-   "locked": false
-  },
-  {
-   "occ_id": "2M-IT-4",
-   "day": "FRI",
-   "period": 5,
-   "room_id": "A-2M",
-   "locked": false
-  },
-  {
-   "occ_id": "2M-IT-5",
-   "day": "THU",
-   "period": 3,
-   "room_id": "A-2M",
-   "locked": false
-  },
-  {
    "occ_id": "2M-MA-1",
-   "day": "FRI",
-   "period": 1,
+   "day": "THU",
+   "period": 5,
    "room_id": "A-2M",
    "locked": false
   },
   {
    "occ_id": "2M-MA-2",
    "day": "MON",
-   "period": 2,
+   "period": 1,
    "room_id": "A-2M",
    "locked": false
   },
   {
    "occ_id": "2M-MA-3",
-   "day": "TUE",
-   "period": 2,
+   "day": "WED",
+   "period": 3,
    "room_id": "A-2M",
    "locked": false
   },
   {
    "occ_id": "2M-MA-4",
-   "day": "THU",
-   "period": 4,
+   "day": "TUE",
+   "period": 5,
    "room_id": "A-2M",
    "locked": false
   },
   {
    "occ_id": "2M-MU-1",
    "day": "THU",
-   "period": 8,
-   "room_id": "MUS",
-   "locked": false
-  },
-  {
-   "occ_id": "2M-MU-2",
-   "day": "FRI",
    "period": 7,
    "room_id": "MUS",
    "locked": false
   },
   {
    "occ_id": "2M-RE-1",
-   "day": "FRI",
-   "period": 3,
+   "day": "THU",
+   "period": 1,
    "room_id": "A-2M",
    "locked": false
   },
@@ -5636,7 +5455,7 @@
   },
   {
    "occ_id": "2M-SC-2",
-   "day": "FRI",
+   "day": "MON",
    "period": 4,
    "room_id": "LAB",
    "locked": false
@@ -5644,147 +5463,140 @@
   {
    "occ_id": "2M-ST-1",
    "day": "MON",
-   "period": 3,
-   "room_id": "A-2M",
-   "locked": false
-  },
-  {
-   "occ_id": "2M-ST-2",
-   "day": "FRI",
-   "period": 6,
+   "period": 7,
    "room_id": "A-2M",
    "locked": false
   },
   {
    "occ_id": "2P-AR-1",
-   "day": "TUE",
-   "period": 5,
+   "day": "WED",
+   "period": 3,
    "room_id": "A-2P",
    "locked": false
   },
   {
    "occ_id": "2P-EF-1",
-   "day": "FRI",
-   "period": 6,
+   "day": "TUE",
+   "period": 3,
    "room_id": "GYM2",
    "locked": false
   },
   {
    "occ_id": "2P-EN-1",
-   "day": "WED",
-   "period": 1,
+   "day": "THU",
+   "period": 5,
    "room_id": "A-2P",
    "locked": false
   },
   {
    "occ_id": "2P-EN-2",
-   "day": "THU",
-   "period": 1,
+   "day": "FRI",
+   "period": 6,
    "room_id": "A-2P",
    "locked": false
   },
   {
    "occ_id": "2P-EN-3",
-   "day": "TUE",
+   "day": "WED",
    "period": 2,
    "room_id": "A-2P",
    "locked": false
   },
   {
    "occ_id": "2P-ES-1",
-   "day": "FRI",
-   "period": 1,
+   "day": "WED",
+   "period": 6,
    "room_id": "A-2P",
    "locked": false
   },
   {
    "occ_id": "2P-ES-2",
-   "day": "MON",
-   "period": 5,
+   "day": "FRI",
+   "period": 4,
    "room_id": "A-2P",
    "locked": false
   },
   {
    "occ_id": "2P-ES-3",
    "day": "THU",
-   "period": 4,
-   "room_id": "A-2P",
-   "locked": false
-  },
-  {
-   "occ_id": "2P-ES-4",
-   "day": "WED",
    "period": 2,
    "room_id": "A-2P",
    "locked": false
   },
   {
-   "occ_id": "2P-IT-1",
-   "day": "WED",
-   "period": 3,
-   "room_id": "A-2P",
-   "locked": false
-  },
-  {
-   "occ_id": "2P-IT-2",
-   "day": "FRI",
-   "period": 3,
-   "room_id": "A-2P",
-   "locked": false
-  },
-  {
-   "occ_id": "2P-IT-3",
+   "occ_id": "2P-ES-4",
    "day": "TUE",
    "period": 1,
    "room_id": "A-2P",
    "locked": false
   },
   {
-   "occ_id": "2P-IT-4",
-   "day": "MON",
-   "period": 4,
-   "room_id": "A-2P",
-   "locked": false
-  },
-  {
-   "occ_id": "2P-IT-5",
-   "day": "THU",
-   "period": 5,
-   "room_id": "A-2P",
-   "locked": false
-  },
-  {
-   "occ_id": "2P-MA-1",
-   "day": "THU",
+   "occ_id": "2P-IT-1",
+   "day": "FRI",
    "period": 2,
    "room_id": "A-2P",
    "locked": false
   },
   {
-   "occ_id": "2P-MA-2",
+   "occ_id": "2P-IT-2",
    "day": "MON",
-   "period": 3,
+   "period": 5,
    "room_id": "A-2P",
    "locked": false
   },
   {
-   "occ_id": "2P-MA-3",
+   "occ_id": "2P-IT-3",
+   "day": "THU",
+   "period": 1,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-IT-4",
+   "day": "TUE",
+   "period": 6,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-IT-5",
    "day": "WED",
    "period": 5,
    "room_id": "A-2P",
    "locked": false
   },
   {
-   "occ_id": "2P-MA-4",
+   "occ_id": "2P-MA-1",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-MA-2",
+   "day": "TUE",
+   "period": 5,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
+   "occ_id": "2P-MA-3",
    "day": "FRI",
    "period": 5,
    "room_id": "A-2P",
    "locked": false
   },
   {
+   "occ_id": "2P-MA-4",
+   "day": "WED",
+   "period": 1,
+   "room_id": "A-2P",
+   "locked": false
+  },
+  {
    "occ_id": "2P-MA-5",
-   "day": "TUE",
-   "period": 3,
+   "day": "THU",
+   "period": 6,
    "room_id": "A-2P",
    "locked": false
   },
@@ -5797,92 +5609,85 @@
   },
   {
    "occ_id": "2P-PS-1",
-   "day": "WED",
-   "period": 6,
-   "room_id": "A-2P",
-   "locked": false
-  },
-  {
-   "occ_id": "2P-PS-2",
-   "day": "TUE",
-   "period": 4,
+   "day": "MON",
+   "period": 3,
    "room_id": "A-2P",
    "locked": false
   },
   {
    "occ_id": "2P-RE-1",
-   "day": "MON",
-   "period": 6,
+   "day": "FRI",
+   "period": 1,
    "room_id": "A-2P",
    "locked": false
   },
   {
    "occ_id": "2P-SC-1",
-   "day": "MON",
-   "period": 1,
+   "day": "THU",
+   "period": 3,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "3M-AR-1",
    "day": "FRI",
-   "period": 7,
+   "period": 2,
    "room_id": "ART2",
    "locked": false
   },
   {
    "occ_id": "3M-CN-1",
-   "day": "THU",
+   "day": "TUE",
    "period": 7,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-EF-1",
-   "day": "TUE",
+   "day": "THU",
    "period": 5,
-   "room_id": "GYM2",
+   "room_id": "GYM1",
    "locked": false
   },
   {
    "occ_id": "3M-EN-1",
-   "day": "MON",
-   "period": 2,
+   "day": "FRI",
+   "period": 4,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-EN-2",
-   "day": "FRI",
+   "day": "WED",
    "period": 1,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-EN-3",
-   "day": "WED",
-   "period": 4,
+   "day": "MON",
+   "period": 1,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-ES-1",
    "day": "TUE",
-   "period": 1,
+   "period": 4,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-ES-2",
-   "day": "MON",
-   "period": 5,
+   "day": "FRI",
+   "period": 1,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-ES-3",
-   "day": "WED",
-   "period": 3,
+   "day": "THU",
+   "period": 1,
    "room_id": "A-3M",
    "locked": false
   },
@@ -5894,183 +5699,162 @@
    "locked": false
   },
   {
-   "occ_id": "3M-GE-2",
-   "day": "WED",
-   "period": 7,
-   "room_id": "A-3M",
-   "locked": false
-  },
-  {
    "occ_id": "3M-IT-1",
-   "day": "WED",
-   "period": 1,
+   "day": "MON",
+   "period": 4,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-IT-2",
-   "day": "TUE",
+   "day": "THU",
    "period": 3,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-IT-3",
-   "day": "MON",
-   "period": 4,
+   "day": "TUE",
+   "period": 1,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-IT-4",
-   "day": "THU",
-   "period": 2,
+   "day": "WED",
+   "period": 3,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-IT-5",
    "day": "FRI",
-   "period": 3,
+   "period": 5,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-MA-1",
-   "day": "FRI",
-   "period": 4,
+   "day": "MON",
+   "period": 2,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-MA-2",
-   "day": "TUE",
+   "day": "WED",
    "period": 4,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-MA-3",
-   "day": "MON",
-   "period": 3,
+   "day": "THU",
+   "period": 4,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-MA-4",
-   "day": "THU",
-   "period": 1,
+   "day": "TUE",
+   "period": 6,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-MU-1",
-   "day": "FRI",
+   "day": "TUE",
    "period": 2,
-   "room_id": "MUS",
-   "locked": false
-  },
-  {
-   "occ_id": "3M-MU-2",
-   "day": "THU",
-   "period": 3,
    "room_id": "MUS",
    "locked": false
   },
   {
    "occ_id": "3M-RE-1",
    "day": "THU",
-   "period": 4,
+   "period": 2,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3M-SC-1",
-   "day": "WED",
-   "period": 5,
+   "day": "THU",
+   "period": 7,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "3M-SC-2",
-   "day": "MON",
-   "period": 8,
+   "day": "FRI",
+   "period": 6,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "3M-ST-1",
-   "day": "TUE",
-   "period": 7,
-   "room_id": "A-3M",
-   "locked": false
-  },
-  {
-   "occ_id": "3M-ST-2",
-   "day": "THU",
-   "period": 6,
+   "day": "WED",
+   "period": 5,
    "room_id": "A-3M",
    "locked": false
   },
   {
    "occ_id": "3P-AR-1",
-   "day": "FRI",
-   "period": 6,
+   "day": "THU",
+   "period": 1,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-EF-1",
-   "day": "MON",
+   "day": "WED",
    "period": 6,
-   "room_id": "GYM2",
+   "room_id": "GYM1",
    "locked": false
   },
   {
    "occ_id": "3P-EN-1",
-   "day": "TUE",
-   "period": 4,
+   "day": "FRI",
+   "period": 5,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-EN-2",
    "day": "THU",
-   "period": 3,
+   "period": 4,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-EN-3",
    "day": "WED",
-   "period": 2,
+   "period": 3,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-ES-1",
-   "day": "MON",
-   "period": 1,
+   "day": "TUE",
+   "period": 3,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-ES-2",
-   "day": "THU",
-   "period": 5,
+   "day": "FRI",
+   "period": 7,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-ES-3",
    "day": "WED",
-   "period": 1,
+   "period": 5,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-ES-4",
-   "day": "FRI",
+   "day": "THU",
    "period": 3,
    "room_id": "A-3P",
    "locked": false
@@ -6078,203 +5862,196 @@
   {
    "occ_id": "3P-IT-1",
    "day": "THU",
-   "period": 1,
+   "period": 5,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-IT-2",
    "day": "FRI",
-   "period": 1,
+   "period": 3,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-IT-3",
-   "day": "MON",
-   "period": 3,
+   "day": "TUE",
+   "period": 7,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-IT-4",
-   "day": "TUE",
-   "period": 3,
-   "room_id": "A-3P",
-   "locked": false
-  },
-  {
-   "occ_id": "3P-IT-5",
    "day": "WED",
    "period": 4,
    "room_id": "A-3P",
    "locked": false
   },
   {
+   "occ_id": "3P-IT-5",
+   "day": "MON",
+   "period": 7,
+   "room_id": "A-3P",
+   "locked": false
+  },
+  {
    "occ_id": "3P-MA-1",
-   "day": "TUE",
-   "period": 1,
+   "day": "MON",
+   "period": 3,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-MA-2",
-   "day": "THU",
-   "period": 4,
+   "day": "FRI",
+   "period": 6,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-MA-3",
-   "day": "FRI",
-   "period": 4,
+   "day": "THU",
+   "period": 7,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-MA-4",
-   "day": "MON",
-   "period": 4,
+   "day": "TUE",
+   "period": 6,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-MA-5",
    "day": "WED",
-   "period": 3,
+   "period": 2,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-MU-1",
-   "day": "FRI",
+   "day": "TUE",
    "period": 5,
    "room_id": "MUS",
    "locked": false
   },
   {
    "occ_id": "3P-PS-1",
-   "day": "WED",
-   "period": 5,
-   "room_id": "A-3P",
-   "locked": false
-  },
-  {
-   "occ_id": "3P-PS-2",
-   "day": "TUE",
+   "day": "MON",
    "period": 5,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-RE-1",
-   "day": "MON",
-   "period": 5,
+   "day": "FRI",
+   "period": 2,
    "room_id": "A-3P",
    "locked": false
   },
   {
    "occ_id": "3P-SC-1",
    "day": "TUE",
-   "period": 6,
+   "period": 1,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "4P-AR-1",
-   "day": "WED",
-   "period": 6,
+   "day": "MON",
+   "period": 3,
    "room_id": "A-4P",
    "locked": false
   },
   {
    "occ_id": "4P-EF-1",
-   "day": "THU",
-   "period": 6,
-   "room_id": "GYM1",
+   "day": "TUE",
+   "period": 1,
+   "room_id": "GYM2",
    "locked": false
   },
   {
    "occ_id": "4P-EN-1",
    "day": "THU",
-   "period": 5,
+   "period": 3,
    "room_id": "A-4P",
    "locked": false
   },
   {
    "occ_id": "4P-EN-2",
    "day": "WED",
-   "period": 3,
+   "period": 6,
    "room_id": "A-4P",
    "locked": false
   },
   {
    "occ_id": "4P-EN-3",
-   "day": "TUE",
-   "period": 5,
+   "day": "FRI",
+   "period": 3,
    "room_id": "A-4P",
    "locked": false
   },
   {
    "occ_id": "4P-ES-1",
-   "day": "WED",
-   "period": 1,
+   "day": "THU",
+   "period": 6,
    "room_id": "A-4P",
    "locked": false
   },
   {
    "occ_id": "4P-ES-2",
-   "day": "FRI",
-   "period": 4,
+   "day": "TUE",
+   "period": 3,
    "room_id": "A-4P",
    "locked": false
   },
   {
    "occ_id": "4P-ES-3",
-   "day": "TUE",
+   "day": "WED",
    "period": 4,
    "room_id": "A-4P",
    "locked": false
   },
   {
    "occ_id": "4P-ES-4",
-   "day": "MON",
+   "day": "FRI",
    "period": 4,
    "room_id": "A-4P",
    "locked": false
   },
   {
    "occ_id": "4P-IT-1",
-   "day": "TUE",
-   "period": 1,
-   "room_id": "A-4P",
-   "locked": false
-  },
-  {
-   "occ_id": "4P-IT-2",
-   "day": "MON",
-   "period": 1,
-   "room_id": "A-4P",
-   "locked": false
-  },
-  {
-   "occ_id": "4P-IT-3",
-   "day": "WED",
+   "day": "FRI",
    "period": 5,
    "room_id": "A-4P",
    "locked": false
   },
   {
+   "occ_id": "4P-IT-2",
+   "day": "WED",
+   "period": 2,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-IT-3",
+   "day": "MON",
+   "period": 6,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
    "occ_id": "4P-IT-4",
-   "day": "FRI",
-   "period": 3,
+   "day": "THU",
+   "period": 4,
    "room_id": "A-4P",
    "locked": false
   },
   {
    "occ_id": "4P-IT-5",
-   "day": "THU",
-   "period": 3,
+   "day": "TUE",
+   "period": 6,
    "room_id": "A-4P",
    "locked": false
   },
@@ -6288,76 +6065,69 @@
   {
    "occ_id": "4P-MA-2",
    "day": "WED",
-   "period": 4,
+   "period": 1,
    "room_id": "A-4P",
    "locked": false
   },
   {
    "occ_id": "4P-MA-3",
    "day": "TUE",
-   "period": 3,
+   "period": 5,
    "room_id": "A-4P",
    "locked": false
   },
   {
    "occ_id": "4P-MA-4",
-   "day": "MON",
-   "period": 3,
+   "day": "THU",
+   "period": 5,
    "room_id": "A-4P",
    "locked": false
   },
   {
    "occ_id": "4P-MA-5",
-   "day": "THU",
-   "period": 4,
-   "room_id": "A-4P",
-   "locked": false
-  },
-  {
-   "occ_id": "4P-MU-1",
-   "day": "THU",
-   "period": 2,
-   "room_id": "MUS",
-   "locked": false
-  },
-  {
-   "occ_id": "4P-PS-1",
-   "day": "FRI",
-   "period": 6,
-   "room_id": "A-4P",
-   "locked": false
-  },
-  {
-   "occ_id": "4P-PS-2",
-   "day": "TUE",
-   "period": 6,
-   "room_id": "A-4P",
-   "locked": false
-  },
-  {
-   "occ_id": "4P-RE-1",
    "day": "MON",
    "period": 7,
    "room_id": "A-4P",
    "locked": false
   },
   {
-   "occ_id": "4P-SC-1",
+   "occ_id": "4P-MU-1",
+   "day": "TUE",
+   "period": 7,
+   "room_id": "MUS",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-PS-1",
+   "day": "MON",
+   "period": 1,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-RE-1",
    "day": "MON",
    "period": 5,
+   "room_id": "A-4P",
+   "locked": false
+  },
+  {
+   "occ_id": "4P-SC-1",
+   "day": "THU",
+   "period": 1,
    "room_id": "LAB",
    "locked": false
   },
   {
    "occ_id": "5P-AR-1",
-   "day": "THU",
-   "period": 6,
+   "day": "MON",
+   "period": 1,
    "room_id": "A-5P",
    "locked": false
   },
   {
    "occ_id": "5P-EF-1",
-   "day": "WED",
+   "day": "FRI",
    "period": 6,
    "room_id": "GYM2",
    "locked": false
@@ -6365,7 +6135,7 @@
   {
    "occ_id": "5P-EN-1",
    "day": "THU",
-   "period": 4,
+   "period": 7,
    "room_id": "A-5P",
    "locked": false
   },
@@ -6378,42 +6148,42 @@
   },
   {
    "occ_id": "5P-EN-3",
-   "day": "TUE",
-   "period": 1,
+   "day": "FRI",
+   "period": 4,
    "room_id": "A-5P",
    "locked": false
   },
   {
    "occ_id": "5P-ES-1",
-   "day": "TUE",
-   "period": 2,
+   "day": "MON",
+   "period": 6,
    "room_id": "A-5P",
    "locked": false
   },
   {
    "occ_id": "5P-ES-2",
-   "day": "FRI",
-   "period": 5,
-   "room_id": "A-5P",
-   "locked": false
-  },
-  {
-   "occ_id": "5P-ES-3",
    "day": "WED",
    "period": 3,
    "room_id": "A-5P",
    "locked": false
   },
   {
+   "occ_id": "5P-ES-3",
+   "day": "THU",
+   "period": 3,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
    "occ_id": "5P-ES-4",
-   "day": "MON",
-   "period": 1,
+   "day": "TUE",
+   "period": 2,
    "room_id": "A-5P",
    "locked": false
   },
   {
    "occ_id": "5P-IT-1",
-   "day": "FRI",
+   "day": "THU",
    "period": 1,
    "room_id": "A-5P",
    "locked": false
@@ -6421,97 +6191,90 @@
   {
    "occ_id": "5P-IT-2",
    "day": "WED",
-   "period": 1,
+   "period": 6,
    "room_id": "A-5P",
    "locked": false
   },
   {
    "occ_id": "5P-IT-3",
-   "day": "THU",
+   "day": "FRI",
    "period": 5,
    "room_id": "A-5P",
    "locked": false
   },
   {
    "occ_id": "5P-IT-4",
-   "day": "MON",
+   "day": "TUE",
    "period": 5,
    "room_id": "A-5P",
    "locked": false
   },
   {
    "occ_id": "5P-IT-5",
-   "day": "TUE",
-   "period": 5,
+   "day": "MON",
+   "period": 3,
    "room_id": "A-5P",
    "locked": false
   },
   {
    "occ_id": "5P-MA-1",
-   "day": "THU",
-   "period": 2,
+   "day": "TUE",
+   "period": 6,
    "room_id": "A-5P",
    "locked": false
   },
   {
    "occ_id": "5P-MA-2",
+   "day": "THU",
+   "period": 4,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-MA-3",
+   "day": "MON",
+   "period": 4,
+   "room_id": "A-5P",
+   "locked": false
+  },
+  {
+   "occ_id": "5P-MA-4",
    "day": "FRI",
    "period": 3,
    "room_id": "A-5P",
    "locked": false
   },
   {
-   "occ_id": "5P-MA-3",
+   "occ_id": "5P-MA-5",
    "day": "WED",
    "period": 5,
    "room_id": "A-5P",
    "locked": false
   },
   {
-   "occ_id": "5P-MA-4",
-   "day": "TUE",
-   "period": 4,
-   "room_id": "A-5P",
-   "locked": false
-  },
-  {
-   "occ_id": "5P-MA-5",
-   "day": "MON",
-   "period": 2,
-   "room_id": "A-5P",
-   "locked": false
-  },
-  {
    "occ_id": "5P-MU-1",
-   "day": "FRI",
-   "period": 4,
+   "day": "THU",
+   "period": 6,
    "room_id": "MUS",
    "locked": false
   },
   {
    "occ_id": "5P-PS-1",
    "day": "FRI",
-   "period": 7,
-   "room_id": "A-5P",
-   "locked": false
-  },
-  {
-   "occ_id": "5P-PS-2",
-   "day": "TUE",
-   "period": 7,
+   "period": 1,
    "room_id": "A-5P",
    "locked": false
   },
   {
    "occ_id": "5P-RE-1",
-   "day": "FRI",
-   "period": 6,
+   "day": "THU",
+   "period": 5,
    "room_id": "A-5P",
    "locked": false
   },
   {
    "occ_id": "5P-SC-1",
-   "day": "MON",
+   "day": "TUE",
    "period": 3,
    "room_id": "LAB",
    "locked": false

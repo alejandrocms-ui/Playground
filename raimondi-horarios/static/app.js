@@ -563,6 +563,7 @@
     if (c.day || c.period) p.push(`${c.day ? DN(c.day) : ""} ${T("period")} ${c.period}`);
     if (c.max) p.push(`${T("max")} ${c.max}`);
     if (c.slots) p.push(`${c.slots.length} franjas`);
+    if (c.type === "block_shape") p.push(`${c.hours ? c.hours + " h → " : ""}${(c.pattern || []).length ? c.pattern.join("+") : "2+2…"}`);
     return p.join(" · ");
   }
   function rules() {
@@ -615,6 +616,9 @@
     if (t === "teacher_max_days") f += `<div><label>${T("max")}</label><input id="r_max" type="number" value="${c.max ?? 4}"></div>`;
     if (t === "preferred_periods") f += `<div class="wide"><label>${T("subjects")}</label>${multi("r_subjects", S.data.subjects, c.subject_ids)}</div><div class="wide"><label>${T("periods")}</label>${pChecks("r_periods", c.periods || [])}</div><div class="wide"><label>${T("sections")} (∅ = ${T("all")})</label>${multi("r_sections", S.data.sections, c.section_ids)}</div>`;
     if (t === "avoid_slot") f += `<div><label>${T("day")}</label><select id="r_day"><option value="">${T("all")}</option>${DAYS().map((d) => `<option value="${d}" ${c.day === d ? "selected" : ""}>${DN(d)}</option>`).join("")}</select></div><div><label>${T("period")}</label><input id="r_period" type="number" value="${c.period ?? maxP}"></div><div class="wide"><label>${T("subjects")} (∅ = ${T("all")})</label>${multi("r_subjects", S.data.subjects, c.subject_ids)}</div>`;
+    if (["block_shape", "prefer_double_periods", "avoid_after_lunch", "balanced_distribution"].includes(t))
+      f += `<div class="wide"><p class="small muted">${T("rule_help_" + t)}</p></div><div class="wide"><label>${T("subjects")} (∅ = ${T("all")})</label>${multi("r_subjects", S.data.subjects, c.subject_ids)}</div><div class="wide"><label>${T("sections")} (∅ = ${T("all")})</label>${multi("r_sections", S.data.sections, c.section_ids)}</div>`;
+    if (t === "block_shape") f += `<div><label>${T("hours_course")}</label><input id="r_hours" type="number" value="${c.hours ?? ""}"></div><div><label>${T("pattern")}</label><input id="r_pattern" value="${esc((c.pattern || []).join("+"))}"></div>`;
     if (t === "teacher_compact_days" || t === "teacher_gaps") f += `<div class="wide"><label>${T("teachers")} (∅ = ${T("all")})</label>${multi("r_teachers", S.data.teachers, c.teacher_ids)}</div>`;
     modal(`${T("rule")} · ${c.id || T("new_rule")}`, `<div class="form-grid">
       <div><label>ID</label><input id="r_id" value="${esc(c.id || "")}" placeholder="R-..."></div>
@@ -642,6 +646,8 @@
     if (c.type === "preferred_periods") { c.subject_ids = checks("r_subjects"); c.periods = checks("r_periods"); c.section_ids = checks("r_sections"); }
     if (c.type === "avoid_slot") { c.day = g("r_day").value || null; c.period = +g("r_period").value; c.subject_ids = checks("r_subjects"); }
     if (c.type === "teacher_compact_days" || c.type === "teacher_gaps") c.teacher_ids = checks("r_teachers");
+    if (["block_shape", "prefer_double_periods", "avoid_after_lunch", "balanced_distribution"].includes(c.type)) { c.subject_ids = checks("r_subjects"); c.section_ids = checks("r_sections"); }
+    if (c.type === "block_shape") { c.hours = g("r_hours").value ? +g("r_hours").value : null; c.pattern = g("r_pattern").value.split(/[+, ]+/).map(Number).filter((n) => n > 0); }
     await api(`/api/entities/constraints/${encodeURIComponent(c.id)}`, { method: "PUT", body: c });
     if (old && old !== c.id) await api(`/api/entities/constraints/${encodeURIComponent(old)}`, { method: "DELETE" });
     closeModal(); toast(T("data_saved")); await load();

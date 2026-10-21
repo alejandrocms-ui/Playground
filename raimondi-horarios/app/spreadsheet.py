@@ -43,7 +43,7 @@ HELP = {
              "bloques = 2+2+1 (vacío = todas de 1 hora). grupo = A/B si la lección es de medio grupo. "
              "unida_con = otras secciones que reciben la MISMA clase a la vez (p. ej. Ed. Física de todo un año).",
     "Reglas": "tipo: " + ", ".join(CONSTRAINT_TYPES) + ". dias = LUN,MAR…; horas = 1-3,5. obligatoria = sí/no "
-              "(no = preferencia). prioridad 1 alta – 3 baja.",
+              "(no = preferencia). prioridad 1 alta – 3 baja. block_shape: max = horas semanales del curso (2), horas = patrón (2 o 2+2+1).",
     "Compromisos": "Horas fijas que no son clase (reuniones, tutoría fuera de horario, vigilancia de recreo, atención a padres). "
                    "Bloquean al docente (o a la sección) en esas horas.",
 }
@@ -360,6 +360,13 @@ def import_xlsx(content: bytes, meta: dict | None = None) -> tuple[dict, dict]:
             c["day"] = days[0] if days else None
             c["period"] = hours[0] if hours else None
             c["subject_ids"] = [subj_key.get(norm_key(m), m) for m in split_list(r.get("materias"))]
+        elif t in ("block_shape", "prefer_double_periods", "avoid_after_lunch", "balanced_distribution"):
+            c["subject_ids"] = [subj_key.get(norm_key(m), m) for m in split_list(r.get("materias"))]
+            c["section_ids"] = [sec_key.get(norm_key(x), x) for x in split_list(r.get("seccion"))]
+            c.pop("section_id", None)
+            if t == "block_shape":
+                c["hours"] = int(float(r["max"])) if str(r.get("max") or "").strip() else None
+                c["pattern"] = parse_ints(str(r.get("horas") or "").replace("+", ","))
         elif t in ("teacher_compact_days", "teacher_gaps"):
             c["teacher_ids"] = [t_key.get(norm_key(x), x) for x in split_list(r.get("docente"))]
             c.pop("teacher_id", None)
@@ -501,8 +508,11 @@ def export_xlsx(data: dict) -> bytes:
         days = c.get("days") or sorted({s["day"] for s in c.get("slots", [])}, key=DAYS.index) or ([c["day"]] if c.get("day") else [])
         rule_rows.append([c["id"], c["type"], tname.get(c.get("teacher_id"), c.get("teacher_id")) or ", ".join(c.get("teacher_ids") or []),
                           c.get("section_id") or ", ".join(c.get("section_ids") or []), ", ".join(c.get("subject_ids") or []),
-                          ",".join(DAY_ES.get(d, d) for d in days), ",".join(map(str, c.get("periods") or ([c["period"]] if c.get("period") else []))),
-                          c.get("max"), "sí" if c.get("hard") else "no", c.get("priority", 2), c.get("note")])
+                          ",".join(DAY_ES.get(d, d) for d in days),
+                          "+".join(map(str, c.get("pattern") or [])) if c["type"] == "block_shape"
+                          else ",".join(map(str, c.get("periods") or ([c["period"]] if c.get("period") else []))),
+                          c.get("hours") if c["type"] == "block_shape" else c.get("max"),
+                          "sí" if c.get("hard") else "no", c.get("priority", 2), c.get("note")])
     sheet("Reglas", rule_rows)
     sheet("Compromisos", [["# ejemplo", "", "MAR", "", "5", "Reunión de tutores", "Bloquea la hora 5 del martes"]])
     out = io.BytesIO()

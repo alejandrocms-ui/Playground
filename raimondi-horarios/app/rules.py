@@ -3,7 +3,7 @@ diagnostics. 'Static' means a rule that can be judged for one occurrence in one 
 without looking at the rest of the timetable."""
 from __future__ import annotations
 
-from .model import Ctx, Occurrence, active_constraints, is_hard, slot_blocked, weight
+from .model import Ctx, Occurrence, active_constraints, is_hard, slot_blocked, tier, weight
 
 
 def static_issues(ctx: Ctx, occ: Occurrence, day: str, start_period: int, room_id: str | None,
@@ -33,12 +33,18 @@ def static_issues(ctx: Ctx, occ: Occurrence, day: str, start_period: int, room_i
             outside = [n for n in nums if n not in c.get("periods", [])]
             if outside:
                 issues.append({"rule_id": c["id"], "type": t, "hard": hard, "weight": weight(c),
-                               "count": len(outside)})
+                               "count": len(outside), "tier": tier(c)})
+            continue
+        elif t == "avoid_after_lunch" and applies_to(c, occ):
+            lunch = ctx.lunch(occ.bell_id)
+            if lunch and start >= lunch[1]:
+                issues.append({"rule_id": c["id"], "type": t, "hard": hard, "weight": weight(c), "count": len(nums),
+                               "tier": tier(c)})
             continue
         elif t == "avoid_slot" and applies_to(c, occ):
             hit = (c.get("day") in (None, "", day)) and int(c.get("period", 0)) in nums
         if hit:
-            issues.append({"rule_id": c["id"], "type": t, "hard": hard, "weight": weight(c), "count": 1})
+            issues.append({"rule_id": c["id"], "type": t, "hard": hard, "weight": weight(c), "count": 1, "tier": tier(c)})
     return issues
 
 

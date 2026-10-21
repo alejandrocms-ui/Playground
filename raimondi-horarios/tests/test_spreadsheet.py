@@ -92,7 +92,7 @@ def test_commitments_block_teacher():
 def test_upload_endpoint_dry_run_then_apply(client):
     b64 = base64.b64encode(client.get("/api/template/xlsx").content).decode()
     r = client.post("/api/import/xlsx", json={"file_b64": b64, "dry_run": True, "name": "demo"}).json()
-    assert r["report"]["ok"] and "version" not in r and r["validation"]["occurrences"] == 353
+    assert r["report"]["ok"] and "version" not in r and r["validation"]["teaching_periods"] == 445
     r = client.post("/api/import/xlsx", json={"file_b64": b64, "dry_run": False, "name": "demo"}).json()
     assert r["version"]
     st = client.get("/api/state").json()

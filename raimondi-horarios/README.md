@@ -35,6 +35,19 @@ Modelos que soporta la planilla y que existen en el colegio:
 - **Grupos** (A/B): medias secciones en paralelo, como alemán y chino.
 - **Co-docencia** (`Docente 1 / Docente 2`) y **compromisos fijos** (reuniones, vigilancia de recreo) que bloquean horas.
 
+### Reglas pedagógicas de distribución
+
+Están en el catálogo y se activan desde **Reglas** o desde la hoja *Reglas* de la planilla, por materia y/o sección:
+
+| Regla | Tipo | Qué hace |
+|---|---|---|
+| `block_shape` — Agrupar horas en bloques | Estructural (obligatoria) | Por ejemplo, todo curso de 2 h en **un solo bloque** que nunca cruza un recreo, o Italiano de dos en dos (2+2+2+1). |
+| `prefer_double_periods` — Preferir bloques de dos | Preferencia | Junta las horas sueltas en pares seguidos del mismo día cuando se puede. |
+| `avoid_after_lunch` — Materias en la mañana | Preferencia | Evita las materias base (Matemática, Inglés, Italiano) después del almuerzo. El almuerzo se detecta solo en cada campana. |
+| `balanced_distribution` — Distribución equitativa | Preferencia | Reparte cada curso entre los días y entre los **tres bloques del día** (antes de la pausa, antes del almuerzo, después). Las materias de la mañana se reparten solo entre los bloques de la mañana. |
+
+El motor optimiza **por niveles de prioridad**: primero todas las preferencias de prioridad 1, que luego quedan congeladas, después las de prioridad 2 y al final las de prioridad 3. Así, muchas preferencias menores nunca "compran" una violación de una prioridad mayor.
+
 ### Datos reales (privados)
 
 `data/private/` está ignorado por git. Si existe `data/private/seed_raimondi.json`, la app lo carga como semilla "Raimondi" (por ejemplo, el escenario generado desde la planilla del colegio). Ni los nombres reales ni los documentos del colegio se suben al repositorio.
@@ -64,7 +77,7 @@ Variables opcionales:
 ## Pruebas
 
 ```bash
-python -m pytest -q     # 27 pruebas: los 11 casos de aceptación del handoff + planilla, clases unidas, reemplazos, publicación y asistente
+python -m pytest -q     # 33 pruebas: los 11 casos de aceptación del handoff + planilla, clases unidas, reglas de distribución, reemplazos, publicación y asistente
 ```
 
 Los 11 casos de `demo_acceptance_spec.md` están en `tests/test_acceptance.py`: testigo 52/30, docente entre niveles, movimiento con doble choque y propuesta, preferencia de horas centrales, bloque que cruza el recreo, capacidad de chino 4 > 2, fijaciones contradictorias, UNKNOWN ≠ imposible, versión, comparación y deshacer exacto, exportación y reimportación, y solapamiento multicampana por minutos reales.

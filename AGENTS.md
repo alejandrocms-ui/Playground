@@ -10,7 +10,7 @@ El proyecto principal de este repo es **`raimondi-horarios/`**: el MVP de horari
 cd raimondi-horarios
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python -m pytest -q                     # 27 pruebas; todas deben pasar antes de cada commit
+python -m pytest -q                     # 33 pruebas; todas deben pasar antes de cada commit
 uvicorn app.main:app --port 8000        # http://localhost:8000
 python scripts/make_seed_school.py --time 90   # regenera la escuela demo (solo si cambias el generador o el modelo)
 ```

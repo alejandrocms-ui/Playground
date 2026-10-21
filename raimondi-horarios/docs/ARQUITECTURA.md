@@ -42,7 +42,8 @@ Principios:
 - Una variable booleana por (bloque, día, hora de inicio, aula) que pase las reglas duras estáticas.
 - `ExactlyOne` por bloque. No solapamiento por docente, grupo de alumnos y aula, **en minutos reales** (en cada inicio candidato, a lo sumo uno activo).
 - Tope diario por docente, bloques de una lección en días distintos y máximo de días (con variables "día usado").
-- Objetivo = Σ peso × (horas fuera de franja preferida, franjas a evitar, días usados, huecos del docente, cambios respecto al horario vigente).
+- Preferencias por **niveles de prioridad** (lexicográfico): se optimiza la prioridad 1, su mejor valor se fija como restricción y se pasa a la 2, luego a la 3, con warm start (hints) desde el horario vigente o la etapa anterior. Dentro de cada nivel, Σ peso × (horas fuera de franja, horas después del almuerzo, exceso de concentración por día o bloque, pares de horas no formados, huecos, días usados, cambios respecto al horario vigente).
+- Bloques del día: periodos separados por recreos de ≥ 15 min (`settings.segment_min_break`). Almuerzo: el recreo que empieza después de las 11:30 y dura ≥ 30 min.
 - Estados: OPTIMAL / FEASIBLE / INFEASIBLE / UNKNOWN. Si es INFEASIBLE, una prueba por eliminación indica qué reglas desbloquean.
 
 Rendimiento medido (8 hilos, contenedor de desarrollo):

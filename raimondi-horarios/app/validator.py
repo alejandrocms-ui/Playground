@@ -6,7 +6,7 @@ import math
 from collections import defaultdict
 
 from .i18n import msg
-from .model import Ctx, active_constraints, build_ctx, is_hard, minutes_to_hhmm, weight
+from .model import Ctx, active_constraints, build_ctx, is_hard, minutes_to_hhmm, rule_applies, weight
 from .rules import static_issues
 
 
@@ -161,6 +161,10 @@ def validate(data: dict, ctx: Ctx | None = None) -> dict:
                         soft.append(finding(c["id"], "soft", "teacher_gaps", entities=[t_id], teacher=t_id, day=d,
                                             count=n, rule=c["id"], penalty=weight(c) * n))
 
+    dist_rules = [c for c in active_constraints(data) if c["type"] in ("balanced_distribution", "prefer_double_periods")]
+    if dist_rules:
+        soft += distribution_findings(ctx, data, dist_rules)
+
     soft_by_rule = defaultdict(lambda: {"count": 0, "penalty": 0})
     for f in soft:
         soft_by_rule[f["rule_id"]]["count"] += 1
@@ -216,4 +220,61 @@ def teacher_holes(ctx: Ctx, data: dict) -> dict:
     for (t, d), ks in busy.items():
         if ks:
             out[t][d] = (max(ks) - min(ks) + 1) - len(ks)
+    return out
+
+
+def distribution_findings(ctx: Ctx, data: dict, rules: list) -> list:
+    """Same definitions as the solver: hours per day block and per day above the even share,
+    and pairs of consecutive single hours that could have been formed but were not."""
+    morning = [c for c in active_constraints(data) if c["type"] == "avoid_after_lunch"]
+    by_lesson = defaultdict(list)
+    for p, occ, s, e, nums in placed_items(ctx, data):
+        by_lesson[occ.lesson_id].append((p, occ))
+    total = defaultdict(int)
+    for occ in ctx.occurrences.values():
+        total[occ.lesson_id] += occ.duration
+    out = []
+    for c in rules:
+        for lesson_id, items in by_lesson.items():
+            occ0 = items[0][1]
+            if not rule_applies(c, occ0.subject_id, occ0.section_ids):
+                continue
+            h = total[lesson_id]
+            if c["type"] == "balanced_distribution" and h >= 2:
+                segs = (ctx.morning_segments(occ0.bell_id)
+                        if any(rule_applies(r, occ0.subject_id, occ0.section_ids) for r in morning)
+                        else list(range(len(ctx.segments(occ0.bell_id)))))
+                biggest = max(o.duration for o in ctx.occurrences.values() if o.lesson_id == lesson_id)
+                cap = max(math.ceil(h / len(segs)), biggest)
+                per_seg, per_day = defaultdict(int), defaultdict(int)
+                for p, occ in items:
+                    per_seg[ctx.segment_of(occ.bell_id, int(p["period"]))] += occ.duration
+                    per_day[p["day"]] += occ.duration
+                excess = sum(max(0, n - cap) for sg, n in per_seg.items() if sg in segs)
+                cap_d = max(math.ceil(h / len(ctx.days)), biggest)
+                excess_d = sum(max(0, n - cap_d) for n in per_day.values())
+                if excess:
+                    out.append(finding(c["id"], "soft", "balanced_segment", [o.id for _, o in items], [lesson_id],
+                                       penalty=weight(c) * excess, lesson=lesson_id, count=excess, rule=c["id"]))
+                if excess_d:
+                    out.append(finding(c["id"], "soft", "balanced_day", [o.id for _, o in items], [lesson_id],
+                                       penalty=weight(c) * excess_d, lesson=lesson_id, count=excess_d, rule=c["id"]))
+            elif c["type"] == "prefer_double_periods":
+                singles = [(p["day"], int(p["period"])) for p, occ in items if occ.duration == 1]
+                if len(singles) < 2:
+                    continue
+                pairs = 0
+                for d in {d for d, _ in singles}:
+                    ks = sorted(k for dd, k in singles if dd == d)
+                    i = 0
+                    while i < len(ks) - 1:
+                        if ks[i + 1] == ks[i] + 1 and ctx.block_window(occ0.bell_id, ks[i], 2):
+                            pairs += 1
+                            i += 2
+                        else:
+                            i += 1
+                missing = len(singles) // 2 - pairs
+                if missing > 0:
+                    out.append(finding(c["id"], "soft", "prefer_double_periods", [o.id for _, o in items], [lesson_id],
+                                       penalty=weight(c) * missing, lesson=lesson_id, count=missing, rule=c["id"]))
     return out
