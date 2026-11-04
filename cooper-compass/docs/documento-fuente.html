@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+<meta charset="utf-8">
+<title>Cooper Compass · Documento fuente</title>
+<style>
+@font-face { font-family: Inter; font-weight: 400; src: url('../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2'); }
+@font-face { font-family: Inter; font-weight: 400; font-style: italic; src: url('../node_modules/@fontsource/inter/files/inter-latin-400-italic.woff2'); }
+@font-face { font-family: Inter; font-weight: 600; src: url('../node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2'); }
+@font-face { font-family: Inter; font-weight: 700; src: url('../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2'); }
+@font-face { font-family: Fraunces; font-weight: 500; src: url('../node_modules/@fontsource/fraunces/files/fraunces-latin-500-normal.woff2'); }
+@font-face { font-family: Fraunces; font-weight: 600; src: url('../node_modules/@fontsource/fraunces/files/fraunces-latin-600-normal.woff2'); }
+:root { --navy:#16213E; --cream:#FAF6EF; --gold:#D99A29; --gold-ink:#8A5A00; --gold-soft:#FBEFD8; --teal-ink:#1F6E66; --teal-soft:#E0F1EE; --coral-ink:#B23A22; --coral-soft:#FBE5DF; --muted:#5F6370; --line:#E8E1D4; }
+@page { size: A4; margin: 22mm 20mm 20mm 20mm; }
+* { box-sizing: border-box; }
+body { font-family: Inter, sans-serif; font-size: 10.5pt; line-height: 1.55; color: var(--navy); margin: 0; }
+h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+h1 { font-size: 22pt; margin: 0 0 6mm; padding-bottom: 3mm; border-bottom: 2px solid var(--gold); page-break-before: always; }
+h2 { font-size: 14pt; margin: 7mm 0 2mm; page-break-after: avoid; }
+h3 { font-size: 11.5pt; margin: 5mm 0 1.5mm; page-break-after: avoid; }
+p { margin: 0 0 2.6mm; }
+ul, ol { margin: 0 0 3mm; padding-left: 6mm; }
+li { margin-bottom: 1.2mm; }
+strong { font-weight: 600; }
+table { width: 100%; border-collapse: collapse; margin: 2mm 0 4mm; font-size: 9.3pt; page-break-inside: auto; }
+th { background: var(--navy); color: var(--cream); text-align: left; font-weight: 600; padding: 2mm 2.5mm; }
+td { border-bottom: 1px solid var(--line); padding: 1.8mm 2.5mm; vertical-align: top; }
+tr { page-break-inside: avoid; }
+.box { border-radius: 3mm; padding: 4mm 5mm; margin: 3mm 0 4mm; page-break-inside: avoid; }
+.note { background: var(--gold-soft); border-left: 3px solid var(--gold); }
+.ok { background: var(--teal-soft); border-left: 3px solid var(--teal-ink); }
+.warn { background: var(--coral-soft); border-left: 3px solid var(--coral-ink); }
+.box p:last-child, .box ul:last-child { margin-bottom: 0; }
+.label { font-size: 8pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 1mm; }
+.muted { color: var(--muted); }
+.small { font-size: 9pt; }
+.tag { display: inline-block; font-size: 8pt; font-weight: 600; padding: .3mm 2mm; border-radius: 10px; background: var(--gold-soft); color: var(--gold-ink); }
+.tag.v { background: var(--teal-soft); color: var(--teal-ink); }
+.tag.p { background: #EFEDE8; color: var(--muted); }
+.cover { height: 250mm; display: flex; flex-direction: column; justify-content: space-between; background: var(--navy); color: var(--cream); margin: -22mm -20mm 0; padding: 28mm 22mm 20mm; }
+.cover h1 { border: 0; font-size: 40pt; color: var(--cream); page-break-before: avoid; margin: 0; padding: 0; }
+.cover .tagline { font-family: Fraunces, serif; font-size: 18pt; color: var(--gold); margin-top: 4mm; }
+.cover .sub { font-size: 12pt; color: #D9DCE6; margin-top: 10mm; max-width: 140mm; }
+.cover .meta { font-size: 9.5pt; color: #BFC4D3; line-height: 1.7; }
+.toc { columns: 2; column-gap: 10mm; font-size: 10pt; }
+.toc li { break-inside: avoid; }
+.swatch { display:inline-block; width:4mm; height:4mm; border-radius:1mm; vertical-align:middle; margin-right:1.5mm; border:1px solid #0002; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.grid2 .box { margin: 0; }
+.qa h3 { margin-top: 4mm; }
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<section class="cover">
+  <div>
+    <svg width="64" height="64" viewBox="0 0 48 48" aria-hidden="true">
+      <circle cx="24" cy="24" r="22" fill="none" stroke="#FAF6EF" stroke-opacity=".35" stroke-width="1.5"/>
+      <circle cx="24" cy="24" r="16" fill="none" stroke="#FAF6EF" stroke-opacity=".2"/>
+      <g fill="#FAF6EF" fill-opacity=".55"><path d="M24 4 L26 22 L24 24 L22 22 Z"/><path d="M24 4 L26 22 L24 24 L22 22 Z" transform="rotate(90 24 24)"/><path d="M24 4 L26 22 L24 24 L22 22 Z" transform="rotate(180 24 24)"/><path d="M24 4 L26 22 L24 24 L22 22 Z" transform="rotate(270 24 24)"/></g>
+      <path d="M24 24 L39 9 L27.5 26.5 Z" fill="#D99A29"/><path d="M24 24 L9 39 L20.5 21.5 Z" fill="#FAF6EF" fill-opacity=".85"/>
+      <circle cx="24" cy="24" r="2.5" fill="#16213E" stroke="#D99A29" stroke-width="1.5"/>
+    </svg>
+    <div style="margin-top:16mm">
+      <h1>Cooper Compass</h1>
+      <div class="tagline">Cada estudiante, su propio norte.</div>
+      <div class="sub">Documento fuente integral: qué es Cooper Compass, qué problema resuelve, qué ofrece, cómo funciona su MVP (producto mínimo viable), con qué datos trabaja, qué principios lo guían y hacia dónde va.</div>
+    </div>
+  </div>
+  <div class="meta">
+    Versión 1.0 · 4 de noviembre de 2026 · Lima, Perú<br>
+    Preparado por Adria Labs (Alejandro Castro-Mendívil) para el programa «Tu Sistema Personal de IA»<br>
+    Uso previsto: fuente de referencia para NotebookLM y para materiales de presentación
+  </div>
+</section>
+
+<!-- CÓMO LEER -->
+<h1>Cómo leer este documento</h1>
+<p>Este documento reúne en un solo lugar todo lo que se sabe y se ha construido sobre <strong>Cooper Compass</strong> hasta el 4 de noviembre de 2026. Está escrito para servir como fuente extensa en NotebookLM: cada sección se puede leer por separado y los conceptos clave se repiten con el mismo nombre en todo el texto.</p>
+<div class="box note">
+  <div class="label">Qué es real y qué es propuesta</div>
+  <ul>
+    <li><strong>Construido y funcionando:</strong> el MVP de Cooper Compass (un dashboard web) y su asistente conversacional Brújula IA. Todo lo descrito en las secciones 8 a 14 existe y fue probado.</li>
+    <li><strong>Datos reales con fuente:</strong> universidades, becas y exámenes provienen de sitios oficiales. Cada dato lleva su estado: <span class="tag v">verificado</span> o <span class="tag p">por verificar</span>.</li>
+    <li><strong>Datos ficticios:</strong> los seis estudiantes de la demo son inventados. Ninguno corresponde a una persona real.</li>
+    <li><strong>Propuestas:</strong> la hoja de ruta, las ideas para la sesión 3 y las opciones de modelo de negocio son hipótesis para conversar. Se marcan como «propuesta» o «por definir».</li>
+    <li><strong>No incluido a propósito:</strong> el nombre comercial, los precios y los datos de contacto del negocio de la clienta. Se agregarán cuando ella los comparta.</li>
+  </ul>
+</div>
+<h2>Contenido</h2>
+<ol class="toc">
+  <li>Resumen ejecutivo</li>
+  <li>Qué es Cooper Compass</li>
+  <li>El problema que resuelve</li>
+  <li>Contexto: estudiantes peruanos y becas</li>
+  <li>A quién sirve</li>
+  <li>Propuesta de valor y principios</li>
+  <li>Servicios que la plataforma potencia</li>
+  <li>El MVP: recorrido por las pantallas</li>
+  <li>Metodología vocacional</li>
+  <li>El cálculo de coincidencia</li>
+  <li>Brújula IA: el asistente conversacional</li>
+  <li>Catálogo de datos</li>
+  <li>Los seis estudiantes ficticios</li>
+  <li>Sistema de verificación y fuentes</li>
+  <li>Identidad de marca y tono</li>
+  <li>Tecnología y accesibilidad</li>
+  <li>Ética, privacidad y cumplimiento</li>
+  <li>Origen y programa «Tu Sistema Personal de IA»</li>
+  <li>Hoja de ruta</li>
+  <li>Modelo de negocio: opciones por definir</li>
+  <li>Preguntas frecuentes</li>
+  <li>Glosario</li>
+  <li>Guion de demostración</li>
+  <li>Fuentes consultadas</li>
+</ol>
+
+<!-- 1 -->
+<h1>1. Resumen ejecutivo</h1>
+<p><strong>Cooper Compass</strong> es una plataforma de orientación vocacional que junta en un solo lugar la información que una asesora necesita para guiar a un estudiante: universidades de Perú y de Estados Unidos, carreras, modalidades de ingreso, becas, requisitos, exámenes de idioma y costos. Luego cruza esa información con el perfil de cada estudiante: sus intereses, sus fortalezas, el trabajo que sueña y su propósito.</p>
+<p>Su línea de marca es <strong>«Cada estudiante, su propio norte»</strong>. La idea central: cada estudiante merece una orientación personal, y la tecnología debe liberar a la asesora del trabajo de buscar y ordenar datos para que dedique su tiempo a lo que importa, la conversación humana.</p>
+<h2>En cinco puntos</h2>
+<ul>
+  <li><strong>Todo en un solo lugar.</strong> 16 universidades (8 de Perú, 8 de EE. UU.), 54 carreras y programas, 21 modalidades de ingreso, 8 becas y ayudas, y 18 exámenes y certificaciones, con filtros que se arman arrastrando y soltando.</li>
+  <li><strong>Un perfil por estudiante.</strong> Intereses según el modelo RIASEC, fortalezas, trabajo soñado y propósito en cuatro cuadrantes al estilo ikigai.</li>
+  <li><strong>Coincidencias explicadas.</strong> Cada opción recibe un puntaje de 0 a 100 con las razones por las que aparece y lo que falta revisar. La plataforma nunca decide si alguien es elegible.</li>
+  <li><strong>Fechas y fuentes.</strong> Cada beca muestra su ventana de postulación, su estado y el enlace oficial. Cada dato dice de dónde sale y cuándo se consultó.</li>
+  <li><strong>Brújula IA.</strong> Un asistente conversacional que busca información, analiza perfiles, redacta textos y propone cambios en los datos. La asesora confirma cada cambio con un clic.</li>
+</ul>
+<div class="box ok">
+  <div class="label">Estado al 4 de noviembre de 2026</div>
+  <p>Existe un MVP funcional, probado y publicado como enlace privado en claude.ai. Se presenta como demostración en la sesión 1 del programa «Tu Sistema Personal de IA». La versión con datos y flujos reales de la clienta se construye en la sesión 3.</p>
+</div>
+
+<!-- 2 -->
+<h1>2. Qué es Cooper Compass</h1>
+<p>Cooper Compass es el nombre de la plataforma digital de orientación vocacional diseñada para una asesora de orientación vocacional y su colega, que trabajan juntas en el mismo negocio en Perú. Su negocio tiene tres líneas:</p>
+<ul>
+  <li><strong>Orientación vocacional</strong> para estudiantes.</li>
+  <li><strong>Asesoría para estudiar en el exterior</strong>, sobre todo en Estados Unidos.</li>
+  <li><strong>Búsqueda de becas.</strong></li>
+</ul>
+<p>Su foco principal son estudiantes que egresan de la universidad en el Perú y buscan opciones de estudio en Perú y en el extranjero, sobre todo posgrados. También atienden a escolares de los últimos años y a egresados de secundaria.</p>
+<h2>El concepto: una brújula</h2>
+<p>La metáfora de la marca es una brújula. Una brújula no decide el camino: muestra el norte para que cada persona elija su ruta con información clara. Por eso Cooper Compass no le dice a un estudiante qué estudiar ni le promete que va a ingresar. Le muestra las opciones que encajan con su perfil, explica por qué y señala lo que falta revisar. La asesora y el estudiante deciden.</p>
+<p>El logo es una rosa de los vientos minimalista con la aguja dorada apuntando al noreste: avance, dirección y optimismo.</p>
+<h2>Qué no es</h2>
+<ul>
+  <li>No es un ranking de universidades ni un buscador comercial.</li>
+  <li>No reemplaza a la asesora: le ahorra la búsqueda manual para que tenga más tiempo de conversación.</li>
+  <li>No decide elegibilidad, no garantiza admisiones ni becas.</li>
+  <li>No extrae datos automáticamente de páginas web: los datos se curan a mano desde fuentes oficiales.</li>
+</ul>
+
+<!-- 3 -->
+<h1>3. El problema que resuelve</h1>
+<p>Hoy, para asesorar a un solo estudiante, la asesora tiene que juntar a mano información dispersa en decenas de páginas web, documentos PDF y hojas de cálculo:</p>
+<ol>
+  <li>Becas: cuáles existen, para quién, qué cubren y cuándo cierran.</li>
+  <li>Universidades y su acceso: qué tan selectivas son, si son públicas o privadas, dónde están.</li>
+  <li>Carreras que ofrece cada universidad.</li>
+  <li>Modalidades de ingreso: cada universidad usa nombres y reglas propias.</li>
+  <li>Requisitos y documentos.</li>
+  <li>Exámenes y certificaciones de idioma (inglés y otros), y exámenes de admisión como el SAT.</li>
+  <li>Costos y ayudas financieras.</li>
+  <li>Lo que el estudiante quiere, sabe hacer y busca en la vida.</li>
+</ol>
+<h2>Consecuencias</h2>
+<ul>
+  <li><strong>Tiempo:</strong> horas de búsqueda repetida por cada estudiante, que no se dedican a la conversación.</li>
+  <li><strong>Riesgo de error:</strong> fechas que cambian, convocatorias que se suspenden o reabren, requisitos que se actualizan. Un ejemplo real de 2026: Pronabec anunció en el primer semestre que no habría convocatoria de la Beca Generación del Bicentenario y luego abrió una convocatoria extraordinaria del 30 de octubre al 13 de noviembre.</li>
+  <li><strong>Fechas perdidas:</strong> sin una vista central de plazos, una fecha límite puede pasar desapercibida.</li>
+  <li><strong>Orientación genérica:</strong> sin un cruce sistemático entre perfil y opciones, es difícil explicar por qué una opción encaja con un estudiante concreto.</li>
+</ul>
+<h2>La respuesta de Cooper Compass</h2>
+<p>Cooper Compass junta todo en un solo lugar, lo cruza con el perfil de cada estudiante, ordena las fechas por urgencia y muestra de dónde sale cada dato. La asesora pasa de buscar a conversar.</p>
+
+<!-- 4 -->
+<h1>4. Contexto: estudiantes peruanos y becas</h1>
+<h2>Estudiantes peruanos en Estados Unidos</h2>
+<p>Según Open Doors, el informe anual del Institute of International Education sobre estudiantes internacionales en EE. UU., en el año académico 2023/24 había <strong>5 505 estudiantes peruanos en Estados Unidos</strong>, frente a 5 170 el año anterior. Se distribuían así:</p>
+<table>
+  <tr><th>Tipo de estudio</th><th>Porcentaje</th></tr>
+  <tr><td>Pregrado</td><td>45,5 %</td></tr>
+  <tr><td>Posgrado</td><td>32,9 %</td></tr>
+  <tr><td>OPT (Optional Practical Training: permiso de práctica laboral después de estudiar)</td><td>16,7 %</td></tr>
+  <tr><td>Programas sin grado</td><td>4,9 %</td></tr>
+</table>
+<p class="small muted">Fuente: Open Doors Fact Sheet Peru 2024. Al 4 de noviembre de 2026 no se encontró una ficha de Perú 2025 publicada. Según la misma ficha, Perú ocupaba el puesto 26 como país de origen y los estados que más estudiantes peruanos recibían eran Florida, Nueva York, California, Massachusetts y Utah.</p>
+<h2>Becas en el Perú: un escenario cambiante</h2>
+<ul>
+  <li><strong>Beca 18 (Pronabec), Convocatoria 2027:</strong> 6 000 becas para pregrado en el Perú, dirigidas a jóvenes con alto rendimiento académico en situación de pobreza o pobreza extrema.</li>
+  <li><strong>Beca Generación del Bicentenario (Pronabec):</strong> en 2026 se anunció primero que no habría convocatoria por falta de presupuesto. Luego se abrió una convocatoria extraordinaria con 20 becas integrales de posgrado en el extranjero (17 de maestría y 3 de doctorado), con postulación del 30 de octubre al 13 de noviembre de 2026.</li>
+  <li><strong>Fulbright Perú:</strong> becas parciales de maestría y doctorado en EE. UU., hasta por 21 meses.</li>
+</ul>
+<p>Este escenario muestra por qué la plataforma insiste en las fuentes y las fechas de consulta: la información cambia y la asesora necesita saber qué está confirmado y qué no.</p>
+
+<!-- 5 -->
+<h1>5. A quién sirve</h1>
+<h2>Usuarias principales: las asesoras</h2>
+<p>La asesora de orientación vocacional y su colega son las usuarias directas. Usan Cooper Compass para organizar a sus estudiantes por etapa, explorar opciones, preparar sesiones, seguir fechas límite y documentar acuerdos.</p>
+<h2>Beneficiarios: los estudiantes</h2>
+<table>
+  <tr><th>Etapa del estudiante</th><th>Qué necesita</th><th>Cómo lo apoya Cooper Compass</th></tr>
+  <tr><td>Egresados universitarios (foco principal)</td><td>Posgrado en Perú o en el extranjero, becas de maestría y doctorado</td><td>Becas de posgrado (Bicentenario, Fulbright, OEA), requisitos de idioma, fechas urgentes</td></tr>
+  <tr><td>Universitarios en los últimos ciclos</td><td>Preparar su postulación a posgrado con tiempo</td><td>Requisitos publicados, experiencia exigida, exámenes</td></tr>
+  <tr><td>Escolares de 5.º de secundaria</td><td>Elegir carrera y universidad en Perú o EE. UU.</td><td>Modalidades de ingreso, carreras, plazos de admisión, ayudas</td></tr>
+  <tr><td>Egresados escolares</td><td>Ingresar a la universidad, a veces con beca</td><td>Beca 18, exámenes de admisión, centros preuniversitarios</td></tr>
+  <tr><td>Escolares de 4.º de secundaria</td><td>Explorar sin presión</td><td>Perfil de intereses y propósito, exploración temprana</td></tr>
+</table>
+<h2>Otros públicos</h2>
+<ul>
+  <li><strong>Familias:</strong> reciben explicaciones claras de por qué una opción encaja y qué falta revisar. Un informe en PDF por estudiante está en la hoja de ruta.</li>
+  <li><strong>Colegios e instituciones:</strong> posible público futuro (propuesta, por definir).</li>
+</ul>
+
+<!-- 6 -->
+<h1>6. Propuesta de valor y principios</h1>
+<h2>Propuesta de valor</h2>
+<div class="grid2">
+  <div class="box note"><div class="label">Para la asesora</div><p>Menos tiempo buscando, más tiempo conversando. Una vista única de estudiantes, opciones, fechas y fuentes, más un asistente que hace el trabajo pesado con su aprobación.</p></div>
+  <div class="box ok"><div class="label">Para el estudiante y su familia</div><p>Una orientación personal y explicada: por qué cada opción encaja con su perfil, qué requisitos se publican y qué falta revisar, sin promesas falsas.</p></div>
+</div>
+<h2>Principios (no negociables)</h2>
+<ol>
+  <li><strong>La IA acerca a las personas.</strong> La tecnología libera tiempo para la conexión humana; no la reemplaza. Es la filosofía de Adria Labs: hacer que lo complejo se sienta humano.</li>
+  <li><strong>Cada dato con su fuente.</strong> Todo dato institucional lleva enlace oficial, fecha de consulta y estado: verificado o por verificar.</li>
+  <li><strong>Nunca inventar.</strong> Si una fecha, monto, puntaje, vacante o requisito no está en una fuente oficial, el campo queda vacío y la interfaz muestra «Por verificar». Un «Por verificar» bien diseñado también transmite rigor.</li>
+  <li><strong>Nunca decidir elegibilidad.</strong> La plataforma no dice «eres elegible», «vas a ingresar» ni «te van a dar la beca». Usa «encaja con su perfil», «a explorar» y «requisito publicado».</li>
+  <li><strong>La persona decide.</strong> El asistente propone; la asesora confirma.</li>
+  <li><strong>Privacidad primero.</strong> En la demo, solo perfiles ficticios. Con datos reales: consentimiento de las familias y datos mínimos necesarios.</li>
+  <li><strong>Accesible para todos.</strong> Contraste AA, y arrastrar y soltar también con teclado.</li>
+</ol>
+
+<!-- 7 -->
+<h1>7. Servicios que la plataforma potencia</h1>
+<p>Cooper Compass no reemplaza los servicios de la asesora: los hace más rápidos, más ordenados y más fáciles de explicar. Así se conecta cada línea del negocio con la plataforma:</p>
+<table>
+  <tr><th>Servicio del negocio</th><th>Qué aporta Cooper Compass</th></tr>
+  <tr><td>Orientación vocacional</td><td>Perfil RIASEC con radar visual, cuatro cuadrantes de propósito, fortalezas y trabajo soñado. Coincidencias con carreras explicadas en lenguaje sencillo.</td></tr>
+  <tr><td>Asesoría para estudiar en EE. UU.</td><td>Universidades de EE. UU. con política de ayuda financiera, requisitos de inglés aceptados, política de SAT/ACT y plazos (Early Action, Regular Action) cuando están publicados.</td></tr>
+  <tr><td>Búsqueda de becas</td><td>Catálogo de becas con cobertura, requisitos, idioma, ventana de postulación, estado (abierta, próxima, cerrada, suspendida, por confirmar) y enlace oficial. Calendario y semáforo de urgencia.</td></tr>
+  <tr><td>Preparación de idiomas y exámenes</td><td>Catálogo de certificaciones de inglés y otros idiomas y de exámenes de admisión, con quién los administra. El puntaje mínimo se registra en la ficha de cada universidad, no como dato genérico.</td></tr>
+  <tr><td>Acompañamiento de la postulación</td><td>Lista corta por estudiante con prioridades y estado (explorando, preparando, postulado, resultado), checklist de requisitos y documentos, y notas de la asesora.</td></tr>
+  <tr><td>Gestión de la cartera de estudiantes</td><td>Tablero por etapas (kanban) e indicadores del día: estudiantes activos, becas abiertas, fechas en los próximos 14 días y opciones guardadas.</td></tr>
+</table>
+
+<!-- 8 -->
+<h1>8. El MVP: recorrido por las pantallas</h1>
+<p>El MVP es una aplicación web en español de Perú, con tuteo cálido. Tiene una barra lateral con seis secciones, un botón «Restablecer demo», el asistente Brújula IA y un pie de página fijo que dice: «Información orientativa. Verifica siempre en la fuente oficial antes de asesorar.»</p>
+
+<h2>8.1 Inicio («Hoy»)</h2>
+<ul>
+  <li>Saludo con la fecha del día.</li>
+  <li><strong>Cuatro indicadores:</strong> estudiantes activos, becas abiertas ahora, fechas límite en los próximos 14 días y opciones guardadas en listas cortas.</li>
+  <li><strong>Tablero de estudiantes por etapa</strong> (kanban) con seis columnas: Descubrimiento → Perfil → Exploración → Lista corta → Postulación → Resultado. Las tarjetas se arrastran entre columnas con mouse, pantalla táctil o teclado.</li>
+  <li><strong>Línea de tiempo de fechas</strong> con semáforo: coral si faltan menos de 14 días, dorado entre 14 y 45 días, teal si faltan más de 45 días.</li>
+  <li><strong>Tarjeta de contexto</strong> con el dato de Open Doors y su fuente.</li>
+</ul>
+
+<h2>8.2 Estudiantes</h2>
+<p><strong>Lista:</strong> tarjetas con alias, etapa, países objetivo, las tres letras principales de su código RIASEC y el número de opciones guardadas. Cada tarjeta lleva la etiqueta «Perfil ficticio».</p>
+<p><strong>Formulario «Nuevo estudiante» en seis pasos:</strong> datos básicos (alias, etapa, región, países objetivo, presupuesto), idiomas (nivel MCER de inglés, otros idiomas, certificaciones), intereses RIASEC (0 a 10), fortalezas, trabajo soñado (texto y sectores) y propósito (cuatro cuadrantes).</p>
+<p><strong>Ficha del estudiante:</strong></p>
+<ul>
+  <li>Encabezado con alias, etapa, etiqueta «Perfil ficticio», presupuesto, nivel de inglés y fortalezas.</li>
+  <li>Radar RIASEC y cuatro cuadrantes de propósito.</li>
+  <li><strong>«Opciones que encajan»:</strong> carreras y becas ordenadas por coincidencia, cada una con «Por qué aparece» (2 a 4 razones) y «Qué falta revisar» (1 a 3 puntos).</li>
+  <li><strong>«Lo que más le importa»:</strong> cinco factores que se reordenan arrastrando; el orden cambia los pesos del cálculo en vivo.</li>
+  <li><strong>Lista corta:</strong> se reordena arrastrando; cada opción tiene estado y un checklist de requisitos publicados, idioma, exámenes, documentos y fechas. Lo no verificado aparece en gris con la etiqueta «Por verificar».</li>
+  <li><strong>Notas de la asesora</strong>, guardadas automáticamente.</li>
+</ul>
+
+<h2>8.3 Explorar (catálogo unificado)</h2>
+<ul>
+  <li><strong>Cinco pestañas:</strong> Universidades · Carreras y programas · Modalidades de ingreso · Becas · Idiomas y exámenes.</li>
+  <li><strong>Constructor de filtros con arrastrar y soltar.</strong> Paleta de 13 filtros: País, Ciudad, Tipo de gestión, Área, Carrera, Nivel, Modalidad de ingreso, Idioma requerido, Certificación aceptada, Costo, Ayuda financiera, Beca disponible y Fecha límite. Se arrastran a «Mis filtros» y se configuran con un clic.</li>
+  <li><strong>El orden de los filtros define el orden de los resultados.</strong> Un filtro sin valor solo ordena; por ejemplo, «Fecha límite» sin valor ordena por la fecha más próxima.</li>
+  <li>Para quitar un filtro, se arrastra fuera de la zona o se pulsa «×».</li>
+  <li><strong>Vistas guardadas:</strong> combinaciones con nombre, por ejemplo «Ingeniería en EE. UU. con ayuda financiera».</li>
+  <li><strong>Resultados</strong> en tarjetas o en tabla, cada uno con país, fecha de consulta, estado de verificación y enlace a la fuente.</li>
+  <li>Al <strong>arrastrar una tarjeta sobre el avatar de un estudiante</strong>, se agrega a su lista corta con un aviso breve. También hay un selector «Agregar a lista corta de…» y un botón para enviar la opción a Comparar.</li>
+</ul>
+
+<h2>8.4 Becas y fechas</h2>
+<ul>
+  <li>Vista de lista y calendario mensual.</li>
+  <li>Cada beca muestra: entidad, nivel, país de estudio, cobertura publicada, ventana de postulación, requisitos, idioma, estado y enlace oficial.</li>
+  <li>Banda de urgencia con el semáforo y los días restantes.</li>
+  <li>Se distingue entre convocatorias y políticas de ayuda institucional (por ejemplo, la ayuda financiera de MIT).</li>
+</ul>
+
+<h2>8.5 Comparar</h2>
+<p>Hasta tres opciones lado a lado: requisitos publicados, idioma, fechas, costo publicado, ayudas y coincidencia con un estudiante elegido.</p>
+
+<h2>8.6 Fuentes</h2>
+<p>Tabla con cada fuente: entidad, documento o página, fecha de consulta y estado. Una fuente consultada hace más de 90 días se marca «Revisar». Este panel es parte del mensaje: el sistema muestra de dónde sale cada dato.</p>
+
+<h2>8.7 Arrastrar y soltar: los siete casos</h2>
+<table>
+  <tr><th>Lugar</th><th>Qué se arrastra</th><th>Resultado</th></tr>
+  <tr><td>Inicio</td><td>Tarjeta de estudiante entre columnas</td><td>Cambia su etapa</td></tr>
+  <tr><td>Explorar</td><td>Filtro desde la paleta a «Mis filtros»</td><td>Aplica el filtro</td></tr>
+  <tr><td>Explorar</td><td>Filtro dentro de «Mis filtros»</td><td>Cambia la prioridad del orden</td></tr>
+  <tr><td>Explorar</td><td>Filtro fuera de la zona</td><td>Lo quita</td></tr>
+  <tr><td>Explorar</td><td>Tarjeta de resultado sobre el avatar de un estudiante</td><td>La agrega a su lista corta</td></tr>
+  <tr><td>Ficha</td><td>Factores de «Lo que más le importa»</td><td>Recalcula pesos y coincidencias en vivo</td></tr>
+  <tr><td>Ficha</td><td>Opciones de la lista corta</td><td>Cambia su prioridad</td></tr>
+</table>
+
+<h2>8.8 Restablecer demo</h2>
+<p>Un botón en la barra lateral devuelve todos los datos al estado inicial, tras una confirmación. Sirve para empezar cada demostración con el tablero limpio.</p>
+
+<!-- 9 -->
+<h1>9. Metodología vocacional</h1>
+<h2>9.1 Modelo RIASEC de John Holland</h2>
+<p>RIASEC es un modelo de intereses vocacionales que describe seis tipos. Cada estudiante recibe un puntaje de 0 a 10 en cada dimensión y su código principal son las dos o tres letras más altas. Cada carrera también tiene un código de dos o tres letras.</p>
+<table>
+  <tr><th>Letra</th><th>Tipo</th><th>Le atrae…</th></tr>
+  <tr><td>R</td><td>Realista</td><td>Trabajo práctico, herramientas, máquinas, construir y reparar.</td></tr>
+  <tr><td>I</td><td>Investigador</td><td>Analizar, investigar, resolver problemas complejos, ciencia.</td></tr>
+  <tr><td>A</td><td>Artístico</td><td>Crear, diseñar, expresarse, trabajar con libertad.</td></tr>
+  <tr><td>S</td><td>Social</td><td>Ayudar, enseñar, acompañar y cuidar a otras personas.</td></tr>
+  <tr><td>E</td><td>Emprendedor</td><td>Liderar, persuadir, emprender, tomar decisiones.</td></tr>
+  <tr><td>C</td><td>Convencional</td><td>Organizar, ordenar datos, procesos claros y precisión.</td></tr>
+</table>
+<p>En Cooper Compass, el radar RIASEC muestra el perfil de un vistazo y la afinidad vocacional cruza el puntaje del estudiante con el código de cada carrera.</p>
+<h2>9.2 Propósito: cuatro cuadrantes al estilo ikigai</h2>
+<ul>
+  <li><strong>Lo que ama.</strong></li>
+  <li><strong>En lo que es bueno.</strong></li>
+  <li><strong>Lo que el mundo necesita.</strong></li>
+  <li><strong>Por lo que le pagarían.</strong></li>
+</ul>
+<p>Este marco conecta la elección de carrera con un sentido de vida, no solo con notas o costos.</p>
+<h2>9.3 Fortalezas y trabajo soñado</h2>
+<p>Las fortalezas se registran como etiquetas (análisis, comunicación, liderazgo, creatividad, trabajo con personas, resolución de problemas, investigación, organización, matemática, programación). El trabajo soñado se escribe en texto libre y se asocia a sectores (Salud, Ingeniería, Tecnología, Negocios, Políticas públicas, Educación, Arte y diseño, Comunicaciones, Derecho).</p>
+<h2>9.4 Idiomas: escala MCER</h2>
+<p>El nivel de idioma se registra con el Marco Común Europeo de Referencia (MCER), de A1 (inicial) a C2 (maestría). Se compara con el requisito publicado por cada universidad o beca, sin traducir automáticamente entre escalas de examen.</p>
+
+<!-- 10 -->
+<h1>10. El cálculo de coincidencia</h1>
+<p>Cada opción (carrera, universidad o beca) recibe un puntaje de <strong>0 a 100</strong> para cada estudiante. Es una suma ponderada y transparente de cinco factores, y toda la lógica vive en un solo archivo comentado para ajustarla con la clienta.</p>
+<table>
+  <tr><th>Factor</th><th>Cómo se calcula</th></tr>
+  <tr><td>Afinidad vocacional</td><td>Cruza los puntajes RIASEC del estudiante con el código de la carrera. La primera letra del código pesa más.</td></tr>
+  <tr><td>Interés declarado</td><td>Coincidencia entre los sectores y el trabajo soñado del estudiante y el área o las salidas profesionales del programa.</td></tr>
+  <tr><td>Idioma</td><td>Nivel MCER frente al requisito publicado. Si no hay requisito verificado, el factor queda neutro y se anota «por verificar».</td></tr>
+  <tr><td>Costo y ayudas</td><td>Presupuesto frente al costo publicado. Suma si hay una ayuda verificada que podría aplicar (por ejemplo, admisión need-blind o Beca 18 para pregrado en Perú).</td></tr>
+  <tr><td>Ubicación y nivel</td><td>País y nivel (pregrado o posgrado) que busca el estudiante. Solo se muestran opciones en sus países objetivo.</td></tr>
+</table>
+<h2>Pesos según «Lo que más le importa»</h2>
+<p>El estudiante ordena los cinco factores. El primero pesa <strong>30</strong>, el segundo 25, el tercero 20, el cuarto 15 y el quinto 10. Si el orden cambia, el puntaje se recalcula en vivo.</p>
+<h2>Explicación obligatoria</h2>
+<ul>
+  <li><strong>«Por qué aparece»:</strong> de 2 a 4 razones, por ejemplo «Intereses Investigador y Convencional: encaja con Computer Science, Economics, and Data Science».</li>
+  <li><strong>«Qué falta revisar»:</strong> de 1 a 3 puntos, por ejemplo «Costo publicado de Purdue: por verificar».</li>
+  <li>La etiqueta fija: <strong>«Coincidencia orientativa. No determina elegibilidad.»</strong></li>
+</ul>
+<h2>Regla de neutralidad</h2>
+<p>Si un dato no está publicado o no está verificado, el factor recibe un valor neutro y aparece en «Qué falta revisar». Así el sistema no premia ni castiga una opción por un dato que no conoce.</p>
+<div class="box note">
+  <div class="label">Ejemplo de la demo (perfil ficticio)</div>
+  <p>Mateo Q., 5.º de secundaria en Lima, perfil Investigador-Convencional, inglés C1, necesita ayuda financiera y busca estudiar en EE. UU. Sus mejores coincidencias son dos carreras de MIT con 89 puntos, apoyadas en sus intereses, la política need-blind publicada por MIT y su inglés C1. Le siguen Data Science en Purdue y en Arizona State University con 81 puntos, porque el costo publicado de ambas sigue por verificar. Si Mateo pone «Ubicación y nivel» primero, su mejor coincidencia sube a 91.</p>
+</div>
+
+<!-- 11 -->
+<h1>11. Brújula IA: el asistente conversacional</h1>
+<p>Brújula IA es el asistente integrado en Cooper Compass. Se abre con un botón en la esquina inferior derecha o con Ctrl+K (Cmd+K en Mac). Funciona dentro de claude.ai con la cuenta de Claude de quien abre la página: no necesita servidor propio ni claves de API. La primera vez, Claude pide permiso para que la página lo use.</p>
+<h2>Qué puede hacer</h2>
+<ul>
+  <li><strong>Buscar información</strong> en el catálogo: universidades, carreras, becas, modalidades y exámenes.</li>
+  <li><strong>Leer fichas completas</strong> con cada dato, su estado y su fuente oficial.</li>
+  <li><strong>Analizar estudiantes:</strong> perfil, coincidencias, razones y lo que falta revisar.</li>
+  <li><strong>Revisar fechas</strong> de los próximos días.</li>
+  <li><strong>Redactar textos,</strong> por ejemplo un resumen para la familia de un estudiante.</li>
+  <li><strong>Mover la interfaz:</strong> abrir pantallas y aplicar filtros en Explorar.</li>
+  <li><strong>Proponer cambios en los datos:</strong> agregar opciones a una lista corta, cambiar la etapa de un estudiante, agregar notas, reordenar prioridades y crear estudiantes ficticios.</li>
+</ul>
+<h2>Las propuestas: la persona decide</h2>
+<p>Brújula IA nunca cambia datos por su cuenta. Cada cambio aparece como una tarjeta «Propuesta» con dos botones: <strong>Aplicar</strong> y <strong>Descartar</strong>. Solo navegar y filtrar se ejecutan al momento, porque no modifican datos.</p>
+<h2>Reglas del asistente</h2>
+<ol>
+  <li>Usa solo datos que devuelven sus herramientas; nunca inventa fechas, montos, puntajes, vacantes ni requisitos.</li>
+  <li>Si un dato falta o no está verificado, dice «Por verificar»; si está verificado, menciona la entidad que lo publica.</li>
+  <li>Nunca decide elegibilidad.</li>
+  <li>Nunca pide ni registra nombres completos, DNI, correos ni teléfonos.</li>
+  <li>Responde en español de Perú, breve y concreto.</li>
+</ol>
+<h2>Herramientas internas (12)</h2>
+<table>
+  <tr><th>Tipo</th><th>Herramientas</th></tr>
+  <tr><td>Lectura</td><td>buscar_catalogo, ver_detalle, listar_estudiantes, ver_estudiante, proximas_fechas</td></tr>
+  <tr><td>Interfaz</td><td>ir_a, aplicar_filtros</td></tr>
+  <tr><td>Propuestas</td><td>proponer_lista_corta, proponer_etapa, proponer_nota, proponer_prioridades, proponer_estudiante</td></tr>
+</table>
+<h2>Dos velocidades</h2>
+<p><strong>Rápido</strong> (por defecto) responde en segundos. <strong>Profundo</strong> da análisis más elaborados y puede tardar entre 30 y 90 segundos.</p>
+<h2>Ejemplos de preguntas</h2>
+<ul>
+  <li>«¿Qué fechas límite vienen en los próximos 14 días?»</li>
+  <li>«¿Qué opciones encajan con Mateo Q. y qué falta revisar?»</li>
+  <li>«Busca ingeniería en EE. UU. con ayuda financiera publicada.»</li>
+  <li>«¿Qué requisitos publica Fulbright y qué está por verificar?»</li>
+  <li>«Agrega Purdue a la lista corta de Diego M.»</li>
+  <li>«Escribe un resumen para la familia de Camila T.»</li>
+</ul>
+
+<!-- 12 -->
+<h1>12. Catálogo de datos</h1>
+<p>Los datos institucionales viven en archivos curados dentro del proyecto. La selección es una mezcla de referencia (universidades muy selectivas, selectivas y de acceso más amplio); <strong>no es un ranking</strong>. En la sesión 3, la clienta dirá cuáles piden más sus estudiantes.</p>
+<h2>12.1 Universidades del Perú (8)</h2>
+<table>
+  <tr><th>Universidad</th><th>Sigla</th><th>Gestión</th><th>Carreras en el catálogo</th></tr>
+  <tr><td>Pontificia Universidad Católica del Perú</td><td>PUCP</td><td>Privada</td><td>Psicología, Ingeniería Industrial, Economía, Arquitectura, Derecho</td></tr>
+  <tr><td>Universidad de Lima</td><td>ULima</td><td>Privada</td><td>Comunicación, Ingeniería Industrial, Arquitectura</td></tr>
+  <tr><td>Universidad del Pacífico</td><td>UP</td><td>Privada</td><td>Economía, Administración, Ingeniería de la Información</td></tr>
+  <tr><td>Universidad Peruana de Ciencias Aplicadas</td><td>UPC</td><td>Privada</td><td>Psicología, Comunicación Audiovisual y Medios Interactivos, Arquitectura, Ingeniería de Sistemas de Información</td></tr>
+  <tr><td>Universidad Nacional Mayor de San Marcos</td><td>UNMSM</td><td>Pública</td><td>Medicina Humana, Psicología, Derecho</td></tr>
+  <tr><td>Universidad Nacional de Ingeniería</td><td>UNI</td><td>Pública</td><td>Ingeniería Mecatrónica, Ingeniería Industrial, Ingeniería de Sistemas, Arquitectura</td></tr>
+  <tr><td>Universidad Peruana Cayetano Heredia</td><td>UPCH</td><td>Privada</td><td>Medicina, Psicología, Salud Pública (posgrado)</td></tr>
+  <tr><td>Universidad de Ingeniería y Tecnología</td><td>UTEC</td><td>Privada</td><td>Ingeniería Mecatrónica, Ciencia de la Computación, Ciencia de Datos e Inteligencia Artificial</td></tr>
+</table>
+<h3>Modalidades de ingreso verificadas</h3>
+<ul>
+  <li><strong>PUCP · La Primera Opción</strong> <span class="tag v">verificado</span>: para escolares de 5.º de secundaria; combina pruebas académicas de comprensión de lectura y matemática (80 %) con notas escolares (20 %). Las páginas oficiales muestran fechas distintas para la evaluación 2027-1: por verificar.</li>
+  <li><strong>PUCP · Evaluación del Talento</strong> <span class="tag v">verificado</span>: para egresados de secundaria.</li>
+  <li><strong>PUCP · Admisión por Rendimiento Superior</strong> <span class="tag v">verificado</span>: evalúa notas de 1.º a 4.º de secundaria y exige un puntaje mínimo publicado.</li>
+  <li><strong>UNI · Ingreso Escolar Nacional (IEN) 2027-1</strong> <span class="tag v">verificado</span>: para estudiantes de 5.º de secundaria y postulantes de Beca 18; examen presencial en Lima o sedes regionales el 13 de diciembre; ciclo introductorio obligatorio para quienes ingresan.</li>
+  <li><strong>UNI · Ingreso Directo CEPRE-UNI</strong> <span class="tag v">verificado</span>: para alumnos del ciclo preuniversitario de la UNI que concluyeron la secundaria.</li>
+  <li>Las modalidades de ULima, UP, UPC, UNMSM, UPCH y UTEC están registradas <span class="tag p">por verificar</span>.</li>
+</ul>
+<p class="small muted">El licenciamiento de SUNEDU y los costos de las universidades peruanas están registrados como por verificar.</p>
+
+<h2>12.2 Universidades de Estados Unidos (8)</h2>
+<table>
+  <tr><th>Universidad</th><th>Por qué está en la lista</th><th>Datos verificados</th></tr>
+  <tr><td>Massachusetts Institute of Technology (MIT)</td><td>Ejemplo de admisión need-blind para internacionales</td><td>Need-blind y cubre la necesidad demostrada de nacionales y extranjeros; exige SAT o ACT; recomienda examen de inglés; Early Action el 1 de noviembre de 2026 y Regular Action el 4 de enero de 2027; documentos de ayuda financiera el 30 de noviembre de 2026 (EA) y el 15 de febrero de 2027 (RA); CSS Profile y documentos tributarios de los padres; sin exoneración de tasa para internacionales.</td></tr>
+  <tr><td>Harvard University</td><td>Ejemplo de ayuda financiera para internacionales</td><td>Por verificar</td></tr>
+  <tr><td>Purdue University</td><td>Ingeniería, muchos estudiantes internacionales</td><td>TOEFL iBT 88 con 20 por sección (exámenes antes del 21/01/2026) o 4.5 con 4.0 por sección (desde esa fecha); IELTS Academic 6.5 con 6.0 por sección; Duolingo 115 con 110 por subpuntaje; puntajes de máximo dos años. Purdue aclara que cumplir el mínimo no garantiza la admisión.</td></tr>
+  <tr><td>Arizona State University (ASU)</td><td>Acceso más amplio, gran oferta</td><td>Requisito general: TOEFL iBT 61, IELTS Academic 6.0, Cambridge 170. Ingeniería pide IELTS 6.5 y Duolingo 105. Ofrece admisión condicional a quien cumple lo académico pero aún no el inglés.</td></tr>
+  <tr><td>University of Florida</td><td>Universidad pública de Florida</td><td>Por verificar</td></tr>
+  <tr><td>Florida International University</td><td>Comunidad latina en Miami</td><td>Por verificar</td></tr>
+  <tr><td>University of Miami</td><td>Universidad privada en Miami</td><td>Por verificar</td></tr>
+  <tr><td>Boston University</td><td>Universidad privada urbana, amplia oferta</td><td>Por verificar</td></tr>
+</table>
+<p class="small muted">Los costos publicados para internacionales de todas las universidades de EE. UU. están por verificar.</p>
+
+<h2>12.3 Becas y ayudas (8)</h2>
+<table>
+  <tr><th>Beca</th><th>Nivel y destino</th><th>Información publicada</th><th>Estado</th></tr>
+  <tr><td>Beca Generación del Bicentenario, convocatoria extraordinaria 2026 (Pronabec)</td><td>Posgrado en el extranjero</td><td>Beca integral; 20 becas (17 de maestría y 3 de doctorado). Postulación del 30 de octubre al 13 de noviembre de 2026 hasta las 23:59; subsanación hasta el 24 de noviembre; seleccionados el 15 de diciembre de 2026; beneficios desde el 1 de enero de 2027. Requisitos: nacionalidad peruana, tercio superior, carta de aceptación definitiva de una institución elegible con inicio entre el 1 de julio de 2026 y el 31 de diciembre de 2027, e ingreso familiar per cápita dentro del límite de las bases. Bases: RDE N.° 149-2026-MINEDU/VMGI-PRONABEC.</td><td>Abierta <span class="tag v">verificado</span></td></tr>
+  <tr><td>Beca 18, Convocatoria 2027 (Pronabec)</td><td>Pregrado en Perú</td><td>6 000 becas. Cubre matrícula, pensiones y titulación; con pobreza o pobreza extrema acreditada, también apoyos no académicos. Examen de preselección el 22 de noviembre de 2026; postulación a la selección del 7 de enero al 25 de febrero de 2027. Requisitos de la modalidad ordinaria: nacionalidad peruana, menos de 22 años, 5.º de secundaria o egreso entre 2023 y 2026, tercio superior en los dos últimos grados, pobreza o pobreza extrema según SISFOH. Bases: RDE N.° 175-2026.</td><td>Próxima <span class="tag v">verificado</span></td></tr>
+  <tr><td>Beca de Posgrado Fulbright (Comisión Fulbright Perú)</td><td>Maestría o doctorado en EE. UU.</td><td>Beca parcial hasta 21 meses. Requisitos: nacionalidad y residencia peruana, título universitario, dos años de experiencia posterior al grado, tercio superior o tesis con honores, compromiso de regresar al Perú. Idioma: TOEFL iBT 90 o TOEFL ITP 577 con speaking 58 (algunas carreras piden más). La página indica «26 de abril» como fecha límite de documentos, sin año.</td><td>Por confirmar</td></tr>
+  <tr><td>Hubert H. Humphrey Fellowship</td><td>Programa profesional en EE. UU.</td><td>Requiere cinco años de experiencia en temas de interés público. La página indica deadline el 9 de agosto y resultados entre febrero y marzo de 2027; el ciclo actual parece cerrado.</td><td>Por confirmar</td></tr>
+  <tr><td>Programa de Becas Académicas de la OEA</td><td>Posgrado en las Américas</td><td>Por verificar</td><td>Por confirmar</td></tr>
+  <tr><td>EducationUSA Opportunity Funds</td><td>Apoyo con costos de postulación a EE. UU.</td><td>Por verificar (confirmar que opera en Perú)</td><td>Por confirmar</td></tr>
+  <tr><td>Ayuda financiera institucional de MIT</td><td>Pregrado en EE. UU.</td><td>Política de la universidad, no convocatoria: ayuda según necesidad demostrada; need-blind para internacionales.</td><td><span class="tag v">verificado</span></td></tr>
+  <tr><td>Ayuda financiera institucional de Harvard</td><td>Pregrado en EE. UU.</td><td>Por verificar</td><td>Por confirmar</td></tr>
+</table>
+
+<h2>12.4 Idiomas y exámenes (18)</h2>
+<ul>
+  <li><strong>Inglés:</strong> TOEFL iBT (ETS), IELTS Academic, Duolingo English Test, Cambridge English C1 Advanced y C2 Proficiency.</li>
+  <li><strong>Francés:</strong> DELF y DALF. <strong>Alemán:</strong> Goethe-Zertifikat y TestDaF. <strong>Italiano:</strong> CELI y CILS. <strong>Portugués de Brasil:</strong> Celpe-Bras. <strong>Japonés:</strong> JLPT. <strong>Chino:</strong> HSK.</li>
+  <li><strong>Admisión en EE. UU.:</strong> SAT y ACT (pregrado), GRE y GMAT (posgrado), Common App (plataforma común de postulación) y CSS Profile (formulario de ayuda financiera).</li>
+</ul>
+<p>Por regla, no se registran puntajes mínimos genéricos: cada universidad publica el suyo y va en su ficha. El formato y la vigencia de cada examen están por verificar.</p>
+
+<!-- 13 -->
+<h1>13. Los seis estudiantes ficticios</h1>
+<div class="box warn"><p><strong>Todos son perfiles inventados para la demostración.</strong> Ningún nombre, documento, colegio, correo ni teléfono corresponde a una persona real. Cada ficha muestra la etiqueta «Perfil ficticio».</p></div>
+<table>
+  <tr><th>Alias</th><th>Perfil</th><th>Para qué sirve en la demo</th></tr>
+  <tr><td>Valeria R.</td><td>5.º de secundaria, Lima. Investigadora-Social. Quiere diseñar programas de salud pública para comunidades rurales. Inglés B2, presupuesto medio. Busca Perú y EE. UU.</td><td>Mostrar opciones en Perú y EE. UU. en paralelo.</td></tr>
+  <tr><td>Diego M.</td><td>Egresado escolar, Arequipa. Realista-Investigador. Quiere construir robots para la minería y la agroindustria. Inglés B1, requiere beca. Busca Perú.</td><td>Beca 18 y universidades de Perú (UNI Mecatrónica).</td></tr>
+  <tr><td>Camila T.</td><td>Último ciclo de Economía, Lima. Emprendedora-Convencional. Quiere liderar reformas de políticas educativas. Inglés C1, requiere beca.</td><td>Becas de posgrado con fechas urgentes: Bicentenario y Fulbright.</td></tr>
+  <tr><td>Sebastián L.</td><td>4.º de secundaria, La Libertad. Artístico-Social. Quiere diseñar espacios públicos en Trujillo. Inglés B2.</td><td>Etapa de exploración temprana (arquitectura y diseño).</td></tr>
+  <tr><td>Lucía F.</td><td>Egresada de Psicología, Lima. Social-Investigadora. Quiere trabajar en psicología educativa y bienestar escolar. Inglés B2 y francés A2.</td><td>Otros idiomas y posgrado en EE. UU.</td></tr>
+  <tr><td>Mateo Q.</td><td>5.º de secundaria, Lima. Investigador-Convencional. Quiere usar datos para entender el clima y la economía de América Latina. Inglés C1, necesita ayuda financiera.</td><td>MIT, Purdue y Arizona State; política need-blind.</td></tr>
+</table>
+<p>Al iniciar la demo, los seis están repartidos en el tablero: Sebastián en Descubrimiento, Valeria en Perfil, Diego y Camila en Exploración, Mateo en Lista corta y Lucía en Postulación.</p>
+
+<!-- 14 -->
+<h1>14. Sistema de verificación y fuentes</h1>
+<h2>El modelo «Fact»</h2>
+<p>Todo dato institucional se guarda envuelto en una estructura llamada Fact, que contiene:</p>
+<ul>
+  <li>el <strong>valor</strong> (o vacío si no se encontró);</li>
+  <li>la <strong>fuente</strong>: entidad, título, enlace oficial y fecha de consulta;</li>
+  <li>el <strong>estado</strong>: verificado o por verificar;</li>
+  <li>una <strong>nota</strong> opcional, por ejemplo «las páginas oficiales muestran fechas distintas; confirmar».</li>
+</ul>
+<p>Así ningún valor aparece en pantalla sin su origen.</p>
+<h2>Cifras de verificación al 4 de noviembre de 2026</h2>
+<table>
+  <tr><th>Indicador</th><th>Cantidad</th></tr>
+  <tr><td>Fuentes registradas</td><td>56</td></tr>
+  <tr><td>Fuentes verificadas</td><td>20</td></tr>
+  <tr><td>Fuentes por verificar</td><td>36</td></tr>
+  <tr><td>Datos (Fact) verificados</td><td>36</td></tr>
+  <tr><td>Datos (Fact) por verificar</td><td>194</td></tr>
+</table>
+<p>La verificación se priorizó en lo que aparece en la ruta de la demo: Bicentenario, Beca 18, Fulbright, Humphrey, MIT, Purdue, ASU, PUCP, UNI y Open Doors.</p>
+<h2>Método</h2>
+<ol>
+  <li>Solo fuentes oficiales: el sitio de la universidad, de la entidad que otorga la beca o del organismo que toma el examen. Una nota de prensa es una pista, no una fuente final.</li>
+  <li>Cada dato se registra con su fuente y su fecha de consulta.</li>
+  <li>Si un dato no se encuentra en una fuente oficial, queda vacío y se marca por verificar.</li>
+  <li>Una fuente consultada hace más de 90 días se marca «Revisar».</li>
+  <li>Toda actualización futura pasa por revisión humana antes de publicarse.</li>
+</ol>
+<div class="box note"><p><strong>Nota de transparencia:</strong> para esta versión, las páginas oficiales se consultaron mediante búsquedas restringidas a cada dominio oficial (gob.pe, pronabec.gob.pe, fulbright.pe, mitadmissions.org, purdue.edu, asu.edu, pucp.edu.pe, uni.edu.pe). Se recomienda revisar los datos verificados directamente en el sitio oficial antes de asesorar.</p></div>
+
+<!-- 15 -->
+<h1>15. Identidad de marca y tono</h1>
+<h2>Concepto</h2>
+<p>Una brújula: cada estudiante tiene su propio norte. La interfaz se siente <strong>cálida, profesional y serena</strong>, como una buena sesión de orientación, no como un panel bancario. Evita los degradados morados y el aspecto genérico de plantilla de IA.</p>
+<ul>
+  <li><strong>Nombre:</strong> Cooper Compass.</li>
+  <li><strong>Línea de marca:</strong> «Cada estudiante, su propio norte.»</li>
+  <li><strong>Logo:</strong> rosa de los vientos minimalista con aguja dorada hacia el noreste; diseño original.</li>
+  <li><strong>Asistente:</strong> Brújula IA.</li>
+</ul>
+<h2>Paleta</h2>
+<table>
+  <tr><th>Color</th><th>Valor</th><th>Uso</th></tr>
+  <tr><td><span class="swatch" style="background:#16213E"></span>Azul marino</td><td>#16213E</td><td>Texto principal y barra lateral</td></tr>
+  <tr><td><span class="swatch" style="background:#FAF6EF"></span>Crema</td><td>#FAF6EF</td><td>Fondo general</td></tr>
+  <tr><td><span class="swatch" style="background:#D99A29"></span>Dorado</td><td>#D99A29</td><td>Acento de marca, aguja, botones principales</td></tr>
+  <tr><td><span class="swatch" style="background:#2A8C82"></span>Teal</td><td>#2A8C82</td><td>Coincidencias y estados positivos</td></tr>
+  <tr><td><span class="swatch" style="background:#E0644B"></span>Coral</td><td>#E0644B</td><td>Alertas y fechas urgentes</td></tr>
+  <tr><td><span class="swatch" style="background:#3D5A98"></span>Azul cielo</td><td>#3D5A98</td><td>Etiqueta EE. UU.</td></tr>
+  <tr><td><span class="swatch" style="background:#A23D31"></span>Terracota</td><td>#A23D31</td><td>Etiqueta Perú</td></tr>
+</table>
+<p>Para texto, los tonos dorado, teal y coral se usan en versiones más oscuras para cumplir el contraste AA.</p>
+<h2>Tipografía y estilo</h2>
+<p>Títulos en <strong>Fraunces</strong> (serif con carácter) y textos en <strong>Inter</strong>. Tarjetas con bordes redondeados de 16 px, sombras suaves, mucho espacio en blanco y transiciones cortas de 150 a 200 ms.</p>
+<h2>Tono de voz</h2>
+<ul>
+  <li>Español de Perú con tuteo cálido: «Agrega un estudiante», «Arrastra aquí tus filtros».</li>
+  <li>Los nombres oficiales quedan en su idioma original (Early Decision, Common App, need-blind) y se explican con un texto de ayuda.</li>
+  <li>Los estados vacíos invitan a actuar: «Todavía no hay opciones en su lista corta. Arrastra una desde Explorar.»</li>
+  <li>Fechas en formato peruano: «13 de nov. de 2026». Montos con moneda y periodo: «USD XX XXX por año», «S/ X XXX por ciclo».</li>
+  <li>Vocabulario responsable: «encaja con su perfil», «a explorar», «requisito publicado», «por verificar».</li>
+</ul>
+
+<!-- 16 -->
+<h1>16. Tecnología y accesibilidad</h1>
+<table>
+  <tr><th>Pieza</th><th>Elección</th><th>Para qué</th></tr>
+  <tr><td>Base</td><td>Vite 8 + React 19 + TypeScript 5</td><td>Arranque rápido y datos tipados</td></tr>
+  <tr><td>Estilos</td><td>Tailwind CSS 4</td><td>Sistema visual consistente</td></tr>
+  <tr><td>Arrastrar y soltar</td><td>dnd-kit</td><td>Mouse, pantalla táctil y teclado</td></tr>
+  <tr><td>Estado</td><td>Zustand con persistencia</td><td>Datos de la demo guardados en el navegador</td></tr>
+  <tr><td>Gráficos</td><td>Recharts</td><td>Radar RIASEC</td></tr>
+  <tr><td>Fechas</td><td>date-fns en español</td><td>Formato peruano</td></tr>
+  <tr><td>Íconos y tipografías</td><td>lucide-react, Fontsource</td><td>Funcionan sin internet</td></tr>
+  <tr><td>Asistente</td><td>Capacidad «sample» de los Artifacts de claude.ai</td><td>Brújula IA sin servidor ni claves</td></tr>
+</table>
+<h2>Características técnicas</h2>
+<ul>
+  <li><strong>Sin backend, sin inicio de sesión, sin APIs de pago.</strong> Todo corre en el navegador.</li>
+  <li><strong>Funciona sin internet:</strong> existe una versión en un solo archivo HTML con tipografías, datos y código incluidos. Brújula IA sí requiere abrir la página desde claude.ai.</li>
+  <li><strong>Rendimiento:</strong> abre en menos de un segundo; sin errores en la consola del navegador.</li>
+  <li><strong>Pantallas:</strong> probado a 1920×1080 y a 1440×900.</li>
+  <li><strong>Datos editables:</strong> en archivos JSON (fuentes, universidades, carreras, modalidades, becas, exámenes y estudiantes de demo).</li>
+  <li><strong>Publicación:</strong> enlace privado en claude.ai; el código está en un repositorio de GitHub.</li>
+</ul>
+<h2>Accesibilidad</h2>
+<ul>
+  <li>Contraste de texto AA (pautas WCAG) validado color por color.</li>
+  <li>Todo el arrastrar y soltar funciona con teclado: espacio o Enter para tomar, flechas para mover, espacio para soltar, Esc para cancelar. En el tablero, las flechas izquierda y derecha saltan de columna.</li>
+  <li>Alternativas con botón para cada acción de arrastre en Explorar.</li>
+  <li>Anuncios en español para lectores de pantalla y movimiento reducido si el sistema lo pide.</li>
+</ul>
+
+<!-- 17 -->
+<h1>17. Ética, privacidad y cumplimiento</h1>
+<ul>
+  <li><strong>Estudiantes ficticios en la demo:</strong> ningún nombre real, DNI, colegio asociado a un alumno, correo ni teléfono.</li>
+  <li><strong>Datos reales en el futuro:</strong> consentimiento informado de las familias, protección de datos personales según la Ley N.º 29733 del Perú y uso de los datos mínimos necesarios.</li>
+  <li><strong>Sin decisiones automáticas sobre personas:</strong> la plataforma orienta; no decide elegibilidad ni promete resultados.</li>
+  <li><strong>Transparencia:</strong> cada dato muestra su fuente; cada coincidencia muestra sus razones; cada cambio propuesto por la IA requiere confirmación humana.</li>
+  <li><strong>Sin extracción automática de páginas web</strong> dentro de la app; datos curados y revisados.</li>
+  <li><strong>Diseño original:</strong> sin logos ni escudos de universidades; los nombres aparecen solo como texto.</li>
+  <li><strong>Brújula IA:</strong> usa la cuenta de Claude de quien la abre y pide permiso la primera vez. La plataforma no guarda las conversaciones: se borran al limpiar el panel o cerrar la página.</li>
+</ul>
+
+<!-- 18 -->
+<h1>18. Origen y programa «Tu Sistema Personal de IA»</h1>
+<p>Cooper Compass nace dentro del programa <strong>«Tu Sistema Personal de IA»</strong>, que dicta Alejandro Castro-Mendívil (Adria Labs) en tres sesiones para la asesora de orientación vocacional y su colega.</p>
+<table>
+  <tr><th>Sesión</th><th>Contenido</th></tr>
+  <tr><td>Sesión 1 (4 de noviembre de 2026)</td><td>Panorama de la IA y configuración personal en Claude. Al cierre se muestra Cooper Compass como demostración: «así podría verse el sistema que vamos a construir».</td></tr>
+  <tr><td>Sesión 2</td><td>Continuación del programa (contenido por definir con las participantes).</td></tr>
+  <tr><td>Sesión 3</td><td>Construcción de la versión real con los datos, los estudiantes y la forma de trabajar de la clienta.</td></tr>
+</table>
+<h2>Sobre Adria Labs</h2>
+<p>Adria Labs es una agencia de consultoría en IA con sede en Lima, Perú, fundada por Alejandro Castro-Mendívil: consultor estratégico en IA, educador con más de 27 años de experiencia y coach ejecutivo certificado por ICF. Trabaja en tres ejes: preparación (readiness), dominio (fluency) e integración de la IA. Su filosofía: la IA debe acercar a las personas a una conexión más humana, y lo complejo debe sentirse humano.</p>
+<h2>Cómo se construyó el MVP</h2>
+<p>El MVP se construyó en un solo día con Claude Code a partir de un documento de especificación («handoff») que define el objetivo, las restricciones, las pantallas, el modelo de datos y el plan de trabajo. Es en sí mismo un ejemplo de lo que enseña el programa: una persona con criterio y un buen sistema de IA pueden pasar de una idea a un producto funcional en horas.</p>
+
+<!-- 19 -->
+<h1>19. Hoja de ruta</h1>
+<div class="box note"><p>Todo lo de esta sección es <strong>propuesta</strong> para conversar con la clienta. No está construido.</p></div>
+<h2>Sesión 3: la versión real</h2>
+<ul>
+  <li>Cargar los estudiantes reales, con consentimiento y datos mínimos.</li>
+  <li>Ajustar el catálogo a las universidades, carreras y becas que más piden sus estudiantes.</li>
+  <li>Completar los datos por verificar con prioridad en lo que la clienta usa cada semana.</li>
+  <li>Ajustar con ella los pesos y las reglas del cálculo de coincidencia.</li>
+  <li>Configurar un proyecto compartido en Claude con el contexto del negocio.</li>
+</ul>
+<h2>Siguientes etapas posibles</h2>
+<ul>
+  <li>Importar y exportar datos desde Google Sheets.</li>
+  <li>Alertas de fechas límite por correo.</li>
+  <li>Informe en PDF por estudiante para conversar con la familia.</li>
+  <li>Dos usuarias (la clienta y su colega) con permisos distintos.</li>
+  <li>Actualización periódica de fuentes, siempre con revisión humana antes de publicar.</li>
+  <li>Más destinos de estudio (por ejemplo, Europa o América Latina) y más becas.</li>
+  <li>Nuevas capacidades de Brújula IA: preparar agendas de sesión, resumir reuniones y redactar correos de seguimiento, siempre con aprobación humana.</li>
+</ul>
+
+<!-- 20 -->
+<h1>20. Modelo de negocio: opciones por definir</h1>
+<div class="box warn"><p>Esta sección presenta <strong>hipótesis</strong>, no decisiones. No hay precios ni acuerdos comerciales definidos.</p></div>
+<table>
+  <tr><th>Opción</th><th>Descripción</th><th>A considerar</th></tr>
+  <tr><td>Herramienta interna</td><td>Cooper Compass como sistema de trabajo exclusivo del negocio de la clienta.</td><td>Diferencia su servicio frente a otras asesorías; menor complejidad.</td></tr>
+  <tr><td>Servicio premium para familias</td><td>Informes personalizados y seguimiento de fechas como parte de un paquete de asesoría.</td><td>Requiere informe PDF y protocolo de datos personales.</td></tr>
+  <tr><td>Licencia a otras asesorías</td><td>Ofrecer la plataforma a otras consultoras de orientación.</td><td>Requiere varios usuarios, permisos y soporte.</td></tr>
+  <tr><td>Alianzas con colegios</td><td>Uso en programas de orientación escolar.</td><td>Requiere validación con instituciones y acuerdos de datos.</td></tr>
+</table>
+
+<!-- 21 -->
+<h1>21. Preguntas frecuentes</h1>
+<div class="qa">
+<h3>¿Qué es Cooper Compass en una frase?</h3>
+<p>Una plataforma que junta universidades, carreras, ingreso, becas e idiomas en un solo lugar y los cruza con el perfil de cada estudiante, con cada dato respaldado por su fuente oficial.</p>
+<h3>¿Cooper Compass decide qué debe estudiar un estudiante?</h3>
+<p>No. Muestra las opciones que encajan con su perfil y explica por qué. La decisión es del estudiante, acompañado por su asesora y su familia.</p>
+<h3>¿Puede decir si un estudiante va a ganar una beca o ingresar a una universidad?</h3>
+<p>No. Nunca decide elegibilidad ni promete resultados. Muestra requisitos publicados y lo que falta revisar.</p>
+<h3>¿De dónde salen los datos?</h3>
+<p>De fuentes oficiales: sitios de universidades, de Pronabec, de la Comisión Fulbright Perú y de los organismos que toman los exámenes. Cada dato tiene enlace, fecha de consulta y estado.</p>
+<h3>¿Qué significa «Por verificar»?</h3>
+<p>Que el dato no se encontró o no se confirmó en una fuente oficial. En lugar de inventarlo, el sistema lo deja vacío y lo señala.</p>
+<h3>¿Los estudiantes de la demo son reales?</h3>
+<p>No. Los seis son ficticios y llevan la etiqueta «Perfil ficticio».</p>
+<h3>¿Qué es Brújula IA?</h3>
+<p>El asistente conversacional de Cooper Compass. Busca información, analiza perfiles, redacta textos y propone cambios en los datos que la asesora confirma con un clic.</p>
+<h3>¿Brújula IA puede cambiar datos sin permiso?</h3>
+<p>No. Cada cambio aparece como una propuesta con los botones Aplicar y Descartar.</p>
+<h3>¿Cómo se calcula la coincidencia?</h3>
+<p>Con cinco factores (afinidad vocacional, interés declarado, idioma, costo y ayudas, ubicación y nivel) ponderados según lo que más le importa a cada estudiante: 30, 25, 20, 15 y 10.</p>
+<h3>¿Necesita internet?</h3>
+<p>El dashboard funciona sin internet en su versión de un solo archivo. Brújula IA necesita abrirse desde claude.ai.</p>
+<h3>¿Qué pasa con la privacidad cuando se usen datos reales?</h3>
+<p>Se pedirá consentimiento a las familias, se cumplirá la Ley N.º 29733 de protección de datos personales y se guardarán solo los datos mínimos necesarios.</p>
+<h3>¿Quién construyó Cooper Compass?</h3>
+<p>Adria Labs, dentro del programa «Tu Sistema Personal de IA», usando Claude Code.</p>
+<h3>¿Qué sigue?</h3>
+<p>En la sesión 3 se construye la versión real con los datos y flujos de la clienta. Luego se pueden sumar Google Sheets, alertas por correo, informes PDF y más usuarias.</p>
+</div>
+
+<!-- 22 -->
+<h1>22. Glosario</h1>
+<table>
+  <tr><th>Término</th><th>Significado</th></tr>
+  <tr><td>MVP</td><td>Producto mínimo viable: la primera versión funcional de un producto.</td></tr>
+  <tr><td>RIASEC</td><td>Modelo de intereses vocacionales de John Holland: Realista, Investigador, Artístico, Social, Emprendedor y Convencional.</td></tr>
+  <tr><td>Ikigai</td><td>Marco de propósito en cuatro cuadrantes: lo que amas, en lo que eres bueno, lo que el mundo necesita y por lo que te pagarían.</td></tr>
+  <tr><td>MCER</td><td>Marco Común Europeo de Referencia para las lenguas: niveles A1, A2, B1, B2, C1 y C2.</td></tr>
+  <tr><td>Kanban</td><td>Tablero con columnas por etapa y tarjetas que se mueven de una a otra.</td></tr>
+  <tr><td>Lista corta</td><td>Las opciones elegidas para un estudiante, con prioridad y estado.</td></tr>
+  <tr><td>Need-blind</td><td>La universidad decide la admisión sin mirar la capacidad de pago del postulante.</td></tr>
+  <tr><td>Early Action</td><td>Postulación temprana no vinculante en universidades de EE. UU.</td></tr>
+  <tr><td>Early Decision</td><td>Postulación temprana vinculante: si admiten al postulante, se compromete a matricularse.</td></tr>
+  <tr><td>Regular Action / Regular Decision</td><td>Postulación en el plazo regular.</td></tr>
+  <tr><td>Common App</td><td>Plataforma común para postular a muchas universidades de EE. UU.</td></tr>
+  <tr><td>CSS Profile</td><td>Formulario para calcular la ayuda financiera en muchas universidades privadas de EE. UU.</td></tr>
+  <tr><td>SAT / ACT</td><td>Exámenes estandarizados de admisión a pregrado en EE. UU.</td></tr>
+  <tr><td>GRE / GMAT</td><td>Exámenes de admisión a posgrado en EE. UU.</td></tr>
+  <tr><td>TOEFL iBT, IELTS, Duolingo English Test</td><td>Certificaciones de inglés aceptadas por universidades.</td></tr>
+  <tr><td>OPT</td><td>Optional Practical Training: permiso de práctica laboral en EE. UU. después de estudiar.</td></tr>
+  <tr><td>Pronabec</td><td>Programa Nacional de Becas y Crédito Educativo del Perú.</td></tr>
+  <tr><td>SUNEDU</td><td>Superintendencia Nacional de Educación Superior Universitaria, que licencia universidades en el Perú.</td></tr>
+  <tr><td>SISFOH</td><td>Sistema de Focalización de Hogares del Perú, que clasifica la condición socioeconómica.</td></tr>
+  <tr><td>CEPRE</td><td>Centro preuniversitario de una universidad.</td></tr>
+  <tr><td>Open Doors</td><td>Informe anual del Institute of International Education sobre estudiantes internacionales en EE. UU.</td></tr>
+  <tr><td>Fact</td><td>Estructura de datos de Cooper Compass: valor, fuente, fecha de consulta y estado de verificación.</td></tr>
+  <tr><td>Brújula IA</td><td>Asistente conversacional integrado en Cooper Compass.</td></tr>
+  <tr><td>Propuesta</td><td>Cambio sugerido por Brújula IA que la asesora aplica o descarta.</td></tr>
+</table>
+
+<!-- 23 -->
+<h1>23. Guion de demostración (3 minutos)</h1>
+<p><strong>Apertura (15 s).</strong> «Antes de cerrar, quiero mostrarles hacia dónde vamos. Esto es un prototipo. Todos los estudiantes son ficticios, pero las becas y las universidades salen de fuentes oficiales.»</p>
+<p><strong>1. Inicio (40 s).</strong> Mostrar indicadores y fechas. «Esta en coral es la Beca Generación del Bicentenario: cierra el 13 de noviembre.» Arrastrar a Camila T. de Exploración a Lista corta.</p>
+<p><strong>2. Ficha de Mateo (50 s).</strong> Mostrar radar, propósito y opciones con sus razones. Mover «Ubicación y nivel» al primer lugar: el puntaje sube de 89 a 91. «El sistema no decide por ustedes; les ahorra la búsqueda.»</p>
+<p><strong>3. Explorar (40 s).</strong> Arrastrar País = EE. UU. y Área = Ingeniería. Soltar Purdue sobre Diego M.</p>
+<p><strong>4. Brújula IA (30 s).</strong> Pedir «Agrega Purdue a la lista corta de Diego M.» y aplicar la propuesta. «Busca, analiza y prepara los cambios, pero no toca nada sin su aprobación.»</p>
+<p><strong>5. Fuentes (25 s).</strong> «Cada dato dice de dónde sale y cuándo se consultó. Lo que no está confirmado aparece como "Por verificar". Nada inventado.»</p>
+<p><strong>Cierre (15 s).</strong> «Esto es lo que vamos a construir en la sesión 3, con sus datos, sus estudiantes y su forma de trabajar.»</p>
+
+<!-- 24 -->
+<h1>24. Fuentes consultadas</h1>
+<p class="small">Consultadas el 4 de noviembre de 2026.</p>
+<ul class="small">
+  <li>Institute of International Education. Open Doors Fact Sheet: Peru 2024. https://opendoorsdata.org/wp-content/uploads/2024/12/OpenDoors_FactSheet_Peru_2024.pdf</li>
+  <li>Pronabec. Beca Generación del Bicentenario, Convocatoria 2026. https://www.gob.pe/institucion/pronabec/campa%C3%B1as/145205-beca-generacion-del-bicentenario-convocatoria-2026</li>
+  <li>Pronabec. Resolución Directoral Ejecutiva N.° 149-2026-MINEDU/VMGI-PRONABEC. https://www.gob.pe/institucion/pronabec/normas-legales/8594676-149-2026-minedu-vmgi-pronabec</li>
+  <li>Pronabec. Beca 18. https://www.pronabec.gob.pe/beca-18/</li>
+  <li>Pronabec. Bases Beca 18, Convocatoria 2027 (RDE N.° 175-2026). https://cdn.www.gob.pe/uploads/document/file/10770730/8704555-rde1752026_basesbeca182027-1635-09102026-093719.pdf</li>
+  <li>Pronabec. Examen de Beca 18 se realizará el 22 de noviembre. https://www.gob.pe/institucion/pronabec/noticias/1460671-examen-de-beca-18-del-pronabec-se-realizara-el-22-de-noviembre</li>
+  <li>Comisión Fulbright Perú. Beca de Posgrado Fulbright. https://www.fulbright.pe/becaposgradofulbright</li>
+  <li>Comisión Fulbright Perú. Hubert H. Humphrey Fellowship. https://www.fulbright.pe/hhhfellowship</li>
+  <li>MIT Admissions. Deadlines &amp; requirements. https://mitadmissions.org/apply/firstyear/deadlines-requirements/</li>
+  <li>MIT Admissions. Tests &amp; scores. https://mitadmissions.org/apply/firstyear/tests-scores/</li>
+  <li>MIT Admissions. International admissions FAQ. https://mitadmissions.org/help/faq/international-admissions/</li>
+  <li>MIT Student Financial Services. Aid deadlines and process. https://sfs.mit.edu/undergraduate-students/apply-for-aid/deadlines-process/</li>
+  <li>Purdue University. English Proficiency Requirements. https://admissions.purdue.edu/become-student/english-proficiency/</li>
+  <li>Arizona State University. English proficiency (international undergraduate). https://admission.asu.edu/apply/international/undergrad/english-proficiency</li>
+  <li>ASU Fulton Schools of Engineering. Undergraduate Admission Requirements. https://engineering.asu.edu/admission-requirements/</li>
+  <li>PUCP Admisión. Guía del postulante. https://admision.pucp.edu.pe/guia-del-postulante</li>
+  <li>PUCP Admisión. La Primera Opción. https://admision.pucp.edu.pe/guia-del-postulante/modalidades-de-admision/la-primera-opcion</li>
+  <li>PUCP Admisión. Evaluación del Talento. https://admision.pucp.edu.pe/guia-del-postulante/modalidades-de-admision/evaluacion-del-talento-r</li>
+  <li>UNI Admisión. Modalidades de ingreso. https://admision.uni.edu.pe/modalidades/</li>
+  <li>CEPRE-UNI. Ciclo Preuniversitario. https://www.cepre.uni.edu.pe/ciclos/ciclo-preuniversitario</li>
+</ul>
+<p class="small muted">Información orientativa. Verifica siempre en la fuente oficial antes de asesorar.</p>
+
+</body>
+</html>
