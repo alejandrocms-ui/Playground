@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+
+/*
+ * Tokens de Cooper Compass. Los tonos de marca (gold, teal, coral) no llegan a AA como texto
+ * sobre blanco, así que se usan como relleno o acento; para texto se usan sus versiones «-ink».
+ * Contrastes validados (texto normal ≥ 4,5:1): ver README.
+ */
+@theme {
+  --color-navy: #16213e;
+  --color-navy-2: #22305a;
+  --color-cream: #faf6ef;
+  --color-paper: #ffffff;
+  --color-line: #e8e1d4;
+  --color-gold: #d99a29;
+  --color-gold-ink: #8a5a00;
+  --color-gold-soft: #fbefd8;
+  --color-teal: #2a8c82;
+  --color-teal-ink: #1f6e66;
+  --color-teal-soft: #e0f1ee;
+  --color-coral: #e0644b;
+  --color-coral-ink: #b23a22;
+  --color-coral-soft: #fbe5df;
+  --color-sky: #3d5a98;
+  --color-sky-soft: #e5ebf6;
+  --color-terracotta: #a23d31;
+  --color-terracotta-soft: #f6e3e0;
+  --color-muted: #5f6370;
+  --color-grey-soft: #efede8;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-card: 16px;
+  --shadow-card: 0 1px 2px rgb(22 33 62 / 0.05), 0 4px 16px rgb(22 33 62 / 0.06);
+  --shadow-lift: 0 12px 32px rgb(22 33 62 / 0.18);
+}
+
+html,
+body {
+  background: var(--color-cream);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.card {
+  background: var(--color-paper);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-line);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.fade-in {
+  animation: fadein 180ms ease-out;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

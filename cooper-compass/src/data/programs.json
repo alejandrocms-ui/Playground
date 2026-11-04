@@ -1,0 +1,1031 @@
+[
+ {
+  "id": "pucp-psico",
+  "institution_id": "pucp",
+  "name": "Psicología",
+  "area": "Salud",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-pucp-guia",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "SIA",
+  "career_paths": [
+   "psicología clínica",
+   "psicología educativa",
+   "investigación"
+  ],
+  "source_id": "src-pucp-guia"
+ },
+ {
+  "id": "pucp-indus",
+  "institution_id": "pucp",
+  "name": "Ingeniería Industrial",
+  "area": "Ingeniería",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-pucp-guia",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "RIC",
+  "career_paths": [
+   "operaciones",
+   "logística",
+   "consultoría"
+  ],
+  "source_id": "src-pucp-guia"
+ },
+ {
+  "id": "pucp-eco",
+  "institution_id": "pucp",
+  "name": "Economía",
+  "area": "Negocios",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-pucp-guia",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ICE",
+  "career_paths": [
+   "políticas públicas",
+   "finanzas",
+   "investigación económica"
+  ],
+  "source_id": "src-pucp-guia"
+ },
+ {
+  "id": "pucp-arq",
+  "institution_id": "pucp",
+  "name": "Arquitectura",
+  "area": "Arte y diseño",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-pucp-guia",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ARI",
+  "career_paths": [
+   "arquitectura",
+   "urbanismo",
+   "diseño"
+  ],
+  "source_id": "src-pucp-guia"
+ },
+ {
+  "id": "pucp-der",
+  "institution_id": "pucp",
+  "name": "Derecho",
+  "area": "Derecho",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-pucp-guia",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ESI",
+  "career_paths": [
+   "abogacía",
+   "políticas públicas"
+  ],
+  "source_id": "src-pucp-guia"
+ },
+ {
+  "id": "ulima-comu",
+  "institution_id": "ulima",
+  "name": "Comunicación",
+  "area": "Comunicaciones",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-ulima",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "AES",
+  "career_paths": [
+   "periodismo",
+   "marketing",
+   "audiovisual"
+  ],
+  "source_id": "src-ulima"
+ },
+ {
+  "id": "ulima-indus",
+  "institution_id": "ulima",
+  "name": "Ingeniería Industrial",
+  "area": "Ingeniería",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-ulima",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "RIC",
+  "career_paths": [
+   "operaciones",
+   "logística"
+  ],
+  "source_id": "src-ulima"
+ },
+ {
+  "id": "ulima-arq",
+  "institution_id": "ulima",
+  "name": "Arquitectura",
+  "area": "Arte y diseño",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-ulima",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ARI",
+  "career_paths": [
+   "arquitectura",
+   "diseño"
+  ],
+  "source_id": "src-ulima"
+ },
+ {
+  "id": "up-eco",
+  "institution_id": "up",
+  "name": "Economía",
+  "area": "Negocios",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-up",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ICE",
+  "career_paths": [
+   "políticas públicas",
+   "finanzas"
+  ],
+  "source_id": "src-up"
+ },
+ {
+  "id": "up-adm",
+  "institution_id": "up",
+  "name": "Administración",
+  "area": "Negocios",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-up",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ECS",
+  "career_paths": [
+   "gestión",
+   "emprendimiento"
+  ],
+  "source_id": "src-up"
+ },
+ {
+  "id": "up-datos",
+  "institution_id": "up",
+  "name": "Ingeniería de la Información",
+  "area": "Tecnología",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-up",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ICR",
+  "career_paths": [
+   "ciencia de datos",
+   "analítica"
+  ],
+  "source_id": "src-up"
+ },
+ {
+  "id": "upc-psico",
+  "institution_id": "upc",
+  "name": "Psicología",
+  "area": "Salud",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-upc",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "SIA",
+  "career_paths": [
+   "psicología clínica",
+   "psicología educativa"
+  ],
+  "source_id": "src-upc"
+ },
+ {
+  "id": "upc-comu",
+  "institution_id": "upc",
+  "name": "Comunicación Audiovisual y Medios Interactivos",
+  "area": "Comunicaciones",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-upc",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "AER",
+  "career_paths": [
+   "audiovisual",
+   "medios digitales"
+  ],
+  "source_id": "src-upc"
+ },
+ {
+  "id": "upc-arq",
+  "institution_id": "upc",
+  "name": "Arquitectura",
+  "area": "Arte y diseño",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-upc",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ARI",
+  "career_paths": [
+   "arquitectura",
+   "diseño"
+  ],
+  "source_id": "src-upc"
+ },
+ {
+  "id": "upc-sist",
+  "institution_id": "upc",
+  "name": "Ingeniería de Sistemas de Información",
+  "area": "Tecnología",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-upc",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ICR",
+  "career_paths": [
+   "sistemas",
+   "tecnología"
+  ],
+  "source_id": "src-upc"
+ },
+ {
+  "id": "unmsm-med",
+  "institution_id": "unmsm",
+  "name": "Medicina Humana",
+  "area": "Salud",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-unmsm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ISR",
+  "career_paths": [
+   "medicina",
+   "salud pública"
+  ],
+  "source_id": "src-unmsm"
+ },
+ {
+  "id": "unmsm-psico",
+  "institution_id": "unmsm",
+  "name": "Psicología",
+  "area": "Salud",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-unmsm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "SIA",
+  "career_paths": [
+   "psicología clínica",
+   "psicología educativa"
+  ],
+  "source_id": "src-unmsm"
+ },
+ {
+  "id": "unmsm-der",
+  "institution_id": "unmsm",
+  "name": "Derecho",
+  "area": "Derecho",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-unmsm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ESI",
+  "career_paths": [
+   "abogacía"
+  ],
+  "source_id": "src-unmsm"
+ },
+ {
+  "id": "uni-meca",
+  "institution_id": "uni",
+  "name": "Ingeniería Mecatrónica",
+  "area": "Ingeniería",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-uni-modalidades",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "RIC",
+  "career_paths": [
+   "robótica",
+   "automatización",
+   "mecatrónica"
+  ],
+  "source_id": "src-uni-modalidades"
+ },
+ {
+  "id": "uni-indus",
+  "institution_id": "uni",
+  "name": "Ingeniería Industrial",
+  "area": "Ingeniería",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-uni-modalidades",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "RIC",
+  "career_paths": [
+   "operaciones",
+   "logística"
+  ],
+  "source_id": "src-uni-modalidades"
+ },
+ {
+  "id": "uni-sist",
+  "institution_id": "uni",
+  "name": "Ingeniería de Sistemas",
+  "area": "Tecnología",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-uni-modalidades",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "IRC",
+  "career_paths": [
+   "software",
+   "sistemas",
+   "ciencia de datos"
+  ],
+  "source_id": "src-uni-modalidades"
+ },
+ {
+  "id": "uni-arq",
+  "institution_id": "uni",
+  "name": "Arquitectura",
+  "area": "Arte y diseño",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-uni-modalidades",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ARI",
+  "career_paths": [
+   "arquitectura",
+   "urbanismo"
+  ],
+  "source_id": "src-uni-modalidades"
+ },
+ {
+  "id": "upch-med",
+  "institution_id": "upch",
+  "name": "Medicina",
+  "area": "Salud",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-upch",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ISR",
+  "career_paths": [
+   "medicina",
+   "salud pública",
+   "investigación"
+  ],
+  "source_id": "src-upch"
+ },
+ {
+  "id": "upch-psico",
+  "institution_id": "upch",
+  "name": "Psicología",
+  "area": "Salud",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-upch",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "SIA",
+  "career_paths": [
+   "psicología clínica",
+   "investigación"
+  ],
+  "source_id": "src-upch"
+ },
+ {
+  "id": "upch-salud-pub",
+  "institution_id": "upch",
+  "name": "Salud Pública (posgrado)",
+  "area": "Salud",
+  "level": "posgrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-upch",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "SIE",
+  "career_paths": [
+   "salud pública",
+   "epidemiología"
+  ],
+  "source_id": "src-upch"
+ },
+ {
+  "id": "utec-meca",
+  "institution_id": "utec",
+  "name": "Ingeniería Mecatrónica",
+  "area": "Ingeniería",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-utec",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "RIC",
+  "career_paths": [
+   "robótica",
+   "automatización",
+   "mecatrónica"
+  ],
+  "source_id": "src-utec"
+ },
+ {
+  "id": "utec-cs",
+  "institution_id": "utec",
+  "name": "Ciencia de la Computación",
+  "area": "Tecnología",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-utec",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "IRC",
+  "career_paths": [
+   "software",
+   "inteligencia artificial"
+  ],
+  "source_id": "src-utec"
+ },
+ {
+  "id": "utec-datos",
+  "institution_id": "utec",
+  "name": "Ciencia de Datos e Inteligencia Artificial",
+  "area": "Tecnología",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-utec",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "es",
+  "riasec": "ICR",
+  "career_paths": [
+   "ciencia de datos",
+   "inteligencia artificial"
+  ],
+  "source_id": "src-utec"
+ },
+ {
+  "id": "mit-6-3",
+  "institution_id": "mit",
+  "name": "Computer Science and Engineering (Course 6-3)",
+  "area": "Tecnología",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-mit-catalog",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "IRC",
+  "career_paths": [
+   "software",
+   "inteligencia artificial",
+   "investigación"
+  ],
+  "source_id": "src-mit-catalog"
+ },
+ {
+  "id": "mit-6-14",
+  "institution_id": "mit",
+  "name": "Computer Science, Economics, and Data Science (Course 6-14)",
+  "area": "Tecnología",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-mit-catalog",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ICE",
+  "career_paths": [
+   "ciencia de datos",
+   "economía",
+   "analítica"
+  ],
+  "source_id": "src-mit-catalog"
+ },
+ {
+  "id": "mit-2",
+  "institution_id": "mit",
+  "name": "Mechanical Engineering (Course 2)",
+  "area": "Ingeniería",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-mit-catalog",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "RIC",
+  "career_paths": [
+   "robótica",
+   "diseño mecánico"
+  ],
+  "source_id": "src-mit-catalog"
+ },
+ {
+  "id": "harvard-eco",
+  "institution_id": "harvard",
+  "name": "Economics",
+  "area": "Negocios",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-harvard-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ICE",
+  "career_paths": [
+   "políticas públicas",
+   "finanzas"
+  ],
+  "source_id": "src-harvard-adm"
+ },
+ {
+  "id": "harvard-psych",
+  "institution_id": "harvard",
+  "name": "Psychology",
+  "area": "Salud",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-harvard-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ISA",
+  "career_paths": [
+   "investigación",
+   "psicología"
+  ],
+  "source_id": "src-harvard-adm"
+ },
+ {
+  "id": "harvard-mpp",
+  "institution_id": "harvard",
+  "name": "Master in Public Policy (Kennedy School)",
+  "area": "Políticas públicas",
+  "level": "posgrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-harvard-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ESI",
+  "career_paths": [
+   "políticas públicas",
+   "gestión pública"
+  ],
+  "source_id": "src-harvard-adm"
+ },
+ {
+  "id": "purdue-ie",
+  "institution_id": "purdue",
+  "name": "Industrial Engineering",
+  "area": "Ingeniería",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-purdue-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "RIC",
+  "career_paths": [
+   "operaciones",
+   "logística"
+  ],
+  "source_id": "src-purdue-adm"
+ },
+ {
+  "id": "purdue-cs",
+  "institution_id": "purdue",
+  "name": "Computer Science",
+  "area": "Tecnología",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-purdue-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "IRC",
+  "career_paths": [
+   "software",
+   "inteligencia artificial"
+  ],
+  "source_id": "src-purdue-adm"
+ },
+ {
+  "id": "purdue-ds",
+  "institution_id": "purdue",
+  "name": "Data Science",
+  "area": "Tecnología",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-purdue-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ICR",
+  "career_paths": [
+   "ciencia de datos",
+   "analítica"
+  ],
+  "source_id": "src-purdue-adm"
+ },
+ {
+  "id": "purdue-me",
+  "institution_id": "purdue",
+  "name": "Mechanical Engineering",
+  "area": "Ingeniería",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-purdue-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "RIC",
+  "career_paths": [
+   "robótica",
+   "diseño mecánico"
+  ],
+  "source_id": "src-purdue-adm"
+ },
+ {
+  "id": "asu-ds",
+  "institution_id": "asu",
+  "name": "Data Science",
+  "area": "Tecnología",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-asu-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ICR",
+  "career_paths": [
+   "ciencia de datos",
+   "analítica"
+  ],
+  "source_id": "src-asu-adm"
+ },
+ {
+  "id": "asu-ie",
+  "institution_id": "asu",
+  "name": "Industrial Engineering",
+  "area": "Ingeniería",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-asu-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "RIC",
+  "career_paths": [
+   "operaciones",
+   "logística"
+  ],
+  "source_id": "src-asu-adm"
+ },
+ {
+  "id": "asu-psych",
+  "institution_id": "asu",
+  "name": "Psychology",
+  "area": "Salud",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-asu-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "SIA",
+  "career_paths": [
+   "psicología",
+   "investigación"
+  ],
+  "source_id": "src-asu-adm"
+ },
+ {
+  "id": "asu-robotics",
+  "institution_id": "asu",
+  "name": "Robotics Engineering",
+  "area": "Ingeniería",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-asu-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "RIC",
+  "career_paths": [
+   "robótica",
+   "automatización"
+  ],
+  "source_id": "src-asu-adm"
+ },
+ {
+  "id": "uf-cs",
+  "institution_id": "uf",
+  "name": "Computer Science",
+  "area": "Tecnología",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-uf-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "IRC",
+  "career_paths": [
+   "software"
+  ],
+  "source_id": "src-uf-adm"
+ },
+ {
+  "id": "uf-psych",
+  "institution_id": "uf",
+  "name": "Psychology",
+  "area": "Salud",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-uf-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "SIA",
+  "career_paths": [
+   "psicología"
+  ],
+  "source_id": "src-uf-adm"
+ },
+ {
+  "id": "uf-mph",
+  "institution_id": "uf",
+  "name": "Master of Public Health",
+  "area": "Salud",
+  "level": "posgrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-uf-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "SIE",
+  "career_paths": [
+   "salud pública"
+  ],
+  "source_id": "src-uf-adm"
+ },
+ {
+  "id": "fiu-arch",
+  "institution_id": "fiu",
+  "name": "Architecture",
+  "area": "Arte y diseño",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-fiu-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ARI",
+  "career_paths": [
+   "arquitectura"
+  ],
+  "source_id": "src-fiu-adm"
+ },
+ {
+  "id": "fiu-ba",
+  "institution_id": "fiu",
+  "name": "Business Administration",
+  "area": "Negocios",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-fiu-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ECS",
+  "career_paths": [
+   "gestión",
+   "emprendimiento"
+  ],
+  "source_id": "src-fiu-adm"
+ },
+ {
+  "id": "fiu-mph",
+  "institution_id": "fiu",
+  "name": "Master of Public Health",
+  "area": "Salud",
+  "level": "posgrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-fiu-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "SIE",
+  "career_paths": [
+   "salud pública"
+  ],
+  "source_id": "src-fiu-adm"
+ },
+ {
+  "id": "um-arch",
+  "institution_id": "um",
+  "name": "Architecture",
+  "area": "Arte y diseño",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-um-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ARI",
+  "career_paths": [
+   "arquitectura",
+   "urbanismo"
+  ],
+  "source_id": "src-um-adm"
+ },
+ {
+  "id": "um-comm",
+  "institution_id": "um",
+  "name": "Communication",
+  "area": "Comunicaciones",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-um-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "AES",
+  "career_paths": [
+   "medios",
+   "periodismo"
+  ],
+  "source_id": "src-um-adm"
+ },
+ {
+  "id": "um-edpsych",
+  "institution_id": "um",
+  "name": "Educational and Psychological Studies (posgrado)",
+  "area": "Educación",
+  "level": "posgrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-um-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "SIA",
+  "career_paths": [
+   "psicología educativa",
+   "investigación"
+  ],
+  "source_id": "src-um-adm"
+ },
+ {
+  "id": "bu-psych",
+  "institution_id": "bu",
+  "name": "Psychology",
+  "area": "Salud",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-bu-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "SIA",
+  "career_paths": [
+   "psicología"
+  ],
+  "source_id": "src-bu-adm"
+ },
+ {
+  "id": "bu-mph",
+  "institution_id": "bu",
+  "name": "Master of Public Health",
+  "area": "Salud",
+  "level": "posgrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-bu-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "SIE",
+  "career_paths": [
+   "salud pública"
+  ],
+  "source_id": "src-bu-adm"
+ },
+ {
+  "id": "bu-edpsych",
+  "institution_id": "bu",
+  "name": "Educational Psychology / Counseling (posgrado)",
+  "area": "Educación",
+  "level": "posgrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-bu-adm",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "SIA",
+  "career_paths": [
+   "psicología educativa",
+   "orientación"
+  ],
+  "source_id": "src-bu-adm"
+ }
+]

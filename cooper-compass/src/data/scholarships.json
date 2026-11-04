@@ -1,0 +1,369 @@
+[
+ {
+  "id": "bicentenario",
+  "name": "Beca Generación del Bicentenario (convocatoria extraordinaria 2026)",
+  "provider": "Pronabec",
+  "study_country": "varios",
+  "levels": [
+   "posgrado"
+  ],
+  "coverage": {
+   "value": "Beca integral. 20 becas: 17 de maestría y 3 de doctorado. Los beneficios se otorgan desde el 1 de enero de 2027.",
+   "source_id": "src-pronabec-bicentenario",
+   "status": "verificado"
+  },
+  "requirements": {
+   "value": [
+    "Nacionalidad peruana",
+    "Tercio superior de rendimiento académico",
+    "Carta de aceptación definitiva de una institución elegible, con inicio de estudios entre el 1/07/2026 y el 31/12/2027",
+    "Ingreso per cápita familiar dentro del límite publicado en las bases"
+   ],
+   "source_id": "src-pronabec-bicentenario-bases",
+   "status": "verificado"
+  },
+  "language_requirement": {
+   "value": null,
+   "source_id": "src-pronabec-bicentenario-bases",
+   "note": "Depende del programa de destino; revisar bases.",
+   "status": "por_verificar"
+  },
+  "window": {
+   "opens": {
+    "value": "2026-10-30",
+    "source_id": "src-pronabec-bicentenario",
+    "status": "verificado"
+   },
+   "closes": {
+    "value": "2026-11-13",
+    "source_id": "src-pronabec-bicentenario",
+    "status": "verificado",
+    "note": "Cierre a las 23:59. Subsanación hasta el 24/11/2026."
+   }
+  },
+  "other_dates": {
+   "value": [
+    {
+     "label": "Bicentenario: publicación de seleccionados",
+     "date": "2026-12-15"
+    }
+   ],
+   "source_id": "src-pronabec-bicentenario",
+   "status": "verificado"
+  },
+  "status": "abierta",
+  "kind": "convocatoria",
+  "source_id": "src-pronabec-bicentenario"
+ },
+ {
+  "id": "beca18",
+  "name": "Beca 18 (Convocatoria 2027)",
+  "provider": "Pronabec",
+  "study_country": "PE",
+  "levels": [
+   "pregrado"
+  ],
+  "coverage": {
+   "value": "Gastos académicos (matrícula, pensiones, titulación). Quienes acreditan pobreza o pobreza extrema reciben además apoyos no académicos (materiales, movilidad, laptop, alojamiento, alimentación). 6 000 becas.",
+   "source_id": "src-pronabec-beca18",
+   "status": "verificado"
+  },
+  "requirements": {
+   "value": [
+    "Nacionalidad peruana",
+    "Modalidad ordinaria: menos de 22 años a la publicación de las bases",
+    "Cursar 5.º de secundaria o haber egresado entre 2023 y 2026",
+    "Tercio superior en los dos últimos grados concluidos",
+    "Pobreza o pobreza extrema según SISFOH (modalidad ordinaria)",
+    "Puntaje mínimo publicado en el examen de preselección"
+   ],
+   "source_id": "src-pronabec-beca18-bases",
+   "status": "verificado"
+  },
+  "language_requirement": {
+   "value": "No exige certificación de idioma (estudios en Perú).",
+   "source_id": "src-pronabec-beca18-bases",
+   "status": "verificado"
+  },
+  "window": {
+   "opens": {
+    "value": "2027-01-07",
+    "source_id": "src-pronabec-beca18-bases",
+    "status": "verificado",
+    "note": "Postulación a la selección, primer momento. La inscripción al examen de preselección ya cerró."
+   },
+   "closes": {
+    "value": "2027-02-25",
+    "source_id": "src-pronabec-beca18-bases",
+    "status": "verificado"
+   }
+  },
+  "other_dates": {
+   "value": [
+    {
+     "label": "Beca 18: examen nacional de preselección",
+     "date": "2026-11-22"
+    }
+   ],
+   "source_id": "src-pronabec-beca18-examen",
+   "status": "verificado"
+  },
+  "status": "proxima",
+  "kind": "convocatoria",
+  "source_id": "src-pronabec-beca18"
+ },
+ {
+  "id": "fulbright",
+  "name": "Beca de Posgrado Fulbright",
+  "provider": "Comisión Fulbright Perú",
+  "study_country": "US",
+  "levels": [
+   "posgrado"
+  ],
+  "coverage": {
+   "value": "Beca parcial de maestría o doctorado en EE. UU., hasta 21 meses.",
+   "source_id": "src-fulbright-posgrado",
+   "status": "verificado"
+  },
+  "requirements": {
+   "value": [
+    "Nacionalidad peruana y residencia en Perú (sin doble nacionalidad EE. UU./Perú ni residencia estadounidense)",
+    "Título universitario",
+    "Dos años de experiencia profesional después del grado",
+    "Tercio superior o tesis con honores",
+    "Compromiso de regresar al Perú"
+   ],
+   "source_id": "src-fulbright-posgrado",
+   "status": "verificado"
+  },
+  "language_requirement": {
+   "value": "TOEFL iBT 90, o TOEFL ITP 577 con speaking 58. Algunas carreras piden más (100 o 603 con speaking 60).",
+   "source_id": "src-fulbright-posgrado",
+   "status": "verificado"
+  },
+  "window": {
+   "opens": {
+    "value": null,
+    "source_id": "src-fulbright-posgrado",
+    "status": "por_verificar"
+   },
+   "closes": {
+    "value": null,
+    "source_id": "src-fulbright-posgrado",
+    "note": "La página indica «26 de abril» como fecha límite de documentos, sin año. Confirmar ciclo vigente.",
+    "status": "por_verificar"
+   }
+  },
+  "status": "por_confirmar",
+  "kind": "convocatoria",
+  "source_id": "src-fulbright-posgrado"
+ },
+ {
+  "id": "humphrey",
+  "name": "Hubert H. Humphrey Fellowship",
+  "provider": "Comisión Fulbright Perú / Departamento de Estado de EE. UU.",
+  "study_country": "US",
+  "levels": [
+   "posgrado"
+  ],
+  "coverage": {
+   "value": null,
+   "source_id": "src-fulbright-hhh",
+   "note": "Programa de desarrollo profesional sin grado; detalle de cobertura por verificar.",
+   "status": "por_verificar"
+  },
+  "requirements": {
+   "value": [
+    "Cinco años de experiencia profesional en temas de interés público"
+   ],
+   "source_id": "src-fulbright-hhh",
+   "status": "verificado"
+  },
+  "language_requirement": {
+   "value": null,
+   "source_id": "src-fulbright-hhh",
+   "status": "por_verificar"
+  },
+  "window": {
+   "opens": {
+    "value": null,
+    "source_id": "src-fulbright-hhh",
+    "status": "por_verificar"
+   },
+   "closes": {
+    "value": null,
+    "source_id": "src-fulbright-hhh",
+    "note": "La página indica deadline el 9 de agosto y resultados entre febrero y marzo de 2027: el ciclo actual parece cerrado. Confirmar.",
+    "status": "por_verificar"
+   }
+  },
+  "status": "por_confirmar",
+  "kind": "convocatoria",
+  "source_id": "src-fulbright-hhh"
+ },
+ {
+  "id": "oea",
+  "name": "Programa de Becas Académicas de la OEA",
+  "provider": "Organización de los Estados Americanos",
+  "study_country": "varios",
+  "levels": [
+   "posgrado"
+  ],
+  "coverage": {
+   "value": null,
+   "source_id": "src-oea-becas",
+   "status": "por_verificar"
+  },
+  "requirements": {
+   "value": null,
+   "source_id": "src-oea-becas",
+   "status": "por_verificar"
+  },
+  "language_requirement": {
+   "value": null,
+   "source_id": "src-oea-becas",
+   "status": "por_verificar"
+  },
+  "window": {
+   "opens": {
+    "value": null,
+    "source_id": "src-oea-becas",
+    "status": "por_verificar"
+   },
+   "closes": {
+    "value": null,
+    "source_id": "src-oea-becas",
+    "status": "por_verificar"
+   }
+  },
+  "status": "por_confirmar",
+  "kind": "convocatoria",
+  "source_id": "src-oea-becas"
+ },
+ {
+  "id": "educationusa-of",
+  "name": "EducationUSA Opportunity Funds",
+  "provider": "EducationUSA",
+  "study_country": "US",
+  "levels": [
+   "pregrado",
+   "posgrado"
+  ],
+  "coverage": {
+   "value": null,
+   "source_id": "src-educationusa",
+   "note": "Apoyo con costos de postulación para estudiantes de alto rendimiento y bajos recursos; confirmar que opera en Perú.",
+   "status": "por_verificar"
+  },
+  "requirements": {
+   "value": null,
+   "source_id": "src-educationusa",
+   "status": "por_verificar"
+  },
+  "language_requirement": {
+   "value": null,
+   "source_id": "src-educationusa",
+   "status": "por_verificar"
+  },
+  "window": {
+   "opens": {
+    "value": null,
+    "source_id": "src-educationusa",
+    "status": "por_verificar"
+   },
+   "closes": {
+    "value": null,
+    "source_id": "src-educationusa",
+    "status": "por_verificar"
+   }
+  },
+  "status": "por_confirmar",
+  "kind": "convocatoria",
+  "source_id": "src-educationusa"
+ },
+ {
+  "id": "mit-aid",
+  "name": "Ayuda financiera institucional: MIT",
+  "provider": "MIT Student Financial Services",
+  "study_country": "US",
+  "levels": [
+   "pregrado"
+  ],
+  "coverage": {
+   "value": "Ayuda basada en la necesidad económica demostrada de la familia. Admisión need-blind también para internacionales.",
+   "source_id": "src-mit-intl",
+   "status": "verificado"
+  },
+  "requirements": {
+   "value": [
+    "CSS Profile",
+    "Documentos tributarios de los padres",
+    "No hay exoneración de tasa (fee waiver) para internacionales"
+   ],
+   "source_id": "src-mit-aid",
+   "status": "verificado"
+  },
+  "language_requirement": {
+   "value": null,
+   "source_id": "src-mit-tests",
+   "status": "por_verificar"
+  },
+  "window": {
+   "opens": {
+    "value": null,
+    "source_id": "src-mit-aid",
+    "status": "por_verificar"
+   },
+   "closes": {
+    "value": "2026-11-30",
+    "source_id": "src-mit-aid",
+    "status": "verificado",
+    "note": "Para postulantes Early Action. Regular Action: 15/02/2027."
+   }
+  },
+  "status": "abierta",
+  "kind": "institucional",
+  "institution_id": "mit",
+  "source_id": "src-mit-aid"
+ },
+ {
+  "id": "harvard-aid",
+  "name": "Ayuda financiera institucional: Harvard",
+  "provider": "Harvard College Griffin Financial Aid Office",
+  "study_country": "US",
+  "levels": [
+   "pregrado"
+  ],
+  "coverage": {
+   "value": null,
+   "source_id": "src-harvard-aid",
+   "status": "por_verificar"
+  },
+  "requirements": {
+   "value": null,
+   "source_id": "src-harvard-aid",
+   "status": "por_verificar"
+  },
+  "language_requirement": {
+   "value": null,
+   "source_id": "src-harvard-aid",
+   "status": "por_verificar"
+  },
+  "window": {
+   "opens": {
+    "value": null,
+    "source_id": "src-harvard-aid",
+    "status": "por_verificar"
+   },
+   "closes": {
+    "value": null,
+    "source_id": "src-harvard-aid",
+    "status": "por_verificar"
+   }
+  },
+  "status": "por_confirmar",
+  "kind": "institucional",
+  "institution_id": "harvard",
+  "source_id": "src-harvard-aid"
+ }
+]

@@ -1,0 +1,393 @@
+[
+ {
+  "id": "pucp-primera",
+  "institution_id": "pucp",
+  "name": "La Primera Opción",
+  "for_whom": "Escolares de 5.º de secundaria",
+  "key_requirements": {
+   "value": [
+    "Cursar 5.º de secundaria",
+    "Pruebas académicas: comprensión de lectura y matemática (80 %)",
+    "Notas escolares de secundaria (20 %)"
+   ],
+   "source_id": "src-pucp-primera-opcion",
+   "status": "verificado"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-pucp-primera-opcion",
+   "note": "Las páginas oficiales muestran fechas distintas para la evaluación 2027-1; confirmar.",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "pucp-talento",
+  "institution_id": "pucp",
+  "name": "Evaluación del Talento",
+  "for_whom": "Egresados de secundaria",
+  "key_requirements": {
+   "value": [
+    "Haber concluido la educación secundaria"
+   ],
+   "source_id": "src-pucp-talento",
+   "status": "verificado"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-pucp-talento",
+   "note": "La guía muestra la modalidad 2027-1 como «próximamente».",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "pucp-rendimiento",
+  "institution_id": "pucp",
+  "name": "Admisión por Rendimiento Superior",
+  "for_whom": "Escolares de 5.º con notas de 1.º a 4.º destacadas",
+  "key_requirements": {
+   "value": [
+    "Se evalúan notas de 1.º a 4.º de secundaria",
+    "Puntaje mínimo publicado en la evaluación académica"
+   ],
+   "source_id": "src-pucp-guia",
+   "status": "verificado"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-pucp-guia",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "uni-ien",
+  "institution_id": "uni",
+  "name": "Ingreso Escolar Nacional (IEN) 2027-1",
+  "for_whom": "Estudiantes de 5.º de secundaria y postulantes Beca 18",
+  "key_requirements": {
+   "value": [
+    "Cursar 5.º de secundaria",
+    "Examen presencial en Lima o sedes regionales",
+    "Ciclo introductorio obligatorio para ingresantes"
+   ],
+   "source_id": "src-uni-modalidades",
+   "status": "verificado"
+  },
+  "next_dates": {
+   "value": [
+    {
+     "label": "Examen IEN 2027-1",
+     "date": "2026-12-13"
+    }
+   ],
+   "source_id": "src-uni-modalidades",
+   "status": "verificado",
+   "note": "Año inferido del proceso 2027-1; confirmar en el cronograma oficial."
+  }
+ },
+ {
+  "id": "uni-cepre",
+  "institution_id": "uni",
+  "name": "Ingreso Directo CEPRE-UNI",
+  "for_whom": "Alumnos del ciclo preuniversitario de la UNI",
+  "key_requirements": {
+   "value": [
+    "Estar matriculado en el CEPRE-UNI",
+    "Haber concluido la secundaria",
+    "Rendimiento en prácticas y exámenes del ciclo"
+   ],
+   "source_id": "src-cepre-uni",
+   "status": "verificado"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-cepre-uni",
+   "note": "El ciclo 2027-I ya inició (31/08/2026).",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "uni-ordinario",
+  "institution_id": "uni",
+  "name": "Examen de Admisión (modalidad ordinaria)",
+  "for_whom": "Egresados de secundaria",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-uni-modalidades",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-uni-modalidades",
+   "note": "Las fechas visibles corresponden a 2026; 2027 por publicar.",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "unmsm-general",
+  "institution_id": "unmsm",
+  "name": "Examen General de Admisión",
+  "for_whom": "Egresados de secundaria",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-unmsm",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-unmsm",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "ulima-escolar",
+  "institution_id": "ulima",
+  "name": "Admisión escolar",
+  "for_whom": "Escolares de 5.º de secundaria",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-ulima",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-ulima",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "up-admision",
+  "institution_id": "up",
+  "name": "Admisión pregrado",
+  "for_whom": "Escolares y egresados",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-up",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-up",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "upc-admision",
+  "institution_id": "upc",
+  "name": "Admisión pregrado",
+  "for_whom": "Escolares y egresados",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-upc",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-upc",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "upch-admision",
+  "institution_id": "upch",
+  "name": "Admisión pregrado",
+  "for_whom": "Escolares y egresados",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-upch",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-upch",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "utec-admision",
+  "institution_id": "utec",
+  "name": "Admisión pregrado",
+  "for_whom": "Escolares y egresados",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-utec",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-utec",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "mit-ea",
+  "institution_id": "mit",
+  "name": "Early Action",
+  "for_whom": "Postulantes de primer año, incluidos internacionales",
+  "key_requirements": {
+   "value": [
+    "SAT o ACT (rendido antes del 30 de noviembre)",
+    "Ayuda financiera: CSS Profile y documentos tributarios de los padres (internacionales)"
+   ],
+   "source_id": "src-mit-deadlines",
+   "status": "verificado"
+  },
+  "next_dates": {
+   "value": [
+    {
+     "label": "MIT Early Action: postulación",
+     "date": "2026-11-01"
+    },
+    {
+     "label": "MIT Early Action: documentos de ayuda financiera",
+     "date": "2026-11-30"
+    }
+   ],
+   "source_id": "src-mit-aid",
+   "status": "verificado",
+   "note": "Decisión a mediados de diciembre."
+  }
+ },
+ {
+  "id": "mit-ra",
+  "institution_id": "mit",
+  "name": "Regular Action",
+  "for_whom": "Postulantes de primer año, incluidos internacionales",
+  "key_requirements": {
+   "value": [
+    "SAT o ACT (rendido antes del 31 de diciembre)",
+    "Ayuda financiera: CSS Profile"
+   ],
+   "source_id": "src-mit-deadlines",
+   "status": "verificado"
+  },
+  "next_dates": {
+   "value": [
+    {
+     "label": "MIT Regular Action: postulación",
+     "date": "2027-01-04"
+    },
+    {
+     "label": "MIT Regular Action: documentos de ayuda financiera",
+     "date": "2027-02-15"
+    }
+   ],
+   "source_id": "src-mit-aid",
+   "status": "verificado",
+   "note": "Decisión a mediados de marzo."
+  }
+ },
+ {
+  "id": "harvard-rea",
+  "institution_id": "harvard",
+  "name": "Restrictive Early Action / Regular Decision",
+  "for_whom": "Postulantes de primer año",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-harvard-adm",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-harvard-adm",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "purdue-ea",
+  "institution_id": "purdue",
+  "name": "Early Action / Regular Decision",
+  "for_whom": "Postulantes de primer año",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-purdue-adm",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-purdue-adm",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "asu-fy",
+  "institution_id": "asu",
+  "name": "Admisión de primer año (internacional)",
+  "for_whom": "Postulantes internacionales de primer año",
+  "key_requirements": {
+   "value": [
+    "Requisito de inglés publicado (o admisión condicional con ASU Global Launch)"
+   ],
+   "source_id": "src-asu-english",
+   "status": "verificado"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-asu-adm",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "uf-fy",
+  "institution_id": "uf",
+  "name": "Admisión de primer año",
+  "for_whom": "Postulantes de primer año",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-uf-adm",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-uf-adm",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "fiu-fy",
+  "institution_id": "fiu",
+  "name": "Admisión de primer año",
+  "for_whom": "Postulantes de primer año",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-fiu-adm",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-fiu-adm",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "um-fy",
+  "institution_id": "um",
+  "name": "Early Decision / Early Action / Regular Decision",
+  "for_whom": "Postulantes de primer año",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-um-adm",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-um-adm",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "bu-fy",
+  "institution_id": "bu",
+  "name": "Early Decision / Regular Decision",
+  "for_whom": "Postulantes de primer año",
+  "key_requirements": {
+   "value": null,
+   "source_id": "src-bu-adm",
+   "status": "por_verificar"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-bu-adm",
+   "status": "por_verificar"
+  }
+ }
+]

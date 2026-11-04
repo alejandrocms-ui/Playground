@@ -1,0 +1,518 @@
+[
+ {
+  "id": "pucp",
+  "name": "Pontificia Universidad Católica del Perú",
+  "short_name": "PUCP",
+  "country": "PE",
+  "city": "Lima",
+  "region": "Lima",
+  "management": "privada",
+  "website": "https://www.pucp.edu.pe/",
+  "sunedu_licensed": {
+   "value": null,
+   "source_id": "src-sunedu",
+   "status": "por_verificar"
+  },
+  "tuition": {
+   "value": null,
+   "source_id": "src-pucp-guia",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "selectiva",
+   "investigación"
+  ]
+ },
+ {
+  "id": "ulima",
+  "name": "Universidad de Lima",
+  "short_name": "ULima",
+  "country": "PE",
+  "city": "Lima",
+  "region": "Lima",
+  "management": "privada",
+  "website": "https://www.ulima.edu.pe/",
+  "sunedu_licensed": {
+   "value": null,
+   "source_id": "src-sunedu",
+   "status": "por_verificar"
+  },
+  "tuition": {
+   "value": null,
+   "source_id": "src-ulima",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "selectiva"
+  ]
+ },
+ {
+  "id": "up",
+  "name": "Universidad del Pacífico",
+  "short_name": "UP",
+  "country": "PE",
+  "city": "Lima",
+  "region": "Lima",
+  "management": "privada",
+  "website": "https://www.up.edu.pe/",
+  "sunedu_licensed": {
+   "value": null,
+   "source_id": "src-sunedu",
+   "status": "por_verificar"
+  },
+  "tuition": {
+   "value": null,
+   "source_id": "src-up",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "selectiva",
+   "negocios"
+  ]
+ },
+ {
+  "id": "upc",
+  "name": "Universidad Peruana de Ciencias Aplicadas",
+  "short_name": "UPC",
+  "country": "PE",
+  "city": "Lima",
+  "region": "Lima",
+  "management": "privada",
+  "website": "https://www.upc.edu.pe/",
+  "sunedu_licensed": {
+   "value": null,
+   "source_id": "src-sunedu",
+   "status": "por_verificar"
+  },
+  "tuition": {
+   "value": null,
+   "source_id": "src-upc",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "acceso amplio"
+  ]
+ },
+ {
+  "id": "unmsm",
+  "name": "Universidad Nacional Mayor de San Marcos",
+  "short_name": "UNMSM",
+  "country": "PE",
+  "city": "Lima",
+  "region": "Lima",
+  "management": "publica",
+  "website": "https://www.unmsm.edu.pe/",
+  "sunedu_licensed": {
+   "value": null,
+   "source_id": "src-sunedu",
+   "status": "por_verificar"
+  },
+  "tuition": {
+   "value": null,
+   "source_id": "src-unmsm",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "muy selectiva",
+   "pública"
+  ]
+ },
+ {
+  "id": "uni",
+  "name": "Universidad Nacional de Ingeniería",
+  "short_name": "UNI",
+  "country": "PE",
+  "city": "Lima",
+  "region": "Lima",
+  "management": "publica",
+  "website": "https://www.uni.edu.pe/",
+  "sunedu_licensed": {
+   "value": null,
+   "source_id": "src-sunedu",
+   "status": "por_verificar"
+  },
+  "tuition": {
+   "value": null,
+   "source_id": "src-uni-modalidades",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "muy selectiva",
+   "ingeniería",
+   "pública"
+  ]
+ },
+ {
+  "id": "upch",
+  "name": "Universidad Peruana Cayetano Heredia",
+  "short_name": "UPCH",
+  "country": "PE",
+  "city": "Lima",
+  "region": "Lima",
+  "management": "privada",
+  "website": "https://www.cayetano.edu.pe/",
+  "sunedu_licensed": {
+   "value": null,
+   "source_id": "src-sunedu",
+   "status": "por_verificar"
+  },
+  "tuition": {
+   "value": null,
+   "source_id": "src-upch",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "selectiva",
+   "salud"
+  ]
+ },
+ {
+  "id": "utec",
+  "name": "Universidad de Ingeniería y Tecnología",
+  "short_name": "UTEC",
+  "country": "PE",
+  "city": "Lima",
+  "region": "Lima",
+  "management": "privada",
+  "website": "https://www.utec.edu.pe/",
+  "sunedu_licensed": {
+   "value": null,
+   "source_id": "src-sunedu",
+   "status": "por_verificar"
+  },
+  "tuition": {
+   "value": null,
+   "source_id": "src-utec",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "ingeniería",
+   "tecnología"
+  ]
+ },
+ {
+  "id": "mit",
+  "name": "Massachusetts Institute of Technology",
+  "short_name": "MIT",
+  "country": "US",
+  "city": "Cambridge",
+  "region": "Massachusetts",
+  "management": "privada",
+  "website": "https://mitadmissions.org/",
+  "tuition": {
+   "value": null,
+   "source_id": "src-mit-intl",
+   "status": "por_verificar"
+  },
+  "intl_aid": {
+   "value": "need_blind",
+   "source_id": "src-mit-intl",
+   "status": "verificado",
+   "note": "MIT indica que la necesidad económica no perjudica la admisión y que cubre la necesidad demostrada de estudiantes nacionales y extranjeros."
+  },
+  "english_requirement": {
+   "value": "Recomienda enfáticamente un examen de inglés si el postulante usa inglés hace menos de cinco años o no lo habla en casa o en el colegio. MIT publica puntajes mínimos y recomendados.",
+   "source_id": "src-mit-tests",
+   "status": "verificado",
+   "note": "Puntajes exactos: por verificar en la página de MIT."
+  },
+  "english_tests": {
+   "value": null,
+   "source_id": "src-mit-tests",
+   "status": "por_verificar"
+  },
+  "test_policy": {
+   "value": "Exige SAT o ACT a postulantes de primer año.",
+   "source_id": "src-mit-tests",
+   "status": "verificado"
+  },
+  "tags": [
+   "muy selectiva",
+   "ingeniería"
+  ]
+ },
+ {
+  "id": "harvard",
+  "name": "Harvard University",
+  "short_name": "Harvard",
+  "country": "US",
+  "city": "Cambridge",
+  "region": "Massachusetts",
+  "management": "privada",
+  "website": "https://college.harvard.edu/",
+  "tuition": {
+   "value": null,
+   "source_id": "src-harvard-adm",
+   "status": "por_verificar"
+  },
+  "intl_aid": {
+   "value": null,
+   "source_id": "src-harvard-aid",
+   "note": "Ejemplo de ayuda financiera para internacionales: por verificar.",
+   "status": "por_verificar"
+  },
+  "english_requirement": {
+   "value": null,
+   "source_id": "src-harvard-adm",
+   "status": "por_verificar"
+  },
+  "english_tests": {
+   "value": null,
+   "source_id": "src-harvard-adm",
+   "status": "por_verificar"
+  },
+  "test_policy": {
+   "value": null,
+   "source_id": "src-harvard-adm",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "muy selectiva"
+  ]
+ },
+ {
+  "id": "purdue",
+  "name": "Purdue University",
+  "short_name": "Purdue",
+  "country": "US",
+  "city": "West Lafayette",
+  "region": "Indiana",
+  "management": "publica",
+  "website": "https://admissions.purdue.edu/",
+  "tuition": {
+   "value": null,
+   "source_id": "src-purdue-adm",
+   "status": "por_verificar"
+  },
+  "intl_aid": {
+   "value": null,
+   "source_id": "src-purdue-adm",
+   "status": "por_verificar"
+  },
+  "english_requirement": {
+   "value": "TOEFL iBT: 88 con 20 por sección (exámenes antes del 21/01/2026) o 4.5 con 4.0 por sección (desde el 21/01/2026). IELTS Academic: en general 6.5 con 6.0 por sección. Duolingo: en general 115 con 110 por subpuntaje. Puntajes con antigüedad máxima de dos años.",
+   "source_id": "src-purdue-english",
+   "status": "verificado",
+   "note": "Purdue aclara que cumplir el mínimo no garantiza la admisión: la revisión es integral."
+  },
+  "english_tests": {
+   "value": [
+    "toefl",
+    "ielts",
+    "duolingo"
+   ],
+   "source_id": "src-purdue-english",
+   "status": "verificado"
+  },
+  "test_policy": {
+   "value": null,
+   "source_id": "src-purdue-adm",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "ingeniería",
+   "muchos internacionales"
+  ]
+ },
+ {
+  "id": "asu",
+  "name": "Arizona State University",
+  "short_name": "ASU",
+  "country": "US",
+  "city": "Tempe",
+  "region": "Arizona",
+  "management": "publica",
+  "website": "https://admission.asu.edu/",
+  "tuition": {
+   "value": null,
+   "source_id": "src-asu-adm",
+   "status": "por_verificar"
+  },
+  "intl_aid": {
+   "value": null,
+   "source_id": "src-asu-adm",
+   "status": "por_verificar"
+  },
+  "english_requirement": {
+   "value": "Programas con requisito general: TOEFL iBT 61; IELTS Academic 6.0; Cambridge 170. Ingeniería (Fulton) pide más: IELTS 6.5 y Duolingo 105. Puntajes de máximo dos años antes del inicio. ASU ofrece admisión condicional a quienes cumplen lo académico pero aún no el inglés.",
+   "source_id": "src-asu-english",
+   "status": "verificado",
+   "note": "La nueva escala TOEFL (desde el 21/01/2026) y el mínimo general de Duolingo: por verificar."
+  },
+  "english_tests": {
+   "value": [
+    "toefl",
+    "ielts",
+    "duolingo",
+    "cambridge"
+   ],
+   "source_id": "src-asu-english",
+   "status": "verificado"
+  },
+  "test_policy": {
+   "value": null,
+   "source_id": "src-asu-adm",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "acceso amplio",
+   "gran oferta"
+  ]
+ },
+ {
+  "id": "uf",
+  "name": "University of Florida",
+  "short_name": "UF",
+  "country": "US",
+  "city": "Gainesville",
+  "region": "Florida",
+  "management": "publica",
+  "website": "https://admissions.ufl.edu/",
+  "tuition": {
+   "value": null,
+   "source_id": "src-uf-adm",
+   "status": "por_verificar"
+  },
+  "intl_aid": {
+   "value": null,
+   "source_id": "src-uf-adm",
+   "status": "por_verificar"
+  },
+  "english_requirement": {
+   "value": null,
+   "source_id": "src-uf-adm",
+   "status": "por_verificar"
+  },
+  "english_tests": {
+   "value": null,
+   "source_id": "src-uf-adm",
+   "status": "por_verificar"
+  },
+  "test_policy": {
+   "value": null,
+   "source_id": "src-uf-adm",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "pública",
+   "Florida"
+  ]
+ },
+ {
+  "id": "fiu",
+  "name": "Florida International University",
+  "short_name": "FIU",
+  "country": "US",
+  "city": "Miami",
+  "region": "Florida",
+  "management": "publica",
+  "website": "https://admissions.fiu.edu/",
+  "tuition": {
+   "value": null,
+   "source_id": "src-fiu-adm",
+   "status": "por_verificar"
+  },
+  "intl_aid": {
+   "value": null,
+   "source_id": "src-fiu-adm",
+   "status": "por_verificar"
+  },
+  "english_requirement": {
+   "value": null,
+   "source_id": "src-fiu-adm",
+   "status": "por_verificar"
+  },
+  "english_tests": {
+   "value": null,
+   "source_id": "src-fiu-adm",
+   "status": "por_verificar"
+  },
+  "test_policy": {
+   "value": null,
+   "source_id": "src-fiu-adm",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "comunidad latina",
+   "Miami"
+  ]
+ },
+ {
+  "id": "um",
+  "name": "University of Miami",
+  "short_name": "UM",
+  "country": "US",
+  "city": "Coral Gables",
+  "region": "Florida",
+  "management": "privada",
+  "website": "https://admissions.miami.edu/",
+  "tuition": {
+   "value": null,
+   "source_id": "src-um-adm",
+   "status": "por_verificar"
+  },
+  "intl_aid": {
+   "value": null,
+   "source_id": "src-um-adm",
+   "status": "por_verificar"
+  },
+  "english_requirement": {
+   "value": null,
+   "source_id": "src-um-adm",
+   "status": "por_verificar"
+  },
+  "english_tests": {
+   "value": null,
+   "source_id": "src-um-adm",
+   "status": "por_verificar"
+  },
+  "test_policy": {
+   "value": null,
+   "source_id": "src-um-adm",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "privada",
+   "Miami"
+  ]
+ },
+ {
+  "id": "bu",
+  "name": "Boston University",
+  "short_name": "BU",
+  "country": "US",
+  "city": "Boston",
+  "region": "Massachusetts",
+  "management": "privada",
+  "website": "https://www.bu.edu/admissions/",
+  "tuition": {
+   "value": null,
+   "source_id": "src-bu-adm",
+   "status": "por_verificar"
+  },
+  "intl_aid": {
+   "value": null,
+   "source_id": "src-bu-adm",
+   "status": "por_verificar"
+  },
+  "english_requirement": {
+   "value": null,
+   "source_id": "src-bu-adm",
+   "status": "por_verificar"
+  },
+  "english_tests": {
+   "value": null,
+   "source_id": "src-bu-adm",
+   "status": "por_verificar"
+  },
+  "test_policy": {
+   "value": null,
+   "source_id": "src-bu-adm",
+   "status": "por_verificar"
+  },
+  "tags": [
+   "urbana",
+   "amplia oferta"
+  ]
+ }
+]
