@@ -8,6 +8,7 @@ import ExplorePage from './pages/Explore';
 import ScholarshipsPage from './pages/Scholarships';
 import ComparePage from './pages/Compare';
 import SourcesPage from './pages/Sources';
+import Assistant from './components/Assistant';
 
 const NAV: { id: Page; label: string; icon: typeof Home }[] = [
   { id: 'inicio', label: 'Inicio', icon: Home },
@@ -96,6 +97,7 @@ export default function App() {
         Información orientativa. Verifica siempre en la fuente oficial antes de asesorar.
       </footer>
       <Toast />
+      <Assistant />
     </div>
   );
 }

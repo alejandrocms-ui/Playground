@@ -53,6 +53,17 @@ Cambio respecto del HANDOFF: la lista «Lo que más le importa» usa los cinco f
 - **Open Doors:** no se encontró una ficha de Perú 2025; se usa la de 2024 (año 2023/24).
 - **Pendiente:** costos publicados de todas las universidades, licenciamiento SUNEDU, duración de carreras, formato y vigencia de exámenes, OEA, EducationUSA y Harvard.
 
+## Brújula IA (asistente conversacional)
+
+Botón «Brújula IA» abajo a la derecha (o Ctrl+K / Cmd+K). Usa la capacidad `sample` de los Artifacts de claude.ai: responde con la cuenta de Claude de quien abre la página, sin backend ni claves de API. La primera vez, Claude pide permiso.
+
+- **Lee los datos con herramientas de la página** (`src/lib/assistantTools.ts`): buscar en el catálogo, ver la ficha de una universidad, carrera o beca con sus fuentes, listar estudiantes, ver un perfil con sus coincidencias y ver las próximas fechas.
+- **Actúa en la interfaz:** abre pantallas y aplica filtros en Explorar.
+- **Propone cambios, no los ejecuta:** agregar a la lista corta, mover de etapa, agregar notas, reordenar prioridades y crear estudiantes ficticios. Cada propuesta aparece con «Aplicar» o «Descartar».
+- **Reglas fijas:** solo usa datos de sus herramientas, dice «Por verificar» cuando falta un dato, nunca decide elegibilidad y nunca pide datos personales reales.
+- **Modos:** «Rápido» responde en segundos; «Profundo» da respuestas más elaboradas y tarda más.
+- **Fuera de claude.ai** (archivo local o `npm run preview`) el asistente muestra un aviso y el resto del dashboard funciona igual.
+
 ## Accesibilidad
 
 - El contraste de texto llega a AA. Los tonos de marca (dorado, teal, coral) se usan como relleno; para texto se usan sus versiones `-ink`.
