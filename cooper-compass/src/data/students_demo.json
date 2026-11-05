@@ -1,99 +1,367 @@
 [
   {
-    "id": "stu-valeria", "alias": "Valeria R.", "stage": "escolar_5to", "region": "Lima",
-    "target_countries": ["PE", "US"], "budget_band": "medio", "english_cefr": "B2",
-    "other_languages": [], "credentials_held": [],
-    "riasec": { "R": 3, "I": 8, "A": 4, "S": 9, "E": 5, "C": 4 },
-    "strengths": ["análisis", "trabajo con personas", "comunicación"],
-    "dream_work": { "text": "Diseñar programas de salud pública que lleguen a comunidades rurales.", "sectors": ["Salud", "Políticas públicas"] },
-    "purpose": { "ama": "Ayudar a las personas y entender por qué se enferman", "bueno": "Biología, escuchar, organizar grupos", "mundo": "Acceso a salud de calidad fuera de Lima", "pagarian": "Gestión de proyectos de salud, investigación" },
-    "priorities": ["afinidad", "costo", "ubicacion", "idioma", "interes"],
+    "id": "stu-valeria",
+    "alias": "Valeria R.",
+    "stage": "escolar_5to",
+    "region": "Lima",
+    "target_countries": [
+      "PE",
+      "US"
+    ],
+    "budget_band": "medio",
+    "english_cefr": "B2",
+    "other_languages": [],
+    "credentials_held": [],
+    "riasec": {
+      "R": 3,
+      "I": 8,
+      "A": 4,
+      "S": 9,
+      "E": 5,
+      "C": 4
+    },
+    "strengths": [
+      "análisis",
+      "trabajo con personas",
+      "comunicación"
+    ],
+    "dream_work": {
+      "text": "Diseñar programas de salud pública que lleguen a comunidades rurales.",
+      "sectors": [
+        "Salud",
+        "Políticas públicas"
+      ]
+    },
+    "purpose": {
+      "ama": "Ayudar a las personas y entender por qué se enferman",
+      "bueno": "Biología, escuchar, organizar grupos",
+      "mundo": "Acceso a salud de calidad fuera de Lima",
+      "pagarian": "Gestión de proyectos de salud, investigación"
+    },
+    "priorities": [
+      "afinidad",
+      "costo",
+      "ubicacion",
+      "idioma",
+      "interes"
+    ],
     "shortlist": [
-      { "target": "program", "id": "upch-med", "status": "explorando" },
-      { "target": "program", "id": "bu-psych", "status": "explorando" }
+      {
+        "target": "program",
+        "id": "upch-med",
+        "status": "explorando"
+      },
+      {
+        "target": "program",
+        "id": "bu-psych",
+        "status": "explorando"
+      }
     ],
     "pipeline": "perfil",
     "notes": "Familia abierta a EE. UU. si hay ayuda financiera. Revisar opciones de salud en Perú en paralelo.",
     "is_fictional": true
   },
   {
-    "id": "stu-diego", "alias": "Diego M.", "stage": "egresado_escolar", "region": "Arequipa",
-    "target_countries": ["PE"], "budget_band": "requiere_beca", "english_cefr": "B1",
-    "other_languages": [], "credentials_held": [],
-    "riasec": { "R": 9, "I": 8, "A": 3, "S": 3, "E": 4, "C": 6 },
-    "strengths": ["análisis", "resolución de problemas", "creatividad"],
-    "dream_work": { "text": "Construir robots para la minería y la agroindustria del sur del Perú.", "sectors": ["Ingeniería", "Tecnología"] },
-    "purpose": { "ama": "Armar y programar cosas que se mueven", "bueno": "Matemática, física, electrónica básica", "mundo": "Automatizar trabajos peligrosos", "pagarian": "Ingeniería mecatrónica, mantenimiento industrial" },
-    "priorities": ["costo", "afinidad", "interes", "ubicacion", "idioma"],
+    "id": "stu-diego",
+    "alias": "Diego M.",
+    "stage": "egresado_escolar",
+    "region": "Arequipa",
+    "target_countries": [
+      "PE"
+    ],
+    "budget_band": "requiere_beca",
+    "english_cefr": "B1",
+    "other_languages": [],
+    "credentials_held": [],
+    "riasec": {
+      "R": 9,
+      "I": 8,
+      "A": 3,
+      "S": 3,
+      "E": 4,
+      "C": 6
+    },
+    "strengths": [
+      "análisis",
+      "resolución de problemas",
+      "creatividad"
+    ],
+    "dream_work": {
+      "text": "Construir robots para la minería y la agroindustria del sur del Perú.",
+      "sectors": [
+        "Ingeniería",
+        "Tecnología"
+      ]
+    },
+    "purpose": {
+      "ama": "Armar y programar cosas que se mueven",
+      "bueno": "Matemática, física, electrónica básica",
+      "mundo": "Automatizar trabajos peligrosos",
+      "pagarian": "Ingeniería mecatrónica, mantenimiento industrial"
+    },
+    "priorities": [
+      "costo",
+      "afinidad",
+      "interes",
+      "ubicacion",
+      "idioma"
+    ],
     "shortlist": [
-      { "target": "scholarship", "id": "beca18", "status": "preparando" },
-      { "target": "program", "id": "uni-meca", "status": "explorando" }
+      {
+        "target": "scholarship",
+        "id": "beca18",
+        "status": "preparando"
+      },
+      {
+        "target": "program",
+        "id": "uni-meca",
+        "status": "explorando"
+      }
     ],
     "pipeline": "exploracion",
     "notes": "Rindió el examen de preselección de Beca 18 (ficticio). Prefiere quedarse en Perú.",
     "is_fictional": true
   },
   {
-    "id": "stu-camila", "alias": "Camila T.", "stage": "universitario", "region": "Lima",
-    "target_countries": ["US", "PE"], "budget_band": "requiere_beca", "english_cefr": "C1",
-    "other_languages": [], "credentials_held": [],
-    "riasec": { "R": 2, "I": 6, "A": 3, "S": 6, "E": 9, "C": 8 },
-    "strengths": ["liderazgo", "análisis", "comunicación"],
-    "dream_work": { "text": "Liderar reformas de políticas públicas en educación desde el Estado.", "sectors": ["Políticas públicas", "Negocios"] },
-    "purpose": { "ama": "Debatir y diseñar soluciones con datos", "bueno": "Economía, negociación, Excel", "mundo": "Mejores políticas educativas", "pagarian": "Consultoría en políticas públicas, sector público" },
-    "priorities": ["costo", "interes", "afinidad", "idioma", "ubicacion"],
+    "id": "stu-camila",
+    "alias": "Camila T.",
+    "stage": "universitario",
+    "region": "Lima",
+    "target_countries": [
+      "US",
+      "PE"
+    ],
+    "budget_band": "requiere_beca",
+    "english_cefr": "C1",
+    "other_languages": [],
+    "credentials_held": [],
+    "riasec": {
+      "R": 2,
+      "I": 6,
+      "A": 3,
+      "S": 6,
+      "E": 9,
+      "C": 8
+    },
+    "strengths": [
+      "liderazgo",
+      "análisis",
+      "comunicación"
+    ],
+    "dream_work": {
+      "text": "Liderar reformas de políticas públicas en educación desde el Estado.",
+      "sectors": [
+        "Políticas públicas",
+        "Negocios"
+      ]
+    },
+    "purpose": {
+      "ama": "Debatir y diseñar soluciones con datos",
+      "bueno": "Economía, negociación, Excel",
+      "mundo": "Mejores políticas educativas",
+      "pagarian": "Consultoría en políticas públicas, sector público"
+    },
+    "priorities": [
+      "costo",
+      "interes",
+      "afinidad",
+      "idioma",
+      "ubicacion"
+    ],
     "shortlist": [
-      { "target": "scholarship", "id": "bicentenario", "status": "explorando" },
-      { "target": "scholarship", "id": "fulbright", "status": "explorando" }
+      {
+        "target": "scholarship",
+        "id": "bicentenario",
+        "status": "explorando"
+      },
+      {
+        "target": "scholarship",
+        "id": "fulbright",
+        "status": "explorando"
+      }
     ],
     "pipeline": "exploracion",
     "notes": "Último ciclo de Economía. Revisar con ella los requisitos publicados de cada beca de posgrado (experiencia, grado, carta de aceptación).",
     "is_fictional": true
   },
   {
-    "id": "stu-sebastian", "alias": "Sebastián L.", "stage": "escolar_4to", "region": "La Libertad",
-    "target_countries": ["PE", "US"], "budget_band": "medio", "english_cefr": "B2",
-    "other_languages": [], "credentials_held": [],
-    "riasec": { "R": 5, "I": 4, "A": 9, "S": 7, "E": 5, "C": 3 },
-    "strengths": ["creatividad", "dibujo", "trabajo con personas"],
-    "dream_work": { "text": "Diseñar espacios públicos que la gente disfrute en Trujillo.", "sectors": ["Arte y diseño"] },
-    "purpose": { "ama": "Dibujar, maquetas, recorrer la ciudad", "bueno": "Dibujo, imaginación espacial", "mundo": "Ciudades más humanas", "pagarian": "Arquitectura, diseño urbano" },
-    "priorities": ["afinidad", "interes", "ubicacion", "costo", "idioma"],
+    "id": "stu-sebastian",
+    "alias": "Sebastián L.",
+    "stage": "escolar_4to",
+    "region": "La Libertad",
+    "target_countries": [
+      "PE",
+      "US"
+    ],
+    "budget_band": "medio",
+    "english_cefr": "B2",
+    "other_languages": [],
+    "credentials_held": [],
+    "riasec": {
+      "R": 5,
+      "I": 4,
+      "A": 9,
+      "S": 7,
+      "E": 5,
+      "C": 3
+    },
+    "strengths": [
+      "creatividad",
+      "dibujo",
+      "trabajo con personas"
+    ],
+    "dream_work": {
+      "text": "Diseñar espacios públicos que la gente disfrute en Trujillo.",
+      "sectors": [
+        "Arte y diseño"
+      ]
+    },
+    "purpose": {
+      "ama": "Dibujar, maquetas, recorrer la ciudad",
+      "bueno": "Dibujo, imaginación espacial",
+      "mundo": "Ciudades más humanas",
+      "pagarian": "Arquitectura, diseño urbano"
+    },
+    "priorities": [
+      "afinidad",
+      "interes",
+      "ubicacion",
+      "costo",
+      "idioma"
+    ],
     "shortlist": [],
     "pipeline": "descubrimiento",
     "notes": "Etapa temprana: explorar sin presión. Próxima sesión: visita virtual a dos facultades de arquitectura.",
     "is_fictional": true
   },
   {
-    "id": "stu-lucia", "alias": "Lucía F.", "stage": "egresado_universitario", "region": "Lima",
-    "target_countries": ["US"], "budget_band": "requiere_beca", "english_cefr": "B2",
-    "other_languages": [{ "language": "Francés", "cefr": "A2" }], "credentials_held": [],
-    "riasec": { "R": 2, "I": 7, "A": 5, "S": 9, "E": 4, "C": 4 },
-    "strengths": ["trabajo con personas", "escucha", "investigación"],
-    "dream_work": { "text": "Acompañar a escolares en su orientación y bienestar desde la psicología educativa.", "sectors": ["Educación", "Salud"] },
-    "purpose": { "ama": "Acompañar procesos de cambio", "bueno": "Escucha, evaluación psicológica", "mundo": "Salud mental en colegios", "pagarian": "Psicología educativa, consultoría escolar" },
-    "priorities": ["interes", "costo", "idioma", "afinidad", "ubicacion"],
+    "id": "stu-lucia",
+    "alias": "Lucía F.",
+    "stage": "egresado_universitario",
+    "region": "Lima",
+    "target_countries": [
+      "US"
+    ],
+    "budget_band": "requiere_beca",
+    "english_cefr": "B2",
+    "other_languages": [
+      {
+        "language": "Francés",
+        "cefr": "A2"
+      }
+    ],
+    "credentials_held": [],
+    "riasec": {
+      "R": 2,
+      "I": 7,
+      "A": 5,
+      "S": 9,
+      "E": 4,
+      "C": 4
+    },
+    "strengths": [
+      "trabajo con personas",
+      "escucha",
+      "investigación"
+    ],
+    "dream_work": {
+      "text": "Acompañar a escolares en su orientación y bienestar desde la psicología educativa.",
+      "sectors": [
+        "Educación",
+        "Salud"
+      ]
+    },
+    "purpose": {
+      "ama": "Acompañar procesos de cambio",
+      "bueno": "Escucha, evaluación psicológica",
+      "mundo": "Salud mental en colegios",
+      "pagarian": "Psicología educativa, consultoría escolar"
+    },
+    "priorities": [
+      "interes",
+      "costo",
+      "idioma",
+      "afinidad",
+      "ubicacion"
+    ],
     "shortlist": [
-      { "target": "scholarship", "id": "fulbright", "status": "preparando" },
-      { "target": "program", "id": "bu-edpsych", "status": "explorando" }
+      {
+        "target": "scholarship",
+        "id": "fulbright",
+        "status": "preparando"
+      },
+      {
+        "target": "program",
+        "id": "bu-edpsych",
+        "status": "explorando"
+      }
     ],
     "pipeline": "postulacion",
     "notes": "Preparando TOEFL (ficticio). Revisar requisito de idioma publicado por Fulbright.",
     "is_fictional": true
   },
   {
-    "id": "stu-mateo", "alias": "Mateo Q.", "stage": "escolar_5to", "region": "Lima",
-    "target_countries": ["US"], "budget_band": "requiere_beca", "english_cefr": "C1",
-    "other_languages": [], "credentials_held": [],
-    "riasec": { "R": 5, "I": 9, "A": 3, "S": 3, "E": 4, "C": 8 },
-    "strengths": ["análisis", "programación", "matemática"],
-    "dream_work": { "text": "Usar datos para entender el clima y la economía de América Latina.", "sectors": ["Tecnología", "Negocios"] },
-    "purpose": { "ama": "Resolver problemas con código y datos", "bueno": "Matemática, programación, olimpiadas", "mundo": "Mejores decisiones basadas en evidencia", "pagarian": "Ciencia de datos, investigación" },
-    "priorities": ["afinidad", "costo", "idioma", "interes", "ubicacion"],
+    "id": "stu-mateo",
+    "alias": "Mateo Q.",
+    "stage": "escolar_5to",
+    "region": "Lima",
+    "target_countries": [
+      "US",
+      "UK"
+    ],
+    "budget_band": "requiere_beca",
+    "english_cefr": "C1",
+    "other_languages": [],
+    "credentials_held": [],
+    "riasec": {
+      "R": 5,
+      "I": 9,
+      "A": 3,
+      "S": 3,
+      "E": 4,
+      "C": 8
+    },
+    "strengths": [
+      "análisis",
+      "programación",
+      "matemática"
+    ],
+    "dream_work": {
+      "text": "Usar datos para entender el clima y la economía de América Latina.",
+      "sectors": [
+        "Tecnología",
+        "Negocios"
+      ]
+    },
+    "purpose": {
+      "ama": "Resolver problemas con código y datos",
+      "bueno": "Matemática, programación, olimpiadas",
+      "mundo": "Mejores decisiones basadas en evidencia",
+      "pagarian": "Ciencia de datos, investigación"
+    },
+    "priorities": [
+      "afinidad",
+      "costo",
+      "idioma",
+      "interes",
+      "ubicacion"
+    ],
     "shortlist": [
-      { "target": "program", "id": "mit-6-14", "status": "preparando" },
-      { "target": "program", "id": "purdue-ds", "status": "explorando" },
-      { "target": "program", "id": "asu-ds", "status": "explorando" }
+      {
+        "target": "program",
+        "id": "mit-6-14",
+        "status": "preparando"
+      },
+      {
+        "target": "program",
+        "id": "purdue-ds",
+        "status": "explorando"
+      },
+      {
+        "target": "program",
+        "id": "asu-ds",
+        "status": "explorando"
+      }
     ],
     "pipeline": "lista_corta",
     "notes": "Necesita ayuda financiera. Revisar con la familia el CSS Profile y las políticas need-blind publicadas.",

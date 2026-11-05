@@ -62,7 +62,7 @@ export function buildTools(propose: (p: Omit<Proposal, 'id' | 'status'>) => void
         properties: {
           tipo: { type: 'string', enum: ['universidades', 'carreras', 'becas', 'modalidades', 'examenes'] },
           texto: { type: 'string', description: 'Palabra clave opcional (nombre, área, carrera, ciudad).' },
-          pais: { type: 'string', enum: ['PE', 'US'] },
+          pais: { type: 'string', enum: ['PE', 'US', 'UK'] },
           nivel: { type: 'string', enum: ['pregrado', 'posgrado'] },
         },
         required: ['tipo'],
@@ -126,7 +126,7 @@ export function buildTools(propose: (p: Omit<Proposal, 'id' | 'status'>) => void
           universidad: inst.name, pais: inst.country, ciudad: inst.city, gestion: inst.management,
           ...(p ? { carrera: p.name, area: p.area, nivel: p.level, idioma_clases: p.language_of_instruction, riasec: p.riasec, duracion: fact(p.duration) } : {}),
           costo: fact(inst.tuition), ayuda_internacional: fact(inst.intl_aid), requisito_ingles: fact(inst.english_requirement),
-          examenes_ingles_aceptados: fact(inst.english_tests), sat_act: fact(inst.test_policy), licencia_sunedu: inst.country === 'PE' ? fact(inst.sunedu_licensed) : undefined,
+          examenes_ingles_aceptados: fact(inst.english_tests), examenes_admision: fact(inst.test_policy), acepta_certificado_peruano: fact(inst.local_diploma), licencia_sunedu: inst.country === 'PE' ? fact(inst.sunedu_licensed) : undefined,
           modalidades: modesByInstitution(inst.id).map((m) => ({ nombre: m.name, para_quien: m.for_whom, requisitos: fact(m.key_requirements), fechas: fact(m.next_dates) })),
           carreras: programsByInstitution(inst.id).map((x) => ({ id: x.id, nombre: x.name })),
         };
@@ -189,7 +189,7 @@ export function buildTools(propose: (p: Omit<Proposal, 'id' | 'status'>) => void
     {
       name: 'aplicar_filtros',
       description:
-        'Abre Explorar con estos filtros, en este orden. claves: pais (PE|US), ciudad, gestion (publica|privada), area (p. ej. Ingeniería, Salud, Tecnología, Negocios), carrera (texto), nivel (pregrado|posgrado), modalidad (escolar|egresado|early), idioma (es|en), certificacion (toefl|ielts|duolingo|cambridge), costo (publicado|pv), ayuda (si), beca (si), fecha (14|45|120).',
+        'Abre Explorar con estos filtros, en este orden. claves: pais (PE|US|UK), ciudad, gestion (publica|privada), area (p. ej. Ingeniería, Salud, Tecnología, Negocios), carrera (texto), nivel (pregrado|posgrado), modalidad (escolar|egresado|early), idioma (es|en), certificacion (toefl|ielts|duolingo|cambridge), costo (publicado|pv), ayuda (si), beca (si), fecha (14|45|120).',
       inputSchema: {
         type: 'object',
         properties: { filtros: { type: 'array', items: { type: 'object', properties: { clave: { type: 'string' }, valor: { type: 'string' } }, required: ['clave', 'valor'] } } },
@@ -303,7 +303,7 @@ export function buildTools(propose: (p: Omit<Proposal, 'id' | 'status'>) => void
           alias: { type: 'string', description: 'Nombre y una inicial, p. ej. «Andrea P.»' },
           etapa: { type: 'string', enum: ['escolar_4to', 'escolar_5to', 'egresado_escolar', 'universitario', 'egresado_universitario'] },
           region: { type: 'string' },
-          paises: { type: 'array', items: { type: 'string', enum: ['PE', 'US'] } },
+          paises: { type: 'array', items: { type: 'string', enum: ['PE', 'US', 'UK'] } },
           presupuesto: { type: 'string', enum: ['bajo', 'medio', 'alto', 'requiere_beca'] },
           ingles: { type: 'string', enum: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] },
           riasec: { type: 'object', properties: { R: { type: 'number' }, I: { type: 'number' }, A: { type: 'number' }, S: { type: 'number' }, E: { type: 'number' }, C: { type: 'number' } } },
@@ -318,7 +318,7 @@ export function buildTools(propose: (p: Omit<Proposal, 'id' | 'status'>) => void
         if (alias.length < 2) throw new Error('Falta el alias');
         const r = (i.riasec ?? {}) as Record<string, unknown>;
         const clamp = (v: unknown) => Math.max(0, Math.min(10, Math.round(Number(v ?? 5)) || 5));
-        const paises = (Array.isArray(i.paises) ? i.paises.map(String) : ['PE']).filter((x) => x === 'PE' || x === 'US') as ('PE' | 'US')[];
+        const paises = (Array.isArray(i.paises) ? i.paises.map(String) : ['PE']).filter((x) => x === 'PE' || x === 'US' || x === 'UK') as ('PE' | 'US' | 'UK')[];
         const st: Student = {
           id: `stu-${Date.now()}`,
           alias,
@@ -357,7 +357,7 @@ export function buildTools(propose: (p: Omit<Proposal, 'id' | 'status'>) => void
 export function rules(): string {
   const st = useStore.getState();
   const current = st.page === 'estudiantes' && st.studentId ? `la ficha de ${st.students.find((s) => s.id === st.studentId)?.alias} (id ${st.studentId})` : `la pantalla «${st.page}»`;
-  return `Eres Brújula IA, el asistente de Cooper Compass, un dashboard de orientación vocacional en Perú (universidades de Perú y EE. UU., carreras, modalidades de ingreso, becas e idiomas). Ayudas a la asesora a buscar información, analizar perfiles y administrar los datos.
+  return `Eres Brújula IA, el asistente de Cooper Compass, un dashboard de orientación vocacional en Perú (universidades de Perú, EE. UU. y el Reino Unido, carreras, modalidades de ingreso, becas e idiomas). Ayudas a la asesora a buscar información, analizar perfiles y administrar los datos.
 
 Hoy es ${fmtDate(new Date().toISOString().slice(0, 10))}. La asesora está viendo ${current}.
 

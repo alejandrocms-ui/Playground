@@ -1027,5 +1027,124 @@
    "orientación"
   ],
   "source_id": "src-bu-adm"
+ },
+ {
+  "id": "lse-econ",
+  "institution_id": "lse",
+  "name": "BSc Economics",
+  "area": "Negocios",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-lse-econ",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ICE",
+  "career_paths": [
+   "economía",
+   "políticas públicas",
+   "finanzas"
+  ],
+  "source_id": "src-lse-econ"
+ },
+ {
+  "id": "lse-econ-ds",
+  "institution_id": "lse",
+  "name": "BSc Economics and Data Science",
+  "area": "Tecnología",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-lse-econ-ds",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ICE",
+  "career_paths": [
+   "ciencia de datos",
+   "economía",
+   "analítica"
+  ],
+  "source_id": "src-lse-econ-ds"
+ },
+ {
+  "id": "lse-ppe",
+  "institution_id": "lse",
+  "name": "BSc Philosophy, Politics and Economics",
+  "area": "Políticas públicas",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-lse-ppe",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "IES",
+  "career_paths": [
+   "políticas públicas",
+   "gestión pública",
+   "investigación"
+  ],
+  "source_id": "src-lse-ppe"
+ },
+ {
+  "id": "lse-ir",
+  "institution_id": "lse",
+  "name": "BSc International Relations",
+  "area": "Políticas públicas",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-lse-entry",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ESI",
+  "career_paths": [
+   "relaciones internacionales",
+   "diplomacia",
+   "políticas públicas"
+  ],
+  "source_id": "src-lse-entry"
+ },
+ {
+  "id": "lse-llb",
+  "institution_id": "lse",
+  "name": "LLB Bachelor of Laws",
+  "area": "Derecho",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-lse-llb",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ESI",
+  "career_paths": [
+   "abogacía",
+   "políticas públicas"
+  ],
+  "source_id": "src-lse-llb"
+ },
+ {
+  "id": "lse-psych",
+  "institution_id": "lse",
+  "name": "BSc Psychological and Behavioural Science",
+  "area": "Salud",
+  "level": "pregrado",
+  "duration": {
+   "value": null,
+   "source_id": "src-lse-entry",
+   "status": "por_verificar"
+  },
+  "language_of_instruction": "en",
+  "riasec": "ISA",
+  "career_paths": [
+   "psicología",
+   "investigación",
+   "ciencias del comportamiento"
+  ],
+  "source_id": "src-lse-entry"
  }
 ]

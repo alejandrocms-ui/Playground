@@ -25,13 +25,14 @@ export function cx(...c: (string | false | null | undefined)[]) {
   return c.filter(Boolean).join(' ');
 }
 
-type Tone = 'teal' | 'gold' | 'coral' | 'sky' | 'terracotta' | 'grey' | 'navy';
+type Tone = 'teal' | 'gold' | 'coral' | 'sky' | 'terracotta' | 'moss' | 'grey' | 'navy';
 const toneCls: Record<Tone, string> = {
   teal: 'bg-teal-soft text-teal-ink',
   gold: 'bg-gold-soft text-gold-ink',
   coral: 'bg-coral-soft text-coral-ink',
   sky: 'bg-sky-soft text-sky',
   terracotta: 'bg-terracotta-soft text-terracotta',
+  moss: 'bg-moss-soft text-moss',
   grey: 'bg-grey-soft text-muted',
   navy: 'bg-navy text-cream',
 };
@@ -47,6 +48,7 @@ export function Badge({ tone = 'grey', children, title }: { tone?: Tone; childre
 export function CountryTag({ country }: { country?: Country | 'varios' }) {
   if (country === 'PE') return <Badge tone="terracotta">Perú</Badge>;
   if (country === 'US') return <Badge tone="sky">EE. UU.</Badge>;
+  if (country === 'UK') return <Badge tone="moss">Reino Unido</Badge>;
   return <Badge tone="grey">Varios países</Badge>;
 }
 
@@ -134,6 +136,10 @@ export const GLOSSARY: Record<string, string> = {
   'Regular Action': 'Postulación en el plazo regular (en MIT se llama Regular Action).',
   'Common App': 'Plataforma común para postular a muchas universidades de EE. UU. con un solo formulario.',
   'CSS Profile': 'Formulario que piden muchas universidades privadas de EE. UU. para calcular la ayuda financiera.',
+  UCAS: 'Plataforma única para postular a universidades del Reino Unido, con hasta cinco opciones.',
+  TMUA: 'Test of Mathematics for University Admission: examen de matemáticas que piden algunas universidades del Reino Unido.',
+  LNAT: 'National Admissions Test for Law: examen de admisión para Derecho en algunas universidades del Reino Unido.',
+  'A levels': 'Calificación escolar del Reino Unido (dos años, usualmente tres materias). Se califica de A* a E.',
   OPT: 'Optional Practical Training: permiso de práctica laboral en EE. UU. después de estudiar.',
   MCER: 'Marco Común Europeo de Referencia para las lenguas: niveles de A1 a C2.',
   RIASEC: 'Modelo de intereses vocacionales de John Holland: Realista, Investigador, Artístico, Social, Emprendedor y Convencional.',

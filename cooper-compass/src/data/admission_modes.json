@@ -389,5 +389,139 @@
    "source_id": "src-bu-adm",
    "status": "por_verificar"
   }
+ },
+ {
+  "id": "lse-academico",
+  "institution_id": "lse",
+  "name": "Requisitos académicos (estudiantes del Perú)",
+  "for_whom": "Escolares de 5.º de secundaria y egresados escolares del Perú",
+  "key_requirements": {
+   "value": [
+    "El Certificado de Educación Secundaria del Perú no basta para el ingreso directo",
+    "Ruta aceptada: Bachillerato Internacional (IB), A levels, al menos 5 Advanced Placement (AP) en un máximo de 3 años, programa de fundación de una institución del Reino Unido, programas internacionales de la University of London o un año de universidad (lista no exhaustiva)",
+    "Oferta típica en A levels: entre A*AA y AAB, según el programa",
+    "Oferta típica en IB: 37 a 39 puntos con 666 o 766 en Higher Level, según el programa",
+    "Nivel esperado en inglés y matemática equivalente a GCSE grado B/6",
+    "Varios programas exigen Matemáticas en A level o IB HL (Mathematics: analysis and approaches); en Economía se exige A level Mathematics o equivalente"
+   ],
+   "source_id": "src-lse-entry",
+   "status": "verificado",
+   "note": "Los requisitos exactos varían por programa y LSE puede confirmar los de 2027 más adelante: revisar la página de cada programa."
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-lse-entry",
+   "status": "por_verificar",
+   "note": "No aplica: requisitos, no fechas."
+  }
+ },
+ {
+  "id": "lse-ucas",
+  "institution_id": "lse",
+  "name": "Postulación por UCAS (ingreso en septiembre de 2027)",
+  "for_whom": "Todos los postulantes de pregrado, incluidos internacionales",
+  "key_requirements": {
+   "value": [
+    "Postular solo en línea por UCAS: LSE no acepta postulaciones directas",
+    "Tarifa UCAS del ciclo 2027: £34,50, para hasta 5 opciones",
+    "Calificaciones obtenidas y predichas",
+    "Personal statement: pesa mucho porque LSE no hace entrevistas",
+    "Referencia de un profesor",
+    "LSE no considera cartas adicionales, muestras de trabajo ni otros documentos fuera del formulario UCAS"
+   ],
+   "source_id": "src-lse-howto",
+   "status": "verificado"
+  },
+  "next_dates": {
+   "value": [
+    {
+     "label": "LSE (UCAS): cierre de postulación, 18:00 hora de Londres",
+     "date": "2027-01-13"
+    },
+    {
+     "label": "LSE: respuesta a postulaciones a tiempo, a más tardar",
+     "date": "2027-05-12"
+    }
+   ],
+   "source_id": "src-lse-calendar",
+   "status": "verificado",
+   "note": "Las primeras decisiones salen desde noviembre de 2026. Es raro que queden vacantes después del cierre de UCAS."
+  }
+ },
+ {
+  "id": "lse-examenes",
+  "institution_id": "lse",
+  "name": "Exámenes de admisión por programa",
+  "for_whom": "Postulantes a Economía, Derecho y quienes LSE invite",
+  "key_requirements": {
+   "value": [
+    "TMUA: requerido para programas de Economía (confirmar si es obligatorio o recomendado en 2027); recomendado para Matemáticas y Estadística. LSE sugiere la primera sesión",
+    "LNAT: obligatorio para LLB Bachelor of Laws; rendirlo a más tardar el 31 de diciembre de 2026",
+    "UGAA: evaluación en línea de 3 horas, solo por invitación, para calificaciones no reconocidas para ingreso directo. No se puede solicitar"
+   ],
+   "source_id": "src-lse-tmua",
+   "status": "verificado"
+  },
+  "next_dates": {
+   "value": [
+    {
+     "label": "LNAT: fecha límite para postulantes a LSE (LLB)",
+     "date": "2026-12-31"
+    },
+    {
+     "label": "TMUA: segunda sesión (4 al 8 de enero)",
+     "date": "2027-01-04"
+    }
+   ],
+   "source_id": "src-lse-llb",
+   "status": "verificado",
+   "note": "La primera sesión del TMUA fue del 12 al 16 de octubre de 2026."
+  }
+ },
+ {
+  "id": "lse-ruta-eeuu",
+  "institution_id": "lse",
+  "name": "Ruta para colegios con currículo estadounidense (AP, SAT o ACT)",
+  "for_whom": "Estudiantes de colegios americanos (también en Lima)",
+  "key_requirements": {
+   "value": [
+    "El High School Diploma por sí solo no basta",
+    "Para el nivel A*AA/AAA: cinco exámenes AP con nota 5 y GPA de al menos 3.7, o GPA 3.7 con SAT 1450+ o ACT 32+",
+    "Para el nivel AAB: SAT 1400+ o ACT 30+ con GPA 3.7",
+    "Si el programa exige matemáticas: AP Calculus BC con nota 5",
+    "AP Seminar, Capstone y Research no cuentan; solo uno de AP Calculus AB o BC cuenta"
+   ],
+   "source_id": "src-lse-usa",
+   "status": "por_verificar",
+   "note": "La página oficial tiene varios años: confirmar con LSE antes de asesorar."
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-lse-usa",
+   "status": "por_verificar"
+  }
+ },
+ {
+  "id": "lse-visa",
+  "institution_id": "lse",
+  "name": "Después de la oferta: visa de estudiante del Reino Unido",
+  "for_whom": "Estudiantes internacionales que aceptan una oferta",
+  "key_requirements": {
+   "value": [
+    "CAS (Confirmation of Acceptance for Studies): número que emite LSE después de la oferta",
+    "Inglés nivel B2 del MCER en las cuatro habilidades (LSE define cómo lo evalúa)",
+    "Fondos para la matrícula pendiente y una suma mensual de manutención por hasta 9 meses (montos vigentes por verificar)",
+    "Pago del Immigration Health Surcharge (monto vigente por verificar)",
+    "Pasaporte vigente"
+   ],
+   "source_id": "src-ukvi-docs",
+   "status": "verificado"
+  },
+  "next_dates": {
+   "value": null,
+   "source_id": "src-ukvi-docs",
+   "status": "por_verificar",
+   "note": "Se tramita después de recibir el CAS."
+  }
  }
 ]

@@ -19,7 +19,7 @@
  *
  * Todo está en este archivo para ajustarlo con la clienta en la sesión 3.
  */
-import type { Cefr, Institution, Priority, Program, Scholarship, Student } from '../types';
+import type { Cefr, Country, Institution, Priority, Program, Scholarship, Student } from '../types';
 import { institutionById, institutions, programs, programsByInstitution, scholarships } from './data';
 
 export const WEIGHTS = [30, 25, 20, 15, 10];
@@ -128,6 +128,10 @@ function costoProgram(s: Student, p: Program, inst?: Institution): FactorResult 
   if (inst.intl_aid?.status === 'verificado' && inst.intl_aid.value === 'need_blind' && needsAid) {
     return { score: 0.85, reason: `${inst.short_name} publica admisión need-blind y ayuda según necesidad` };
   }
+  // Ayuda institucional publicada, pero limitada (no garantizada).
+  if (inst.intl_aid?.status === 'verificado' && inst.intl_aid.value === 'limitada' && needsAid) {
+    return { score: 0.6, reason: `${inst.short_name} publica un fondo de apoyo según necesidad, con cupos limitados`, check: `Solicitar el apoyo de ${inst.short_name} después de recibir la oferta` };
+  }
   // Beca 18: pregrado en Perú.
   if (inst.country === 'PE' && p.level === 'pregrado' && needsAid) {
     return { score: 0.8, reason: 'Beca 18 financia pregrado en Perú: revisar requisitos publicados', check: 'Beca 18: requisitos publicados de la modalidad' };
@@ -140,10 +144,10 @@ function costoProgram(s: Student, p: Program, inst?: Institution): FactorResult 
 
 function ubicacion(s: Student, country: string | undefined, levels: string[]): FactorResult {
   const lvl = targetLevel(s);
-  const okCountry = country === undefined || country === 'varios' || s.target_countries.includes(country as 'PE' | 'US');
+  const okCountry = country === undefined || country === 'varios' || s.target_countries.includes(country as Country);
   const okLevel = levels.includes(lvl);
   const score = (okCountry ? 0.6 : 0) + (okLevel ? 0.4 : 0);
-  const place = country === 'PE' ? 'Perú' : country === 'US' ? 'EE. UU.' : 'varios países';
+  const place = country === 'PE' ? 'Perú' : country === 'US' ? 'EE. UU.' : country === 'UK' ? 'el Reino Unido' : 'varios países';
   return {
     score,
     reason: okCountry && okLevel ? `${lvl === 'pregrado' ? 'Pregrado' : 'Posgrado'} en ${place}, como busca` : undefined,
@@ -182,14 +186,15 @@ function scholarshipFactors(s: Student, b: Scholarship): Record<Priority, Factor
 
 // ---------- Combinación ----------
 
-function combine(s: Student, kind: MatchResult['kind'], id: string, factors: Record<Priority, FactorResult>, extraChecks: string[] = []): MatchResult {
+function combine(s: Student, kind: MatchResult['kind'], id: string, factors: Record<Priority, FactorResult>, extraChecks: string[] = [], leadChecks: string[] = []): MatchResult {
   let score = 0;
   s.priorities.forEach((p, i) => {
     score += (factors[p]?.score ?? 0.5) * (WEIGHTS[i] ?? 0);
   });
   // Razones en el orden de prioridad del estudiante.
   const reasons = s.priorities.map((p) => factors[p]?.reason).filter(Boolean) as string[];
-  const checks = [...s.priorities.map((p) => factors[p]?.check).filter(Boolean), ...extraChecks] as string[];
+  // Los avisos críticos (leadChecks) van siempre primero para que nunca queden fuera del límite de 3.
+  const checks = [...leadChecks, ...s.priorities.map((p) => factors[p]?.check).filter(Boolean), ...extraChecks] as string[];
   if (reasons.length < 2) reasons.push('Opción a explorar con el estudiante');
   return {
     kind,
@@ -213,7 +218,13 @@ export function matchProgram(s: Student, p: Program): MatchResult {
   const extra: string[] = [];
   if (inst?.country === 'US' && p.level === 'pregrado' && inst.test_policy?.status === 'verificado')
     extra.push(`SAT/ACT: ${inst.test_policy.value}`);
-  return combine(s, 'program', p.id, factors, extra);
+  // Universidades que no aceptan el certificado de secundaria peruano: siempre se avisa.
+  const lead: string[] = [];
+  if (inst?.local_diploma?.value && p.level === 'pregrado')
+    lead.push(`${inst.short_name} no acepta el certificado de secundaria peruano: requiere IB, A levels, AP u otra ruta aceptada`);
+  if (inst?.country === 'UK' && /econom/i.test(p.name)) extra.push('Examen TMUA para Economía: confirmar si es obligatorio en 2027');
+  if (inst?.country === 'UK' && /laws|derecho/i.test(p.name)) extra.push('Examen LNAT obligatorio para Derecho');
+  return combine(s, 'program', p.id, factors, extra, lead);
 }
 
 export function matchScholarship(s: Student, b: Scholarship): MatchResult {

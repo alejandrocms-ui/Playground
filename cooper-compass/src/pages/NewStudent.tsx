@@ -3,7 +3,7 @@ import { ArrowLeft, Check } from 'lucide-react';
 import { useStore } from '../store';
 import type { Cefr, Country, Student } from '../types';
 import { RIASEC_LABEL } from '../lib/matching';
-import { stageLabel, budgetLabel } from '../lib/format';
+import { stageLabel, budgetLabel, countryLabel } from '../lib/format';
 import { Badge, Button, GLOSSARY, PageHeader, Tip, cx } from '../components/ui';
 import { areas, credentials } from '../lib/data';
 
@@ -86,8 +86,8 @@ export default function NewStudentForm({ onDone }: { onDone: (id?: string) => vo
             </div>
             <L label="Países objetivo">
               <div className="flex gap-2">
-                {(['PE', 'US'] as Country[]).map((c) => (
-                  <Chip key={c} on={d.target_countries.includes(c)} onClick={() => up({ target_countries: toggle(d.target_countries, c) })}>{c === 'PE' ? 'Perú' : 'EE. UU.'}</Chip>
+                {(['PE', 'US', 'UK'] as Country[]).map((c) => (
+                  <Chip key={c} on={d.target_countries.includes(c)} onClick={() => up({ target_countries: toggle(d.target_countries, c) })}>{countryLabel[c]}</Chip>
                 ))}
               </div>
             </L>

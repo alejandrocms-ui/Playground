@@ -514,5 +514,63 @@
    "urbana",
    "amplia oferta"
   ]
+ },
+ {
+  "id": "lse",
+  "name": "London School of Economics and Political Science",
+  "short_name": "LSE",
+  "country": "UK",
+  "city": "Londres",
+  "region": "Inglaterra",
+  "management": "publica",
+  "website": "https://www.lse.ac.uk/",
+  "tuition": {
+   "value": {
+    "min": 28900,
+    "max": 39900,
+    "currency": "GBP",
+    "period": "año"
+   },
+   "source_id": "src-lse-fees",
+   "status": "verificado",
+   "note": "Rango para estudiantes internacionales (overseas) que ingresan en 2026/27; varía según el programa. Para 2027/28 cada programa publica su costo (p. ej., BSc Philosophy, Politics and Economics: £33 800 por año)."
+  },
+  "intl_aid": {
+   "value": "limitada",
+   "source_id": "src-lse-uss",
+   "status": "verificado",
+   "note": "Undergraduate Support Scheme: apoyo según necesidad para estudiantes overseas con oferta, en general entre £15 000 y £25 000 por año. LSE recibe más solicitudes de las que puede apoyar."
+  },
+  "english_requirement": {
+   "value": "IELTS Academic: 7.0 global y 7.0 en cada componente. TOEFL iBT: 100 global con mínimos de 27 en Writing, 25 en Reading, 24 en Listening y 24 en Speaking. Siempre en una sola sesión de examen y con antigüedad máxima de dos años al inicio del programa (1 de septiembre). LSE pide la prueba de inglés recién después de hacer una oferta.",
+   "source_id": "src-lse-english",
+   "status": "verificado",
+   "note": "LSE no combina componentes de distintos exámenes. La equivalencia en la nueva escala TOEFL (desde enero de 2026) está por verificar."
+  },
+  "english_tests": {
+   "value": [
+    "ielts",
+    "toefl"
+   ],
+   "source_id": "src-lse-english",
+   "status": "verificado",
+   "note": "Lista parcial: revisar en la página de LSE otros exámenes aceptados."
+  },
+  "test_policy": {
+   "value": "No exige SAT ni ACT como examen general. Exámenes por programa: TMUA para Economía, LNAT para Derecho (LLB) y, solo por invitación, el UGAA.",
+   "source_id": "src-lse-admissions-info",
+   "status": "verificado",
+   "note": "Las páginas de LSE difieren sobre si el TMUA es obligatorio o recomendado en 2027 para algunos programas de Economía: confirmar por programa."
+  },
+  "local_diploma": {
+   "value": "LSE no acepta el Certificado de Educación Secundaria Común Completa del Perú para el ingreso directo. Se necesita otra ruta: Bachillerato Internacional (IB), A levels, al menos cinco Advanced Placement (AP), un programa de fundación de una institución del Reino Unido o un año de estudios universitarios.",
+   "source_id": "src-lse-peru",
+   "status": "verificado"
+  },
+  "tags": [
+   "muy selectiva",
+   "ciencias sociales",
+   "UCAS"
+  ]
  }
 ]

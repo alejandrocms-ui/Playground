@@ -365,5 +365,49 @@
   "kind": "institucional",
   "institution_id": "harvard",
   "source_id": "src-harvard-aid"
+ },
+ {
+  "id": "lse-uss",
+  "name": "LSE Undergraduate Support Scheme",
+  "provider": "LSE Financial Support Office",
+  "study_country": "UK",
+  "levels": [
+   "pregrado"
+  ],
+  "coverage": {
+   "value": "Apoyo según necesidad para estudiantes internacionales, en general entre £15 000 y £25 000 por año. Renovable con progreso académico satisfactorio. LSE recibe más solicitudes de las que puede apoyar.",
+   "source_id": "src-lse-uss",
+   "status": "verificado"
+  },
+  "requirements": {
+   "value": [
+    "Estatus de tarifa internacional (overseas)",
+    "Tener una oferta de LSE en cualquier programa",
+    "No contar con fondos suficientes para todos los costos de estudio"
+   ],
+   "source_id": "src-lse-uss",
+   "status": "verificado"
+  },
+  "language_requirement": {
+   "value": "El de la oferta de admisión de LSE.",
+   "source_id": "src-lse-english",
+   "status": "verificado"
+  },
+  "window": {
+   "opens": {
+    "value": null,
+    "source_id": "src-lse-uss",
+    "status": "por_verificar"
+   },
+   "closes": {
+    "value": "Fecha de solicitud del ciclo 2027: por verificar.",
+    "source_id": "src-lse-uss",
+    "status": "por_verificar"
+   }
+  },
+  "status": "por_confirmar",
+  "kind": "institucional",
+  "institution_id": "lse",
+  "source_id": "src-lse-uss"
  }
 ]

@@ -417,12 +417,14 @@ function checklistFor(x: ShortlistItem, s: Student): CheckItem[] {
   const inst = instId ? institutionById.get(instId) : undefined;
   if (!inst) return out;
   const modes = modesByInstitution(inst.id);
-  modes.slice(0, 2).forEach((m) => {
+  modes.forEach((m) => {
     (m.key_requirements.value ?? [`Requisitos de ${m.name}`]).forEach((r, i) =>
       out.push({ key: `${m.id}-${i}`, text: r, status: m.key_requirements.value ? m.key_requirements.status : 'por_verificar', source_id: m.key_requirements.source_id, group: `Modalidad: ${m.name}` }),
     );
   });
-  if (inst.country === 'US') {
+  if (inst.country === 'UK') {
+    out.push({ key: 'eng', text: inst.english_requirement?.value ? `Inglés: requisito publicado (${s.english_cefr} actual)` : 'Requisito de inglés', status: inst.english_requirement?.value ? inst.english_requirement.status : 'por_verificar', source_id: inst.english_requirement?.source_id, group: 'Idioma' });
+  } else if (inst.country === 'US') {
     out.push({ key: 'test', text: inst.test_policy?.value ? `SAT/ACT: ${inst.test_policy.value}` : 'Política de SAT/ACT', status: inst.test_policy?.value ? inst.test_policy.status : 'por_verificar', source_id: inst.test_policy?.source_id, group: 'Exámenes' });
     out.push({ key: 'eng', text: inst.english_requirement?.value ? `Inglés: requisito publicado (${s.english_cefr} actual)` : 'Requisito de inglés', status: inst.english_requirement?.value ? inst.english_requirement.status : 'por_verificar', source_id: inst.english_requirement?.source_id, group: 'Idioma' });
     out.push({ key: 'docs', text: 'Documentos: Common App, cartas y CSS Profile si pide ayuda', status: 'por_verificar', group: 'Documentos' });

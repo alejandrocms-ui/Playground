@@ -12,6 +12,7 @@ function cell<T>(f: Fact<T> | undefined, render: (v: T) => string = (v) => Strin
   return (
     <div>
       <div className="text-sm">{render(f.value)}</div>
+      {f.note && <div className="mt-1 text-xs text-muted">{f.note}</div>}
       <div className="mt-1 flex flex-wrap items-center gap-2">
         <VerifyBadge status={f.status} />
         {f.source_id && <SourceLink id={f.source_id} compact />}
@@ -38,11 +39,11 @@ function rowsFor(c: CompareItem) {
   const dated = modes.find((m) => m.next_dates.value?.length);
   const reqMode = modes.find((m) => m.key_requirements.value?.length);
   return {
-    requisitos: reqMode ? cell(reqMode.key_requirements, (v) => `${reqMode.name}: ${v.join(' · ')}`) : cell(undefined),
+    requisitos: i.local_diploma?.value ? cell(i.local_diploma) : reqMode ? cell(reqMode.key_requirements, (v) => `${reqMode.name}: ${v.join(' · ')}`) : cell(undefined),
     idioma: i.country === 'PE' ? <span className="text-sm">Clases en español</span> : cell(i.english_requirement),
     fechas: dated ? cell(dated.next_dates, (v) => v.map((d) => `${d.label.replace(/^.*?: /, '')}: ${fmtDate(d.date)}`).join(' · ')) : cell(undefined),
     costo: cell(i.tuition, (v) => fmtTuition(v)),
-    ayudas: cell(i.intl_aid, (v) => (v === 'need_blind' ? 'Admisión need-blind y ayuda según necesidad' : v)),
+    ayudas: cell(i.intl_aid, (v) => (v === 'need_blind' ? 'Admisión need-blind y ayuda según necesidad' : v === 'limitada' ? 'Apoyo según necesidad con cupos limitados' : v)),
   };
 }
 

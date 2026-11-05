@@ -20,13 +20,13 @@ export interface Fact<T> {
   status: VerificationStatus;
 }
 
-export type Country = 'PE' | 'US';
+export type Country = 'PE' | 'US' | 'UK';
 export type Level = 'pregrado' | 'posgrado';
 
 export interface Tuition {
   min?: number;
   max?: number;
-  currency: 'PEN' | 'USD';
+  currency: 'PEN' | 'USD' | 'GBP';
   period: 'ciclo' | 'año' | 'mes';
 }
 
@@ -46,8 +46,10 @@ export interface Institution {
   english_requirement?: Fact<string>;
   /** Extensión: certificaciones de inglés aceptadas (ids de credentials). */
   english_tests?: Fact<string[]>;
-  /** Extensión: política de SAT/ACT (solo EE. UU.). */
+  /** Extensión: exámenes de admisión generales (SAT/ACT en EE. UU.; TMUA, LNAT o UGAA en el Reino Unido). */
   test_policy?: Fact<string>;
+  /** Extensión: ¿acepta el certificado de secundaria del Perú para el ingreso directo? */
+  local_diploma?: Fact<string>;
   tags: string[];
 }
 

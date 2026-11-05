@@ -66,7 +66,7 @@ const hasScholarship = (r: Row) => {
 };
 
 const FILTERS: FilterDef[] = [
-  { key: 'pais', label: 'País', options: [{ value: 'PE', label: 'Perú' }, { value: 'US', label: 'EE. UU.' }], tabs: ['universidades', 'carreras', 'modalidades', 'becas'],
+  { key: 'pais', label: 'País', options: [{ value: 'PE', label: 'Perú' }, { value: 'US', label: 'EE. UU.' }, { value: 'UK', label: 'Reino Unido' }], tabs: ['universidades', 'carreras', 'modalidades', 'becas'],
     test: (r, v) => (r.sch ? r.sch.study_country === v || r.sch.study_country === 'varios' : r.inst?.country === v), sort: (r) => r.inst?.country ?? r.sch?.study_country ?? '' },
   { key: 'ciudad', label: 'Ciudad', options: cities.map((c) => ({ value: c, label: c })), tabs: ['universidades', 'carreras', 'modalidades'],
     test: (r, v) => r.inst?.city === v, sort: (r) => r.inst?.city ?? '' },
@@ -226,7 +226,7 @@ export default function ExplorePage() {
 
   return (
     <div className="fade-in">
-      <PageHeader title="Explorar" subtitle="Universidades de Perú y EE. UU., carreras, ingreso, becas e idiomas en un solo catálogo." />
+      <PageHeader title="Explorar" subtitle="Universidades de Perú, EE. UU. y el Reino Unido, carreras, ingreso, becas e idiomas en un solo catálogo." />
       <DndContext
         sensors={sensors}
         collisionDetection={collision}
@@ -478,7 +478,8 @@ function ResultCard({ r, onAdd }: { r: Row; onAdd: (studentId: string) => void }
       <>
         <p className="text-xs text-muted">{progs.length} carreras en el catálogo: {progs.slice(0, 3).map((p) => p.name).join(', ')}{progs.length > 3 ? '…' : ''}</p>
         {r.inst.intl_aid?.value === 'need_blind' && r.inst.intl_aid.status === 'verificado' && <Badge tone="teal"><Tip text={GLOSSARY['need-blind']}>need-blind publicado</Tip></Badge>}
-        {r.inst.country === 'US' && <p className="text-xs"><span className="font-medium">Costo:</span> {fmtTuition(r.inst.tuition.value)}</p>}
+        {r.inst.country !== 'PE' && <p className="text-xs"><span className="font-medium">Costo:</span> {fmtTuition(r.inst.tuition.value)}</p>}
+        {r.inst.local_diploma?.value && <p className="rounded-lg bg-coral-soft px-2 py-1 text-xs text-coral-ink">No acepta el certificado de secundaria peruano: requiere IB, A levels, AP u otra ruta.</p>}
       </>
     );
   } else if (r.kind === 'program' && r.prog) {

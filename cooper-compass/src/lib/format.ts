@@ -43,10 +43,10 @@ const nf = new Intl.NumberFormat('es-PE', { maximumFractionDigits: 0 });
 /** «USD 12 345 por año», «S/ 1 234 por ciclo». Solo se usa con montos que vienen de la fuente. */
 export function fmtTuition(t: Tuition | null): string {
   if (!t) return 'Por verificar';
-  const cur = t.currency === 'PEN' ? 'S/' : 'USD';
+  const cur = t.currency === 'PEN' ? 'S/' : t.currency === 'GBP' ? '£' : 'USD';
   const amt = (n: number) => nf.format(n).replace(/[.,]/g, ' ');
   const range = t.min != null && t.max != null && t.min !== t.max ? `${amt(t.min)}–${amt(t.max)}` : amt((t.min ?? t.max)!);
-  return `${cur} ${range} por ${t.period}`;
+  return t.currency === 'GBP' ? `£${range} por ${t.period}` : `${cur} ${range} por ${t.period}`;
 }
 
 export const stageLabel: Record<string, string> = {
@@ -64,4 +64,4 @@ export const budgetLabel: Record<string, string> = {
   requiere_beca: 'Requiere beca',
 };
 
-export const countryLabel = { PE: 'Perú', US: 'EE. UU.' } as const;
+export const countryLabel = { PE: 'Perú', US: 'EE. UU.', UK: 'Reino Unido' } as const;

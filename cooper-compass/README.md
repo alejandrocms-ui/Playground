@@ -2,7 +2,7 @@
 
 > Cada estudiante, su propio norte.
 
-Dashboard de orientación vocacional que junta universidades de Perú y EE. UU., carreras, modalidades de ingreso, becas e idiomas, y los cruza con el perfil de cada estudiante. Es una **demo** de Adria Labs para la sesión 1 del programa «Tu Sistema Personal de IA».
+Dashboard de orientación vocacional que junta universidades de Perú, EE. UU. y el Reino Unido, carreras, modalidades de ingreso, becas e idiomas, y los cruza con el perfil de cada estudiante. Es una **demo** de Adria Labs para la sesión 1 del programa «Tu Sistema Personal de IA».
 
 - Todo corre en el navegador: sin backend, sin inicio de sesión, sin APIs de pago.
 - Los cambios de la demo se guardan en `localStorage`. El botón **«Restablecer demo»** (barra lateral) vuelve todo al estado inicial.
@@ -46,9 +46,9 @@ Cambio respecto del HANDOFF: la lista «Lo que más le importa» usa los cinco f
 
 ## Estado de verificación (4 de noviembre de 2026)
 
-- **Fuentes:** 56 registradas · 20 verificadas · 36 por verificar.
-- **Datos (`Fact`):** 36 verificados · 194 por verificar.
-- **Verificado a fondo (ruta de la demo):** Beca Generación del Bicentenario (convocatoria extraordinaria 30/10–13/11/2026), Beca 18 (Convocatoria 2027), Beca de Posgrado Fulbright (cobertura, requisitos e idioma; la fecha de cierre sigue por verificar), Humphrey (requisito), MIT (need-blind, SAT/ACT, plazos y ayuda), Purdue y ASU (requisitos de inglés), PUCP y UNI (modalidades de ingreso) y Open Doors.
+- **Fuentes:** 77 registradas · 38 verificadas · 39 por verificar.
+- **Datos (`Fact`):** 52 verificados · 211 por verificar.
+- **Verificado a fondo (ruta de la demo):** Beca Generación del Bicentenario (convocatoria extraordinaria 30/10–13/11/2026), Beca 18 (Convocatoria 2027), Beca de Posgrado Fulbright (cobertura, requisitos e idioma; la fecha de cierre sigue por verificar), Humphrey (requisito), MIT (need-blind, SAT/ACT, plazos y ayuda), Purdue y ASU (requisitos de inglés), PUCP y UNI (modalidades de ingreso) y Open Doors. Desde el 5 de noviembre de 2026 incluye la London School of Economics (LSE) con todos sus requisitos para escolares del Perú: ruta académica, postulación por UCAS, exámenes por programa, ruta de colegios americanos, visa de estudiante, costos y apoyo financiero.
 - **Método:** las páginas oficiales se consultaron con búsquedas restringidas a cada dominio oficial (gob.pe, pronabec.gob.pe, fulbright.pe, mitadmissions.org, purdue.edu, asu.edu, pucp.edu.pe, uni.edu.pe). La descarga directa de páginas estaba bloqueada en el entorno de trabajo, así que conviene revisar los datos verificados en el sitio oficial antes de asesorar.
 - **Open Doors:** no se encontró una ficha de Perú 2025; se usa la de 2024 (año 2023/24).
 - **Pendiente:** costos publicados de todas las universidades, licenciamiento SUNEDU, duración de carreras, formato y vigencia de exámenes, OEA, EducationUSA y Harvard.
