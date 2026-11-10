@@ -1,5 +1,5 @@
 /**
- * CÁLCULO DE COINCIDENCIA · Cooper Compass
+ * CÁLCULO DE COINCIDENCIA · Cooper and Case
  * ----------------------------------------
  * Puntaje de 0 a 100 para cada opción (carrera, universidad o beca) frente a un estudiante.
  * Es una suma ponderada de cinco factores, cada uno entre 0 y 1:

@@ -1,4 +1,4 @@
-# Cooper Compass · MVP de demo
+# Cooper and Case · MVP de demo
 
 > Cada estudiante, su propio norte.
 

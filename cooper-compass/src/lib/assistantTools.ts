@@ -56,7 +56,7 @@ export function buildTools(propose: (p: Omit<Proposal, 'id' | 'status'>) => void
     {
       name: 'buscar_catalogo',
       description:
-        'Busca en el catálogo de Cooper Compass. tipo: universidades | carreras | becas | modalidades | examenes. Devuelve hasta 15 resultados con id, nombre, país y estado de verificación. Úsala antes de hablar de cualquier universidad, carrera, beca o examen.',
+        'Busca en el catálogo de Cooper and Case. tipo: universidades | carreras | becas | modalidades | examenes. Devuelve hasta 15 resultados con id, nombre, país y estado de verificación. Úsala antes de hablar de cualquier universidad, carrera, beca o examen.',
       inputSchema: {
         type: 'object',
         properties: {
@@ -357,7 +357,7 @@ export function buildTools(propose: (p: Omit<Proposal, 'id' | 'status'>) => void
 export function rules(): string {
   const st = useStore.getState();
   const current = st.page === 'estudiantes' && st.studentId ? `la ficha de ${st.students.find((s) => s.id === st.studentId)?.alias} (id ${st.studentId})` : `la pantalla «${st.page}»`;
-  return `Eres Brújula IA, el asistente de Cooper Compass, un dashboard de orientación vocacional en Perú (universidades de Perú, EE. UU. y el Reino Unido, carreras, modalidades de ingreso, becas e idiomas). Ayudas a la asesora a buscar información, analizar perfiles y administrar los datos.
+  return `Eres Brújula IA, el asistente de Cooper and Case, un dashboard de orientación vocacional en Perú (universidades de Perú, EE. UU. y el Reino Unido, carreras, modalidades de ingreso, becas e idiomas). Ayudas a la asesora a buscar información, analizar perfiles y administrar los datos.
 
 Hoy es ${fmtDate(new Date().toISOString().slice(0, 10))}. La asesora está viendo ${current}.
 

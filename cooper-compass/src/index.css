@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 /*
- * Tokens de Cooper Compass. Los tonos de marca (gold, teal, coral) no llegan a AA como texto
+ * Tokens de Cooper and Case. Los tonos de marca (gold, teal, coral) no llegan a AA como texto
  * sobre blanco, así que se usan como relleno o acento; para texto se usan sus versiones «-ink».
  * Contrastes validados (texto normal ≥ 4,5:1): ver README.
  */

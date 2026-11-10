@@ -196,7 +196,7 @@ export default function Assistant() {
           <div ref={listRef} className="flex-1 space-y-4 overflow-y-auto px-5 py-5" aria-live="polite">
             {available === false && (
               <div className="rounded-xl border border-line bg-gold-soft p-4 text-sm text-navy">
-                <p className="font-semibold">El asistente funciona al abrir Cooper Compass desde Claude.</p>
+                <p className="font-semibold">El asistente funciona al abrir Cooper and Case desde Claude.</p>
                 <p className="mt-1 text-muted">Usa tu propia cuenta de Claude, sin claves ni servidores. Si Claude te pidió permiso, acéptalo y vuelve a preguntar. El resto del dashboard funciona igual, incluso sin internet.</p>
               </div>
             )}

@@ -31,7 +31,7 @@ export default function App() {
         <div className="mb-8 flex items-center gap-3 px-2 text-cream">
           <Logo size={40} />
           <div>
-            <div className="font-display text-xl font-semibold leading-tight">Cooper Compass</div>
+            <div className="font-display whitespace-nowrap text-lg font-semibold leading-tight">Cooper and Case</div>
             <div className="text-[11px] leading-tight text-cream/75">Cada estudiante, su propio norte.</div>
           </div>
         </div>

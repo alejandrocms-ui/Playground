@@ -1,4 +1,4 @@
-// Modelo de datos de Cooper Compass (sección 8 del HANDOFF).
+// Modelo de datos de Cooper and Case (sección 8 del HANDOFF).
 // Todo dato institucional va envuelto en Fact<T>: ningún valor aparece sin fuente.
 
 export type VerificationStatus = 'verificado' | 'por_verificar';
